@@ -3,13 +3,14 @@ setClass(
   "ccPlot",
   slots = c(
     initFunc = "character",
-    initFuncParams = "list"
+    initFuncParams = "list",
+    params = "list"
   )
 )
 
 #' @export
 ccPlot = function(initFunc='initialize', ...){
-  new("ccPlot", initFunc=initFunc, initFuncParams=list(...))
+  new("ccPlot", initFunc=initFunc, initFuncParams=list(...), params = list())
 }
 
 #' @export
@@ -17,7 +18,12 @@ ccPlot = function(initFunc='initialize', ...){
 #' @importFrom circlize circos.heatmap.initialize
 #' @importFrom circlize circos.initialize
 #' @importFrom circlize circos.initializeWithIdeogram
+#' @importFrom circlize circos.par
 show.ccPlot = function(object){
+  if(length(object@params) >0){
+    do.call(circos.par, object@params)
+  }
+
   if (object@initFunc == 'initialize') {
     do.call(circos.initialize, object@initFuncParams)
   } else if (object@initFunc == 'initializeWithIdeogram') {
