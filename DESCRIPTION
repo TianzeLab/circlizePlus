@@ -12,6 +12,9 @@ RoxygenNote: 7.2.3
 Imports: 
     circlize
 Collate: 
+    'trackGeom.R'
+    'track.R'
     'param.R'
     'initialize.R'
     'add.R'
+    'circlizePlus-package.R'
