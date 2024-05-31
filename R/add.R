@@ -24,12 +24,35 @@ setMethod(
 
 #' @export
 #' @include track.R
-#' @include trackGeom.R
+#' @include track-geom.R
 setMethod(
   "+",
   signature = c(e1 = "ccTrack", e2 = "ccTrackGeom"),
   definition = function(e1, e2) {
     e1@trackGeoms = c(e1@trackGeoms, e2)
+    e1
+  }
+)
+
+#' @export
+#' @include track.R
+#' @include cell-geom.R
+setMethod(
+  "+",
+  signature = c(e1 = "ccTrack", e2 = "ccCell"),
+  definition = function(e1, e2) {
+    e1@cells = c(e1@cells, e2)
+    e1
+  }
+)
+
+#' @export
+#' @include cell-geom.R
+setMethod(
+  "+",
+  signature = c(e1 = "ccCell", e2 = "ccCellGeom"),
+  definition = function(e1, e2) {
+    e1@geoms = c(e1@geoms, e2)
     e1
   }
 )

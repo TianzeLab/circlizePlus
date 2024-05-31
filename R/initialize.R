@@ -22,6 +22,8 @@ ccPlot = function(initFunc = 'initialize', ...) {
 
 #' @export
 show.ccPlot = function(object) {
+  circos.clear()
+
   if (length(object@params) > 0) {
     do.call(circos.par, object@params)
   }
@@ -43,6 +45,11 @@ show.ccPlot = function(object) {
         for (j in 1:length(object@tracks[[i]]@trackGeoms))
           do.call(object@tracks[[i]]@trackGeoms[[j]]@func,
                   object@tracks[[i]]@trackGeoms[[j]]@params)
+      }
+      if (length(object@tracks[[i]]@cells) > 0) {
+        for (j in 1:length(object@tracks[[i]]@cells)){
+
+        }
       }
     }
   }
