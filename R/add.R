@@ -23,6 +23,18 @@ setMethod(
 )
 
 #' @export
+#' @include initialize.R
+#' @include link.R
+setMethod(
+  "+",
+  signature = c(e1 = "ccPlot", e2 = "ccLink"),
+  definition = function(e1, e2) {
+    e1@links = c(e1@links, e2)
+    e1
+  }
+)
+
+#' @export
 #' @include track.R
 #' @include track-geom.R
 setMethod(
@@ -56,3 +68,4 @@ setMethod(
     e1
   }
 )
+

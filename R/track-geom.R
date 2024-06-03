@@ -4,6 +4,5 @@ setClass("ccTrackGeom",
 
 #' @export
 ccTrackPoints = function(...) {
-  new("ccTrackGeom",func = 'circos.trackPoints',params = list(...))
+  new("ccTrackGeom",func = 'circos.trackPoints', params = list(...))
 }
-

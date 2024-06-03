@@ -14,6 +14,7 @@ Imports:
 Collate: 
     'cell-geom.R'
     'track-geom.R'
+    'link.R'
     'track.R'
     'param.R'
     'initialize.R'

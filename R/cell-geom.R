@@ -1,10 +1,10 @@
 #' @export
 setClass("ccCell",
-         slots = c(geoms = "list"))
+         slots = c(sector.index = "character", geoms = "list"))
 
 #' @export
-ccCell = function(...) {
-  new("ccCell",geoms = list(...))
+ccCell = function(sector.index = get.all.sector.index()[[1]], ...) {
+  new("ccCell",sector.index = sector.index, geoms = list(...))
 }
 
 #' @export

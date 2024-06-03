@@ -5,6 +5,7 @@ setClass(
     initFunc = "character",
     initFuncParams = "list",
     tracks = "list",
+    links = "list",
     params = "list"
   )
 )
@@ -15,6 +16,7 @@ ccPlot = function(initFunc = 'initialize', ...) {
     "ccPlot",
     initFunc = initFunc,
     initFuncParams = list(...),
+    links = list(),
     tracks = list(),
     params = list()
   )
@@ -40,18 +42,29 @@ show.ccPlot = function(object) {
 
   if (length(object@tracks) > 0) {
     for (i in 1:length(object@tracks)) {
-      do.call(circos.trackPlotRegion, (object@tracks[[i]])@params)
+      do.call(object@tracks[[i]]@func, object@tracks[[i]]@params)
       if (length(object@tracks[[i]]@trackGeoms) > 0) {
         for (j in 1:length(object@tracks[[i]]@trackGeoms))
           do.call(object@tracks[[i]]@trackGeoms[[j]]@func,
                   object@tracks[[i]]@trackGeoms[[j]]@params)
       }
       if (length(object@tracks[[i]]@cells) > 0) {
-        for (j in 1:length(object@tracks[[i]]@cells)){
-
+        for (j in object@tracks[[i]]@cells) {
+          for (k in 1:length(j@geoms)) {
+            j@geoms[[k]]@params['sector.index'] = j@sector.index
+            do.call(
+              j@geoms[[k]]@func,
+              j@geoms[[k]]@params
+            )
+          }
         }
       }
     }
+  }
+
+  if (length(object@links) > 0){
+    for ( l in object@links)
+      do.call(l@func, l@params)
   }
 
 }
