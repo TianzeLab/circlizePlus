@@ -75,3 +75,8 @@ ccArrow = function(...) {
 ccRaster = function(...) {
   new("ccCellGeom",func = 'circos.raster',params = list(...))
 }
+
+#' @export
+ccDendrogram = (...){
+  new("ccCellGeom",func = 'circos.dendrogram',params = list(...))
+}
