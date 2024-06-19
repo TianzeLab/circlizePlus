@@ -77,6 +77,6 @@ ccRaster = function(...) {
 }
 
 #' @export
-ccDendrogram = (...){
+ccDendrogram = function(...){
   new("ccCellGeom",func = 'circos.dendrogram',params = list(...))
 }
