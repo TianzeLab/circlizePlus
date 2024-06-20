@@ -8,3 +8,10 @@ ccLink = function(...) {
       func = 'circos.link',
       params = list(...))
 }
+
+#' @export
+ccHeatmapLink = function(...) {
+  new("ccLink",
+      func = 'circos.heatmap.link',
+      params = list(...))
+}

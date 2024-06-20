@@ -6,7 +6,7 @@ setClass(
     initFuncParams = "list",
     tracks = "list",
     links = "list",
-    params = "list"
+    pars = "list"
   )
 )
 
@@ -18,7 +18,7 @@ ccPlot = function(initFunc = 'initialize', ...) {
     initFuncParams = list(...),
     links = list(),
     tracks = list(),
-    params = list()
+    pars = list()
   )
 }
 
@@ -26,8 +26,8 @@ ccPlot = function(initFunc = 'initialize', ...) {
 show.ccPlot = function(object) {
   circos.clear()
 
-  if (length(object@params) > 0) {
-    do.call(circos.par, object@params)
+  if (length(object@pars) > 0) {
+    do.call(circos.par, object@pars)
   }
 
   if (object@initFunc == 'initialize') {

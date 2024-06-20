@@ -5,7 +5,7 @@ setMethod(
   "+",
   signature = c(e1 = "ccPlot", e2 = "ccPar"),
   definition = function(e1, e2) {
-    e1@params = c(e1@params, e2@params)
+    e1@pars = c(e1@pars, e2@params)
     e1
   }
 )
@@ -68,4 +68,41 @@ setMethod(
     e1
   }
 )
+
+#' @export
+#' @include heatmap.R
+#' @include param.R
+setMethod(
+  "+",
+  signature = c(e1 = "ccHeatmap", e2 = "ccPar"),
+  definition = function(e1, e2) {
+    e1@pars = c(e1@pars, e2@params)
+    e1
+  }
+)
+
+#' @export
+#' @include heatmap.R
+#' @include track.R
+setMethod(
+  "+",
+  signature = c(e1 = "ccHeatmap", e2 = "ccTrack"),
+  definition = function(e1, e2) {
+    e1@tracks = c(e1@tracks, e2)
+    e1
+  }
+)
+
+#' @export
+#' @include heatmap.R
+#' @include link.R
+setMethod(
+  "+",
+  signature = c(e1 = "ccHeatmap", e2 = "ccLink"),
+  definition = function(e1, e2) {
+    e1@links = c(e1@links, e2)
+    e1
+  }
+)
+
 
