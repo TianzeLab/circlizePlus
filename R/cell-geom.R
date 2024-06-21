@@ -3,13 +3,16 @@ setClass("ccCell",
          slots = c(sector.index = "character", geoms = "list"))
 
 #' @export
+setClass("ccCellGeom",
+         slots = c(func = "character", params = "list"))
+
+#' @export
+setClass("ccGenomicCellGeom", contains = c("ccCellGeom"))
+
+#' @export
 ccCell = function(sector.index = get.all.sector.index()[[1]], ...) {
   new("ccCell",sector.index = sector.index, geoms = list(...))
 }
-
-#' @export
-setClass("ccCellGeom",
-         slots = c(func = "character", params = "list"))
 
 #' @export
 ccText = function(...) {
@@ -79,4 +82,24 @@ ccRaster = function(...) {
 #' @export
 ccDendrogram = function(...){
   new("ccCellGeom",func = 'circos.dendrogram',params = list(...))
+}
+
+#' @export
+ccGenomicPoints = function(...){
+  new("ccGenomicCellGeom",func = 'circos.genomicPoints',params = list(...))
+}
+
+#' @export
+ccGenomicLines = function(...){
+  new("ccGenomicCellGeom",func = 'circos.genomicLines',params = list(...))
+}
+
+#' @export
+ccGenomicRect = function(...){
+  new("ccGenomicCellGeom",func = 'circos.genomicRect',params = list(...))
+}
+
+#' @export
+ccGenomicText = function(...){
+  new("ccGenomicCellGeom",func = 'circos.genomicText',params = list(...))
 }
