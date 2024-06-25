@@ -1,10 +1,6 @@
 #' @export
 setClass("ccTrackGeom",
          slots = c(func = "character", params = "list"))
-#' @export
-ccTrackHist = function(...) {
-  new("ccTrackGeom",func = 'circos.trackHist', params = list(...))
-}
 
 #' @export
 ccTrackLines = function(...) {
