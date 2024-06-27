@@ -40,3 +40,40 @@ ccGenomicIdeogram = function(...) {
       trackGeoms = list(),
       cells = list())
 }
+
+#' @export
+ccGenomicHeatmap = function(...) {
+  new("ccGenomicTrack",
+      func = 'circos.genomicHeatmap',
+      params = list(...),
+      trackGeoms = list(),
+      cells = list())
+}
+
+#' @export
+ccGenomicLabels = function(...) {
+  new("ccGenomicTrack",
+      func = 'circos.genomicLabels',
+      params = list(...),
+      trackGeoms = list(),
+      cells = list())
+}
+
+
+#' @export
+ccGenomicRainfall = function(...) {
+  new("ccGenomicTrack",
+      func = 'circos.genomicRainfall',
+      params = list(...),
+      trackGeoms = list(),
+      cells = list())
+}
+
+#' @export
+ccGenomicDensity = function(...) {
+  new("ccGenomicTrack",
+      func = 'circos.genomicDensity',
+      params = list(...),
+      trackGeoms = list(),
+      cells = list())
+}

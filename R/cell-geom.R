@@ -103,3 +103,8 @@ ccGenomicRect = function(...){
 ccGenomicText = function(...){
   new("ccGenomicCellGeom",func = 'circos.genomicText',params = list(...))
 }
+
+#' @export
+ccGenomicAxis = function(...){
+  new("ccGenomicCellGeom",func = 'circos.genomicAxis',params = list(...))
+}
