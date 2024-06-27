@@ -10,7 +10,7 @@ setClass("ccCellGeom",
 setClass("ccGenomicCellGeom", contains = c("ccCellGeom"))
 
 #' @export
-ccCell = function(sector.index = get.all.sector.index()[[1]], ...) {
+ccCell = function(sector.index = NULL, ...) {
   new("ccCell",sector.index = sector.index, geoms = list(...))
 }
 

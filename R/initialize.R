@@ -6,25 +6,29 @@ setClass(
     initFuncParams = "list",
     tracks = "list",
     links = "list",
-    pars = "list"
+    pars = "list",
+    clear = "logical"
   )
 )
 
 #' @export
-ccPlot = function(initFunc = 'initialize', ...) {
+ccPlot = function(initFunc = 'initialize',clear = TRUE, ...) {
   new(
     "ccPlot",
     initFunc = initFunc,
     initFuncParams = list(...),
     links = list(),
     tracks = list(),
-    pars = list()
+    pars = list(),
+    clear = clear
   )
 }
 
 #' @export
 show.ccPlot = function(object) {
-  circos.clear()
+
+  if(object@clear)
+    circos.clear()
 
   if (length(object@pars) > 0) {
     do.call(circos.par, object@pars)
