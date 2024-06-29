@@ -1,5 +1,5 @@
 Package: circlizePlus
-Title: Object-oriented Circular Visualization
+Title: A circlize wrapper supports additive operations and object-oriented features
 Version: 0.0.0.9000
 Authors@R: 
     person("Tianze", "Cao", , "hnrcao.com", role = c("aut", "cre"),
