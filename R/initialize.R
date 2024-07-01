@@ -2,8 +2,8 @@
 setClass(
   "ccPlot",
   slots = c(
-    initFunc = "character",
-    initFuncParams = "list",
+    initMode = "character",
+    initParams = "list",
     tracks = "list",
     links = "list",
     pars = "list",
@@ -12,11 +12,11 @@ setClass(
 )
 
 #' @export
-ccPlot = function(initFunc = 'initialize',clear = TRUE, ...) {
+ccPlot = function(initMode = 'initialize',clear = TRUE, ...) {
   new(
     "ccPlot",
-    initFunc = initFunc,
-    initFuncParams = list(...),
+    initMode = initMode,
+    initParams = list(...),
     links = list(),
     tracks = list(),
     pars = list(),
@@ -34,14 +34,14 @@ show.ccPlot = function(object) {
     do.call(circos.par, object@pars)
   }
 
-  if (object@initFunc == 'initialize') {
-    do.call(circos.initialize, object@initFuncParams)
-  } else if (object@initFunc == 'initializeWithIdeogram') {
-    do.call(circos.initializeWithIdeogram, object@initFuncParams)
-  } else if (object@initFunc == 'heatmap.initialize') {
-    do.call(circos.heatmap.initialize, object@initFuncParams)
-  } else if (object@initFunc == 'genomicInitialize') {
-    do.call(circos.genomicInitialize, object@initFuncParams)
+  if (object@initMode == 'initialize') {
+    do.call(circos.initialize, object@initParams)
+  } else if (object@initMode == 'initializeWithIdeogram') {
+    do.call(circos.initializeWithIdeogram, object@initParams)
+  } else if (object@initMode == 'heatmap.initialize') {
+    do.call(circos.heatmap.initialize, object@initParams)
+  } else if (object@initMode == 'genomicInitialize') {
+    do.call(circos.genomicInitialize, object@initParams)
   }
 
   if (length(object@tracks) > 0) {
