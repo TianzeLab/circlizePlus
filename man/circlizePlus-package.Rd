@@ -4,7 +4,7 @@
 \name{circlizePlus-package}
 \alias{circlizePlus}
 \alias{circlizePlus-package}
-\title{circlizePlus: Object-oriented Circular Visualization}
+\title{circlizePlus: A circlize wrapper supports additive operations and object-oriented features}
 \description{
 circlizePlus is a wrapper for circlize. All components are based on classes and objects. Users can use the addition symbol (+) to combine components for a circular visualization with ggplot2 style.
 }
