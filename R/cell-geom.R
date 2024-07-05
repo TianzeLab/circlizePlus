@@ -55,7 +55,7 @@ ccYaxis = function(...) {
 }
 
 #' @export
-ccBarplo = function(...) {
+ccBarplot = function(...) {
   new("ccCellGeom",func = 'circos.barplot',params = list(...))
 }
 
