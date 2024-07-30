@@ -1,17 +1,54 @@
+#' S4 class ccTrack
+#'
+#' @slot func character.
+#' @slot params list.
+#' @slot trackGeoms list.
+#' @slot cells list.
+#'
 #' @export
+#'
+#' @examples
+#' NULL
 setClass("ccTrack",
          slots = c(func="character", params = "list", trackGeoms = "list",cells = "list"))
+
 
 #' @export
 setClass("ccGenomicTrack", contains = c("ccTrack"))
 
+
+#' Object generator for S4 class ccTrack
+#'
+#' Object [ccTrack-class] will call the function [circos.trackPlotRegion] while drawing.
+#'
+#' @inheritParams circlize::circos.trackPlotRegion
+#'
+#' @return Object [ccTrack-class]
 #' @export
-ccTrack = function(...) {
-  new("ccTrack",
+#'
+#' @examples
+#' NULL
+ccTrack = function(sectors = NULL,
+                   x = NULL,
+                   ylim = NULL,
+                   force.ylim = NULL,
+                   track.index = NULL,
+                   track.height = NULL,
+                   track.margin = NULL,
+                   cell.padding = NULL,
+                   bg.col = NULL,
+                   bg.border = NULL,
+                   bg.lty = NULL,
+                   bg.lwd = NULL,
+                   panel.fun = NULL,
+                   factors = NULL) {
+  new(
+    "ccTrack",
     func = 'circos.track',
-    params = list(...),
+    params = list(x = x, y = y),
     trackGeoms = list(),
-    cells = list())
+    cells = list()
+  )
 }
 
 #' @export

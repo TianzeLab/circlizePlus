@@ -3,6 +3,9 @@ setClass("ccCell",
          slots = c(sector.index = "character", geoms = "list"))
 
 #' @export
+setClass("ccCells", contains = c("list"))
+
+#' @export
 setClass("ccCellGeom",
          slots = c(func = "character", params = "list"))
 
@@ -10,8 +13,20 @@ setClass("ccCellGeom",
 setClass("ccGenomicCellGeom", contains = c("ccCellGeom"))
 
 #' @export
-ccCell = function(sector.index = NULL, ...) {
-  new("ccCell",sector.index = sector.index, geoms = list(...))
+ccCell = function(sector.index = NULL) {
+  new("ccCell",sector.index = sector.index, geoms = list())
+}
+
+#' @export
+ccCells = function(sector.indexes = list()) {
+  if (length(sector.indexes) == 0) {
+    stop("'sector.indexes' can't be an empty list.")
+  }
+  cells = new("ccCells")
+  for (si in sector.indexes) {
+    cells[[si]] = ccCell(sector.index = si)
+  }
+  cells
 }
 
 #' @export
