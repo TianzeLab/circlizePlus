@@ -25,3 +25,6 @@ Collate:
 Depends: 
     circlize (>= 0.4.16),
     R (>= 4.3.3)
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
