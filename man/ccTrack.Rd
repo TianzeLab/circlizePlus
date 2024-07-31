@@ -7,6 +7,7 @@
 ccTrack(
   sectors = NULL,
   x = NULL,
+  y = NULL,
   ylim = NULL,
   force.ylim = NULL,
   track.index = NULL,
@@ -25,6 +26,8 @@ ccTrack(
 \item{sectors}{A \code{\link{factor}} or a character vector which represents categories of data, if it is \code{NULL}, then it uses all sector index.}
 
 \item{x}{Data on x-axis. It is only used if \code{panel.fun} is set.}
+
+\item{y}{Data on y-axis}
 
 \item{ylim}{Range of data on y-axis}
 

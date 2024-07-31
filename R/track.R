@@ -30,6 +30,7 @@ setClass("ccGenomicTrack", contains = c("ccTrack"))
 #' NULL
 ccTrack = function(sectors = NULL,
                    x = NULL,
+                   y = NULL,
                    ylim = NULL,
                    force.ylim = NULL,
                    track.index = NULL,
@@ -45,7 +46,23 @@ ccTrack = function(sectors = NULL,
   new(
     "ccTrack",
     func = 'circos.track',
-    params = list(x = x, y = y),
+    params = list(
+      sectors = sectors,
+      x = x,
+      y = y,
+      ylim = ylim,
+      force.ylim = force.ylim,
+      track.index = track.index,
+      track.height = track.height,
+      track.margin = track.margin,
+      cell.padding = cell.padding,
+      bg.col = bg.col,
+      bg.border = bg.border,
+      bg.lty = bg.lty,
+      bg.lwd = bg.lwd,
+      panel.fun = panel.fun,
+      factors = factors
+    ),
     trackGeoms = list(),
     cells = list()
   )
