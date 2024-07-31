@@ -51,6 +51,20 @@ setMethod(
 #' @include cell-geom.R
 setMethod(
   "+",
+  signature = c(e1 = "ccTrack", e2 = "ccCells"),
+  definition = function(e1, e2) {
+    for (scell in e2) {
+      e1@cells = c(e1@cells, scell)
+    }
+    e1
+  }
+)
+
+#' @export
+#' @include track.R
+#' @include cell-geom.R
+setMethod(
+  "+",
   signature = c(e1 = "ccTrack", e2 = "ccCell"),
   definition = function(e1, e2) {
     e1@cells = c(e1@cells, e2)
@@ -65,6 +79,19 @@ setMethod(
   signature = c(e1 = "ccCell", e2 = "ccCellGeom"),
   definition = function(e1, e2) {
     e1@geoms = c(e1@geoms, e2)
+    e1
+  }
+)
+
+#' @export
+#' @include cell-geom.R
+setMethod(
+  "+",
+  signature = c(e1 = "ccCells", e2 = "ccCellGeom"),
+  definition = function(e1, e2) {
+    for (i in 1:length(e1)) {
+      e1[[i]]@geoms = c(e1[[i]]@geoms, e2)
+    }
     e1
   }
 )

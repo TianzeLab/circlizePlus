@@ -18,10 +18,10 @@ Collate:
     'track-geom.R'
     'link.R'
     'param.R'
+    'utils.R'
     'initialize.R'
     'add.R'
     'circlizePlus-package.R'
-    'utils.R'
 Depends: 
     circlize (>= 0.4.16),
     R (>= 4.3.3)
