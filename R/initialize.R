@@ -139,7 +139,7 @@ show.ccPlot = function(object) {
               "circos.points",
               "circos.polygon",
               "circos.raster",
-              "circos.polygon"
+              "circos.text"
             )) {
           if (!('x' %in% names(geom_params) && 'y' %in% names(geom_params))) {
             next
