@@ -61,7 +61,7 @@ show.ccPlot = function(object) {
             "circos.points",
             "circos.polygon",
             "circos.raster",
-            "circos.polygon"
+            "circos.text"
           )) {
             miss_data = list()
             if (!'x' %in% names(removeNullParam(current_geom@params))) {
