@@ -64,10 +64,10 @@ show.ccPlot = function(object) {
             "circos.polygon"
           )) {
             miss_data = list()
-            if (!'x' %in% removeNullParam(current_geom@params)) {
+            if (!'x' %in% names(removeNullParam(current_geom@params))) {
               miss_data = c(miss_data, 'x')
             }
-            if (!'y' %in% removeNullParam(current_geom@params)) {
+            if (!'y' %in% names(removeNullParam(current_geom@params))) {
               miss_data = c(miss_data, 'y')
             }
             if (length(miss_data) > 0) {
