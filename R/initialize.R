@@ -71,27 +71,25 @@ show.ccPlot = function(object) {
               miss_data = c(miss_data, 'y')
             }
             if (length(miss_data) > 0) {
-              miss_data_calls = c(
-                miss_data_calls,
-                list(list(
+              miss_data_calls = c(miss_data_calls, list(
+                list(
                   miss_data = miss_data,
                   func = current_geom@func,
                   params = removeNullParam((current_geom@params))
-                ))
-              )
+                )
+              ))
 
             }
 
           }
         }
         if (length(miss_data_calls) > 0) {
-          miss_data_cells = c(
-            miss_data_cells,
-            list(list(
+          miss_data_cells = c(miss_data_cells, list(
+            list(
               sector.index = current_cell@sector.index,
               miss_data_calls = miss_data_calls
-            ))
-          )
+            )
+          ))
         }
       }
       if (length(miss_data_cells) > 0) {
@@ -117,11 +115,66 @@ show.ccPlot = function(object) {
 
         }
       }
-
-
     }
     if (current_track@func == 'circos.genomicTrack') {
-
+      miss_data_cells <- list()
+      for (current_cell in current_track@cells) {
+        miss_data_calls <- list()
+        for (current_geom in current_cell@geoms) {
+          if (current_geom@func %in% list("circos.genomicLines",
+                                          "circos.genomicPoints",
+                                          "circos.genomicText")) {
+            miss_data <- list()
+            if (!"region" %in% names(removeNullParam(current_geom@params))) {
+              miss_data <- c(miss_data, "region")
+            }
+            if (!"value" %in% names(removeNullParam(current_geom@params))) {
+              miss_data <- c(miss_data, "value")
+            }
+            if (length(miss_data) > 0) {
+              miss_data_calls <- c(miss_data_calls, list(
+                list(
+                  miss_data = miss_data,
+                  func = current_geom@func,
+                  params = removeNullParam((current_geom@params))
+                )
+              ))
+            }
+          }
+        }
+        if (length(miss_data_calls) > 0) {
+          miss_data_cells <- c(miss_data_cells, list(
+            list(
+              sector.index = current_cell@sector.index,
+              miss_data_calls = miss_data_calls
+            )
+          ))
+        }
+      }
+      if (length(miss_data_cells) > 0) {
+        if (is.null(current_track@params[["panel.fun"]])) {
+          current_track@params[["panel.fun"]] <- function(region, value, ...) {
+            NULL
+          }
+        }
+        old_track_fun <- current_track@params[["panel.fun"]]
+        current_track@params[["panel.fun"]] <- function(region, value, ...) {
+          do.call(old_track_fun, c(list(
+            region = region, value = value
+          ), list(...)))
+          for (current_miss_data_cell in miss_data_cells) {
+            if (current_miss_data_cell$sector.index == get.current.sector.index()) {
+              for (current_miss_data_call in miss_data_calls) {
+                for (miss_axis in current_miss_data_call$miss_data) {
+                  current_miss_data_call$params[[miss_axis]] <- str2lang(miss_axis)
+                }
+                do.call(current_miss_data_call$func,
+                        current_miss_data_call$params)
+              }
+            }
+          }
+        }
+      }
     }
     #End: make data share cell func in track panel.fun
     do.call(current_track@func,
@@ -150,7 +203,8 @@ show.ccPlot = function(object) {
             current_geom@func %in% list("circos.genomicLines",
                                         "circos.genomicPoints",
                                         "circos.genomicText")) {
-          if (!('data' %in% names(geom_params))) {
+          if (!('region' %in% names(geom_params) &&
+                'value' %in% names(geom_params))) {
             next
           }
         }
