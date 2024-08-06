@@ -1,14 +1,17 @@
 test_that("Share data in ccLines and ccPoints",{
-  sectors <- c('a','a','a','a','b','b','b','b','c','c','c','c','d','d','d','d')
-  x1 <- c(1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4)
-  y1 <- c(1,2,3,4,4,3,2,1,1,1,1,1,1,2,1,2)
-  cc <- ccPlot(initMode = "initialize", sectors = sectors, x = x1)
-  cells <- ccCells(sector.indexes = letters[1:4])
-  cc_point <- ccPoints()
-  cells <- cells + cc_point + ccLines()
-  track2 <- ccTrack(sectors = sectors, x=x1, y = y1)
-  track2 <- track2 + cells
-  show(cc  + track2)
+  sectors = c('a','a','a','a','b','b','b','b','c','c','c','c','d','d','d','d')
+  x1 = c(1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4)
+  y1 = c(1,2,3,4,4,3,2,1,1,1,1,1,1,2,1,2)
+  cc = ccPlot(initMode = "initialize", sectors = sectors, x = x1)
+  cells = ccCells(sector.indexes = letters[1:4])
+  cc_point = ccPoints()
+  cells = cells + cc_point + ccLines()
+  track1 = ccTrack(sectors = sectors, x=x1, y = y1,panel.fun = function(x,y){
+    circos.points(y,x)
+  })
+  cell_single = ccCell(sector.index = letters[3]) + ccPoints(y=\(x,y){x-y})
+  track1 = track1 + cells + cell_single
+  show(cc  + track1)
   succeed()
 })
 

@@ -50,131 +50,118 @@ show.ccPlot = function(object) {
   }
 
   for (current_track in object@tracks) {
+    remain_geom_call = list()
+    panel_fun_cell_call = list()
     #Start: make data share cell func in track panel.fun
-    if (current_track@func == 'circos.track') {
-      miss_data_cells = list()
-      for (current_cell in current_track@cells) {
-        miss_data_calls = list()
-        for (current_geom in current_cell@geoms) {
-          if (current_geom@func %in% list(
-            "circos.lines",
-            "circos.points",
-            "circos.polygon",
-            "circos.raster",
-            "circos.text"
-          )) {
-            miss_data = list()
-            if (!'x' %in% names(removeNullParam(current_geom@params))) {
-              miss_data = c(miss_data, 'x')
-            }
-            if (!'y' %in% names(removeNullParam(current_geom@params))) {
-              miss_data = c(miss_data, 'y')
-            }
-            if (length(miss_data) > 0) {
-              miss_data_calls = c(miss_data_calls, list(
-                list(
-                  miss_data = miss_data,
-                  func = current_geom@func,
-                  params = removeNullParam((current_geom@params))
-                )
-              ))
+    for (current_cell in current_track@cells) {
+      panel_fun_geom_call = list()
+      for (current_geom in current_cell@geoms) {
+        current_geom@params[['sector.index']] = current_cell@sector.index
+        current_geom@params = removeNullParam(current_geom@params)
+        if (current_track@func == "circos.genomicTrack" &&
+            current_geom@func %in% list(
+              "circos.genomicPoints",
+              "circos.genomicLines",
+              "circos.genomicRect",
+              "circos.genomicText"
+            )) {
+          check_calls = NULL
 
-            }
+          next
 
-          }
         }
-        if (length(miss_data_calls) > 0) {
-          miss_data_cells = c(miss_data_cells, list(
-            list(
-              sector.index = current_cell@sector.index,
-              miss_data_calls = miss_data_calls
+        if (current_track@func == "circos.track" &&
+            current_geom@func %in% list(
+              "circos.lines",
+              "circos.points",
+              "circos.polygon",
+              "circos.rect",
+              "circos.segments",
+              "circos.text"
+            )) {
+          check_calls = list(
+            circos.lines = list(
+              check_params = list('x', 'y'),
+              fill_params = list('x', 'y')
+            ),
+            circos.points = list(
+              check_params = list('x', 'y'),
+              fill_params = list('x', 'y')
+            ),
+            circos.polygon = list(
+              check_params = list('x', 'y'),
+              fill_params = list('x', 'y')
+            ),
+            circos.rect = list(
+              check_params = list('xleft', 'ybottom', 'xright', 'ytop'),
+              fill_params = list('x', 'y', 'x', 'y')
+            ),
+            circos.segments = list(
+              check_params = list('x0', 'y0', 'x1', 'y1'),
+              fill_params = list('x', 'y', 'x', 'y')
+            ),
+            circos.text = list(
+              check_params = list('x', 'y'),
+              fill_params = list('x', 'y')
             )
-          ))
-        }
-      }
-      if (length(miss_data_cells) > 0) {
-        if (is.null(current_track@params[['panel.fun']])) {
-          current_track@params[['panel.fun']] = function(x, y) {
-            NULL
-          }
-        }
-        old_track_fun = current_track@params[['panel.fun']]
-        current_track@params[['panel.fun']] = function(x, y) {
-          do.call(old_track_fun, list(x = x, y = y))
-          for (current_miss_data_cell in miss_data_cells) {
-            if (current_miss_data_cell$sector.index == get.current.sector.index()) {
-              for (current_miss_data_call in miss_data_calls) {
-                for (miss_axis in current_miss_data_call$miss_data) {
-                  current_miss_data_call$params[[miss_axis]] = str2lang(miss_axis)
-                }
-                do.call(current_miss_data_call$func,
-                        current_miss_data_call$params)
-              }
+          )
+          current_check_call = check_calls[[current_geom@func]]
+          need_check_params = list()
+          how_fill_params = list()
+          for (check_i in 1:length(current_check_call$check_params)) {
+            current_check_param = current_check_call$check_params[[check_i]]
+            if (is.function(current_geom@params[[current_check_param]])) {
+              need_check_params = c(need_check_params, current_check_param)
+              how_fill_params = c(how_fill_params, current_geom@params[[current_check_param]])
+              next
             }
+            if (is.null(current_geom@params[[current_check_param]])) {
+              need_check_params = c(need_check_params, current_check_param)
+              how_fill_params = c(how_fill_params, current_check_call$fill_params[[check_i]])
+            }
+
           }
 
+          panel_fun_geom_call = c(panel_fun_geom_call, list(list(check_params = need_check_params, fill_params=how_fill_params, geom=current_geom)))
+          next
+
+
         }
+        remain_geom_call = c(remain_geom_call, current_geom)
       }
+      panel_fun_geom_call = c(panel_fun_geom_call, panel_fun_cell_call[[current_cell@sector.index]])
+      panel_fun_cell_call[[current_cell@sector.index]] = panel_fun_geom_call
     }
-    if (current_track@func == 'circos.genomicTrack') {
-      miss_data_cells <- list()
-      for (current_cell in current_track@cells) {
-        miss_data_calls <- list()
-        for (current_geom in current_cell@geoms) {
-          if (current_geom@func %in% list("circos.genomicLines",
-                                          "circos.genomicPoints",
-                                          "circos.genomicText")) {
-            miss_data <- list()
-            if (!"region" %in% names(removeNullParam(current_geom@params))) {
-              miss_data <- c(miss_data, "region")
-            }
-            if (!"value" %in% names(removeNullParam(current_geom@params))) {
-              miss_data <- c(miss_data, "value")
-            }
-            if (length(miss_data) > 0) {
-              miss_data_calls <- c(miss_data_calls, list(
-                list(
-                  miss_data = miss_data,
-                  func = current_geom@func,
-                  params = removeNullParam((current_geom@params))
-                )
-              ))
-            }
-          }
-        }
-        if (length(miss_data_calls) > 0) {
-          miss_data_cells <- c(miss_data_cells, list(
-            list(
-              sector.index = current_cell@sector.index,
-              miss_data_calls = miss_data_calls
-            )
-          ))
-        }
-      }
-      if (length(miss_data_cells) > 0) {
+
+    if(length(panel_fun_cell_call) > 0){
+      if (current_track@func == "circos.track") {
         if (is.null(current_track@params[["panel.fun"]])) {
-          current_track@params[["panel.fun"]] <- function(region, value, ...) {
+          current_track@params[["panel.fun"]] = function(x, y) {
             NULL
           }
         }
-        old_track_fun <- current_track@params[["panel.fun"]]
-        current_track@params[["panel.fun"]] <- function(region, value, ...) {
-          do.call(old_track_fun, c(list(
-            region = region, value = value
-          ), list(...)))
-          for (current_miss_data_cell in miss_data_cells) {
-            if (current_miss_data_cell$sector.index == get.current.sector.index()) {
-              for (current_miss_data_call in miss_data_calls) {
-                for (miss_axis in current_miss_data_call$miss_data) {
-                  current_miss_data_call$params[[miss_axis]] <- str2lang(miss_axis)
+        old_track_fun = current_track@params[["panel.fun"]]
+        current_track@params[["panel.fun"]] = function(x, y) {
+          do.call(old_track_fun, list(x = x, y = y))
+          current_cell_calls = panel_fun_cell_call[[get.current.sector.index()]]
+
+          for (geom_call in current_cell_calls) {
+            if (length(geom_call$check_params) > 0) {
+              for (check_param_i in 1:length(geom_call$check_params)) {
+                if (is.function(geom_call$fill_params[[check_param_i]])) {
+                  geom_call$geom@params[[geom_call$check_params[[check_param_i]]]] = geom_call$fill_params[[check_param_i]](x, y)
+                }else{
+                  geom_call$geom@params[[geom_call$check_params[[check_param_i]]]] = get(x=geom_call$fill_params[[check_param_i]])
                 }
-                do.call(current_miss_data_call$func,
-                        current_miss_data_call$params)
+
               }
             }
+
+            do.call(geom_call$geom@func, geom_call$geom@params)
           }
         }
       }
+
     }
     #End: make data share cell func in track panel.fun
     do.call(current_track@func,
@@ -183,35 +170,8 @@ show.ccPlot = function(object) {
       do.call(current_track_geom@func,
               removeNullParam(current_track_geom@params))
 
-    for (current_cell in current_track@cells) {
-      for (current_geom in current_cell@geoms) {
-        geom_params = removeNullParam(current_geom@params)
-        if (current_track@func == 'circos.track' &&
-            current_geom@func %in% list(
-              "circos.lines",
-              "circos.points",
-              "circos.polygon",
-              "circos.raster",
-              "circos.text"
-            )) {
-          if (!('x' %in% names(geom_params) && 'y' %in% names(geom_params))) {
-            next
-          }
-        }
-
-        if (current_track@func == 'circos.genomicTrack' &&
-            current_geom@func %in% list("circos.genomicLines",
-                                        "circos.genomicPoints",
-                                        "circos.genomicText")) {
-          if (!('region' %in% names(geom_params) &&
-                'value' %in% names(geom_params))) {
-            next
-          }
-        }
-        geom_params[['sector.index']] = current_cell@sector.index
+    for (current_geom in remain_geom_call) {
         do.call(current_geom@func, geom_params)
-      }
-
     }
   }
 
