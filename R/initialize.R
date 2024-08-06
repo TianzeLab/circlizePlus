@@ -65,8 +65,24 @@ show.ccPlot = function(object) {
               "circos.genomicRect",
               "circos.genomicText"
             )) {
-          check_calls = NULL
+          check_params = list('region', 'value')
+          fill_params = list('region', 'value')
+          need_check_params = list()
+          how_fill_params = list()
+          for (check_i in 1:length(check_params)) {
+            current_check_param = check_params[[check_i]]
+            if (is.function(current_geom@params[[current_check_param]])) {
 
+              need_check_params = c(need_check_params, current_check_param)
+              how_fill_params = c(how_fill_params, current_geom@params[[current_check_param]])
+              next
+            }
+            if (is.null(current_geom@params[[current_check_param]])) {
+              need_check_params = c(need_check_params, current_check_param)
+              how_fill_params = c(how_fill_params, fill_params[[check_i]])
+            }
+          }
+          panel_fun_geom_call = c(panel_fun_geom_call, list(list(check_params = need_check_params, fill_params=how_fill_params, geom=current_geom)))
           next
 
         }
