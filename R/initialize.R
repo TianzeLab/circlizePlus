@@ -149,7 +149,7 @@ show.ccPlot = function(object) {
             if (length(geom_call$check_params) > 0) {
               for (check_param_i in 1:length(geom_call$check_params)) {
                 if (is.function(geom_call$fill_params[[check_param_i]])) {
-                  geom_call$geom@params[[geom_call$check_params[[check_param_i]]]] = geom_call$fill_params[[check_param_i]](x, y)
+                  geom_call$geom@params[[geom_call$check_params[[check_param_i]]]] = geom_call$fill_params[[check_param_i]](x=x, y=y)
                 }else{
                   geom_call$geom@params[[geom_call$check_params[[check_param_i]]]] = get(x=geom_call$fill_params[[check_param_i]])
                 }
@@ -161,7 +161,30 @@ show.ccPlot = function(object) {
           }
         }
       }
+      if (current_track@func == "circos.genomicTrack") {
+        if (is.null(current_track@params[["panel.fun"]])) {
+          current_track@params[["panel.fun"]] = function(region, value, ...) {
+            NULL
+          }
+        }
+        old_track_fun = current_track@params[["panel.fun"]]
+        current_track@params[["panel.fun"]] = function(region, value, ...) {
+          do.call(old_track_fun, c(list(region = region, value = value), list(...)))
+          current_cell_calls = panel_fun_cell_call[[get.current.sector.index()]]
 
+          for (geom_call in current_cell_calls) {
+            if (length(geom_call$check_params) > 0) {
+              for (check_param_i in 1:length(geom_call$check_params)) {
+                if (is.function()) {
+                  geom_call@geom@params[[geom_call$check_params[[check_param_i]]]] = geom_call$fill_params[[check_param_i]](region = region, value = value)
+                }
+                geom_call@geom@params[[geom_call$check_params[[check_param_i]]]] = get(x=geom_call$fill_params[[check_param_i]])
+              }
+            }
+            do.call(geom_call@geom@func, c(geom_call@geom@params, list(...)))
+          }
+        }
+      }
     }
     #End: make data share cell func in track panel.fun
     do.call(current_track@func,
