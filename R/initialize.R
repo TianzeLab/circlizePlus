@@ -37,16 +37,13 @@ show.ccPlot = function(object) {
   }
 
   if (object@initMode == 'initialize') {
-    do.call(circos.initialize, removeNullParam(object@initParams))
+    do.call(circos.initialize, object@initParams)
   } else if (object@initMode == 'initializeWithIdeogram') {
-    do.call(circos.initializeWithIdeogram,
-            removeNullParam(object@initParams))
+    do.call(circos.initializeWithIdeogram, object@initParams)
   } else if (object@initMode == 'heatmap.initialize') {
-    do.call(circos.heatmap.initialize,
-            removeNullParam(object@initParams))
+    do.call(circos.heatmap.initialize, object@initParams)
   } else if (object@initMode == 'genomicInitialize') {
-    do.call(circos.genomicInitialize,
-            removeNullParam(object@initParams))
+    do.call(circos.genomicInitialize, object@initParams)
   }
 
   for (current_track in object@tracks) {
@@ -191,13 +188,15 @@ show.ccPlot = function(object) {
           for (geom_call in current_cell_calls) {
             if (length(geom_call$check_params) > 0) {
               for (check_param_i in 1:length(geom_call$check_params)) {
-                if (is.function()) {
-                  geom_call@geom@params[[geom_call$check_params[[check_param_i]]]] = geom_call$fill_params[[check_param_i]](region = region, value = value)
+                if (is.function(geom_call$fill_params[[check_param_i]])) {
+                  geom_call$geom@params[[geom_call$check_params[[check_param_i]]]] = geom_call$fill_params[[check_param_i]](region = region, value = value)
+                } else{
+                  geom_call$geom@params[[geom_call$check_params[[check_param_i]]]] = get(x =
+                                                                                           geom_call$fill_params[[check_param_i]])
                 }
-                geom_call@geom@params[[geom_call$check_params[[check_param_i]]]] = get(x=geom_call$fill_params[[check_param_i]])
               }
             }
-            do.call(geom_call@geom@func, c(geom_call@geom@params, list(...)))
+            do.call(geom_call$geom@func, c(geom_call$geom@params, list(...)))
           }
         }
       }
