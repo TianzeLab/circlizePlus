@@ -54,7 +54,7 @@ show.ccPlot = function(object) {
       panel_fun_geom_call = list()
       for (current_geom in current_cell@geoms) {
         current_geom@params[['sector.index']] = current_cell@sector.index
-        current_geom@params = removeNullParam(current_geom@params)
+        current_geom@params = current_geom@params
         if (current_track@func == "circos.genomicTrack" &&
             current_geom@func %in% list(
               "circos.genomicPoints",
@@ -69,7 +69,6 @@ show.ccPlot = function(object) {
           for (check_i in 1:length(check_params)) {
             current_check_param = check_params[[check_i]]
             if (is.function(current_geom@params[[current_check_param]])) {
-
               need_check_params = c(need_check_params, current_check_param)
               how_fill_params = c(how_fill_params, current_geom@params[[current_check_param]])
               next
@@ -79,8 +78,17 @@ show.ccPlot = function(object) {
               how_fill_params = c(how_fill_params, fill_params[[check_i]])
             }
           }
-          panel_fun_geom_call = c(panel_fun_geom_call, list(list(check_params = need_check_params, fill_params=how_fill_params, geom=current_geom)))
-          next
+          if (length(need_check_params)) {
+            panel_fun_geom_call = c(panel_fun_geom_call, list(
+              list(
+                check_params = need_check_params,
+                fill_params = how_fill_params,
+                geom = current_geom
+              )
+            ))
+            next
+          }
+
 
         }
         if (current_track@func == "circos.track" &&
@@ -130,13 +138,22 @@ show.ccPlot = function(object) {
             }
             if (is.null(current_geom@params[[current_check_param]])) {
               need_check_params = c(need_check_params, current_check_param)
-              how_fill_params = c(how_fill_params, current_check_call$fill_params[[check_i]])
+              how_fill_params = c(how_fill_params,
+                                  current_check_call$fill_params[[check_i]])
             }
 
           }
+          if (length(need_check_params)) {
+            panel_fun_geom_call = c(panel_fun_geom_call, list(
+              list(
+                check_params = need_check_params,
+                fill_params = how_fill_params,
+                geom = current_geom
+              )
+            ))
+            next
+          }
 
-          panel_fun_geom_call = c(panel_fun_geom_call, list(list(check_params = need_check_params, fill_params=how_fill_params, geom=current_geom)))
-          next
 
 
         }
@@ -146,7 +163,7 @@ show.ccPlot = function(object) {
       panel_fun_cell_call[[current_cell@sector.index]] = panel_fun_geom_call
     }
 
-    if(length(panel_fun_cell_call) > 0){
+    if (length(panel_fun_cell_call) > 0) {
       if (current_track@func == "circos.track") {
         if (is.null(current_track@params[["panel.fun"]])) {
           current_track@params[["panel.fun"]] = function(x, y) {
@@ -162,9 +179,11 @@ show.ccPlot = function(object) {
             if (length(geom_call$check_params) > 0) {
               for (check_param_i in 1:length(geom_call$check_params)) {
                 if (is.function(geom_call$fill_params[[check_param_i]])) {
-                  geom_call$geom@params[[geom_call$check_params[[check_param_i]]]] = geom_call$fill_params[[check_param_i]](x=x, y=y)
-                }else{
-                  geom_call$geom@params[[geom_call$check_params[[check_param_i]]]] = get(x=geom_call$fill_params[[check_param_i]])
+                  geom_call$geom@params[[geom_call$check_params[[check_param_i]]]] = geom_call$fill_params[[check_param_i]](x =
+                                                                                                                              x, y = y)
+                } else{
+                  geom_call$geom@params[[geom_call$check_params[[check_param_i]]]] = get(x =
+                                                                                           geom_call$fill_params[[check_param_i]])
                 }
 
               }
@@ -182,7 +201,9 @@ show.ccPlot = function(object) {
         }
         old_track_fun = current_track@params[["panel.fun"]]
         current_track@params[["panel.fun"]] = function(region, value, ...) {
-          do.call(old_track_fun, c(list(region = region, value = value), list(...)))
+          do.call(old_track_fun, c(list(
+            region = region, value = value
+          ), list(...)))
           current_cell_calls = panel_fun_cell_call[[get.current.sector.index()]]
 
           for (geom_call in current_cell_calls) {
@@ -196,25 +217,24 @@ show.ccPlot = function(object) {
                 }
               }
             }
-            do.call(geom_call$geom@func, c(geom_call$geom@params, list(...)))
+            do.call(geom_call$geom@func,
+                    c(geom_call$geom@params, list(...)))
           }
         }
       }
     }
     #End: make data share cell func in track panel.fun
-    do.call(current_track@func,
-            removeNullParam(current_track@params))
+    do.call(current_track@func, current_track@params)
     for (current_track_geom in current_track@trackGeoms)
-      do.call(current_track_geom@func,
-              removeNullParam(current_track_geom@params))
+      do.call(current_track_geom@func, current_track_geom@params)
 
     for (current_geom in remain_geom_call) {
-        do.call(current_geom@func, geom_params)
+      do.call(current_geom@func, current_geom@params)
     }
   }
 
   for (current_link in object@links)
-    do.call(current_link@func, removeNullParam(current_link@params))
+    do.call(current_link@func, current_link@params)
 
 
 }

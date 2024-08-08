@@ -21,48 +21,18 @@ setClass("ccGenomicTrack", contains = c("ccTrack"))
 #'
 #' Object [ccTrack-class] will call the function [circos.trackPlotRegion] while drawing.
 #'
-#' @inheritParams circlize::circos.trackPlotRegion
+#' @inheritDotParams circlize::circos.trackPlotRegion
 #'
 #' @return Object [ccTrack-class]
 #' @export
 #'
 #' @examples
 #' NULL
-ccTrack = function(sectors = NULL,
-                   x = NULL,
-                   y = NULL,
-                   ylim = NULL,
-                   force.ylim = NULL,
-                   track.index = NULL,
-                   track.height = NULL,
-                   track.margin = NULL,
-                   cell.padding = NULL,
-                   bg.col = NULL,
-                   bg.border = NULL,
-                   bg.lty = NULL,
-                   bg.lwd = NULL,
-                   panel.fun = NULL,
-                   factors = NULL) {
+ccTrack = function(...) {
   new(
     "ccTrack",
     func = 'circos.track',
-    params = list(
-      sectors = sectors,
-      x = x,
-      y = y,
-      ylim = ylim,
-      force.ylim = force.ylim,
-      track.index = track.index,
-      track.height = track.height,
-      track.margin = track.margin,
-      cell.padding = cell.padding,
-      bg.col = bg.col,
-      bg.border = bg.border,
-      bg.lty = bg.lty,
-      bg.lwd = bg.lwd,
-      panel.fun = panel.fun,
-      factors = factors
-    ),
+    params = list(...),
     trackGeoms = list(),
     cells = list()
   )

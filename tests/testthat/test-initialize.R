@@ -46,3 +46,21 @@ test_that("Two standard tracks", {
   show(cc + par1 + track1 + track2)
   succeed()
 })
+
+test_that("Not show geom when track not select the sector", {
+  sectors = c('a','a','a','a','b','b','b','b','c','c','c','c','d','d','d','d')
+  x1 = c(1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4)
+  y1 = c(1,2,3,4,4,3,2,1,1,1,1,1,1,2,1,2)
+  cc = ccPlot(initMode = "initialize", sectors = sectors, x = x1)
+  cells = ccCells(sector.indexes = letters[1:4])
+  cc_point = ccPoints()
+  cells = cells + cc_point + ccLines()
+  track1 = ccTrack(sectors = c('a','a','a','a'), x=c(1,2,3,4), y = c(1,2,3,4),panel.fun = function(x,y){
+    circos.points(y,x)
+  })
+  cell1 = ccCell(sector.index = letters[3]) + ccPoints(y=\(x,y){x-y}) + ccPoints(x=c(2,3), y=c(2,3))
+  track1 = track1 + cells + cell1
+  show(cc  + track1)
+  succeed()
+})
+
