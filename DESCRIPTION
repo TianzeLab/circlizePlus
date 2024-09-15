@@ -28,3 +28,5 @@ Depends:
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
+URL: https://github.com/TianzeLab/circlizePlus
+BugReports: https://github.com/TianzeLab/circlizePlus/issues
