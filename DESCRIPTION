@@ -4,7 +4,7 @@ Version: 0.0.0.9000
 Authors@R: c(
     person("Tianze", "Cao", , "hnrcao@qq.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0003-4308-1878")),
-    person("Zheyu", "Zhang", , "2054906893@qq.com", role = c("aut", "cre"))
+    person("Zheyu", "Zhang", , "2054906893@qq.com", role = c("aut"))
   )
 Description: circlizePlus is a wrapper for circlize. All components are based on classes and objects. Users can use the addition symbol (+) to combine components for a circular visualization with ggplot2 style.
 License: MIT + file LICENSE
