@@ -61,15 +61,48 @@ ccCells = function(sector.indexes = list()) {
 #'
 #' Object [ccCellGeom-class] will call the function [circos.text] while drawing.
 #'
-#' @inheritDotParams circlize::circos.text
+#' @inheritParams circlize::circos.text
 #'
 #' @return Object [ccCellGeom-class]
 #' @export
 #'
 #' @examples
 #' NULL
-ccText = function(...) {
-  new("ccCellGeom",func = 'circos.text',params = list(...))
+ccText = function(x,
+                  y,
+                  labels,
+                  direction = NULL,
+                  facing = c(
+                    "inside",
+                    "outside",
+                    "reverse.clockwise",
+                    "clockwise",
+                    "downward",
+                    "bending",
+                    "bending.inside",
+                    "bending.outside"
+                  ),
+                  niceFacing = FALSE,
+                  adj = par("adj"),
+                  cex = 1,
+                  col = par("col"),
+                  font = par("font"),
+                  ...) {
+  name_args = list(
+    x = x,
+    y = y,
+    labels = labels,
+    direction = direction ,
+    facing = facing ,
+    niceFacing = niceFacing ,
+    adj = adj ,
+    cex = cex ,
+    col = col ,
+    font = font
+  )
+  new("ccCellGeom",
+      func = 'circos.text',
+      params = c(name_args, list(...)))
 }
 
 
