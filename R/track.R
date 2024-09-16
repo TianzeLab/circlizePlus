@@ -8,7 +8,21 @@
 #' @export
 #'
 #' @examples
-#' NULL
+#' n = 1000
+#' df = data.frame(sectors = sample(letters[1:8], n, replace = TRUE),
+#'                 x = rnorm(n), y = runif(n))
+#' library(circlizePlus)
+#' par1=ccPar("track.height" = 0.1)
+#' cc=ccPlot(sectors = df$sectors, x = df$x) + par1
+#' track1 = ccTrack(sectors = df$sectors, y = df$y,
+#'                  panel.fun = function(x, y) {
+#'                    circos.text(CELL_META$xcenter, 
+#'                                CELL_META$cell.ylim[2] + mm_y(5), 
+#'                                CELL_META$sector.index)
+#'                    circos.axis(labels.cex = 0.6)
+#'                  })
+#' cc=cc+track1
+#' cc
 setClass("ccTrack",
          slots = c(func="character", params = "list", trackGeoms = "list",cells = "list"))
 
@@ -19,7 +33,13 @@ setClass("ccTrack",
 #' @export
 #'
 #' @examples
-#' NULL
+#' library(cilclizePlus)
+#' cc = ccPlot(initMode = "initializeWithIdeogram",chromosome.index = "chr1", plotType = NULL)
+#' bed = generateRandomBed(nr = 300)
+#' t1 = ccGenomicTrack(bed, panel.fun = function(region, value, ...) {
+#'   circos.genomicPoints(region, value, pch = 16, cex = 0.5, ...)
+#' })
+#' cc+_t1
 setClass("ccGenomicTrack", contains = c("ccTrack"))
 
 
@@ -33,7 +53,21 @@ setClass("ccGenomicTrack", contains = c("ccTrack"))
 #' @export
 #'
 #' @examples
-#' NULL
+#' n = 1000
+#' df = data.frame(sectors = sample(letters[1:8], n, replace = TRUE),
+#'                 x = rnorm(n), y = runif(n))
+#' library(circlizePlus)
+#' par1=ccPar("track.height" = 0.1)
+#' cc=ccPlot(sectors = df$sectors, x = df$x) + par1
+#' track1 = ccTrack(sectors = df$sectors, y = df$y,
+#'                  panel.fun = function(x, y) {
+#'                    circos.text(CELL_META$xcenter, 
+#'                                CELL_META$cell.ylim[2] + mm_y(5), 
+#'                                CELL_META$sector.index)
+#'                    circos.axis(labels.cex = 0.6)
+#'                  })
+#' cc=cc+track1
+#' cc
 ccTrack = function(...) {
   new(
     "ccTrack",
@@ -54,7 +88,15 @@ ccTrack = function(...) {
 #' @export
 #'
 #' @examples
-#' NULL
+#' n = 1000
+#' df = data.frame(sectors = sample(letters[1:8], n, replace = TRUE),
+#'                 x = rnorm(n), y = runif(n))
+#' library(circlizePlus)
+#' par1=ccPar("track.height" = 0.1)
+#' cc=ccPlot(sectors = df$sectors, x = df$x) + par1;bgcol = rep(c("#EFEFEF", "#CCCCCC"), 4)
+#' track2 = ccTrackHist(df$sectors, df$x, bin.size = 0.2, bg.col = bgcol, col = NA)
+#' cc=cc+track2
+#' cc
 ccTrackHist = function(...) {
   new("ccTrack",
       func = 'circos.trackHist',
@@ -74,7 +116,13 @@ ccTrackHist = function(...) {
 #' @export
 #'
 #' @examples
-#' NULL
+#' library(cilclizePlus)
+#' cc = ccPlot(initMode = "initializeWithIdeogram",chromosome.index = "chr1", plotType = NULL)
+#' bed = generateRandomBed(nr = 300)
+#' t1 = ccGenomicTrack(bed, panel.fun = function(region, value, ...) {
+#'   circos.genomicPoints(region, value, pch = 16, cex = 0.5, ...)
+#' })
+#' cc+_t1
 ccGenomicTrack = function(...) {
   new("ccGenomicTrack",
       func = 'circos.genomicTrack',
@@ -178,3 +226,6 @@ ccGenomicDensity = function(...) {
       trackGeoms = list(),
       cells = list())
 }
+
+
+
