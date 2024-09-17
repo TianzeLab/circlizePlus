@@ -40,5 +40,14 @@ Object \linkS4class{ccTrack}
 Object \linkS4class{ccTrack} will call the function \link{circos.trackHist} while drawing.
 }
 \examples{
-NULL
+n = 1000
+df = data.frame(sectors = sample(letters[1:8], n, replace = TRUE),
+                x = rnorm(n), y = runif(n))
+library(circlizePlus)
+par1=ccPar("track.height" = 0.1)
+cc=ccPlot(sectors = df$sectors, x = df$x) + par1;bgcol = rep(c("#EFEFEF", "#CCCCCC"), 4)
+track2 = ccTrackHist(df$sectors, df$x, bin.size = 0.2, bg.col = bgcol, col = NA)
+cc=cc+track2
+cc
+circos.clear()
 }

@@ -34,5 +34,20 @@ Object \linkS4class{ccTrack}
 Object \linkS4class{ccTrack} will call the function \link{circos.trackPlotRegion} while drawing.
 }
 \examples{
-NULL
+n = 1000
+df = data.frame(sectors = sample(letters[1:8], n, replace = TRUE),
+                x = rnorm(n), y = runif(n))
+library(circlizePlus)
+par1=ccPar("track.height" = 0.1)
+cc=ccPlot(sectors = df$sectors, x = df$x) + par1
+track1 = ccTrack(sectors = df$sectors, y = df$y,
+                 panel.fun = function(x, y) {
+                   circos.text(CELL_META$xcenter, 
+                               CELL_META$cell.ylim[2] + mm_y(5), 
+                               CELL_META$sector.index)
+                   circos.axis(labels.cex = 0.6)
+                 })
+cc=cc+track1
+cc
+circos.clear()
 }

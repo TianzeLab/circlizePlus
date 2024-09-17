@@ -8,5 +8,12 @@
 S4 class ccGenomicTrack
 }
 \examples{
-NULL
+library(cilclizePlus)
+cc = ccPlot(initMode = "initializeWithIdeogram",chromosome.index = "chr1", plotType = NULL)
+bed = generateRandomBed(nr = 300)
+t1 = ccGenomicTrack(bed, panel.fun = function(region, value, ...) {
+  circos.genomicPoints(region, value, pch = 16, cex = 0.5, ...)
+})
+cc+t1
+circos.clear()
 }

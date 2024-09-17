@@ -8,8 +8,21 @@
 \description{
 circlizePlus is a wrapper for circlize. All components are based on classes and objects. Users can use the addition symbol (+) to combine components for a circular visualization with ggplot2 style.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/TianzeLab/circlizePlus}
+  \item Report bugs at \url{https://github.com/TianzeLab/circlizePlus/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Tianze Cao \email{hnrcao@qq.com} (\href{https://orcid.org/0000-0003-4308-1878}{ORCID})
+
+Authors:
+\itemize{
+  \item Zheyu Zhang \email{2054906893@qq.com}
+}
 
 }
 \keyword{internal}

@@ -4,25 +4,43 @@
 \alias{ccText}
 \title{Object generator for S4 class ccCellGeom}
 \usage{
-ccText(...)
+ccText(
+  x,
+  y,
+  labels,
+  direction = NULL,
+  facing = c("inside", "outside", "reverse.clockwise", "clockwise", "downward",
+    "bending", "bending.inside", "bending.outside"),
+  niceFacing = FALSE,
+  adj = par("adj"),
+  cex = 1,
+  col = par("col"),
+  font = par("font"),
+  ...
+)
 }
 \arguments{
-\item{...}{
-  Arguments passed on to \code{\link[circlize:circos.text]{circlize::circos.text}}
-  \describe{
-    \item{\code{x}}{Data points on x-axis}
-    \item{\code{y}}{Data points on y-axis}
-    \item{\code{labels}}{Labels for each points}
-    \item{\code{sector.index}}{Index for the sector}
-    \item{\code{track.index}}{Index for the track}
-    \item{\code{direction}}{deprecated, use \code{facing} instead.}
-    \item{\code{facing}}{Facing of text. Please refer to vignette for different settings}
-    \item{\code{niceFacing}}{Should the facing of text be adjusted to fit human eyes?}
-    \item{\code{adj}}{offset for text. By default the text position adjustment is either horizontal or vertical in the canvas coordinate system. The "circular horizontal" offset can be set as a value in degree unit and the value should be wrapped by \code{\link[circlize]{degree}}.}
-    \item{\code{cex}}{Font size}
-    \item{\code{col}}{Font color}
-    \item{\code{font}}{Font style}
-  }}
+\item{x}{Data points on x-axis}
+
+\item{y}{Data points on y-axis}
+
+\item{labels}{Labels for each points}
+
+\item{direction}{deprecated, use \code{facing} instead.}
+
+\item{facing}{Facing of text. Please refer to vignette for different settings}
+
+\item{niceFacing}{Should the facing of text be adjusted to fit human eyes?}
+
+\item{adj}{offset for text. By default the text position adjustment is either horizontal or vertical in the canvas coordinate system. The "circular horizontal" offset can be set as a value in degree unit and the value should be wrapped by \code{\link[circlize]{degree}}.}
+
+\item{cex}{Font size}
+
+\item{col}{Font color}
+
+\item{font}{Font style}
+
+\item{...}{Pass to \code{\link[graphics]{text}}}
 }
 \value{
 Object \linkS4class{ccCellGeom}
