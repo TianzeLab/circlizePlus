@@ -23,6 +23,7 @@
 #'                  })
 #' cc=cc+track1
 #' cc
+#' circos.clear()
 setClass("ccTrack",
          slots = c(func="character", params = "list", trackGeoms = "list",cells = "list"))
 
@@ -39,7 +40,8 @@ setClass("ccTrack",
 #' t1 = ccGenomicTrack(bed, panel.fun = function(region, value, ...) {
 #'   circos.genomicPoints(region, value, pch = 16, cex = 0.5, ...)
 #' })
-#' cc+_t1
+#' cc+t1
+#' circos.clear()
 setClass("ccGenomicTrack", contains = c("ccTrack"))
 
 
@@ -68,6 +70,7 @@ setClass("ccGenomicTrack", contains = c("ccTrack"))
 #'                  })
 #' cc=cc+track1
 #' cc
+#' circos.clear()
 ccTrack = function(...) {
   new(
     "ccTrack",
@@ -97,6 +100,7 @@ ccTrack = function(...) {
 #' track2 = ccTrackHist(df$sectors, df$x, bin.size = 0.2, bg.col = bgcol, col = NA)
 #' cc=cc+track2
 #' cc
+#' circos.clear()
 ccTrackHist = function(...) {
   new("ccTrack",
       func = 'circos.trackHist',
@@ -122,7 +126,8 @@ ccTrackHist = function(...) {
 #' t1 = ccGenomicTrack(bed, panel.fun = function(region, value, ...) {
 #'   circos.genomicPoints(region, value, pch = 16, cex = 0.5, ...)
 #' })
-#' cc+_t1
+#' cc+t1
+#' circos.clear()
 ccGenomicTrack = function(...) {
   new("ccGenomicTrack",
       func = 'circos.genomicTrack',
@@ -141,7 +146,12 @@ ccGenomicTrack = function(...) {
 #' @export
 #'
 #' @examples
-#' NULL
+#' library(cilclizePlus)
+#' cc = ccPlot(initMode = "initializeWithIdeogram",chromosome.index = "chr1", plotType = NULL)
+#' human_cytoband = read.cytoband(species = "hg19")$df
+#' t2=ccGenomicIdeogram(human_cytoband)
+#' cc+t2
+#' circos.clear()
 ccGenomicIdeogram = function(...) {
   new("ccGenomicTrack",
       func = 'circos.genomicIdeogram',
@@ -160,7 +170,13 @@ ccGenomicIdeogram = function(...) {
 #' @export
 #'
 #' @examples
-#' NULL
+#' library(cilclizePlus)
+#' cc = ccPlot(initMode = "initializeWithIdeogram")
+#' bed = generateRandomBed(nr = 100, nc = 4)
+#' col_fun = colorRamp2(c(-1, 0, 1), c("green", "black", "red"))
+#' t1 = ccGenomicHeatmap(bed, col = col_fun, side = "inside", border = "white")
+#' cc + t1
+#' circos.clear()
 ccGenomicHeatmap = function(...) {
   new("ccGenomicTrack",
       func = 'circos.genomicHeatmap',
@@ -179,7 +195,12 @@ ccGenomicHeatmap = function(...) {
 #' @export
 #'
 #' @examples
-#' NULL
+#' library(cilclizePlus)
+#' cc = ccPlot(initMode = "initializeWithIdeogram", plotType = NULL)
+#' t1 = ccGenomicLabels(bed, labels.column = 4, side = "outside",
+#'                      col = as.numeric(factor(bed[[1]])), line_col = as.numeric(factor(bed[[1]])))
+#' cc + t1
+#' circos.clear()
 ccGenomicLabels = function(...) {
   new("ccGenomicTrack",
       func = 'circos.genomicLabels',
@@ -199,7 +220,13 @@ ccGenomicLabels = function(...) {
 #' @export
 #'
 #' @examples
-#' NULL
+#' library(cilclizePlus)
+#' load(system.file(package = "circlize", "extdata", "DMR.RData"))
+#' cc = ccPlot(initMode="initializeWithIdeogram", chromosome.index = paste0("chr", 1:22))
+#' bed_list = list(DMR_hyper, DMR_hypo)
+#' t1 = ccGenomicRainfall(bed_list, pch = 16, cex = 0.4, col = c("#FF000080", "#0000FF80"))
+#' cc + t1
+#' circos.clear()
 ccGenomicRainfall = function(...) {
   new("ccGenomicTrack",
       func = 'circos.genomicRainfall',
@@ -218,7 +245,13 @@ ccGenomicRainfall = function(...) {
 #' @export
 #'
 #' @examples
-#' NULL
+#' library(cilclizePlus)
+#' load(system.file(package = "circlize", "extdata", "DMR.RData"))
+#' cc = ccPlot(initMode="initializeWithIdeogram", chromosome.index = paste0("chr", 1:22))
+#' t2 = ccGenomicDensity(DMR_hyper, col = c("#FF000080"), track.height = 0.1)
+#' t3 = ccGenomicDensity(DMR_hypo, col = c("#0000FF80"), track.height = 0.1)
+#' cc + t2 + t3
+#' circos.clear()
 ccGenomicDensity = function(...) {
   new("ccGenomicTrack",
       func = 'circos.genomicDensity',
