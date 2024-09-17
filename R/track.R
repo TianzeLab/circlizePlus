@@ -112,7 +112,7 @@ ccTrackHist = function(...) {
 
 #' Object generator for S4 class ccGenomicTrack
 #'
-#'Object [ccGenomicTrack-class] will call the function [circos.genomicTrackPlotRegion] while drawing.
+#' Object [ccGenomicTrack-class] will call the function [circos.genomicTrackPlotRegion] while drawing.
 #'
 #'@inheritDotParams circlize::circos.genomicTrackPlotRegion
 #'
@@ -138,9 +138,9 @@ ccGenomicTrack = function(...) {
 
 #' Object generator for S4 class ccGenomicTrack
 #'
-#'Object [ccGenomicTrack-class] will call the function [circos.genomicIdeogram] while drawing.
+#' Object [ccGenomicTrack-class] will call the function [circos.genomicIdeogram] while drawing.
 #'
-#'@inheritDotParams circlize::circos.genomicIdeogram
+#' @inheritDotParams circlize::circos.genomicIdeogram
 #'
 #' @return Object [ccGenomicTrack-class]
 #' @export
@@ -162,9 +162,9 @@ ccGenomicIdeogram = function(...) {
 
 #' Object generator for S4 class ccGenomicTrack
 #'
-#'Object [ccGenomicTrack-class] will call the function [circos.genomicHeatmap] while drawing.
+#' Object [ccGenomicTrack-class] will call the function [circos.genomicHeatmap] while drawing.
 #'
-#'@inheritDotParams circlize::circos.genomicHeatmap
+#' @inheritDotParams circlize::circos.genomicHeatmap
 #'
 #' @return Object [ccGenomicTrack-class]
 #' @export
@@ -187,9 +187,9 @@ ccGenomicHeatmap = function(...) {
 
 #' Object generator for S4 class ccGenomicTrack
 #'
-#'Object [ccGenomicTrack-class] will call the function [circos.genomicLabels] while drawing.
+#' Object [ccGenomicTrack-class] will call the function [circos.genomicLabels] while drawing.
 #'
-#'@inheritDotParams circlize::circos.genomicLabels
+#' @inheritDotParams circlize::circos.genomicLabels
 #'
 #' @return Object [ccGenomicTrack-class]
 #' @export
