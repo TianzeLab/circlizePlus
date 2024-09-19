@@ -40,6 +40,7 @@ Object \linkS4class{ccTrack}
 Object \linkS4class{ccTrack} will call the function \link{circos.trackHist} while drawing.
 }
 \examples{
+library(circlizePlus)
 n = 1000
 df = data.frame(sectors = sample(letters[1:8], n, replace = TRUE),
                 x = rnorm(n), y = runif(n))

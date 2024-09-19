@@ -48,7 +48,7 @@ Object \linkS4class{ccGenomicTrack}
 Object \linkS4class{ccGenomicTrack} will call the function \link{circos.genomicDensity} while drawing.
 }
 \examples{
-library(cilclizePlus)
+library(circlizePlus)
 load(system.file(package = "circlize", "extdata", "DMR.RData"))
 cc = ccPlot(initMode="initializeWithIdeogram", chromosome.index = paste0("chr", 1:22))
 t2 = ccGenomicDensity(DMR_hyper, col = c("#FF000080"), track.height = 0.1)

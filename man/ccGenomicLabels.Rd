@@ -53,7 +53,7 @@ Object \linkS4class{ccGenomicTrack}
 Object \linkS4class{ccGenomicTrack} will call the function \link{circos.genomicLabels} while drawing.
 }
 \examples{
-library(cilclizePlus)
+library(circlizePlus)
 cc = ccPlot(initMode = "initializeWithIdeogram", plotType = NULL)
 t1 = ccGenomicLabels(bed, labels.column = 4, side = "outside",
                      col = as.numeric(factor(bed[[1]])), line_col = as.numeric(factor(bed[[1]])))

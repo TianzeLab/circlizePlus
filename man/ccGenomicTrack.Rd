@@ -42,7 +42,7 @@ Object \linkS4class{ccGenomicTrack}
 Object \linkS4class{ccGenomicTrack} will call the function \link{circos.genomicTrackPlotRegion} while drawing.
 }
 \examples{
-library(cilclizePlus)
+library(circlizePlus)
 cc = ccPlot(initMode = "initializeWithIdeogram",chromosome.index = "chr1", plotType = NULL)
 bed = generateRandomBed(nr = 300)
 t1 = ccGenomicTrack(bed, panel.fun = function(region, value, ...) {

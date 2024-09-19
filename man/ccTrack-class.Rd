@@ -28,8 +28,8 @@ par1=ccPar("track.height" = 0.1)
 cc=ccPlot(sectors = df$sectors, x = df$x) + par1
 track1 = ccTrack(sectors = df$sectors, y = df$y,
                  panel.fun = function(x, y) {
-                   circos.text(CELL_META$xcenter, 
-                               CELL_META$cell.ylim[2] + mm_y(5), 
+                   circos.text(CELL_META$xcenter,
+                               CELL_META$cell.ylim[2] + mm_y(5),
                                CELL_META$sector.index)
                    circos.axis(labels.cex = 0.6)
                  })

@@ -7,8 +7,20 @@
 \description{
 S4 class ccGenomicTrack
 }
+\section{Slots}{
+
+\describe{
+\item{\code{func}}{character.}
+
+\item{\code{params}}{list.}
+
+\item{\code{trackGeoms}}{list.}
+
+\item{\code{cells}}{list.}
+}}
+
 \examples{
-library(cilclizePlus)
+library(circlizePlus)
 cc = ccPlot(initMode = "initializeWithIdeogram",chromosome.index = "chr1", plotType = NULL)
 bed = generateRandomBed(nr = 300)
 t1 = ccGenomicTrack(bed, panel.fun = function(region, value, ...) {

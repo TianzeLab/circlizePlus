@@ -16,8 +16,8 @@
 #' cc=ccPlot(sectors = df$sectors, x = df$x) + par1
 #' track1 = ccTrack(sectors = df$sectors, y = df$y,
 #'                  panel.fun = function(x, y) {
-#'                    circos.text(CELL_META$xcenter, 
-#'                                CELL_META$cell.ylim[2] + mm_y(5), 
+#'                    circos.text(CELL_META$xcenter,
+#'                                CELL_META$cell.ylim[2] + mm_y(5),
 #'                                CELL_META$sector.index)
 #'                    circos.axis(labels.cex = 0.6)
 #'                  })
@@ -33,8 +33,13 @@ setClass("ccTrack",
 #'
 #' @export
 #'
+#' @slot func character.
+#' @slot params list.
+#' @slot trackGeoms list.
+#' @slot cells list.
+#'
 #' @examples
-#' library(cilclizePlus)
+#' library(circlizePlus)
 #' cc = ccPlot(initMode = "initializeWithIdeogram",chromosome.index = "chr1", plotType = NULL)
 #' bed = generateRandomBed(nr = 300)
 #' t1 = ccGenomicTrack(bed, panel.fun = function(region, value, ...) {
@@ -55,6 +60,7 @@ setClass("ccGenomicTrack", contains = c("ccTrack"))
 #' @export
 #'
 #' @examples
+#' library(circlizePlus)
 #' n = 1000
 #' df = data.frame(sectors = sample(letters[1:8], n, replace = TRUE),
 #'                 x = rnorm(n), y = runif(n))
@@ -63,8 +69,8 @@ setClass("ccGenomicTrack", contains = c("ccTrack"))
 #' cc=ccPlot(sectors = df$sectors, x = df$x) + par1
 #' track1 = ccTrack(sectors = df$sectors, y = df$y,
 #'                  panel.fun = function(x, y) {
-#'                    circos.text(CELL_META$xcenter, 
-#'                                CELL_META$cell.ylim[2] + mm_y(5), 
+#'                    circos.text(CELL_META$xcenter,
+#'                                CELL_META$cell.ylim[2] + mm_y(5),
 #'                                CELL_META$sector.index)
 #'                    circos.axis(labels.cex = 0.6)
 #'                  })
@@ -83,14 +89,15 @@ ccTrack = function(...) {
 
 #' Object generator for S4 class ccTrack
 #'
-#'Object [ccTrack-class] will call the function [circos.trackHist] while drawing.
+#' Object [ccTrack-class] will call the function [circos.trackHist] while drawing.
 #'
-#'@inheritDotParams circlize::circos.trackHist
+#' @inheritDotParams circlize::circos.trackHist
 #'
 #' @return Object [ccTrack-class]
 #' @export
 #'
 #' @examples
+#' library(circlizePlus)
 #' n = 1000
 #' df = data.frame(sectors = sample(letters[1:8], n, replace = TRUE),
 #'                 x = rnorm(n), y = runif(n))
@@ -120,7 +127,7 @@ ccTrackHist = function(...) {
 #' @export
 #'
 #' @examples
-#' library(cilclizePlus)
+#' library(circlizePlus)
 #' cc = ccPlot(initMode = "initializeWithIdeogram",chromosome.index = "chr1", plotType = NULL)
 #' bed = generateRandomBed(nr = 300)
 #' t1 = ccGenomicTrack(bed, panel.fun = function(region, value, ...) {
@@ -146,7 +153,7 @@ ccGenomicTrack = function(...) {
 #' @export
 #'
 #' @examples
-#' library(cilclizePlus)
+#' library(circlizePlus)
 #' cc = ccPlot(initMode = "initializeWithIdeogram",chromosome.index = "chr1", plotType = NULL)
 #' human_cytoband = read.cytoband(species = "hg19")$df
 #' t2=ccGenomicIdeogram(human_cytoband)
@@ -170,7 +177,7 @@ ccGenomicIdeogram = function(...) {
 #' @export
 #'
 #' @examples
-#' library(cilclizePlus)
+#' library(circlizePlus)
 #' cc = ccPlot(initMode = "initializeWithIdeogram")
 #' bed = generateRandomBed(nr = 100, nc = 4)
 #' col_fun = colorRamp2(c(-1, 0, 1), c("green", "black", "red"))
@@ -195,7 +202,7 @@ ccGenomicHeatmap = function(...) {
 #' @export
 #'
 #' @examples
-#' library(cilclizePlus)
+#' library(circlizePlus)
 #' cc = ccPlot(initMode = "initializeWithIdeogram", plotType = NULL)
 #' t1 = ccGenomicLabels(bed, labels.column = 4, side = "outside",
 #'                      col = as.numeric(factor(bed[[1]])), line_col = as.numeric(factor(bed[[1]])))
@@ -212,15 +219,15 @@ ccGenomicLabels = function(...) {
 
 #' Object generator for S4 class ccGenomicTrack
 #'
-#'Object [ccGenomicTrack-class] will call the function [circos.genomicRainfall] while drawing.
+#' Object [ccGenomicTrack-class] will call the function [circos.genomicRainfall] while drawing.
 #'
-#'@inheritDotParams circlize::circos.genomicRainfall
+#' @inheritDotParams circlize::circos.genomicRainfall
 #'
 #' @return Object [ccGenomicTrack-class]
 #' @export
 #'
 #' @examples
-#' library(cilclizePlus)
+#' library(circlizePlus)
 #' load(system.file(package = "circlize", "extdata", "DMR.RData"))
 #' cc = ccPlot(initMode="initializeWithIdeogram", chromosome.index = paste0("chr", 1:22))
 #' bed_list = list(DMR_hyper, DMR_hypo)
@@ -237,15 +244,15 @@ ccGenomicRainfall = function(...) {
 
 #' Object generator for S4 class ccGenomicTrack
 #'
-#'Object [ccGenomicTrack-class] will call the function [circos.genomicDensity] while drawing.
+#' Object [ccGenomicTrack-class] will call the function [circos.genomicDensity] while drawing.
 #'
-#'@inheritDotParams circlize::circos.genomicDensity
+#' @inheritDotParams circlize::circos.genomicDensity
 #'
 #' @return Object [ccGenomicTrack-class]
 #' @export
 #'
 #' @examples
-#' library(cilclizePlus)
+#' library(circlizePlus)
 #' load(system.file(package = "circlize", "extdata", "DMR.RData"))
 #' cc = ccPlot(initMode="initializeWithIdeogram", chromosome.index = paste0("chr", 1:22))
 #' t2 = ccGenomicDensity(DMR_hyper, col = c("#FF000080"), track.height = 0.1)
