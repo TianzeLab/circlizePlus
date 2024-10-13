@@ -7,7 +7,23 @@
 #' @export
 #'
 #' @examples
-#' NULL
+#' library(circlizePlus)
+#' n = 1000
+#' df = data.frame(sectors = sample(letters[1:8], n, replace = TRUE),
+#'                 x = rnorm(n), y = runif(n))
+#' par1=ccPar("track.height" = 0.1)
+#' cc=ccPlot(sectors = df$sectors, x = df$x) + par1
+#' track1 = ccTrack(sectors = df$sectors, y = df$y,
+#'                  panel.fun = function(x, y) {
+#'                    circos.text(CELL_META$xcenter,
+#'                                CELL_META$cell.ylim[2] + mm_y(5),
+#'                                CELL_META$sector.index)
+#'                    circos.axis(labels.cex = 0.6)
+#'                  })
+#' cell1 = ccCell(sector.index = 'a')
+#' track1 = track1 + cell1
+#' cc = cc + track1
+#' cc
 setClass("ccCell",
          slots = c(sector.index = "character", geoms = "list"))
 
@@ -16,7 +32,23 @@ setClass("ccCell",
 #' @export
 #'
 #' @examples
-#' NULL
+#' library(circlizePlus)
+#' n = 1000
+#' df = data.frame(sectors = sample(letters[1:8], n, replace = TRUE),
+#'                 x = rnorm(n), y = runif(n))
+#' par1=ccPar("track.height" = 0.1)
+#' cc=ccPlot(sectors = df$sectors, x = df$x) + par1
+#' track1 = ccTrack(sectors = df$sectors, y = df$y,
+#'                  panel.fun = function(x, y) {
+#'                    circos.text(CELL_META$xcenter,
+#'                                CELL_META$cell.ylim[2] + mm_y(5),
+#'                                CELL_META$sector.index)
+#'                    circos.axis(labels.cex = 0.6)
+#'                  })
+#' cell1 = ccCells(sector.index = 'a')
+#' track1 = track1 + cell1
+#' cc = cc + track1
+#' cc
 setClass("ccCells", contains = c("list"))
 
 #' S4 class ccCellGeom
@@ -27,7 +59,7 @@ setClass("ccCells", contains = c("list"))
 #' @export
 #'
 #' @examples
-#' NULL
+#' None
 setClass("ccCellGeom",
          slots = c(func = "character", params = "list"))
 
@@ -67,7 +99,23 @@ ccCells = function(sector.indexes = list()) {
 #' @export
 #'
 #' @examples
-#' NULL
+#' library(circlizePlus)
+#' n = 1000
+#' df = data.frame(sectors = sample(letters[1:8], n, replace = TRUE),
+#'                 x = rnorm(n), y = runif(n))
+#' par1=ccPar("track.height" = 0.1)
+#' cc=ccPlot(sectors = df$sectors, x = df$x) + par1
+#' track1 = ccTrack(sectors = df$sectors, y = df$y,
+#'                  panel.fun = function(x, y) {
+#'                    circos.text(CELL_META$xcenter,
+#'                                CELL_META$cell.ylim[2] + mm_y(5),
+#'                                CELL_META$sector.index)
+#'                    circos.axis(labels.cex = 0.6)
+#'                  })
+#' cell1 = ccCell(sector.index = 'a') + ccText(-1, 0.5, "text")
+#' track1 = track1 + cell1
+#' cc = cc + track1
+#' cc
 ccText = function(x,
                   y,
                   labels,
@@ -117,7 +165,15 @@ ccText = function(x,
 #' @export
 #'
 #' @examples
-#' NULL
+#' library(circlizePlus)
+#' cc=ccPlot(sectors=letters[1:8], xlim = c(0, 1))
+#' track1 = ccTrack(ylim = c(0, 1), panel.fun = function(x, y) {
+#'                                   circos.points(runif(10), runif(10))
+#'                                   })
+#' cells=ccCell(sector.index = 'a')+ccPoints(x=runif(10), y=runif(10),
+#'                                          sector.index = "c", pch = 16, col = "red")
+#' track1 = track1+cells
+#' cc+track1
 ccPoints = function(...) {
   new("ccCellGeom",func = 'circos.points',params = list(...))
 }
@@ -132,7 +188,15 @@ ccPoints = function(...) {
 #' @export
 #'
 #' @examples
-#' NULL
+#' library(circlizePlus)
+#' sectors = letters[1:9]
+#' par=ccPar(points.overflow.warning = FALSE)
+#' cc=ccPlot(sectors = sectors, xlim = c(0, 10))
+#' cc=cc+par
+#' track=ccTrack(sectors=sectors, ylim = c(0, 10), track.height = 0.5)
+#' cells=ccCell(sector.index = 'a')+ccLines(sort(x=runif(10)*10), y=runif(10)*8, sector.index = "a", type = "h", baseline = 5)
+#' track=track+cells
+#' cc+track
 ccLines = function(...) {
   new("ccCellGeom",func = 'circos.lines',params = list(...))
 }
@@ -147,7 +211,12 @@ ccLines = function(...) {
 #' @export
 #'
 #' @examples
-#' NULL
+#' library(circlizePlus)
+#' cc=ccPlot(sectors=letters[1:8], xlim = c(0, 1))
+#' track=ccTrack(ylim = c(0, 1), track.height = 0.3)
+#' cell=ccCell(sector.index = 'a')+ccSegments(x0=0.7,y0=0.1,x1=0.7,y1=0.9)
+#' track=track+cell
+#' cc+track
 ccSegments = function(...) {
   new("ccCellGeom",func = 'circos.segments',params = list(...))
 }
@@ -162,7 +231,12 @@ ccSegments = function(...) {
 #' @export
 #'
 #' @examples
-#' NULL
+#' library(circlizePlus)
+#' cc=ccPlot(sectors=letters[1:8], xlim = c(0, 1))
+#' track=ccTrack(ylim = c(0, 1), track.height = 0.3)
+#' cell=ccCell(sector.index = 'a')+ccRect(xleft=0.7,ybottom=0.1,xright=0.7,ytop=0.9)
+#' track=track+cell
+#' cc+track
 ccRect = function(...) {
   new("ccCellGeom",func = 'circos.rect',params = list(...))
 }
@@ -177,7 +251,12 @@ ccRect = function(...) {
 #' @export
 #'
 #' @examples
-#' NULL
+#' library(circlizePlus)
+#' cc=ccPlot(sectors=letters[1:8], xlim = c(0, 1))
+#' track=ccTrack(ylim = c(0, 10))
+#' cell=ccCell(sector.index = 'a')+ccPolygon(x=c(2,8),y=c(2,8))
+#' track=track+cell
+#' cc+track
 ccPolygon = function(...) {
   new("ccCellGeom",func = 'circos.polygon',params = list(...))
 }
@@ -192,7 +271,12 @@ ccPolygon = function(...) {
 #' @export
 #'
 #' @examples
-#' NULL
+#' library(circlizePlus)
+#' cc=ccPlot(sectors=letters[1:8], xlim = c(0, 1))
+#' track=ccTrack(ylim = c(0, 10))
+#' cell=ccCell(sector.index = 'a')+ccXaxis(sector.index = "a")
+#' track=track+cell
+#' cc+track
 ccXaxis = function(...) {
   new("ccCellGeom",func = 'circos.xaxis',params = list(...))
 }
@@ -207,7 +291,12 @@ ccXaxis = function(...) {
 #' @export
 #'
 #' @examples
-#' NULL
+#' library(circlizePlus)
+#' cc=ccPlot(sectors=letters[1:8], xlim = c(0, 1))
+#' track=ccTrack(ylim = c(0, 10))
+#' cell=ccCell(sector.index = 'a')+ccYaxis(side = "left",sector.index = 2)
+#' track=track+cell
+#' cc+track
 ccYaxis = function(...) {
   new("ccCellGeom",func = 'circos.yaxis',params = list(...))
 }
@@ -222,7 +311,12 @@ ccYaxis = function(...) {
 #' @export
 #'
 #' @examples
-#' NULL
+#' library(circlizePlus)
+#' cc=ccPlot(sectors=letters[1:4], xlim = c(0, 10))
+#' track=ccTrack(ylim = c(0, 1))
+#' cell=ccCell(sector.index = 'a')+ccBarplot(value=runif(10), 1:10 - 0.5, col = 1:10)
+#' track=track+cell
+#' cc+track
 ccBarplot = function(...) {
   new("ccCellGeom",func = 'circos.barplot',params = list(...))
 }
@@ -237,7 +331,12 @@ ccBarplot = function(...) {
 #' @export
 #'
 #' @examples
-#' NULL
+#' library(circlizePlus)
+#' cc=ccPlot(sectors=letters[1:4], xlim = c(0, 10))
+#' track=ccTrack(ylim = c(0, 1))
+#' cell=ccCell(sector.index = 'a')+ccBoxplot(value=runif(10), 1:10 - 0.5, col = 1:10)
+#' track=track+cell
+#' cc+track
 ccBoxplot = function(...) {
   new("ccCellGeom",func = 'circos.boxplot',params = list(...))
 }
@@ -252,7 +351,12 @@ ccBoxplot = function(...) {
 #' @export
 #'
 #' @examples
-#' NULL
+#' library(circlizePlus)
+#' cc=ccPlot(sectors=letters[1:4], xlim = c(0, 10))
+#' track=ccTrack(ylim = c(0, 1))
+#' cell=ccCell(sector.index = 'a')+ccViolin(value=runif(10), 0.5)
+#' track=track+cell
+#' cc+track
 ccViolin = function(...) {
   new("ccCellGeom",func = 'circos.violin',params = list(...))
 }
@@ -267,7 +371,12 @@ ccViolin = function(...) {
 #' @export
 #'
 #' @examples
-#' NULL
+#' library(circlizePlus)
+#' cc=ccPlot(sectors=letters[1:4], xlim = c(0, 10))
+#' track=ccTrack(ylim = c(0, 1))
+#' cell=ccCell(sector.index = 'a')+ccArrow(x1=1,x2=9)
+#' track=track+cell
+#' cc+track
 ccArrow = function(...) {
   new("ccCellGeom",func = 'circos.arrow',params = list(...))
 }
@@ -282,7 +391,15 @@ ccArrow = function(...) {
 #' @export
 #'
 #' @examples
-#' NULL
+#' require(png)
+#' image = system.file("extdata", "Rlogo.png", package = "circlize")
+#' image = as.raster(readPNG(image))
+#' library(circlizePlus)
+#' cc=ccPlot(sectors=letters[1:4], xlim = c(0, 10))
+#' track=ccTrack(ylim = c(0, 1))
+#' cell=ccCell(sector.index = 'a')+ccRaster(image=image, x=5,y=0.5,width = "2cm",facing = "inside", niceFacing = TRUE)
+#' track=track+cell
+#' cc+track
 ccRaster = function(...) {
   new("ccCellGeom",func = 'circos.raster',params = list(...))
 }
@@ -297,7 +414,16 @@ ccRaster = function(...) {
 #' @export
 #'
 #' @examples
-#' NULL
+#' load(system.file(package = "circlize", "extdata", "bird.orders.RData"))
+#' dend = as.dendrogram(hc)
+#' dend = color_branches(dend, k = 6, col = 1:6)
+#' require(dendextend)
+#' library(circlizePlus)
+#' cc=ccPlot(sectors=letters[1:4], xlim = c(0, 10))
+#' track=ccTrack(ylim = c(0, 1))
+#' cell=ccCell(sector.index = 'a')+ccDendrogram(dend=dend, max_height = attr(dend, "height"))
+#' track=track+cell
+#' cc+track
 ccDendrogram = function(...){
   new("ccCellGeom",func = 'circos.dendrogram',params = list(...))
 }
@@ -312,7 +438,16 @@ ccDendrogram = function(...){
 #' @export
 #'
 #' @examples
-#' NULL
+#' load(system.file(package = "circlize", "extdata", "bird.orders.RData"))
+#' dend = as.dendrogram(hc)
+#' dend = color_branches(dend, k = 6, col = 1:6)
+#' require(dendextend)
+#' library(circlizePlus)
+#' cc=ccPlot(sectors=letters[1:4], xlim = c(0, 10))
+#' track=ccTrack(ylim = c(0, 1))
+#' cell=ccCell(sector.index = 'a')+ccDendrogram(dend=dend, max_height = attr(dend, "height"))
+#' track=track+cell
+#' cc+track
 ccGenomicPoints = function(...){
   new("ccGenomicCellGeom",func = 'circos.genomicPoints',params = list(...))
 }
