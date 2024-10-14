@@ -492,7 +492,12 @@ ccGenomicRect = function(...){
 #' @export
 #'
 #' @examples
-#' NULL
+#' library(circlizePlus)
+#' cc = ccPlot(initMode='initializeWithIdeogram',chromosome.index = paste0("chr", 1:4), plotType = NULL)
+#' track=ccTrack(ylim=c(0,1))
+#' cell=ccCell(sector.index = 'chr1')+ccGenomicAxis()
+#' e=track+cell
+#' cc+e
 ccGenomicText = function(...){
   new("ccGenomicCellGeom",func = 'circos.genomicText',params = list(...))
 }
@@ -507,7 +512,12 @@ ccGenomicText = function(...){
 #' @export
 #'
 #' @examples
-#' NULL
+#' library(circlizePlus)
+#' cc = ccPlot(initMode='initializeWithIdeogram',chromosome.index = paste0("chr", 1:4), plotType = NULL)
+#' track=ccTrack(ylim=c(0,1))
+#' cell=ccCell(sector.index = 'chr1')+ccGenomicAxis()
+#' e=track+cell
+#' cc+e
 ccGenomicAxis = function(...){
   new("ccGenomicCellGeom",func = 'circos.genomicAxis',params = list(...))
 }
