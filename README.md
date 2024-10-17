@@ -22,5 +22,5 @@ ccTrak(contain n ccTrakGeoms) + 𝑐𝑐𝑇𝑟𝑎𝑐𝑘𝐺𝑒𝑜𝑚 = �
 ccTrack(contain n ccCells) + 𝑐𝑐𝐶𝑒𝑙𝑙 = 𝑐𝑐𝑇𝑟𝑎𝑐𝑘(𝑐𝑜𝑛𝑡𝑎𝑖𝑛 𝑛 + 1 𝑐𝑐𝐶𝑒𝑙𝑙𝑠), 𝑛 ≥ 0  
 ccCell(contain n ccCellGeoms) + 𝑐𝑐𝐶𝑒𝑙𝑙𝐺𝑒𝑜𝑚 = 𝑐𝑐𝐶𝑒𝑙𝑙(𝑐𝑜𝑛𝑡𝑎𝑖𝑛 𝑛 + 1 𝑐𝑐𝐶𝑒𝑙𝑙𝐺𝑒𝑜𝑚𝑠), 𝑛 ≥ 0  
 ## S4 class ccCell and ccCells
-- ccCell: Generate a cell container that belongs to a particular sector
+- ccCell: Generate a cell container that belongs to a particular sector. Any ccCellGeom and ccCells are added together as if they were added to each ccCell contained in the ccCells.
 - ccCells: A list of multiple ccCells
