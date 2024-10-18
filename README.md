@@ -36,7 +36,7 @@ A combination of each column in the table above:
 ### Get ccTrack from ccGenomicTrack()
 `region` and `value` in ccGenomicCellGeom constructor can be `NULL` or function like `function(region,value){...}`. The above data can be obtained from the `data` parameter of `ccGenomicTrack`.
 
-In the following example code, the `region` and `value` in the `ccGenomicLines` constructor are `NUL`L. The `region` and `value` in the `ccGenomicPoints` constructor are `function`.
+In the following example code, the `region` and `value` in the `ccGenomicLines` constructor are `NULL`. Their real data comes from the `data` value of the corresponding sector in `ccGenomicTrack`. The `region` and `value` in the `ccGenomicPoints` constructor are `function`. Their real data is calculated based on the definition of the function.
 ```R
 data = generateRandomBed(nr =30, nc = 2)
 all_chr = c("chr1","chr2","chr3","chr4","chr5","chr6","chr7","chr8","chr9","chr10","chr11","chr12","chr13","chr14","chr15","chr16","chr17","chr18","chr19","chr20","chr21","chr22","chrX","chrY")
