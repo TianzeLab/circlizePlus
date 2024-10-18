@@ -23,17 +23,17 @@ ccTrack(contain n ccCells) + 𝑐𝑐𝐶𝑒𝑙𝑙 = 𝑐𝑐𝑇𝑟𝑎𝑐
 ccCell(contain n ccCellGeoms) + 𝑐𝑐𝐶𝑒𝑙𝑙𝐺𝑒𝑜𝑚 = 𝑐𝑐𝐶𝑒𝑙𝑙(𝑐𝑜𝑛𝑡𝑎𝑖𝑛 𝑛 + 1 𝑐𝑐𝐶𝑒𝑙𝑙𝐺𝑒𝑜𝑚𝑠), 𝑛 ≥ 0  
 ## S4 class ccCell and ccCells
 - ccCell: Generate a cell container that belongs to a particular sector.
-- ccCells: A list of multiple ccCells. Any ccCellGeom and ccCells are added together as if they were added to each ccCell contained in the ccCells.
+- ccCells: A list of multiple `ccCell`. Any `ccCellGeom` and `ccCells` are added together as if they were added to each `ccCell` contained in the `ccCells`.
 ## Data auto-population from ccTrack to ccGenomicCellGeom
 |                                             |                   |                  |                  |                  |           |            |             |           |                              |                |
 |---------------------------------------------|-------------------|------------------|------------------|------------------|-----------|------------|-------------|-----------|------------------------------|----------------|
 | ccTrack Constructor                         | ccGenomicTrack()  | ccGenomicTrack() | ccGenomicTrack() | ccGenomicTrack() | ccTrack() | ccTrack()  | ccTrack()   | ccTrack() | ccTrack()                    | ccTrack()      |
 | Parameters in ccTrack  Constructor          | data              | data             | data             | data             | x, y      | x, y       | x, y        | x, y      | x, y                         | x, y           |
-| ccGenomicCellGeom Constructor               | ccGenomicPoints() | ccGenomicLines() | ccGenomicRect()  | ccGenomicText()  | ccLines() | ccPoints() | ccPolygon() | ccText()  | ccRect()                     | ccSegments()   |
-| Parameters in ccGenomicCellGeom Constructor | region, value     | region, value    | region, value    | region, value    | x, y      | x, y       | x, y        | x, y      | xleft, ybottom, xright, ytop | x0, y0, x1, y1 |
+| ccCellGeom Constructor                      | ccGenomicPoints() | ccGenomicLines() | ccGenomicRect()  | ccGenomicText()  | ccLines() | ccPoints() | ccPolygon() | ccText()  | ccRect()                     | ccSegments()   |
+| Parameters in ccCellGeom Constructor        | region, value     | region, value    | region, value    | region, value    | x, y      | x, y       | x, y        | x, y      | xleft, ybottom, xright, ytop | x0, y0, x1, y1 |
 
 A combination of each column in the table above:
-### Get ccTrack from ccGenomicTrack()
+### Get track from ccGenomicTrack()
 `region` and `value` in ccGenomicCellGeom constructor can be `NULL` or function like `function(region,value){...}`. The above data can be obtained from the `data` parameter of `ccGenomicTrack`.
 
 In the following example code, the `region` and `value` in the `ccGenomicLines` constructor are `NULL`. Their real data comes from the `data` value of the corresponding sector in `ccGenomicTrack`. The `region` and `value` in the `ccGenomicPoints` constructor are `function`. Their real data is calculated based on the definition of the function.
@@ -48,4 +48,23 @@ t1 = ccGenomicTrack(data=data, numeric.column = 4,
 cells1 = ccCells(sector.indexes = all_chr) + ccGenomicLines(numeric.column=2) + ccGenomicPoints(region=\(region,value){region}, value=\(region,value){value}, numeric.column=2)
 t1 = t1 + cells1
 show(cc+t1)
+```
+### Get track from ccTrack()
+`x`, `x0`, `x1`, `xleft`, `xright`, `y`, `y0`, `y1`, `ytop`, `ybottom` in ccCellGeom constructor can be `NULL` or function like `function(x,y){...}`. The above data can be obtained from the `x` and `y` parameter of `ccTrack`.
+
+In the following example code, the `x` and `y` in the first `ccPoints` constructor are `NULL`. Their real data comes from the `x` and `y` of the corresponding sector in `ccTrack`. The `y` in the second `ccPoints` constructor are `function`. Their real data is calculated based on the definition of the function.
+```R
+sectors = c('a','a','a','a','b','b','b','b','c','c','c','c','d','d','d','d')
+x1 = c(1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4)
+y1 = c(1,2,3,4,4,3,2,1,1,1,1,1,1,2,1,2)
+cc = ccPlot(initMode = "initialize", sectors = sectors, x = x1)
+cells = ccCells(sector.indexes = letters[1:4])
+cc_point = ccPoints()
+cells = cells + cc_point + ccLines()
+track1 = ccTrack(sectors = sectors, x=x1, y = y1,panel.fun = function(x,y){
+  circos.points(y,x)
+})
+cell_single = ccCell(sector.index = letters[3]) + ccPoints(y=\(x,y){x-y})
+track1 = track1 + cells + cell_single
+show(cc  + track1)
 ```
