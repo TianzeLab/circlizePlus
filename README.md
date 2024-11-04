@@ -24,7 +24,7 @@ ccCell(contain n ccCellGeoms) + 𝑐𝑐𝐶𝑒𝑙𝑙𝐺𝑒𝑜𝑚 = 𝑐�
 ## S4 class ccCell and ccCells
 - ccCell: Generate a cell container that belongs to a particular sector.
 - ccCells: A list of multiple `ccCell`. Any `ccCellGeom` and `ccCells` are added together as if they were added to each `ccCell` contained in the `ccCells`.
-## Data auto-population from ccTrack to ccGenomicCellGeom
+## Data mapping from ccTrack to ccGenomicCellGeom
 |                                             |                   |                  |                  |                  |           |            |             |           |                              |                |
 |---------------------------------------------|-------------------|------------------|------------------|------------------|-----------|------------|-------------|-----------|------------------------------|----------------|
 | ccTrack Constructor                         | ccGenomicTrack()  | ccGenomicTrack() | ccGenomicTrack() | ccGenomicTrack() | ccTrack() | ccTrack()  | ccTrack()   | ccTrack() | ccTrack()                    | ccTrack()      |
