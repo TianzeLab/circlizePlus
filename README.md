@@ -1,3 +1,8 @@
+## Highlights
+- Programming in circlizePlus is summarized into 5 addition rules, which are simple and clear.
+- Like ggplot2, it makes programming circular visualizations in the form of addition of plotting functions.
+- In ggplot2, the data parameter of the function that draws geometric figures can be missing, and it will use the data parameter value in the ggplot() function. circlizePlus implements similar functionality. In circlizePlus, the function that draws geometric figures can get the default coordinate data (such as x, y) from the track it belongs to.
+- Like ggplot2, it supports data mapping. The coordinate parameters are mapped to the default values ​​by passing in an anonymous function of the form "function(x,y){...}".
 ## Installation
 It is recommended that you have the latest version of the R environment installed. You need to install devtools and load it into the R environment, and then you can install circlizePlus from Github.
 
