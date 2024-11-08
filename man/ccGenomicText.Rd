@@ -58,5 +58,10 @@ Object \linkS4class{ccGenomicCellGeom}
 Object \linkS4class{ccGenomicCellGeom} will call the function \link{circos.genomicText} while drawing.
 }
 \examples{
-NULL
+library(circlizePlus)
+cc = ccPlot(initMode='initializeWithIdeogram',chromosome.index = paste0("chr", 1:4), plotType = NULL)
+track=ccTrack(ylim=c(0,1))
+cell=ccCell(sector.index = 'chr1')+ccGenomicAxis()
+e=track+cell
+cc+e
 }

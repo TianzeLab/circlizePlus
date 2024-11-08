@@ -28,5 +28,10 @@ Object \linkS4class{ccCellGeom}
 Object \linkS4class{ccCellGeom} will call the function \link{circos.barplot} while drawing.
 }
 \examples{
-NULL
+library(circlizePlus)
+cc=ccPlot(sectors=letters[1:4], xlim = c(0, 10))
+track=ccTrack(ylim = c(0, 1))
+cell=ccCell(sector.index = 'a')+ccBarplot(value=runif(10), 1:10 - 0.5, col = 1:10)
+track=track+cell
+cc+track
 }

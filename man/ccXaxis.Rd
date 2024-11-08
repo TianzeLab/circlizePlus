@@ -38,5 +38,10 @@ Object \linkS4class{ccCellGeom}
 Object \linkS4class{ccCellGeom} will call the function \link{circos.axis} while drawing.
 }
 \examples{
-NULL
+library(circlizePlus)
+cc=ccPlot(sectors=letters[1:8], xlim = c(0, 1))
+track=ccTrack(ylim = c(0, 10))
+cell=ccCell(sector.index = 'a')+ccXaxis(sector.index = "a")
+track=track+cell
+cc+track
 }

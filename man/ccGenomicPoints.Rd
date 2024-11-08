@@ -42,5 +42,14 @@ Object \linkS4class{ccGenomicCellGeom}
 Object \linkS4class{ccGenomicCellGeom} will call the function \link{circos.genomicPoints} while drawing.
 }
 \examples{
-NULL
+load(system.file(package = "circlize", "extdata", "bird.orders.RData"))
+dend = as.dendrogram(hc)
+dend = color_branches(dend, k = 6, col = 1:6)
+require(dendextend)
+library(circlizePlus)
+cc=ccPlot(sectors=letters[1:4], xlim = c(0, 10))
+track=ccTrack(ylim = c(0, 1))
+cell=ccCell(sector.index = 'a')+ccDendrogram(dend=dend, max_height = attr(dend, "height"))
+track=track+cell
+cc+track
 }

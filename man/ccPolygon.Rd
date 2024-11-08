@@ -23,5 +23,10 @@ Object \linkS4class{ccCellGeom}
 Object \linkS4class{ccCellGeom} will call the function \link{circos.polygon} while drawing.
 }
 \examples{
-NULL
+library(circlizePlus)
+cc=ccPlot(sectors=letters[1:8], xlim = c(0, 1))
+track=ccTrack(ylim = c(0, 10))
+cell=ccCell(sector.index = 'a')+ccPolygon(x=c(2,8),y=c(2,8))
+track=track+cell
+cc+track
 }

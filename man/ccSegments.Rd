@@ -29,5 +29,10 @@ Object \linkS4class{ccCellGeom}
 Object \linkS4class{ccCellGeom} will call the function \link{circos.segments} while drawing.
 }
 \examples{
-NULL
+library(circlizePlus)
+cc=ccPlot(sectors=letters[1:8], xlim = c(0, 1))
+track=ccTrack(ylim = c(0, 1), track.height = 0.3)
+cell=ccCell(sector.index = 'a')+ccSegments(x0=0.7,y0=0.1,x1=0.7,y1=0.9)
+track=track+cell
+cc+track
 }

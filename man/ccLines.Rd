@@ -35,5 +35,13 @@ Object \linkS4class{ccCellGeom}
 Object \linkS4class{ccCellGeom} will call the function \link{circos.lines} while drawing.
 }
 \examples{
-NULL
+library(circlizePlus)
+sectors = letters[1:9]
+par=ccPar(points.overflow.warning = FALSE)
+cc=ccPlot(sectors = sectors, xlim = c(0, 10))
+cc=cc+par
+track=ccTrack(sectors=sectors, ylim = c(0, 10), track.height = 0.5)
+cells=ccCell(sector.index = 'a')+ccLines(sort(x=runif(10)*10), y=runif(10)*8, sector.index = "a", type = "h", baseline = 5)
+track=track+cells
+cc+track
 }

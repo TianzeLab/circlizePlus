@@ -32,5 +32,10 @@ Object \linkS4class{ccCellGeom}
 Object \linkS4class{ccCellGeom} will call the function \link{circos.arrow} while drawing.
 }
 \examples{
-NULL
+library(circlizePlus)
+cc=ccPlot(sectors=letters[1:4], xlim = c(0, 10))
+track=ccTrack(ylim = c(0, 1))
+cell=ccCell(sector.index = 'a')+ccArrow(x1=1,x2=9)
+track=track+cell
+cc+track
 }

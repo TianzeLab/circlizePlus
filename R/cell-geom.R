@@ -59,7 +59,7 @@ setClass("ccCells", contains = c("list"))
 #' @export
 #'
 #' @examples
-#' None
+#' NULL
 setClass("ccCellGeom",
          slots = c(func = "character", params = "list"))
 
