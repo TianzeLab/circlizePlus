@@ -12,6 +12,7 @@ circlizePlus is a wrapper for circlize. All components are based on classes and 
 Useful links:
 \itemize{
   \item \url{https://github.com/TianzeLab/circlizePlus}
+  \item \url{https://tianzelab.github.io/circlizePlus/}
   \item Report bugs at \url{https://github.com/TianzeLab/circlizePlus/issues}
 }
 
