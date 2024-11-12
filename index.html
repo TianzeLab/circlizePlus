@@ -52,20 +52,124 @@
 <li>Programming in circlizePlus is summarized into 5 addition rules, which are simple and clear.</li>
 <li>Like ggplot2, it makes programming circular visualizations in the form of addition of plotting functions.</li>
 <li>In ggplot2, the data parameter of the function that draws geometric figures can be missing, and it will use the data parameter value in the ggplot() function. circlizePlus implements similar functionality. In circlizePlus, the function that draws geometric figures can get the default coordinate data (such as x, y) from the track it belongs to.</li>
-<li>Like ggplot2, it supports data mapping. The coordinate parameters are mapped to the default values ​​by passing in an anonymous function of the form “function(x,y){…}”. ## Installation It is recommended that you have the latest version of the R environment installed. You need to install devtools and load it into the R environment, and then you can install circlizePlus from Github.</li>
+<li>Like ggplot2, it supports data mapping. The coordinate parameters are mapped to the default values ​​by passing in an anonymous function of the form “function(x,y){…}”.</li>
 </ul>
+</div>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
+<p>It is recommended that you have the latest version of the R environment installed. You need to install devtools and load it into the R environment, and then you can install circlizePlus from Github.</p>
 <p><code>install.packages("devtools")</code></p>
 <p><code><a href="https://devtools.r-lib.org/" class="external-link">library(devtools)</a></code></p>
 <p><code>install_github("TianzeLab/circlizePlus")</code></p>
 <p>Every time you reboot the R environment, you need to load circlizePlus again.</p>
-<p><code><a href="https://github.com/TianzeLab/circlizePlus" class="external-link">library(circlizePlus)</a></code> ## Acknowledgements We are grateful to Dr. Zuguang Gu from DFKZ for his invaluable guidance and support throughout the project. ## Sample code <a href="https://github.com/jokergoo" class="external-link">Dr. Gu</a> has written a book(<a href="https://jokergoo.github.io/circlize_book/book/" class="external-link">“Circular Visualization in R”</a>) explaining how circlize works. To illustrate the similarities and differences between circlize and cirzelizePlus, we’ve rewritten the code in the book as sample code. Visit <a href="https://tianzelab.github.io/circlizePlusBook/">circlizePlusBook</a> for details. ## Addition rules ccPlot(contain n ccPars) + 𝑐𝑐𝑃𝑎𝑟 = 𝑐𝑐𝑃𝑙𝑜𝑡(contain 𝑛 + 1 𝑐𝑐𝑃𝑎𝑟𝑠), 𝑛 ≥ 0<br>
+<p><code><a href="https://github.com/TianzeLab/circlizePlus" class="external-link">library(circlizePlus)</a></code></p>
+</div>
+<div class="section level2">
+<h2 id="acknowledgements">Acknowledgements<a class="anchor" aria-label="anchor" href="#acknowledgements"></a>
+</h2>
+<p>We are grateful to Dr. Zuguang Gu from DFKZ for his invaluable guidance and support throughout the project.</p>
+</div>
+<div class="section level2">
+<h2 id="sample-code">Sample code<a class="anchor" aria-label="anchor" href="#sample-code"></a>
+</h2>
+<p><a href="https://github.com/jokergoo" class="external-link">Dr. Gu</a> has written a book(<a href="https://jokergoo.github.io/circlize_book/book/" class="external-link">“Circular Visualization in R”</a>) explaining how circlize works. To illustrate the similarities and differences between circlize and cirzelizePlus, we’ve rewritten the code in the book as sample code. Visit <a href="https://tianzelab.github.io/circlizePlusBook/">circlizePlusBook</a> for details.</p>
+</div>
+<div class="section level2">
+<h2 id="addition-rules">Addition rules<a class="anchor" aria-label="anchor" href="#addition-rules"></a>
+</h2>
+<p>ccPlot(contain n ccPars) + 𝑐𝑐𝑃𝑎𝑟 = 𝑐𝑐𝑃𝑙𝑜𝑡(contain 𝑛 + 1 𝑐𝑐𝑃𝑎𝑟𝑠), 𝑛 ≥ 0<br>
 ccPlot(contain n ccTracks) + 𝑐𝑐𝑇𝑟𝑎𝑐𝑘 = 𝑐𝑐𝑃𝑙𝑜𝑡(contain 𝑛 + 1 𝑐𝑐𝑇𝑟𝑎𝑐𝑘𝑠), 𝑛 ≥ 0<br>
 ccPlot(contain n ccLinks) + 𝑐𝑐𝐿𝑖𝑛𝑘 = 𝑐𝑐𝑃𝑙𝑜𝑡(𝑐𝑜𝑛𝑡𝑎𝑖𝑛 𝑛 + 1 𝑐𝑐𝐿𝑖𝑛𝑘𝑠), 𝑛 ≥ 0<br>
 ccTrak(contain n ccTrakGeoms) + 𝑐𝑐𝑇𝑟𝑎𝑐𝑘𝐺𝑒𝑜𝑚 = 𝑐𝑐𝑇𝑟𝑎𝑐𝑘(𝑐𝑜𝑛𝑡𝑎𝑖𝑛 𝑛 + 1 𝑐𝑐𝑇𝑟𝑎𝑐𝑘𝐺𝑒𝑜𝑚𝑠), 𝑛 ≥ 0<br>
 ccTrack(contain n ccCells) + 𝑐𝑐𝐶𝑒𝑙𝑙 = 𝑐𝑐𝑇𝑟𝑎𝑐𝑘(𝑐𝑜𝑛𝑡𝑎𝑖𝑛 𝑛 + 1 𝑐𝑐𝐶𝑒𝑙𝑙𝑠), 𝑛 ≥ 0<br>
-ccCell(contain n ccCellGeoms) + 𝑐𝑐𝐶𝑒𝑙𝑙𝐺𝑒𝑜𝑚 = 𝑐𝑐𝐶𝑒𝑙𝑙(𝑐𝑜𝑛𝑡𝑎𝑖𝑛 𝑛 + 1 𝑐𝑐𝐶𝑒𝑙𝑙𝐺𝑒𝑜𝑚𝑠), 𝑛 ≥ 0<br>
-## S4 class ccCell and ccCells - ccCell: Generate a cell container that belongs to a particular sector. - ccCells: A list of multiple <code>ccCell</code>. Any <code>ccCellGeom</code> and <code>ccCells</code> are added together as if they were added to each <code>ccCell</code> contained in the <code>ccCells</code>. ## Data mapping from ccTrack to ccGenomicCellGeom | | | | | | | | | | | | |———————————————|——————-|——————|——————|——————|———–|————|————-|———–|——————————|—————-| | ccTrack Constructor | ccGenomicTrack() | ccGenomicTrack() | ccGenomicTrack() | ccGenomicTrack() | ccTrack() | ccTrack() | ccTrack() | ccTrack() | ccTrack() | ccTrack() | | Parameters in ccTrack Constructor | data | data | data | data | x, y | x, y | x, y | x, y | x, y | x, y | | ccCellGeom Constructor | ccGenomicPoints() | ccGenomicLines() | ccGenomicRect() | ccGenomicText() | ccLines() | ccPoints() | ccPolygon() | ccText() | ccRect() | ccSegments() | | Parameters in ccCellGeom Constructor | region, value | region, value | region, value | region, value | x, y | x, y | x, y | x, y | xleft, ybottom, xright, ytop | x0, y0, x1, y1 |</p>
-<p>A combination of each column in the table above: ### Get track from ccGenomicTrack() <code>region</code> and <code>value</code> in ccGenomicCellGeom constructor can be <code>NULL</code> or function like <code>function(region,value){...}</code>. The above data can be obtained from the <code>data</code> parameter of <code>ccGenomicTrack</code>.</p>
+ccCell(contain n ccCellGeoms) + 𝑐𝑐𝐶𝑒𝑙𝑙𝐺𝑒𝑜𝑚 = 𝑐𝑐𝐶𝑒𝑙𝑙(𝑐𝑜𝑛𝑡𝑎𝑖𝑛 𝑛 + 1 𝑐𝑐𝐶𝑒𝑙𝑙𝐺𝑒𝑜𝑚𝑠), 𝑛 ≥ 0</p>
+</div>
+<div class="section level2">
+<h2 id="s4-class-cccell-and-cccells">S4 class ccCell and ccCells<a class="anchor" aria-label="anchor" href="#s4-class-cccell-and-cccells"></a>
+</h2>
+<ul>
+<li>ccCell: Generate a cell container that belongs to a particular sector.</li>
+<li>ccCells: A list of multiple <code>ccCell</code>. Any <code>ccCellGeom</code> and <code>ccCells</code> are added together as if they were added to each <code>ccCell</code> contained in the <code>ccCells</code>.</li>
+</ul>
+</div>
+<div class="section level2">
+<h2 id="data-mapping-from-cctrack-to-ccgenomiccellgeom">Data mapping from ccTrack to ccGenomicCellGeom<a class="anchor" aria-label="anchor" href="#data-mapping-from-cctrack-to-ccgenomiccellgeom"></a>
+</h2>
+<table class="table">
+<colgroup>
+<col width="21%">
+<col width="9%">
+<col width="8%">
+<col width="8%">
+<col width="8%">
+<col width="5%">
+<col width="5%">
+<col width="6%">
+<col width="5%">
+<col width="14%">
+<col width="7%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>ccTrack Constructor</td>
+<td>ccGenomicTrack()</td>
+<td>ccGenomicTrack()</td>
+<td>ccGenomicTrack()</td>
+<td>ccGenomicTrack()</td>
+<td>ccTrack()</td>
+<td>ccTrack()</td>
+<td>ccTrack()</td>
+<td>ccTrack()</td>
+<td>ccTrack()</td>
+<td>ccTrack()</td>
+</tr>
+<tr class="even">
+<td>Parameters in ccTrack Constructor</td>
+<td>data</td>
+<td>data</td>
+<td>data</td>
+<td>data</td>
+<td>x, y</td>
+<td>x, y</td>
+<td>x, y</td>
+<td>x, y</td>
+<td>x, y</td>
+<td>x, y</td>
+</tr>
+<tr class="odd">
+<td>ccCellGeom Constructor</td>
+<td>ccGenomicPoints()</td>
+<td>ccGenomicLines()</td>
+<td>ccGenomicRect()</td>
+<td>ccGenomicText()</td>
+<td>ccLines()</td>
+<td>ccPoints()</td>
+<td>ccPolygon()</td>
+<td>ccText()</td>
+<td>ccRect()</td>
+<td>ccSegments()</td>
+</tr>
+<tr class="even">
+<td>Parameters in ccCellGeom Constructor</td>
+<td>region, value</td>
+<td>region, value</td>
+<td>region, value</td>
+<td>region, value</td>
+<td>x, y</td>
+<td>x, y</td>
+<td>x, y</td>
+<td>x, y</td>
+<td>xleft, ybottom, xright, ytop</td>
+<td>x0, y0, x1, y1</td>
+</tr>
+</tbody>
+</table>
+<p>A combination of each column in the table above:</p>
+<div class="section level3">
+<h3 id="get-track-from-ccgenomictrack">Get track from ccGenomicTrack()<a class="anchor" aria-label="anchor" href="#get-track-from-ccgenomictrack"></a>
+</h3>
+<p><code>region</code> and <code>value</code> in ccGenomicCellGeom constructor can be <code>NULL</code> or function like <code>function(region,value){...}</code>. The above data can be obtained from the <code>data</code> parameter of <code>ccGenomicTrack</code>.</p>
 <p>In the following example code, the <code>region</code> and <code>value</code> in the <code>ccGenomicLines</code> constructor are <code>NULL</code>. Their real data comes from the <code>data</code> value of the corresponding sector in <code>ccGenomicTrack</code>. The <code>region</code> and <code>value</code> in the <code>ccGenomicPoints</code> constructor are <code>function</code>. Their real data is calculated based on the definition of the function.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">data</span> <span class="op">=</span> <span class="fu">generateRandomBed</span><span class="op">(</span>nr <span class="op">=</span><span class="fl">30</span>, nc <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
@@ -78,6 +182,7 @@ ccCell(contain n ccCellGeoms) + 𝑐𝑐𝐶𝑒𝑙𝑙𝐺𝑒𝑜𝑚 = 𝑐�
 <span><span class="va">cells1</span> <span class="op">=</span> <span class="fu">ccCells</span><span class="op">(</span>sector.indexes <span class="op">=</span> <span class="va">all_chr</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="reference/ccGenomicLines.html">ccGenomicLines</a></span><span class="op">(</span>numeric.column<span class="op">=</span><span class="fl">2</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="reference/ccGenomicPoints.html">ccGenomicPoints</a></span><span class="op">(</span>region<span class="op">=</span>\<span class="op">(</span><span class="va">region</span>,<span class="va">value</span><span class="op">)</span><span class="op">{</span><span class="va">region</span><span class="op">}</span>, value<span class="op">=</span>\<span class="op">(</span><span class="va">region</span>,<span class="va">value</span><span class="op">)</span><span class="op">{</span><span class="va">value</span><span class="op">}</span>, numeric.column<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span>
 <span><span class="va">t1</span> <span class="op">=</span> <span class="va">t1</span> <span class="op">+</span> <span class="va">cells1</span></span>
 <span><span class="fu">show</span><span class="op">(</span><span class="va">cc</span><span class="op">+</span><span class="va">t1</span><span class="op">)</span></span></code></pre></div>
+</div>
 <div class="section level3">
 <h3 id="get-track-from-cctrack">Get track from ccTrack()<a class="anchor" aria-label="anchor" href="#get-track-from-cctrack"></a>
 </h3>
@@ -99,6 +204,7 @@ ccCell(contain n ccCellGeoms) + 𝑐𝑐𝐶𝑒𝑙𝑙𝐺𝑒𝑜𝑚 = 𝑐�
 <span><span class="fu">show</span><span class="op">(</span><span class="va">cc</span>  <span class="op">+</span> <span class="va">track1</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
+
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
