@@ -25,14 +25,20 @@ Object \linkS4class{ccCellGeom}
 Object \linkS4class{ccCellGeom} will call the function \link{circos.dendrogram} while drawing.
 }
 \examples{
-load(system.file(package = "circlize", "extdata", "bird.orders.RData"))
-dend = as.dendrogram(hc)
-dend = color_branches(dend, k = 6, col = 1:6)
-require(dendextend)
+library(ape)
+suppressPackageStartupMessages(library(dendextend))
 library(circlizePlus)
-cc=ccPlot(sectors=letters[1:4], xlim = c(0, 10))
-track=ccTrack(ylim = c(0, 1))
-cell=ccCell(sector.index = 'a')+ccDendrogram(dend=dend, max_height = attr(dend, "height"))
-track=track+cell
-cc+track
+data(bird.orders)
+hc = as.hclust(bird.orders)
+labels = hc$labels
+ct = cutree(hc, 6)
+n = length(labels)
+dend = as.dendrogram(hc)
+par1 = ccPar(cell.padding = c(0, 0, 0, 0))
+cc = ccPlot(sectors = "a", xlim = c(0, n)) # only one sector
+dend = color_branches(dend, k = 6, col = 1:6)
+dend_height = attr(dend, "height")
+t1 = ccTrack(ylim = c(0, dend_height), bg.border = NA,track.height = 0.4)
+cell1 = ccCell(sector.index = "a") + ccDendrogram(dend = dend)
+cc + par1 + (t1 + cell1)
 }
