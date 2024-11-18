@@ -29,7 +29,7 @@ ccBoxplot(...)
 Object \linkS4class{ccCellGeom}
 }
 \description{
-Object \linkS4class{ccCellGeom} will call the function \link{circos.boxplot} while drawing.
+Object \linkS4class{ccCellGeom} will call the function \link[circlize:circos.boxplot]{circlize::circos.boxplot} while drawing.
 }
 \examples{
 library(circlizePlus)

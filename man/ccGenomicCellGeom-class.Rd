@@ -5,8 +5,16 @@
 \alias{ccGenomicCellGeom-class}
 \title{S4 class ccGenomicCellGeom}
 \description{
-S4 class ccGenomicCellGeom
+It is a subclass of ccCellGeom. It only works if the plotted data is genomic data. Objectified representation of the R package circlize's plotting functions and corresponding parameters at the cell level.
 }
+\section{Slots}{
+
+\describe{
+\item{\code{func}}{character. The name of the plot function in the R package circlize.}
+
+\item{\code{params}}{list. When the function corresponding to the parameter param is called, it represents the argument of this function.}
+}}
+
 \examples{
 NULL
 }

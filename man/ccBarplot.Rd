@@ -25,7 +25,7 @@ ccBarplot(...)
 Object \linkS4class{ccCellGeom}
 }
 \description{
-Object \linkS4class{ccCellGeom} will call the function \link{circos.barplot} while drawing.
+Object \linkS4class{ccCellGeom} will call the function \link[circlize:circos.barplot]{circlize::circos.barplot} while drawing.
 }
 \examples{
 library(circlizePlus)

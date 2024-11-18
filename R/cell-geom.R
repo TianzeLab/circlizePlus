@@ -1,60 +1,34 @@
 
 #' S4 class ccCell
 #'
-#' @slot sector.index character.
-#' @slot geoms list.
+#' A cell container that belongs to a particular sector.
+#'
+#' @slot sector.index character. It is the index that corresponds to the sector.
+#' @slot geoms list. The elements in the list should all be of type ccCellGeom.
 #'
 #' @export
 #'
 #' @examples
-#' library(circlizePlus)
-#' n = 1000
-#' df = data.frame(sectors = sample(letters[1:8], n, replace = TRUE),
-#'                 x = rnorm(n), y = runif(n))
-#' par1=ccPar("track.height" = 0.1)
-#' cc=ccPlot(sectors = df$sectors, x = df$x) + par1
-#' track1 = ccTrack(sectors = df$sectors, y = df$y,
-#'                  panel.fun = function(x, y) {
-#'                    circos.text(CELL_META$xcenter,
-#'                                CELL_META$cell.ylim[2] + mm_y(5),
-#'                                CELL_META$sector.index)
-#'                    circos.axis(labels.cex = 0.6)
-#'                  })
-#' cell1 = ccCell(sector.index = 'a')
-#' track1 = track1 + cell1
-#' cc = cc + track1
-#' cc
+#' NULL
 setClass("ccCell",
          slots = c(sector.index = "character", geoms = "list"))
 
 #' S4 class ccCells
 #'
+#' A list of multiple ccCell. Any ccCellGeom and ccCells are added together as if they were added to each ccCell contained in the ccCells.
+#'
 #' @export
 #'
 #' @examples
-#' library(circlizePlus)
-#' n = 1000
-#' df = data.frame(sectors = sample(letters[1:8], n, replace = TRUE),
-#'                 x = rnorm(n), y = runif(n))
-#' par1=ccPar("track.height" = 0.1)
-#' cc=ccPlot(sectors = df$sectors, x = df$x) + par1
-#' track1 = ccTrack(sectors = df$sectors, y = df$y,
-#'                  panel.fun = function(x, y) {
-#'                    circos.text(CELL_META$xcenter,
-#'                                CELL_META$cell.ylim[2] + mm_y(5),
-#'                                CELL_META$sector.index)
-#'                    circos.axis(labels.cex = 0.6)
-#'                  })
-#' cell1 = ccCells(sector.index = 'a')
-#' track1 = track1 + cell1
-#' cc = cc + track1
-#' cc
+#' NULL
 setClass("ccCells", contains = c("list"))
 
 #' S4 class ccCellGeom
 #'
-#' @slot func character.
-#' @slot params list.
+#' Objectified representation of the R package circlize's plotting functions and corresponding parameters at the cell level.
+#'
+#' @slot func character. The name of the plot function in the R package circlize.
+#' @slot params list. When the function corresponding to the parameter param is called, it represents the argument of this function.
 #'
 #' @export
 #'
@@ -64,6 +38,11 @@ setClass("ccCellGeom",
          slots = c(func = "character", params = "list"))
 
 #' S4 class ccGenomicCellGeom
+#'
+#' It is a subclass of ccCellGeom. It only works if the plotted data is genomic data. Objectified representation of the R package circlize's plotting functions and corresponding parameters at the cell level.
+#'
+#' @slot func character. The name of the plot function in the R package circlize.
+#' @slot params list. When the function corresponding to the parameter param is called, it represents the argument of this function.
 #'
 #' @export
 #'
@@ -303,7 +282,7 @@ ccYaxis = function(...) {
 
 #' Object generator for S4 class ccCellGeom
 #'
-#' Object [ccCellGeom-class] will call the function [circos.barplot] while drawing.
+#' Object [ccCellGeom-class] will call the function [circlize::circos.barplot] while drawing.
 #'
 #' @inheritDotParams circlize::circos.barplot
 #'
@@ -323,7 +302,7 @@ ccBarplot = function(...) {
 
 #' Object generator for S4 class ccCellGeom
 #'
-#' Object [ccCellGeom-class] will call the function [circos.boxplot] while drawing.
+#' Object [ccCellGeom-class] will call the function [circlize::circos.boxplot] while drawing.
 #'
 #' @inheritDotParams circlize::circos.boxplot
 #'
@@ -363,7 +342,7 @@ ccViolin = function(...) {
 
 #' Object generator for S4 class ccCellGeom
 #'
-#' Object [ccCellGeom-class] will call the function [circos.arrow] while drawing.
+#' Object [ccCellGeom-class] will call the function [circlize::circos.arrow] while drawing.
 #'
 #' @inheritDotParams circlize::circos.arrow
 #'

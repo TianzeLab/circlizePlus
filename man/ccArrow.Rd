@@ -29,7 +29,7 @@ ccArrow(...)
 Object \linkS4class{ccCellGeom}
 }
 \description{
-Object \linkS4class{ccCellGeom} will call the function \link{circos.arrow} while drawing.
+Object \linkS4class{ccCellGeom} will call the function \link[circlize:circos.arrow]{circlize::circos.arrow} while drawing.
 }
 \examples{
 library(circlizePlus)

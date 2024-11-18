@@ -5,14 +5,14 @@
 \alias{ccCellGeom-class}
 \title{S4 class ccCellGeom}
 \description{
-S4 class ccCellGeom
+Objectified representation of the R package circlize's plotting functions and corresponding parameters at the cell level.
 }
 \section{Slots}{
 
 \describe{
-\item{\code{func}}{character.}
+\item{\code{func}}{character. The name of the plot function in the R package circlize.}
 
-\item{\code{params}}{list.}
+\item{\code{params}}{list. When the function corresponding to the parameter param is called, it represents the argument of this function.}
 }}
 
 \examples{
