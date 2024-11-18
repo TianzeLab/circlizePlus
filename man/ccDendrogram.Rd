@@ -22,7 +22,7 @@ ccDendrogram(...)
 Object \linkS4class{ccCellGeom}
 }
 \description{
-Object \linkS4class{ccCellGeom} will call the function \link{circos.dendrogram} while drawing.
+Object \linkS4class{ccCellGeom} will call the function \link[circlize:circos.dendrogram]{circlize::circos.dendrogram} while drawing.
 }
 \examples{
 library(ape)

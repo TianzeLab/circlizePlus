@@ -385,7 +385,7 @@ ccRaster = function(...) {
 
 #' Object generator for S4 class ccCellGeom
 #'
-#' Object [ccCellGeom-class] will call the function [circos.dendrogram] while drawing.
+#' Object [ccCellGeom-class] will call the function [circlize::circos.dendrogram] while drawing.
 #'
 #' @inheritDotParams circlize::circos.dendrogram
 #'
