@@ -73,7 +73,15 @@ ccCell = function(sector.index = NULL) {
   new("ccCell",sector.index = sector.index, geoms = list())
 }
 
+
+#' Object generator for S4 class ccCells
+#'
+#' @param sector.indexes list. A list of multiple ccCell
+#'
+#' @return Object [ccCells-class]
 #' @export
+#'
+#' @examples
 ccCells = function(sector.indexes = list()) {
   if (length(sector.indexes) == 0) {
     stop("'sector.indexes' can't be an empty list.")
