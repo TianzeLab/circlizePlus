@@ -51,7 +51,24 @@ setClass("ccCellGeom",
 setClass("ccGenomicCellGeom", contains = c("ccCellGeom"))
 
 
+
+#' Object generator for S4 class ccCell
+#'
+#' @param sector.index character. It is the index that corresponds to the sector.
+#'
+#' @return Object [ccCell-class]
 #' @export
+#'
+#' @examples
+#' library(circlizePlus)
+#' sectors = c('a','a','a','a','b','b','b','b','c','c','c','c','d','d','d','d')
+#' x1 = c(1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4)
+#' y1 = c(1,2,3,4,4,3,2,1,1,1,1,1,1,2,1,2)
+#' cc = ccPlot(initMode = "initialize", sectors = sectors, x = x1)
+#' track1 = ccTrack(sectors = sectors, x=x1, y = y1)
+#' cell_single = ccCell(sector.index = letters[3]) + ccPoints(y=\(x,y){y})
+#' track1 = track1 + cell_single
+#' show(cc  + track1)
 ccCell = function(sector.index = NULL) {
   new("ccCell",sector.index = sector.index, geoms = list())
 }
