@@ -68,7 +68,7 @@ setClass("ccGenomicCellGeom", contains = c("ccCellGeom"))
 #' track1 = ccTrack(sectors = sectors, x=x1, y = y1)
 #' cell_single = ccCell(sector.index = letters[3]) + ccPoints(y=\(x,y){y})
 #' track1 = track1 + cell_single
-#' show(cc  + track1)
+#' cc  + track1
 ccCell = function(sector.index = NULL) {
   new("ccCell",sector.index = sector.index, geoms = list())
 }
