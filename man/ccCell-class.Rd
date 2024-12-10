@@ -12,7 +12,7 @@ A cell container that belongs to a particular sector.
 \describe{
 \item{\code{sector.index}}{character. It is the index that corresponds to the sector.}
 
-\item{\code{geoms}}{list. The elements in the list should all be of type ccCellGeom.}
+\item{\code{geoms}}{list. The elements in the list should all be of type \linkS4class{ccCellGeom} or \linkS4class{ccGenomicCellGeom}.}
 }}
 
 \examples{

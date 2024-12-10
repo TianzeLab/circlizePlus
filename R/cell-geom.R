@@ -4,7 +4,7 @@
 #' A cell container that belongs to a particular sector.
 #'
 #' @slot sector.index character. It is the index that corresponds to the sector.
-#' @slot geoms list. The elements in the list should all be of type ccCellGeom.
+#' @slot geoms list. The elements in the list should all be of type [ccCellGeom-class] or [ccGenomicCellGeom-class].
 #'
 #' @export
 #'
