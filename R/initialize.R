@@ -1,4 +1,20 @@
+#'  S4 class ccPlot
+#'
+#' @slot initMode character. It can only be the following values: "initialize", "genomicInitialize", "initializeWithIdeogram", "heatmap.initialize".
+#' @slot initParams list. A **named** list that stores the parameters of the functions called by the backend. Based on the value of initMode, the backend function will be one of the following four:[circos.initialize], [circos.genomicInitialize], [circos.initializeWithIdeogram], [circos.heatmap.initialize].
+#' @slot tracks list. A list where [ccTrack-class] or [ccGenomicTrack-class] or [ccHeatmap-class] are stored.
+#' @slot links list. A list where [ccLink-class] or [ccGenomicLink-class] or [ccHeatmapLink-class] are stored.
+#' @slot pars list. A list where [ccPar-class] are stored.
+#' @slot clear logical. Whether to call [circos.clear] after drawing.
+#'
 #' @export
+#'
+#' @examples
+#' n = 1000
+#' df = data.frame(sectors = sample(letters[1:8], n, replace = TRUE),
+#'                 x = rnorm(n), y = runif(n))
+#' library(circlizePlus)
+#' cc=ccPlot(initMode = 'initialize', sectors = df$sectors, x = df$x)
 setClass(
   "ccPlot",
   slots = c(
@@ -11,7 +27,25 @@ setClass(
   )
 )
 
+#' Object generator for S4 class ccPlot
+#'
+#' Object [ccPlot-class] calls one of the following functions based on the value of initMode: [circos.initialize], [circos.genomicInitialize], [circos.initializeWithIdeogram], [circos.heatmap.initialize].
+#'
+#' @param initMode It can only be the following values: "initialize", "genomicInitialize", "initializeWithIdeogram", "heatmap.initialize".
+#' @param clear Whether to call [circos.clear] after drawing.
+#' @param ... Parameters passed to the function in the package circlize. The function is one of the following four:[circos.initialize], [circos.genomicInitialize], [circos.initializeWithIdeogram], [circos.heatmap.initialize].
+#'
+#' @usage ccPlot(initMode = 'initialize',clear = TRUE,sectors = NULL,x = NULL,xlim = NULL,sector.width = NULL,factors = sectors,ring = FALSE)
+#' @usage ccPlot(initMode = 'genomicInitialize',clear = TRUE,data=NULL,sector.names = NULL,major.by = NULL,plotType = c("axis", "labels"),tickLabelsStartFromZero = TRUE,axis.labels.cex = 0.4*par("cex"),labels.cex = 0.8*par("cex"),track.height = NULL,...)
+#' @usage ccPlot(initMode = 'initializeWithIdeogram',clear = TRUE,cytoband = system.file(package = "circlize", "extdata", "cytoBand.txt"),species = NULL,sort.chr = TRUE,chromosome.index = usable_chromosomes(species),major.by = NULL,plotType = c("ideogram", "axis", "labels"),track.height = NULL,ideogram.height = convert_height(2, "mm"),...)
+#' @usage ccPlot(initMode = 'initializeWithIdeogram',clear = TRUE,mat=NULL, split = NULL, cluster = TRUE,clustering.method = "complete", distance.method = "euclidean",dend.callback = function(dend, m, si) reorder(dend, rowMeans(m)),cell_width = rep(1, nrow(mat)))
 #' @export
+#' @examples
+#' n = 1000
+#' df = data.frame(sectors = sample(letters[1:8], n, replace = TRUE),
+#'                 x = rnorm(n), y = runif(n))
+#' library(circlizePlus)
+#' cc=ccPlot(initMode = 'initialize', sectors = df$sectors, x = df$x)
 ccPlot = function(initMode = 'initialize',
                   clear = TRUE,
                   ...) {
@@ -26,8 +60,30 @@ ccPlot = function(initMode = 'initialize',
   )
 }
 
+#' A generic function of show
+#'
+#' @param object Object of [ccPlot-class]
+#'
 #' @export
 #' @include utils.R
+#' @usage show(object)
+#' @examples
+#' library(circlizePlus)
+#' n = 1000
+#' df = data.frame(sectors = sample(letters[1:8], n, replace = TRUE),
+#'                 x = rnorm(n), y = runif(n))
+#' library(circlizePlus)
+#' par1=ccPar("track.height" = 0.1)
+#' cc=ccPlot(sectors = df$sectors, x = df$x) + par1
+#' track1 = ccTrack(sectors = df$sectors, y = df$y,
+#'                  panel.fun = function(x, y) {
+#'                    circos.text(CELL_META$xcenter,
+#'                                CELL_META$cell.ylim[2] + mm_y(5),
+#'                                CELL_META$sector.index)
+#'                    circos.axis(labels.cex = 0.6)
+#'                  })
+#' cc=cc+track1
+#' show(cc)
 show.ccPlot = function(object) {
   if (object@clear)
     circos.clear()
