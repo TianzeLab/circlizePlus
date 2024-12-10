@@ -59,9 +59,10 @@
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
 <p>It is recommended that you have the latest version of the R environment installed. You need to install devtools and load it into the R environment, and then you can install circlizePlus from Github.</p>
-<p><code>install.packages("devtools")</code></p>
-<p><code><a href="https://devtools.r-lib.org/" class="external-link">library(devtools)</a></code></p>
-<p><code>install_github("TianzeLab/circlizePlus")</code></p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"devtools"</span>, quietly<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span></span>
+<span><span class="fu">install_github</span><span class="op">(</span><span class="st">"TianzeLab/circlizePlus"</span><span class="op">)</span></span></code></pre></div>
 <p>Every time you reboot the R environment, you need to load circlizePlus again.</p>
 <p><code><a href="https://github.com/TianzeLab/circlizePlus" class="external-link">library(circlizePlus)</a></code></p>
 </div>
@@ -98,17 +99,17 @@
 </h2>
 <table class="table">
 <colgroup>
-<col width="18%">
 <col width="9%">
-<col width="8%">
-<col width="8%">
-<col width="8%">
-<col width="5%">
-<col width="5%">
-<col width="6%">
-<col width="5%">
-<col width="14%">
-<col width="7%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -171,7 +172,7 @@
 </h3>
 <p><code>region</code> and <code>value</code> in ccGenomicCellGeom constructor can be <code>NULL</code> or function like <code>function(region,value){...}</code>. The above data can be obtained from the <code>data</code> parameter of <code>ccGenomicTrack</code>.</p>
 <p>In the following example code, the <code>region</code> and <code>value</code> in the <code>ccGenomicLines</code> constructor are <code>NULL</code>. Their real data comes from the <code>data</code> value of the corresponding sector in <code>ccGenomicTrack</code>. The <code>region</code> and <code>value</code> in the <code>ccGenomicPoints</code> constructor are <code>function</code>. Their real data is calculated based on the definition of the function.</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">data</span> <span class="op">=</span> <span class="fu">generateRandomBed</span><span class="op">(</span>nr <span class="op">=</span><span class="fl">30</span>, nc <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
 <span><span class="va">all_chr</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"chr1"</span>,<span class="st">"chr2"</span>,<span class="st">"chr3"</span>,<span class="st">"chr4"</span>,<span class="st">"chr5"</span>,<span class="st">"chr6"</span>,<span class="st">"chr7"</span>,<span class="st">"chr8"</span>,<span class="st">"chr9"</span>,<span class="st">"chr10"</span>,<span class="st">"chr11"</span>,<span class="st">"chr12"</span>,<span class="st">"chr13"</span>,<span class="st">"chr14"</span>,<span class="st">"chr15"</span>,<span class="st">"chr16"</span>,<span class="st">"chr17"</span>,<span class="st">"chr18"</span>,<span class="st">"chr19"</span>,<span class="st">"chr20"</span>,<span class="st">"chr21"</span>,<span class="st">"chr22"</span>,<span class="st">"chrX"</span>,<span class="st">"chrY"</span><span class="op">)</span></span>
 <span><span class="va">cc</span> <span class="op">=</span> <span class="fu"><a href="reference/ccPlot.html">ccPlot</a></span><span class="op">(</span>initMode <span class="op">=</span> <span class="st">"initializeWithIdeogram"</span>, plotType<span class="op">=</span><span class="cn">NULL</span><span class="op">)</span></span>
@@ -188,7 +189,7 @@
 </h3>
 <p><code>x</code>, <code>x0</code>, <code>x1</code>, <code>xleft</code>, <code>xright</code>, <code>y</code>, <code>y0</code>, <code>y1</code>, <code>ytop</code>, <code>ybottom</code> in ccCellGeom constructor can be <code>NULL</code> or function like <code>function(x,y){...}</code>. The above data can be obtained from the <code>x</code> and <code>y</code> parameter of <code>ccTrack</code>.</p>
 <p>In the following example code, the <code>x</code> and <code>y</code> in the first <code>ccPoints</code> constructor are <code>NULL</code>. Their real data comes from the <code>x</code> and <code>y</code> of the corresponding sector in <code>ccTrack</code>. The <code>y</code> in the second <code>ccPoints</code> constructor are <code>function</code>. Their real data is calculated based on the definition of the function.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">sectors</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'a'</span>,<span class="st">'a'</span>,<span class="st">'a'</span>,<span class="st">'a'</span>,<span class="st">'b'</span>,<span class="st">'b'</span>,<span class="st">'b'</span>,<span class="st">'b'</span>,<span class="st">'c'</span>,<span class="st">'c'</span>,<span class="st">'c'</span>,<span class="st">'c'</span>,<span class="st">'d'</span>,<span class="st">'d'</span>,<span class="st">'d'</span>,<span class="st">'d'</span><span class="op">)</span></span>
 <span><span class="va">x1</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">4</span><span class="op">)</span></span>
 <span><span class="va">y1</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">4</span>,<span class="fl">3</span>,<span class="fl">2</span>,<span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span></span>
