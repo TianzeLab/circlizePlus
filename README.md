@@ -29,15 +29,15 @@ We are grateful to Dr. Zuguang Gu from DFKZ for his invaluable guidance and supp
 
 ## Addition rules
 
-ccPlot(contain n ccPars)+ccPar=ccPlot(contain n+1 ccPars),n≥0 
+ccPlot(contain n ccPars)+ccPar=ccPlot(contain n+1 ccPars),n≥0
 
-ccPlot(contain n ccTracks)+ccTrack=ccPlot(contain n+1 ccTracks),n≥0 
+ccPlot(contain n ccTracks)+ccTrack=ccPlot(contain n+1 ccTracks),n≥0
 
-ccPlot(contain n ccLinks)+ccLink=ccPlot(contain n+1 ccLinks),n≥0 
+ccPlot(contain n ccLinks)+ccLink=ccPlot(contain n+1 ccLinks),n≥0
 
-ccTrak(contain n ccTrakGeoms)+ccTrackGeom=ccTrack(contain n+1 ccTrackGeoms),n≥0 
+ccTrak(contain n ccTrakGeoms)+ccTrackGeom=ccTrack(contain n+1 ccTrackGeoms),n≥0
 
-ccTrack(contain n ccCells)+ccCell=ccTrack(contain n+1 ccCells),n≥0 
+ccTrack(contain n ccCells)+ccCell=ccTrack(contain n+1 ccCells),n≥0
 
 ccCell(contain n ccCellGeoms)+ccCellGeom=ccCell(contain n+1 ccCellGeoms),n≥0
 
@@ -49,7 +49,7 @@ ccCell(contain n ccCellGeoms)+ccCellGeom=ccCell(contain n+1 ccCellGeoms),n≥0
 ## Data mapping from ccTrack to ccGenomicCellGeom
 
 |                                      |                   |                  |                  |                  |           |            |             |           |                              |                |
-|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
+|--------------------------------------|-------------------|------------------|------------------|------------------|-----------|------------|-------------|-----------|------------------------------|----------------|
 | ccTrack Constructor                  | ccGenomicTrack()  | ccGenomicTrack() | ccGenomicTrack() | ccGenomicTrack() | ccTrack() | ccTrack()  | ccTrack()   | ccTrack() | ccTrack()                    | ccTrack()      |
 | Parameters in ccTrack Constructor    | data              | data             | data             | data             | x, y      | x, y       | x, y        | x, y      | x, y                         | x, y           |
 | ccCellGeom Constructor               | ccGenomicPoints() | ccGenomicLines() | ccGenomicRect()  | ccGenomicText()  | ccLines() | ccPoints() | ccPolygon() | ccText()  | ccRect()                     | ccSegments()   |
