@@ -35,6 +35,8 @@
 <url><loc>https://tianzelab.github.io/circlizePlus/reference/ccLink.html</loc></url>
 <url><loc>https://tianzelab.github.io/circlizePlus/reference/ccPar-class.html</loc></url>
 <url><loc>https://tianzelab.github.io/circlizePlus/reference/ccPar.html</loc></url>
+<url><loc>https://tianzelab.github.io/circlizePlus/reference/ccPlot-class.html</loc></url>
+<url><loc>https://tianzelab.github.io/circlizePlus/reference/ccPlot.html</loc></url>
 <url><loc>https://tianzelab.github.io/circlizePlus/reference/ccPoints.html</loc></url>
 <url><loc>https://tianzelab.github.io/circlizePlus/reference/ccPolygon.html</loc></url>
 <url><loc>https://tianzelab.github.io/circlizePlus/reference/ccRaster.html</loc></url>
@@ -53,5 +55,6 @@
 <url><loc>https://tianzelab.github.io/circlizePlus/reference/ccYaxis.html</loc></url>
 <url><loc>https://tianzelab.github.io/circlizePlus/reference/circlizePlus-package.html</loc></url>
 <url><loc>https://tianzelab.github.io/circlizePlus/reference/index.html</loc></url>
+<url><loc>https://tianzelab.github.io/circlizePlus/reference/show.ccPlot.html</loc></url>
 </urlset>
 
