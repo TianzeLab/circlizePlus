@@ -29,7 +29,7 @@ Object \linkS4class{ccCellGeom} will call the function \link{circos.rect} while 
 library(circlizePlus)
 cc=ccPlot(sectors=letters[1:8], xlim = c(0, 1))
 track=ccTrack(ylim = c(0, 1), track.height = 0.3)
-cell=ccCell(sector.index = 'a')+ccRect(xleft=0.7,ybottom=0.1,xright=0.7,ytop=0.9)
+cell=ccCell(sector.index = 'a')+ccRect(xleft=0.7,ybottom=0.1,xright=0.8,ytop=0.9)
 track=track+cell
 cc+track
 }

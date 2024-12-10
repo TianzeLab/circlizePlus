@@ -29,7 +29,8 @@ Object \linkS4class{ccCellGeom}
 Object \linkS4class{ccCellGeom} will call the function \link{circos.raster} while drawing.
 }
 \examples{
-require(png)
+library(circlizePlus)
+library(png)
 image = system.file("extdata", "Rlogo.png", package = "circlize")
 image = as.raster(readPNG(image))
 library(circlizePlus)

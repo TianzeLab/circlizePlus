@@ -7,7 +7,7 @@
 ccCells(sector.indexes = list())
 }
 \arguments{
-\item{sector.indexes}{list. A list of multiple ccCell}
+\item{sector.indexes}{list. A list of multiple object \linkS4class{ccCell}}
 }
 \value{
 Object \linkS4class{ccCells}

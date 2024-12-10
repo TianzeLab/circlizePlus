@@ -76,7 +76,7 @@ ccCell = function(sector.index = NULL) {
 
 #' Object generator for S4 class ccCells
 #'
-#' @param sector.indexes list. A list of multiple ccCell
+#' @param sector.indexes list. A list of multiple object [ccCell-class]
 #'
 #' @return Object [ccCells-class]
 #' @export
@@ -209,7 +209,7 @@ ccPoints = function(...) {
 #' cc=ccPlot(sectors = sectors, xlim = c(0, 10))
 #' cc=cc+par
 #' track=ccTrack(sectors=sectors, ylim = c(0, 10), track.height = 0.5)
-#' cells=ccCell(sector.index = 'a')+ccLines(sort(x=runif(10)*10), y=runif(10)*8, sector.index = "a", type = "h", baseline = 5)
+#' cells=ccCell(sector.index = 'a')+ccLines(sort(x=runif(10)*10), y=runif(10)*10, sector.index = "a")
 #' track=track+cells
 #' cc+track
 ccLines = function(...) {
@@ -249,7 +249,7 @@ ccSegments = function(...) {
 #' library(circlizePlus)
 #' cc=ccPlot(sectors=letters[1:8], xlim = c(0, 1))
 #' track=ccTrack(ylim = c(0, 1), track.height = 0.3)
-#' cell=ccCell(sector.index = 'a')+ccRect(xleft=0.7,ybottom=0.1,xright=0.7,ytop=0.9)
+#' cell=ccCell(sector.index = 'a')+ccRect(xleft=0.7,ybottom=0.1,xright=0.8,ytop=0.9)
 #' track=track+cell
 #' cc+track
 ccRect = function(...) {
@@ -269,7 +269,7 @@ ccRect = function(...) {
 #' library(circlizePlus)
 #' cc=ccPlot(sectors=letters[1:8], xlim = c(0, 1))
 #' track=ccTrack(ylim = c(0, 10))
-#' cell=ccCell(sector.index = 'a')+ccPolygon(x=c(2,8),y=c(2,8))
+#' cell=ccCell(sector.index = 'a')+ccPolygon(x=c(0.5,0.7,1),y=c(2,6,8))
 #' track=track+cell
 #' cc+track
 ccPolygon = function(...) {
@@ -329,7 +329,7 @@ ccYaxis = function(...) {
 #' library(circlizePlus)
 #' cc=ccPlot(sectors=letters[1:4], xlim = c(0, 10))
 #' track=ccTrack(ylim = c(0, 1))
-#' cell=ccCell(sector.index = 'a')+ccBarplot(value=runif(10), 1:10 - 0.5, col = 1:10)
+#' cell=ccCell(sector.index = 'a')+ccBarplot(value=runif(10), pos=1:10 - 0.5, col = 1:10)
 #' track=track+cell
 #' cc+track
 ccBarplot = function(...) {
@@ -349,7 +349,7 @@ ccBarplot = function(...) {
 #' library(circlizePlus)
 #' cc=ccPlot(sectors=letters[1:4], xlim = c(0, 10))
 #' track=ccTrack(ylim = c(0, 1))
-#' cell=ccCell(sector.index = 'a')+ccBoxplot(value=runif(10), 1:10 - 0.5, col = 1:10)
+#' cell=ccCell(sector.index = 'a')+ccBoxplot(value=replicate(runif(10), n = 10, simplify = FALSE), pos=1:10 - 0.5, col = 1:10)
 #' track=track+cell
 #' cc+track
 ccBoxplot = function(...) {
@@ -369,7 +369,7 @@ ccBoxplot = function(...) {
 #' library(circlizePlus)
 #' cc=ccPlot(sectors=letters[1:4], xlim = c(0, 10))
 #' track=ccTrack(ylim = c(0, 1))
-#' cell=ccCell(sector.index = 'a')+ccViolin(value=runif(10), 0.5)
+#' cell=ccCell(sector.index = 'a')+ccViolin(value=replicate(runif(10), n = 10, simplify = FALSE), pos=1:10 - 0.5,col = 1:10)
 #' track=track+cell
 #' cc+track
 ccViolin = function(...) {
@@ -406,7 +406,8 @@ ccArrow = function(...) {
 #' @export
 #'
 #' @examples
-#' require(png)
+#' library(circlizePlus)
+#' library(png)
 #' image = system.file("extdata", "Rlogo.png", package = "circlize")
 #' image = as.raster(readPNG(image))
 #' library(circlizePlus)

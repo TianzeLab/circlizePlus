@@ -41,7 +41,7 @@ par=ccPar(points.overflow.warning = FALSE)
 cc=ccPlot(sectors = sectors, xlim = c(0, 10))
 cc=cc+par
 track=ccTrack(sectors=sectors, ylim = c(0, 10), track.height = 0.5)
-cells=ccCell(sector.index = 'a')+ccLines(sort(x=runif(10)*10), y=runif(10)*8, sector.index = "a", type = "h", baseline = 5)
+cells=ccCell(sector.index = 'a')+ccLines(sort(x=runif(10)*10), y=runif(10)*10, sector.index = "a")
 track=track+cells
 cc+track
 }
