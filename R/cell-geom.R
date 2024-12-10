@@ -460,16 +460,13 @@ ccDendrogram = function(...){
 #' @export
 #'
 #' @examples
-#' load(system.file(package = "circlize", "extdata", "bird.orders.RData"))
-#' dend = as.dendrogram(hc)
-#' dend = color_branches(dend, k = 6, col = 1:6)
-#' require(dendextend)
-#' library(circlizePlus)
-#' cc=ccPlot(sectors=letters[1:4], xlim = c(0, 10))
-#' track=ccTrack(ylim = c(0, 1))
-#' cell=ccCell(sector.index = 'a')+ccDendrogram(dend=dend, max_height = attr(dend, "height"))
-#' track=track+cell
-#' cc+track
+#' data = generateRandomBed(nr =30, nc = 2)
+#' all_chr = c("chr1","chr2","chr3","chr4","chr5","chr6","chr7","chr8","chr9","chr10","chr11","chr12","chr13","chr14","chr15","chr16","chr17","chr18","chr19","chr20","chr21","chr22","chrX","chrY")
+#' cc = ccPlot(initMode = "initializeWithIdeogram", plotType=NULL)
+#' t1 = ccGenomicTrack(data=data, numeric.column = 4)
+#' cells1 = ccCells(sector.indexes = all_chr) + ccGenomicLines(numeric.column=2) + ccGenomicPoints(region=\(region,value){region}, value=\(region,value){value}, numeric.column=2)
+#' t1 = t1 + cells1
+#' show(cc+t1)
 ccGenomicPoints = function(...){
   new("ccGenomicCellGeom",func = 'circos.genomicPoints',params = list(...))
 }
