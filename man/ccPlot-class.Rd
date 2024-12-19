@@ -12,7 +12,7 @@ S4 class ccPlot
 \describe{
 \item{\code{initMode}}{character. It can only be the following values: "initialize", "genomicInitialize", "initializeWithIdeogram", "heatmap.initialize".}
 
-\item{\code{initParams}}{list. A \strong{named} list that stores the parameters of the functions called by the backend. Based on the value of initMode, the backend function will be one of the following four:\link{circos.initialize}, \link{circos.genomicInitialize}, \link{circos.initializeWithIdeogram}, \link{circos.heatmap.initialize}.}
+\item{\code{initParams}}{list. A \strong{named} list that stores the parameters of the function called by the backend. Based on the value of initMode, the backend function will be one of the following four:\link{circos.initialize}, \link{circos.genomicInitialize}, \link{circos.initializeWithIdeogram}, \link{circos.heatmap.initialize}.}
 
 \item{\code{tracks}}{list. A list where \linkS4class{ccTrack} or \linkS4class{ccGenomicTrack} or \linkS4class{ccHeatmap} are stored.}
 

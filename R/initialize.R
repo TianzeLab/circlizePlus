@@ -1,7 +1,7 @@
-#'  S4 class ccPlot
+#' S4 class ccPlot
 #'
 #' @slot initMode character. It can only be the following values: "initialize", "genomicInitialize", "initializeWithIdeogram", "heatmap.initialize".
-#' @slot initParams list. A **named** list that stores the parameters of the functions called by the backend. Based on the value of initMode, the backend function will be one of the following four:[circos.initialize], [circos.genomicInitialize], [circos.initializeWithIdeogram], [circos.heatmap.initialize].
+#' @slot initParams list. A **named** list that stores the parameters of the function called by the backend. Based on the value of initMode, the backend function will be one of the following four:[circos.initialize], [circos.genomicInitialize], [circos.initializeWithIdeogram], [circos.heatmap.initialize].
 #' @slot tracks list. A list where [ccTrack-class] or [ccGenomicTrack-class] or [ccHeatmap-class] are stored.
 #' @slot links list. A list where [ccLink-class] or [ccGenomicLink-class] or [ccHeatmapLink-class] are stored.
 #' @slot pars list. A list where [ccPar-class] are stored.
