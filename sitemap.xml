@@ -28,6 +28,8 @@
 <url><loc>https://tianzelab.github.io/circlizePlus/reference/ccGenomicText.html</loc></url>
 <url><loc>https://tianzelab.github.io/circlizePlus/reference/ccGenomicTrack-class.html</loc></url>
 <url><loc>https://tianzelab.github.io/circlizePlus/reference/ccGenomicTrack.html</loc></url>
+<url><loc>https://tianzelab.github.io/circlizePlus/reference/ccHeatmap-class.html</loc></url>
+<url><loc>https://tianzelab.github.io/circlizePlus/reference/ccHeatmap.html</loc></url>
 <url><loc>https://tianzelab.github.io/circlizePlus/reference/ccHeatmapLink-class.html</loc></url>
 <url><loc>https://tianzelab.github.io/circlizePlus/reference/ccHeatmapLink.html</loc></url>
 <url><loc>https://tianzelab.github.io/circlizePlus/reference/ccLines.html</loc></url>
@@ -55,6 +57,7 @@
 <url><loc>https://tianzelab.github.io/circlizePlus/reference/ccYaxis.html</loc></url>
 <url><loc>https://tianzelab.github.io/circlizePlus/reference/circlizePlus-package.html</loc></url>
 <url><loc>https://tianzelab.github.io/circlizePlus/reference/index.html</loc></url>
+<url><loc>https://tianzelab.github.io/circlizePlus/reference/show.ccHeatmap.html</loc></url>
 <url><loc>https://tianzelab.github.io/circlizePlus/reference/show.ccPlot.html</loc></url>
 </urlset>
 
