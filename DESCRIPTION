@@ -30,6 +30,7 @@ Imports:
     dendextend,
     png
 Suggests: 
+    ComplexHeatmap,
     testthat (>= 3.0.0),
 Config/testthat/edition: 3
 URL: https://github.com/TianzeLab/circlizePlus, https://tianzelab.github.io/circlizePlus/
