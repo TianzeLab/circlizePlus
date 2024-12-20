@@ -10,7 +10,7 @@ Object generator for S4 class ccPar
 \section{Slots}{
 
 \describe{
-\item{\code{params}}{list.}
+\item{\code{params}}{params list. A \strong{named} list that stores the parameters of the function \link{circos.par} called by the backend.}
 }}
 
 \examples{
