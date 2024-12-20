@@ -7,6 +7,14 @@
 \description{
 S4 class ccHeatmapLink
 }
+\section{Slots}{
+
+\describe{
+\item{\code{func}}{character. Normally it is "circos.heatmap.link".}
+
+\item{\code{params}}{list. A \strong{named} list that stores the parameters of the function \link{circos.heatmap.link} called by the backend.}
+}}
+
 \examples{
 NULL
 }

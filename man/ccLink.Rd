@@ -75,5 +75,16 @@ Object \linkS4class{ccLink}
 Object \linkS4class{ccLink} will call the function \link{circos.link} while drawing.
 }
 \examples{
-NULL
+library(circlizePlus)
+set.seed(999)
+n = 1000
+df = data.frame(sectors = sample(letters[1:8], n, replace = TRUE),x = rnorm(n), y = runif(n))
+cc = ccPlot(initMode = "initialize", sectors = df$sectors, x = df$x)
+track1 = ccTrack(df$sectors, y = df$y)
+col = rep(c("#FF0000", "#00FF00"), 4)
+tPoint1 = ccTrackPoints(df$sectors, df$x, df$y, col = col, pch = 16, cex = 0.5)
+link1 = ccLink("a", 0, "b", 0, h = 0.4)
+link2 = ccLink("c", c(-0.5, 0.5), "d", c(-0.5,0.5), col = "red",border = "blue", h = 0.2)
+link3 = ccLink("e", 0, "g", c(-1,1), col = "green", border = "black", lwd = 2, lty = 2)
+cc + (track1 + tPoint1) + link1 + link2 + link3
 }

@@ -10,9 +10,9 @@ S4 class ccLink
 \section{Slots}{
 
 \describe{
-\item{\code{func}}{character.}
+\item{\code{func}}{character. Normally it is "circos.link".}
 
-\item{\code{params}}{list.}
+\item{\code{params}}{list. A \strong{named} list that stores the parameters of the function \link{circos.link} called by the backend.}
 }}
 
 \examples{

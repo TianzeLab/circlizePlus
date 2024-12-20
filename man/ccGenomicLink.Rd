@@ -37,5 +37,16 @@ Object \linkS4class{ccGenomicLink}
 Object \linkS4class{ccGenomicLink} will call the function \link{circos.genomicLink} while drawing.
 }
 \examples{
-NULL
+library(circlizePlus)
+set.seed(123)
+
+bed1 = generateRandomBed(nr = 100)
+bed1 = bed1[sample(nrow(bed1), 20), ]
+bed2 = generateRandomBed(nr = 100)
+bed2 = bed2[sample(nrow(bed2), 20), ]
+par1 = ccPar("track.height" = 0.1, cell.padding = c(0, 0, 0, 0))
+cc = ccPlot(initMode="initializeWithIdeogram")
+
+link1 = ccGenomicLink(bed1, bed2, col = sample(1:5, 20, replace = TRUE), border = NA)
+cc + par1 + link1
 }

@@ -7,6 +7,14 @@
 \description{
 S4 class ccGenomicLink
 }
+\section{Slots}{
+
+\describe{
+\item{\code{func}}{character. Normally it is "circos.genomicLink".}
+
+\item{\code{params}}{list. A \strong{named} list that stores the parameters of the function \link{circos.genomicLink} called by the backend.}
+}}
+
 \examples{
 NULL
 }
