@@ -54,7 +54,7 @@ ccHeatmap = function(...){
       cells = list())
 }
 
-#' A generic function of show
+#' A generic function of show ccHeatmap
 #'
 #' @param object Object of [ccHeatmap-class]
 #' @usage show(object)

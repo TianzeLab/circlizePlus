@@ -60,7 +60,7 @@ ccPlot = function(initMode = 'initialize',
   )
 }
 
-#' A generic function of show
+#' A generic function of show ccPlot
 #'
 #' @param object Object of [ccPlot-class]
 #'
