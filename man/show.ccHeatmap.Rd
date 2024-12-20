@@ -2,7 +2,7 @@
 % Please edit documentation in R/heatmap.R
 \name{show.ccHeatmap}
 \alias{show.ccHeatmap}
-\title{A generic function of show}
+\title{A generic function of show ccHeatmap}
 \usage{
 show(object)
 }
@@ -10,7 +10,7 @@ show(object)
 \item{object}{Object of \linkS4class{ccHeatmap}}
 }
 \description{
-A generic function of show
+A generic function of show ccHeatmap
 }
 \examples{
 library(circlizePlus)

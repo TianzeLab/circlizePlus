@@ -2,7 +2,7 @@
 % Please edit documentation in R/initialize.R
 \name{show.ccPlot}
 \alias{show.ccPlot}
-\title{A generic function of show}
+\title{A generic function of show ccPlot}
 \usage{
 show(object)
 }
@@ -10,7 +10,7 @@ show(object)
 \item{object}{Object of \linkS4class{ccPlot}}
 }
 \description{
-A generic function of show
+A generic function of show ccPlot
 }
 \examples{
 library(circlizePlus)
