@@ -10,13 +10,13 @@ S4 class ccTrack
 \section{Slots}{
 
 \describe{
-\item{\code{func}}{character.}
+\item{\code{func}}{character. Normally it is "circos.track" or "circos.trackHist".}
 
-\item{\code{params}}{list.}
+\item{\code{params}}{list. A \strong{named} list that stores the parameters of the function called by the backend.}
 
-\item{\code{trackGeoms}}{list.}
+\item{\code{trackGeoms}}{list. A list where \linkS4class{ccTrackGeom} are stored.}
 
-\item{\code{cells}}{list.}
+\item{\code{cells}}{list. A list where \linkS4class{ccCell} are stored.}
 }}
 
 \examples{

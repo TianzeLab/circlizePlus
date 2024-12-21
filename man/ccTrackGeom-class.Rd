@@ -5,14 +5,14 @@
 \alias{ccTrackGeom-class}
 \title{S4 class ccTrackGeom}
 \description{
-S4 class ccTrackGeom
+Objectified representation of the R package circlize's plotting functions and corresponding parameters at the track level.
 }
 \section{Slots}{
 
 \describe{
-\item{\code{func}}{character.}
+\item{\code{func}}{character. The name of the plot function in the R package circlize.}
 
-\item{\code{params}}{list.}
+\item{\code{params}}{list. A \strong{named} list that stores the parameters of the function called by the backend.}
 }}
 
 \examples{

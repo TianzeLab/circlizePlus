@@ -1,7 +1,9 @@
 #' S4 class ccTrackGeom
 #'
-#' @slot func character.
-#' @slot params list.
+#' Objectified representation of the R package circlize's plotting functions and corresponding parameters at the track level.
+#'
+#' @slot func character. The name of the plot function in the R package circlize.
+#' @slot params list. A **named** list that stores the parameters of the function called by the backend.
 #'
 #' @export
 #'
@@ -12,9 +14,9 @@ setClass("ccTrackGeom",
 
 #' Object generator for S4 class ccTrackGeom
 #'
-#'Object [ccTrackGeom-class] will call the function [circos.trackLines] while drawing.
+#' Object [ccTrackGeom-class] will call the function [circos.trackLines] while drawing.
 #'
-#'@inheritDotParams circlize::circos.trackLines
+#' @inheritDotParams circlize::circos.trackLines
 #'
 #' @return Object [ccTrackGeom-class]
 #' @export
@@ -27,9 +29,9 @@ ccTrackLines = function(...) {
 
 #' Object generator for S4 class ccTrackGeom
 #'
-#'Object [ccTrackGeom-class] will call the function [circos.trackPoints] while drawing.
+#' Object [ccTrackGeom-class] will call the function [circos.trackPoints] while drawing.
 #'
-#'@inheritDotParams circlize::circos.trackPoints
+#' @inheritDotParams circlize::circos.trackPoints
 #'
 #' @return Object [ccTrackGeom-class]
 #' @export
@@ -42,9 +44,9 @@ ccTrackPoints = function(...) {
 
 #' Object generator for S4 class ccTrackGeom
 #'
-#'Object [ccTrackGeom-class] will call the function [circos.trackText] while drawing.
+#' Object [ccTrackGeom-class] will call the function [circos.trackText] while drawing.
 #'
-#'@inheritDotParams circlize::circos.trackText
+#' @inheritDotParams circlize::circos.trackText
 #'
 #' @return Object [ccTrackGeom-class]
 #' @export

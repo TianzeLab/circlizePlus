@@ -1,9 +1,9 @@
 #' S4 class ccTrack
 #'
-#' @slot func character.
-#' @slot params list.
-#' @slot trackGeoms list.
-#' @slot cells list.
+#' @slot func character. Normally it is "circos.track" or "circos.trackHist".
+#' @slot params list. A **named** list that stores the parameters of the function called by the backend.
+#' @slot trackGeoms list. A list where [ccTrackGeom-class] are stored.
+#' @slot cells list. A list where [ccCell-class] are stored.
 #'
 #' @export
 #'
@@ -33,10 +33,10 @@ setClass("ccTrack",
 #'
 #' @export
 #'
-#' @slot func character.
-#' @slot params list.
-#' @slot trackGeoms list.
-#' @slot cells list.
+#' @slot func character. Normally it is "circos.genomicTrack" or "circos.genomicIdeogram" or "circos.genomicHeatmap" or "circos.genomicLabels" or"circos.genomicRainfall" or "circos.genomicDensity".
+#' @slot params list. A **named** list that stores the parameters of the function called by the backend.
+#' @slot trackGeoms list. A list where [ccTrackGeom-class] are stored.
+#' @slot cells list. A list where [ccCell-class] are stored.
 #'
 #' @examples
 #' library(circlizePlus)
