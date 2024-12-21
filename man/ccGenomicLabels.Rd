@@ -54,6 +54,8 @@ Object \linkS4class{ccGenomicTrack} will call the function \link{circos.genomicL
 }
 \examples{
 library(circlizePlus)
+bed = generateRandomBed(nr = 50, fun = function(k) sample(letters, k, replace = TRUE))
+bed[1, 4] = "aaaaa"
 cc = ccPlot(initMode = "initializeWithIdeogram", plotType = NULL)
 t1 = ccGenomicLabels(bed, labels.column = 4, side = "outside",
                      col = as.numeric(factor(bed[[1]])), line_col = as.numeric(factor(bed[[1]])))
