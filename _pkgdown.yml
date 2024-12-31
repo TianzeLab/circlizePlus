@@ -1,8 +1,4 @@
 url: https://tianzelab.github.io/circlizePlus/
 template:
   bootstrap: 5
-reference:
-- title: ccCell and ccCells
-  contents:
-  - ccCell
-  - ccCells
+
