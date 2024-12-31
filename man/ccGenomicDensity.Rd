@@ -2,7 +2,7 @@
 % Please edit documentation in R/track.R
 \name{ccGenomicDensity}
 \alias{ccGenomicDensity}
-\title{Object generator for S4 class ccGenomicTrack}
+\title{Create a track of density plot}
 \usage{
 ccGenomicDensity(...)
 }
@@ -45,7 +45,7 @@ ccGenomicDensity(...)
 Object \linkS4class{ccGenomicTrack}
 }
 \description{
-Object \linkS4class{ccGenomicTrack} will call the function \link{circos.genomicDensity} while drawing.
+Object \linkS4class{ccGenomicTrack} will call the function \link[circlize:circos.genomicDensity]{circlize::circos.genomicDensity} while drawing.
 }
 \examples{
 library(circlizePlus)

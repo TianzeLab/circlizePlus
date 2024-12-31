@@ -2,7 +2,7 @@
 % Please edit documentation in R/cell-geom.R
 \name{ccXaxis}
 \alias{ccXaxis}
-\title{Object generator for S4 class ccCellGeom}
+\title{Draw x-axis}
 \usage{
 ccXaxis(...)
 }
@@ -35,7 +35,7 @@ ccXaxis(...)
 Object \linkS4class{ccCellGeom}
 }
 \description{
-Object \linkS4class{ccCellGeom} will call the function \link{circos.axis} while drawing.
+Object \linkS4class{ccCellGeom} will call the function \link[circlize:circos.axis]{circlize::circos.axis} while drawing.
 }
 \examples{
 library(circlizePlus)

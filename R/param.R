@@ -1,6 +1,6 @@
 #' Object generator for S4 class ccPar
 #'
-#' @slot params params list. A **named** list that stores the parameters of the function [circos.par] called by the backend.
+#' @slot params params list. A **named** list that stores the parameters of the function [circlize::circos.par] called by the backend.
 #'
 #' @export
 #'
@@ -13,9 +13,9 @@ setClass(
   )
 )
 
-#' Object generator for S4 class ccPar
+#' Parameters for the circular layout
 #'
-#' Object [ccPar-class] will call the function [circos.par] while drawing.
+#' Object [ccPar-class] will call the function [circlize::circos.par] while drawing.
 #'
 #' @inheritDotParams circlize::circos.par
 #'

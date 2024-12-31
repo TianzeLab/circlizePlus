@@ -2,7 +2,7 @@
 % Please edit documentation in R/cell-geom.R
 \name{ccRect}
 \alias{ccRect}
-\title{Object generator for S4 class ccCellGeom}
+\title{Draw rectangle in a region}
 \usage{
 ccRect(...)
 }
@@ -23,7 +23,7 @@ ccRect(...)
 Object \linkS4class{ccCellGeom}
 }
 \description{
-Object \linkS4class{ccCellGeom} will call the function \link{circos.rect} while drawing.
+Object \linkS4class{ccCellGeom} will call the function \link[circlize:circos.rect]{circlize::circos.rect} while drawing.
 }
 \examples{
 library(circlizePlus)

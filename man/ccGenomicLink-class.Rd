@@ -12,7 +12,7 @@ S4 class ccGenomicLink
 \describe{
 \item{\code{func}}{character. Normally it is "circos.genomicLink".}
 
-\item{\code{params}}{list. A \strong{named} list that stores the parameters of the function \link{circos.genomicLink} called by the backend.}
+\item{\code{params}}{list. A \strong{named} list that stores the parameters of the function \link[circlize:circos.genomicLink]{circlize::circos.genomicLink} called by the backend.}
 }}
 
 \examples{

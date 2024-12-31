@@ -2,7 +2,7 @@
 % Please edit documentation in R/cell-geom.R
 \name{ccPolygon}
 \alias{ccPolygon}
-\title{Object generator for S4 class ccCellGeom}
+\title{Draw polygon}
 \usage{
 ccPolygon(...)
 }
@@ -20,7 +20,7 @@ ccPolygon(...)
 Object \linkS4class{ccCellGeom}
 }
 \description{
-Object \linkS4class{ccCellGeom} will call the function \link{circos.polygon} while drawing.
+Object \linkS4class{ccCellGeom} will call the function \link[circlize:circos.polygon]{circlize::circos.polygon} while drawing.
 }
 \examples{
 library(circlizePlus)

@@ -2,7 +2,7 @@
 % Please edit documentation in R/track.R
 \name{ccGenomicLabels}
 \alias{ccGenomicLabels}
-\title{Object generator for S4 class ccGenomicTrack}
+\title{Add labels to specific genomic track}
 \usage{
 ccGenomicLabels(...)
 }
@@ -50,7 +50,7 @@ ccGenomicLabels(...)
 Object \linkS4class{ccGenomicTrack}
 }
 \description{
-Object \linkS4class{ccGenomicTrack} will call the function \link{circos.genomicLabels} while drawing.
+Object \linkS4class{ccGenomicTrack} will call the function \link[circlize:circos.genomicLabels]{circlize::circos.genomicLabels} while drawing.
 }
 \examples{
 library(circlizePlus)

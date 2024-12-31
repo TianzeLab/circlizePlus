@@ -2,7 +2,7 @@
 % Please edit documentation in R/cell-geom.R
 \name{ccBarplot}
 \alias{ccBarplot}
-\title{Object generator for S4 class ccCellGeom}
+\title{Draw barplots}
 \usage{
 ccBarplot(...)
 }

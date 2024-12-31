@@ -2,7 +2,7 @@
 % Please edit documentation in R/track-geom.R
 \name{ccTrackPoints}
 \alias{ccTrackPoints}
-\title{Object generator for S4 class ccTrackGeom}
+\title{Add points on all sections of a single track.}
 \usage{
 ccTrackPoints(...)
 }
@@ -25,7 +25,7 @@ ccTrackPoints(...)
 Object \linkS4class{ccTrackGeom}
 }
 \description{
-Object \linkS4class{ccTrackGeom} will call the function \link{circos.trackPoints} while drawing.
+Object \linkS4class{ccTrackGeom} will call the function \link[circlize:circos.trackPoints]{circlize::circos.trackPoints} while drawing.
 }
 \examples{
 NULL

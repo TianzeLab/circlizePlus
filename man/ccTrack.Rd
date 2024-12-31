@@ -2,7 +2,7 @@
 % Please edit documentation in R/track.R
 \name{ccTrack}
 \alias{ccTrack}
-\title{Object generator for S4 class ccTrack}
+\title{Define a generic track}
 \usage{
 ccTrack(...)
 }
@@ -31,7 +31,7 @@ ccTrack(...)
 Object \linkS4class{ccTrack}
 }
 \description{
-Object \linkS4class{ccTrack} will call the function \link{circos.trackPlotRegion} while drawing.
+Object \linkS4class{ccTrack} will call the function \link[circlize:circos.trackPlotRegion]{circlize::circos.trackPlotRegion} while drawing.
 }
 \examples{
 library(circlizePlus)

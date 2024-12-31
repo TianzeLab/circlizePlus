@@ -2,7 +2,7 @@
 % Please edit documentation in R/cell-geom.R
 \name{ccGenomicPoints}
 \alias{ccGenomicPoints}
-\title{Object generator for S4 class ccGenomicCellGeom}
+\title{Add points for genomic data visualization}
 \usage{
 ccGenomicPoints(...)
 }
@@ -39,7 +39,7 @@ ccGenomicPoints(...)
 Object \linkS4class{ccGenomicCellGeom}
 }
 \description{
-Object \linkS4class{ccGenomicCellGeom} will call the function \link{circos.genomicPoints} while drawing.
+Object \linkS4class{ccGenomicCellGeom} will call the function \link[circlize:circos.genomicPoints]{circlize::circos.genomicPoints} while drawing.
 }
 \examples{
 library(circlizePlus)

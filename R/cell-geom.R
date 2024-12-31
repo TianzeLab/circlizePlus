@@ -52,7 +52,7 @@ setClass("ccGenomicCellGeom", contains = c("ccCellGeom"))
 
 
 
-#' Object generator for S4 class ccCell
+#' Generate a cell container that belongs to a particular sector
 #'
 #' @param sector.index character. It is the index that corresponds to the sector.
 #'
@@ -74,9 +74,9 @@ ccCell = function(sector.index = NULL) {
 }
 
 
-#' Object generator for S4 class ccCells
+#' Generate a list of multiple object ccCell-class
 #'
-#' @param sector.indexes list. A list of multiple object [ccCell-class]
+#' @param sector.indexes list. A list of indexs that corresponds to the sectors.
 #'
 #' @return Object [ccCells-class]
 #' @export
@@ -104,9 +104,9 @@ ccCells = function(sector.indexes = list()) {
   cells
 }
 
-#' Object generator for S4 class ccCellGeom
+#' Draw text in a cell
 #'
-#' Object [ccCellGeom-class] will call the function [circos.text] while drawing.
+#' Object [ccCellGeom-class] will call the function [circlize::circos.text] while drawing.
 #'
 #' @inheritParams circlize::circos.text
 #'
@@ -170,9 +170,9 @@ ccText = function(x,
 
 
 
-#' Object generator for S4 class ccCellGeom
+#' Draw points in a region
 #'
-#' Object [ccCellGeom-class] will call the function [circos.points] while drawing.
+#' Object [ccCellGeom-class] will call the function [circlize::circos.points] while drawing.
 #'
 #' @inheritDotParams circlize::circos.points
 #'
@@ -193,9 +193,9 @@ ccPoints = function(...) {
   new("ccCellGeom",func = 'circos.points',params = list(...))
 }
 
-#' Object generator for S4 class ccCellGeom
+#' Draw lines in a region
 #'
-#' Object [ccCellGeom-class] will call the function [circos.lines] while drawing.
+#' Object [ccCellGeom-class] will call the function [circlize::circos.lines] while drawing.
 #'
 #' @inheritDotParams circlize::circos.lines
 #'
@@ -216,9 +216,9 @@ ccLines = function(...) {
   new("ccCellGeom",func = 'circos.lines',params = list(...))
 }
 
-#' Object generator for S4 class ccCellGeom
+#' Draw segments connecting points in a region
 #'
-#' Object [ccCellGeom-class] will call the function [circos.segments] while drawing.
+#' Object [ccCellGeom-class] will call the function [circlize::circos.segments] while drawing.
 #'
 #' @inheritDotParams circlize::circos.segments
 #'
@@ -236,9 +236,9 @@ ccSegments = function(...) {
   new("ccCellGeom",func = 'circos.segments',params = list(...))
 }
 
-#' Object generator for S4 class ccCellGeom
+#' Draw rectangle in a region
 #'
-#' Object [ccCellGeom-class] will call the function [circos.rect] while drawing.
+#' Object [ccCellGeom-class] will call the function [circlize::circos.rect] while drawing.
 #'
 #' @inheritDotParams circlize::circos.rect
 #'
@@ -256,9 +256,9 @@ ccRect = function(...) {
   new("ccCellGeom",func = 'circos.rect',params = list(...))
 }
 
-#' Object generator for S4 class ccCellGeom
+#' Draw polygon
 #'
-#' Object [ccCellGeom-class] will call the function [circos.polygon] while drawing.
+#' Object [ccCellGeom-class] will call the function [circlize::circos.polygon] while drawing.
 #'
 #' @inheritDotParams circlize::circos.polygon
 #'
@@ -276,9 +276,9 @@ ccPolygon = function(...) {
   new("ccCellGeom",func = 'circos.polygon',params = list(...))
 }
 
-#' Object generator for S4 class ccCellGeom
+#' Draw x-axis
 #'
-#' Object [ccCellGeom-class] will call the function [circos.axis] while drawing.
+#' Object [ccCellGeom-class] will call the function [circlize::circos.axis] while drawing.
 #'
 #' @inheritDotParams circlize::circos.axis
 #'
@@ -296,9 +296,9 @@ ccXaxis = function(...) {
   new("ccCellGeom",func = 'circos.xaxis',params = list(...))
 }
 
-#' Object generator for S4 class ccCellGeom
+#' Draw y-axis
 #'
-#' Object [ccCellGeom-class] will call the function [circos.yaxis] while drawing.
+#' Object [ccCellGeom-class] will call the function [circlize::circos.yaxis] while drawing.
 #'
 #' @inheritDotParams circlize::circos.yaxis
 #'
@@ -316,7 +316,7 @@ ccYaxis = function(...) {
   new("ccCellGeom",func = 'circos.yaxis',params = list(...))
 }
 
-#' Object generator for S4 class ccCellGeom
+#' Draw barplots
 #'
 #' Object [ccCellGeom-class] will call the function [circlize::circos.barplot] while drawing.
 #'
@@ -336,7 +336,7 @@ ccBarplot = function(...) {
   new("ccCellGeom",func = 'circos.barplot',params = list(...))
 }
 
-#' Object generator for S4 class ccCellGeom
+#' Draw boxplots
 #'
 #' Object [ccCellGeom-class] will call the function [circlize::circos.boxplot] while drawing.
 #'
@@ -356,9 +356,9 @@ ccBoxplot = function(...) {
   new("ccCellGeom",func = 'circos.boxplot',params = list(...))
 }
 
-#' Object generator for S4 class ccCellGeom
+#' Draw violin plots
 #'
-#' Object [ccCellGeom-class] will call the function [circos.violin] while drawing.
+#' Object [ccCellGeom-class] will call the function [circlize::circos.violin] while drawing.
 #'
 #' @inheritDotParams circlize::circos.violin
 #'
@@ -376,7 +376,7 @@ ccViolin = function(...) {
   new("ccCellGeom",func = 'circos.violin',params = list(...))
 }
 
-#' Object generator for S4 class ccCellGeom
+#' Draw an arrow
 #'
 #' Object [ccCellGeom-class] will call the function [circlize::circos.arrow] while drawing.
 #'
@@ -396,9 +396,9 @@ ccArrow = function(...) {
   new("ccCellGeom",func = 'circos.arrow',params = list(...))
 }
 
-#' Object generator for S4 class ccCellGeom
+#' Add raster image
 #'
-#' Object [ccCellGeom-class] will call the function [circos.raster] while drawing.
+#' Object [ccCellGeom-class] will call the function [circlize::circos.raster] while drawing.
 #'
 #' @inheritDotParams circlize::circos.raster
 #'
@@ -420,7 +420,7 @@ ccRaster = function(...) {
   new("ccCellGeom",func = 'circos.raster',params = list(...))
 }
 
-#' Object generator for S4 class ccCellGeom
+#' Draw dendrogram plots in a track
 #'
 #' Object [ccCellGeom-class] will call the function [circlize::circos.dendrogram] while drawing.
 #'
@@ -450,9 +450,9 @@ ccDendrogram = function(...){
   new("ccCellGeom",func = 'circos.dendrogram',params = list(...))
 }
 
-#' Object generator for S4 class ccGenomicCellGeom
+#' Add points for genomic data visualization
 #'
-#' Object [ccGenomicCellGeom-class] will call the function [circos.genomicPoints] while drawing.
+#' Object [ccGenomicCellGeom-class] will call the function [circlize::circos.genomicPoints] while drawing.
 #'
 #' @inheritDotParams circlize::circos.genomicPoints
 #'
@@ -472,9 +472,9 @@ ccGenomicPoints = function(...){
   new("ccGenomicCellGeom",func = 'circos.genomicPoints',params = list(...))
 }
 
-#' Object generator for S4 class ccGenomicCellGeom
+#' Add lines for genomic data visualization
 #'
-#' Object [ccGenomicCellGeom-class] will call the function [circos.genomicLines] while drawing.
+#' Object [ccGenomicCellGeom-class] will call the function [circlize::circos.genomicLines] while drawing.
 #'
 #' @inheritDotParams circlize::circos.genomicLines
 #'
@@ -494,9 +494,9 @@ ccGenomicLines = function(...){
   new("ccGenomicCellGeom",func = 'circos.genomicLines',params = list(...))
 }
 
-#' Object generator for S4 class ccGenomicCellGeom
+#' Draw rectangle for genomic data visualization
 #'
-#' Object [ccGenomicCellGeom-class] will call the function [circos.genomicRect] while drawing.
+#' Object [ccGenomicCellGeom-class] will call the function [circlize::circos.genomicRect] while drawing.
 #'
 #' @inheritDotParams circlize::circos.genomicRect
 #'
@@ -520,9 +520,9 @@ ccGenomicRect = function(...){
   new("ccGenomicCellGeom",func = 'circos.genomicRect',params = list(...))
 }
 
-#' Object generator for S4 class ccGenomicCellGeom
+#' Add text for genomic data visualization
 #'
-#' Object [ccGenomicCellGeom-class] will call the function [circos.genomicText] while drawing.
+#' Object [ccGenomicCellGeom-class] will call the function [circlize::circos.genomicText] while drawing.
 #'
 #' @inheritDotParams circlize::circos.genomicText
 #'
@@ -542,9 +542,9 @@ ccGenomicText = function(...){
   new("ccGenomicCellGeom",func = 'circos.genomicText',params = list(...))
 }
 
-#' Object generator for S4 class ccGenomicCellGeom
+#' Add genomic axes
 #'
-#' Object [ccGenomicCellGeom-class] will call the function [circos.genomicAxis] while drawing.
+#' Object [ccGenomicCellGeom-class] will call the function [circlize::circos.genomicAxis] while drawing.
 #'
 #' @inheritDotParams circlize::circos.genomicAxis
 #'

@@ -2,7 +2,7 @@
 % Please edit documentation in R/link.R
 \name{ccGenomicLink}
 \alias{ccGenomicLink}
-\title{Object generator for S4 class ccGenomicLink}
+\title{Add links between two sets of genomic positions}
 \usage{
 ccGenomicLink(...)
 }
@@ -34,7 +34,7 @@ ccGenomicLink(...)
 Object \linkS4class{ccGenomicLink}
 }
 \description{
-Object \linkS4class{ccGenomicLink} will call the function \link{circos.genomicLink} while drawing.
+Object \linkS4class{ccGenomicLink} will call the function \link[circlize:circos.genomicLink]{circlize::circos.genomicLink} while drawing.
 }
 \examples{
 library(circlizePlus)

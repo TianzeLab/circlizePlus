@@ -2,7 +2,7 @@
 % Please edit documentation in R/cell-geom.R
 \name{ccGenomicRect}
 \alias{ccGenomicRect}
-\title{Object generator for S4 class ccGenomicCellGeom}
+\title{Draw rectangle for genomic data visualization}
 \usage{
 ccGenomicRect(...)
 }
@@ -40,7 +40,7 @@ ccGenomicRect(...)
 Object \linkS4class{ccGenomicCellGeom}
 }
 \description{
-Object \linkS4class{ccGenomicCellGeom} will call the function \link{circos.genomicRect} while drawing.
+Object \linkS4class{ccGenomicCellGeom} will call the function \link[circlize:circos.genomicRect]{circlize::circos.genomicRect} while drawing.
 }
 \examples{
 library(circlizePlus)

@@ -2,7 +2,7 @@
 % Please edit documentation in R/cell-geom.R
 \name{ccText}
 \alias{ccText}
-\title{Object generator for S4 class ccCellGeom}
+\title{Draw text in a cell}
 \usage{
 ccText(
   x,
@@ -46,7 +46,7 @@ ccText(
 Object \linkS4class{ccCellGeom}
 }
 \description{
-Object \linkS4class{ccCellGeom} will call the function \link{circos.text} while drawing.
+Object \linkS4class{ccCellGeom} will call the function \link[circlize:circos.text]{circlize::circos.text} while drawing.
 }
 \examples{
 library(circlizePlus)

@@ -50,9 +50,9 @@ setClass("ccTrack",
 setClass("ccGenomicTrack", contains = c("ccTrack"))
 
 
-#' Object generator for S4 class ccTrack
+#' Define a generic track
 #'
-#' Object [ccTrack-class] will call the function [circos.trackPlotRegion] while drawing.
+#' Object [ccTrack-class] will call the function [circlize::circos.trackPlotRegion] while drawing.
 #'
 #' @inheritDotParams circlize::circos.trackPlotRegion
 #'
@@ -87,9 +87,9 @@ ccTrack = function(...) {
   )
 }
 
-#' Object generator for S4 class ccTrack
+#' Define a track of histograms
 #'
-#' Object [ccTrack-class] will call the function [circos.trackHist] while drawing.
+#' Object [ccTrack-class] will call the function [circlize::circos.trackHist] while drawing.
 #'
 #' @inheritDotParams circlize::circos.trackHist
 #'
@@ -117,9 +117,9 @@ ccTrackHist = function(...) {
 }
 
 
-#' Object generator for S4 class ccGenomicTrack
+#' Define a track for genomic data visualization
 #'
-#' Object [ccGenomicTrack-class] will call the function [circos.genomicTrackPlotRegion] while drawing.
+#' Object [ccGenomicTrack-class] will call the function [circlize::circos.genomicTrackPlotRegion] while drawing.
 #'
 #'@inheritDotParams circlize::circos.genomicTrackPlotRegion
 #'
@@ -143,9 +143,9 @@ ccGenomicTrack = function(...) {
       cells = list())
 }
 
-#' Object generator for S4 class ccGenomicTrack
+#' Define an ideograms track for genomic graph
 #'
-#' Object [ccGenomicTrack-class] will call the function [circos.genomicIdeogram] while drawing.
+#' Object [ccGenomicTrack-class] will call the function [circlize::circos.genomicIdeogram] while drawing.
 #'
 #' @inheritDotParams circlize::circos.genomicIdeogram
 #'
@@ -167,9 +167,9 @@ ccGenomicIdeogram = function(...) {
       cells = list())
 }
 
-#' Object generator for S4 class ccGenomicTrack
+#' Define a heatmap track for genomic graph
 #'
-#' Object [ccGenomicTrack-class] will call the function [circos.genomicHeatmap] while drawing.
+#' Object [ccGenomicTrack-class] will call the function [circlize::circos.genomicHeatmap] while drawing.
 #'
 #' @inheritDotParams circlize::circos.genomicHeatmap
 #'
@@ -192,9 +192,9 @@ ccGenomicHeatmap = function(...) {
       cells = list())
 }
 
-#' Object generator for S4 class ccGenomicTrack
+#' Add labels to specific genomic track
 #'
-#' Object [ccGenomicTrack-class] will call the function [circos.genomicLabels] while drawing.
+#' Object [ccGenomicTrack-class] will call the function [circlize::circos.genomicLabels] while drawing.
 #'
 #' @inheritDotParams circlize::circos.genomicLabels
 #'
@@ -219,9 +219,9 @@ ccGenomicLabels = function(...) {
 }
 
 
-#' Object generator for S4 class ccGenomicTrack
+#' Create a rainfall plot
 #'
-#' Object [ccGenomicTrack-class] will call the function [circos.genomicRainfall] while drawing.
+#' Object [ccGenomicTrack-class] will call the function [circlize::circos.genomicRainfall] while drawing.
 #'
 #' @inheritDotParams circlize::circos.genomicRainfall
 #'
@@ -244,9 +244,9 @@ ccGenomicRainfall = function(...) {
       cells = list())
 }
 
-#' Object generator for S4 class ccGenomicTrack
+#' Create a track of density plot
 #'
-#' Object [ccGenomicTrack-class] will call the function [circos.genomicDensity] while drawing.
+#' Object [ccGenomicTrack-class] will call the function [circlize::circos.genomicDensity] while drawing.
 #'
 #' @inheritDotParams circlize::circos.genomicDensity
 #'

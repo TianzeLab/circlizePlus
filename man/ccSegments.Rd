@@ -2,7 +2,7 @@
 % Please edit documentation in R/cell-geom.R
 \name{ccSegments}
 \alias{ccSegments}
-\title{Object generator for S4 class ccCellGeom}
+\title{Draw segments connecting points in a region}
 \usage{
 ccSegments(...)
 }
@@ -26,7 +26,7 @@ ccSegments(...)
 Object \linkS4class{ccCellGeom}
 }
 \description{
-Object \linkS4class{ccCellGeom} will call the function \link{circos.segments} while drawing.
+Object \linkS4class{ccCellGeom} will call the function \link[circlize:circos.segments]{circlize::circos.segments} while drawing.
 }
 \examples{
 library(circlizePlus)

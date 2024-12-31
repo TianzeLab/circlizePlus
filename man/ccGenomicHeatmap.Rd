@@ -2,7 +2,7 @@
 % Please edit documentation in R/track.R
 \name{ccGenomicHeatmap}
 \alias{ccGenomicHeatmap}
-\title{Object generator for S4 class ccGenomicTrack}
+\title{Define a heatmap track for genomic graph}
 \usage{
 ccGenomicHeatmap(...)
 }
@@ -46,7 +46,7 @@ ccGenomicHeatmap(...)
 Object \linkS4class{ccGenomicTrack}
 }
 \description{
-Object \linkS4class{ccGenomicTrack} will call the function \link{circos.genomicHeatmap} while drawing.
+Object \linkS4class{ccGenomicTrack} will call the function \link[circlize:circos.genomicHeatmap]{circlize::circos.genomicHeatmap} while drawing.
 }
 \examples{
 library(circlizePlus)

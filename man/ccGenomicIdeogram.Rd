@@ -2,7 +2,7 @@
 % Please edit documentation in R/track.R
 \name{ccGenomicIdeogram}
 \alias{ccGenomicIdeogram}
-\title{Object generator for S4 class ccGenomicTrack}
+\title{Define an ideograms track for genomic graph}
 \usage{
 ccGenomicIdeogram(...)
 }
@@ -24,7 +24,7 @@ ccGenomicIdeogram(...)
 Object \linkS4class{ccGenomicTrack}
 }
 \description{
-Object \linkS4class{ccGenomicTrack} will call the function \link{circos.genomicIdeogram} while drawing.
+Object \linkS4class{ccGenomicTrack} will call the function \link[circlize:circos.genomicIdeogram]{circlize::circos.genomicIdeogram} while drawing.
 }
 \examples{
 library(circlizePlus)

@@ -2,7 +2,7 @@
 % Please edit documentation in R/cell-geom.R
 \name{ccArrow}
 \alias{ccArrow}
-\title{Object generator for S4 class ccCellGeom}
+\title{Draw an arrow}
 \usage{
 ccArrow(...)
 }

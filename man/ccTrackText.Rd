@@ -2,7 +2,7 @@
 % Please edit documentation in R/track-geom.R
 \name{ccTrackText}
 \alias{ccTrackText}
-\title{Object generator for S4 class ccTrackGeom}
+\title{Add texts on all sections of a single track.}
 \usage{
 ccTrackText(...)
 }
@@ -29,7 +29,7 @@ ccTrackText(...)
 Object \linkS4class{ccTrackGeom}
 }
 \description{
-Object \linkS4class{ccTrackGeom} will call the function \link{circos.trackText} while drawing.
+Object \linkS4class{ccTrackGeom} will call the function \link[circlize:circos.trackText]{circlize::circos.trackText} while drawing.
 }
 \examples{
 NULL

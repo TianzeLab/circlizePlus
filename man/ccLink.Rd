@@ -2,7 +2,7 @@
 % Please edit documentation in R/link.R
 \name{ccLink}
 \alias{ccLink}
-\title{Object generator for S4 class ccLink}
+\title{Add a link}
 \usage{
 ccLink(...)
 }
@@ -72,7 +72,7 @@ ccLink(...)
 Object \linkS4class{ccLink}
 }
 \description{
-Object \linkS4class{ccLink} will call the function \link{circos.link} while drawing.
+Object \linkS4class{ccLink} will call the function \link[circlize:circos.link]{circlize::circos.link} while drawing.
 }
 \examples{
 library(circlizePlus)

@@ -2,7 +2,7 @@
 % Please edit documentation in R/track-geom.R
 \name{ccTrackLines}
 \alias{ccTrackLines}
-\title{Object generator for S4 class ccTrackGeom}
+\title{Add lines on all sections of a single track.}
 \usage{
 ccTrackLines(...)
 }
@@ -33,7 +33,7 @@ ccTrackLines(...)
 Object \linkS4class{ccTrackGeom}
 }
 \description{
-Object \linkS4class{ccTrackGeom} will call the function \link{circos.trackLines} while drawing.
+Object \linkS4class{ccTrackGeom} will call the function \link[circlize:circos.trackLines]{circlize::circos.trackLines} while drawing.
 }
 \examples{
 NULL

@@ -2,7 +2,7 @@
 % Please edit documentation in R/track.R
 \name{ccTrackHist}
 \alias{ccTrackHist}
-\title{Object generator for S4 class ccTrack}
+\title{Define a track of histograms}
 \usage{
 ccTrackHist(...)
 }
@@ -37,7 +37,7 @@ ccTrackHist(...)
 Object \linkS4class{ccTrack}
 }
 \description{
-Object \linkS4class{ccTrack} will call the function \link{circos.trackHist} while drawing.
+Object \linkS4class{ccTrack} will call the function \link[circlize:circos.trackHist]{circlize::circos.trackHist} while drawing.
 }
 \examples{
 library(circlizePlus)

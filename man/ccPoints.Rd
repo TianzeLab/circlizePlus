@@ -2,7 +2,7 @@
 % Please edit documentation in R/cell-geom.R
 \name{ccPoints}
 \alias{ccPoints}
-\title{Object generator for S4 class ccCellGeom}
+\title{Draw points in a region}
 \usage{
 ccPoints(...)
 }
@@ -24,7 +24,7 @@ ccPoints(...)
 Object \linkS4class{ccCellGeom}
 }
 \description{
-Object \linkS4class{ccCellGeom} will call the function \link{circos.points} while drawing.
+Object \linkS4class{ccCellGeom} will call the function \link[circlize:circos.points]{circlize::circos.points} while drawing.
 }
 \examples{
 library(circlizePlus)

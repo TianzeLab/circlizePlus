@@ -2,7 +2,7 @@
 % Please edit documentation in R/cell-geom.R
 \name{ccRaster}
 \alias{ccRaster}
-\title{Object generator for S4 class ccCellGeom}
+\title{Add raster image}
 \usage{
 ccRaster(...)
 }
@@ -26,7 +26,7 @@ ccRaster(...)
 Object \linkS4class{ccCellGeom}
 }
 \description{
-Object \linkS4class{ccCellGeom} will call the function \link{circos.raster} while drawing.
+Object \linkS4class{ccCellGeom} will call the function \link[circlize:circos.raster]{circlize::circos.raster} while drawing.
 }
 \examples{
 library(circlizePlus)

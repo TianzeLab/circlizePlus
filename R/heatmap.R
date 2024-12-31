@@ -3,7 +3,7 @@
 #' ccHeatmap is a special class. It can be used not only as a single track but also as the result of adding a heatmap track to a ccPlot
 #'
 #' @slot func character. Normally it is "circos.heatmap".
-#' @slot params list. A **named** list that stores the parameters of the function [circos.heatmap] called by the backend.
+#' @slot params list. A **named** list that stores the parameters of the function [circlize::circos.heatmap] called by the backend.
 #' @slot trackGeoms list. A list where [ccTrackGeom-class] are stored.
 #' @slot cells list. A list where [ccCell-class] are stored.
 #' @slot tracks list. A list where [ccTrack-class] or [ccGenomicTrack-class] or [ccHeatmap-class] are stored.
@@ -23,7 +23,7 @@ setClass(
 
 #' Object generator for S4 class ccHeatmap
 #'
-#' Object [ccHeatmap-class] will call the function [circos.heatmap] while drawing.
+#' Object [ccHeatmap-class] will call the function [circlize::circos.heatmap] while drawing.
 #'
 #' @inheritDotParams circlize::circos.heatmap
 #' @return Object [ccHeatmap-class]

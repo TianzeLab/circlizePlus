@@ -2,7 +2,7 @@
 % Please edit documentation in R/track.R
 \name{ccGenomicRainfall}
 \alias{ccGenomicRainfall}
-\title{Object generator for S4 class ccGenomicTrack}
+\title{Create a rainfall plot}
 \usage{
 ccGenomicRainfall(...)
 }
@@ -32,7 +32,7 @@ ccGenomicRainfall(...)
 Object \linkS4class{ccGenomicTrack}
 }
 \description{
-Object \linkS4class{ccGenomicTrack} will call the function \link{circos.genomicRainfall} while drawing.
+Object \linkS4class{ccGenomicTrack} will call the function \link[circlize:circos.genomicRainfall]{circlize::circos.genomicRainfall} while drawing.
 }
 \examples{
 library(circlizePlus)

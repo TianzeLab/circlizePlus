@@ -2,7 +2,7 @@
 % Please edit documentation in R/cell-geom.R
 \name{ccGenomicText}
 \alias{ccGenomicText}
-\title{Object generator for S4 class ccGenomicCellGeom}
+\title{Add text for genomic data visualization}
 \usage{
 ccGenomicText(...)
 }
@@ -55,7 +55,7 @@ ccGenomicText(...)
 Object \linkS4class{ccGenomicCellGeom}
 }
 \description{
-Object \linkS4class{ccGenomicCellGeom} will call the function \link{circos.genomicText} while drawing.
+Object \linkS4class{ccGenomicCellGeom} will call the function \link[circlize:circos.genomicText]{circlize::circos.genomicText} while drawing.
 }
 \examples{
 library(circlizePlus)

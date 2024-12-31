@@ -2,7 +2,7 @@
 % Please edit documentation in R/cell-geom.R
 \name{ccViolin}
 \alias{ccViolin}
-\title{Object generator for S4 class ccCellGeom}
+\title{Draw violin plots}
 \usage{
 ccViolin(...)
 }
@@ -30,7 +30,7 @@ ccViolin(...)
 Object \linkS4class{ccCellGeom}
 }
 \description{
-Object \linkS4class{ccCellGeom} will call the function \link{circos.violin} while drawing.
+Object \linkS4class{ccCellGeom} will call the function \link[circlize:circos.violin]{circlize::circos.violin} while drawing.
 }
 \examples{
 library(circlizePlus)

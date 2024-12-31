@@ -2,7 +2,7 @@
 % Please edit documentation in R/cell-geom.R
 \name{ccGenomicAxis}
 \alias{ccGenomicAxis}
-\title{Object generator for S4 class ccGenomicCellGeom}
+\title{Add genomic axes}
 \usage{
 ccGenomicAxis(...)
 }
@@ -32,7 +32,7 @@ ccGenomicAxis(...)
 Object \linkS4class{ccGenomicCellGeom}
 }
 \description{
-Object \linkS4class{ccGenomicCellGeom} will call the function \link{circos.genomicAxis} while drawing.
+Object \linkS4class{ccGenomicCellGeom} will call the function \link[circlize:circos.genomicAxis]{circlize::circos.genomicAxis} while drawing.
 }
 \examples{
 library(circlizePlus)

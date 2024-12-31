@@ -12,7 +12,7 @@ S4 class ccLink
 \describe{
 \item{\code{func}}{character. Normally it is "circos.link".}
 
-\item{\code{params}}{list. A \strong{named} list that stores the parameters of the function \link{circos.link} called by the backend.}
+\item{\code{params}}{list. A \strong{named} list that stores the parameters of the function \link[circlize:circos.link]{circlize::circos.link} called by the backend.}
 }}
 
 \examples{

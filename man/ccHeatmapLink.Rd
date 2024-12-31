@@ -2,7 +2,7 @@
 % Please edit documentation in R/link.R
 \name{ccHeatmapLink}
 \alias{ccHeatmapLink}
-\title{Object generator for S4 class ccHeatmapLink}
+\title{Draw a link between two matrix rows in the circular heatmap}
 \usage{
 ccHeatmapLink(...)
 }
@@ -18,7 +18,7 @@ ccHeatmapLink(...)
 Object \linkS4class{ccHeatmapLink}
 }
 \description{
-Object \linkS4class{ccHeatmapLink} will call the function \link{circos.heatmap.link} while drawing.
+Object \linkS4class{ccHeatmapLink} will call the function \link[circlize:circos.heatmap.link]{circlize::circos.heatmap.link} while drawing.
 }
 \examples{
 library(circlizePlus)

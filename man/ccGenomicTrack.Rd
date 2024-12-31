@@ -2,7 +2,7 @@
 % Please edit documentation in R/track.R
 \name{ccGenomicTrack}
 \alias{ccGenomicTrack}
-\title{Object generator for S4 class ccGenomicTrack}
+\title{Define a track for genomic data visualization}
 \usage{
 ccGenomicTrack(...)
 }
@@ -39,7 +39,7 @@ ccGenomicTrack(...)
 Object \linkS4class{ccGenomicTrack}
 }
 \description{
-Object \linkS4class{ccGenomicTrack} will call the function \link{circos.genomicTrackPlotRegion} while drawing.
+Object \linkS4class{ccGenomicTrack} will call the function \link[circlize:circos.genomicTrackPlotRegion]{circlize::circos.genomicTrackPlotRegion} while drawing.
 }
 \examples{
 library(circlizePlus)

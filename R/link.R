@@ -1,7 +1,7 @@
 #' S4 class ccLink
 #'
 #' @slot func character. Normally it is "circos.link".
-#' @slot params list. A **named** list that stores the parameters of the function [circos.link] called by the backend.
+#' @slot params list. A **named** list that stores the parameters of the function [circlize::circos.link] called by the backend.
 #'
 #' @export
 #'
@@ -14,7 +14,7 @@ setClass("ccLink",
 #' S4 class ccHeatmapLink
 #'
 #' @slot func character. Normally it is "circos.heatmap.link".
-#' @slot params list. A **named** list that stores the parameters of the function [circos.heatmap.link] called by the backend.
+#' @slot params list. A **named** list that stores the parameters of the function [circlize::circos.heatmap.link] called by the backend.
 #' @export
 #'
 #' @examples
@@ -24,16 +24,16 @@ setClass("ccHeatmapLink", contains = c('ccLink'))
 #' S4 class ccGenomicLink
 #'
 #' @slot func character. Normally it is "circos.genomicLink".
-#' @slot params list. A **named** list that stores the parameters of the function [circos.genomicLink] called by the backend.
+#' @slot params list. A **named** list that stores the parameters of the function [circlize::circos.genomicLink] called by the backend.
 #' @export
 #'
 #' @examples
 #' NULL
 setClass("ccGenomicLink", contains = c('ccLink'))
 
-#' Object generator for S4 class ccLink
+#' Add a link
 #'
-#' Object [ccLink-class] will call the function [circos.link] while drawing.
+#' Object [ccLink-class] will call the function [circlize::circos.link] while drawing.
 #'
 #' @inheritDotParams circlize::circos.link
 #'
@@ -59,9 +59,9 @@ ccLink = function(...) {
       params = list(...))
 }
 
-#' Object generator for S4 class ccHeatmapLink
+#' Draw a link between two matrix rows in the circular heatmap
 #'
-#' Object [ccHeatmapLink-class] will call the function [circos.heatmap.link] while drawing.
+#' Object [ccHeatmapLink-class] will call the function [circlize::circos.heatmap.link] while drawing.
 #'
 #' @inheritDotParams circlize::circos.heatmap.link
 #'
@@ -83,9 +83,9 @@ ccHeatmapLink = function(...) {
       params = list(...))
 }
 
-#' Object generator for S4 class ccGenomicLink
+#' Add links between two sets of genomic positions
 #'
-#' Object [ccGenomicLink-class] will call the function [circos.genomicLink] while drawing.
+#' Object [ccGenomicLink-class] will call the function [circlize::circos.genomicLink] while drawing.
 #'
 #' @inheritDotParams circlize::circos.genomicLink
 #'

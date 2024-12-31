@@ -2,7 +2,7 @@
 % Please edit documentation in R/cell-geom.R
 \name{ccDendrogram}
 \alias{ccDendrogram}
-\title{Object generator for S4 class ccCellGeom}
+\title{Draw dendrogram plots in a track}
 \usage{
 ccDendrogram(...)
 }

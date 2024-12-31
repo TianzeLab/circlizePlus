@@ -39,7 +39,7 @@ ccHeatmap(...)
 Object \linkS4class{ccHeatmap}
 }
 \description{
-Object \linkS4class{ccHeatmap} will call the function \link{circos.heatmap} while drawing.
+Object \linkS4class{ccHeatmap} will call the function \link[circlize:circos.heatmap]{circlize::circos.heatmap} while drawing.
 }
 \examples{
 library(circlizePlus)

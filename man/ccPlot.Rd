@@ -15,12 +15,12 @@ ccPlot(initMode = 'heatmap.initialize',clear = TRUE,mat=NULL, split = NULL, clus
 \arguments{
 \item{initMode}{It can only be the following values: "initialize", "genomicInitialize", "initializeWithIdeogram", "heatmap.initialize".}
 
-\item{clear}{Whether to call \link{circos.clear} after drawing.}
+\item{clear}{Whether to call \link[circlize:circos.clear]{circlize::circos.clear} after drawing.}
 
-\item{...}{Parameters passed to the function in the package circlize. The function is one of the following four:\link{circos.initialize}, \link{circos.genomicInitialize}, \link{circos.initializeWithIdeogram}, \link{circos.heatmap.initialize}.}
+\item{...}{Parameters passed to the function in the package circlize. The function is one of the following four:\link[circlize:circos.initialize]{circlize::circos.initialize}, \link[circlize:circos.genomicInitialize]{circlize::circos.genomicInitialize}, \link[circlize:circos.initializeWithIdeogram]{circlize::circos.initializeWithIdeogram}, \link[circlize:circos.heatmap.initialize]{circlize::circos.heatmap.initialize}.}
 }
 \description{
-Object \linkS4class{ccPlot} calls one of the following functions based on the value of initMode: \link{circos.initialize}, \link{circos.genomicInitialize}, \link{circos.initializeWithIdeogram}, \link{circos.heatmap.initialize}.
+Object \linkS4class{ccPlot} calls one of the following functions based on the value of initMode: \link[circlize:circos.initialize]{circlize::circos.initialize}, \link[circlize:circos.genomicInitialize]{circlize::circos.genomicInitialize}, \link[circlize:circos.initializeWithIdeogram]{circlize::circos.initializeWithIdeogram}, \link[circlize:circos.heatmap.initialize]{circlize::circos.heatmap.initialize}.
 }
 \examples{
 n = 1000

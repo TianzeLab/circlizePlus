@@ -2,7 +2,7 @@
 % Please edit documentation in R/cell-geom.R
 \name{ccBoxplot}
 \alias{ccBoxplot}
-\title{Object generator for S4 class ccCellGeom}
+\title{Draw boxplots}
 \usage{
 ccBoxplot(...)
 }

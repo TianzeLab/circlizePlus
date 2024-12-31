@@ -2,7 +2,7 @@
 % Please edit documentation in R/param.R
 \name{ccPar}
 \alias{ccPar}
-\title{Object generator for S4 class ccPar}
+\title{Parameters for the circular layout}
 \usage{
 ccPar(...)
 }
@@ -24,7 +24,7 @@ ccPar(...)
 Object \linkS4class{ccPar}
 }
 \description{
-Object \linkS4class{ccPar} will call the function \link{circos.par} while drawing.
+Object \linkS4class{ccPar} will call the function \link[circlize:circos.par]{circlize::circos.par} while drawing.
 }
 \examples{
 library(circlizePlus)

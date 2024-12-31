@@ -2,7 +2,7 @@
 % Please edit documentation in R/cell-geom.R
 \name{ccYaxis}
 \alias{ccYaxis}
-\title{Object generator for S4 class ccCellGeom}
+\title{Draw y-axis}
 \usage{
 ccYaxis(...)
 }
@@ -29,7 +29,7 @@ ccYaxis(...)
 Object \linkS4class{ccCellGeom}
 }
 \description{
-Object \linkS4class{ccCellGeom} will call the function \link{circos.yaxis} while drawing.
+Object \linkS4class{ccCellGeom} will call the function \link[circlize:circos.yaxis]{circlize::circos.yaxis} while drawing.
 }
 \examples{
 library(circlizePlus)

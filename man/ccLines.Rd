@@ -2,7 +2,7 @@
 % Please edit documentation in R/cell-geom.R
 \name{ccLines}
 \alias{ccLines}
-\title{Object generator for S4 class ccCellGeom}
+\title{Draw lines in a region}
 \usage{
 ccLines(...)
 }
@@ -32,7 +32,7 @@ ccLines(...)
 Object \linkS4class{ccCellGeom}
 }
 \description{
-Object \linkS4class{ccCellGeom} will call the function \link{circos.lines} while drawing.
+Object \linkS4class{ccCellGeom} will call the function \link[circlize:circos.lines]{circlize::circos.lines} while drawing.
 }
 \examples{
 library(circlizePlus)

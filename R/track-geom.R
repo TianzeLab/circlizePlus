@@ -12,9 +12,9 @@
 setClass("ccTrackGeom",
          slots = c(func = "character", params = "list"))
 
-#' Object generator for S4 class ccTrackGeom
+#' Add lines on all sections of a single track.
 #'
-#' Object [ccTrackGeom-class] will call the function [circos.trackLines] while drawing.
+#' Object [ccTrackGeom-class] will call the function [circlize::circos.trackLines] while drawing.
 #'
 #' @inheritDotParams circlize::circos.trackLines
 #'
@@ -27,9 +27,9 @@ ccTrackLines = function(...) {
   new("ccTrackGeom",func = 'circos.trackLines', params = list(...))
 }
 
-#' Object generator for S4 class ccTrackGeom
+#' Add points on all sections of a single track.
 #'
-#' Object [ccTrackGeom-class] will call the function [circos.trackPoints] while drawing.
+#' Object [ccTrackGeom-class] will call the function [circlize::circos.trackPoints] while drawing.
 #'
 #' @inheritDotParams circlize::circos.trackPoints
 #'
@@ -42,9 +42,9 @@ ccTrackPoints = function(...) {
   new("ccTrackGeom",func = 'circos.trackPoints', params = list(...))
 }
 
-#' Object generator for S4 class ccTrackGeom
+#' Add texts on all sections of a single track.
 #'
-#' Object [ccTrackGeom-class] will call the function [circos.trackText] while drawing.
+#' Object [ccTrackGeom-class] will call the function [circlize::circos.trackText] while drawing.
 #'
 #' @inheritDotParams circlize::circos.trackText
 #'

@@ -1,11 +1,11 @@
 #' S4 class ccPlot
 #'
 #' @slot initMode character. It can only be the following values: "initialize", "genomicInitialize", "initializeWithIdeogram", "heatmap.initialize".
-#' @slot initParams list. A **named** list that stores the parameters of the function called by the backend. Based on the value of initMode, the backend function will be one of the following four:[circos.initialize], [circos.genomicInitialize], [circos.initializeWithIdeogram], [circos.heatmap.initialize].
+#' @slot initParams list. A **named** list that stores the parameters of the function called by the backend. Based on the value of initMode, the backend function will be one of the following four:[circlize::circos.initialize], [circlize::circos.genomicInitialize], [circlize::circos.initializeWithIdeogram], [circlize::circos.heatmap.initialize].
 #' @slot tracks list. A list where [ccTrack-class] or [ccGenomicTrack-class] or [ccHeatmap-class] are stored.
 #' @slot links list. A list where [ccLink-class] or [ccGenomicLink-class] or [ccHeatmapLink-class] are stored.
 #' @slot pars list. A list where [ccPar-class] are stored.
-#' @slot clear logical. Whether to call [circos.clear] after drawing.
+#' @slot clear logical. Whether to call [circlize::circos.clear] after drawing.
 #'
 #' @export
 #'
@@ -29,11 +29,11 @@ setClass(
 
 #' Object generator for S4 class ccPlot
 #'
-#' Object [ccPlot-class] calls one of the following functions based on the value of initMode: [circos.initialize], [circos.genomicInitialize], [circos.initializeWithIdeogram], [circos.heatmap.initialize].
+#' Object [ccPlot-class] calls one of the following functions based on the value of initMode: [circlize::circos.initialize], [circlize::circos.genomicInitialize], [circlize::circos.initializeWithIdeogram], [circlize::circos.heatmap.initialize].
 #'
 #' @param initMode It can only be the following values: "initialize", "genomicInitialize", "initializeWithIdeogram", "heatmap.initialize".
-#' @param clear Whether to call [circos.clear] after drawing.
-#' @param ... Parameters passed to the function in the package circlize. The function is one of the following four:[circos.initialize], [circos.genomicInitialize], [circos.initializeWithIdeogram], [circos.heatmap.initialize].
+#' @param clear Whether to call [circlize::circos.clear] after drawing.
+#' @param ... Parameters passed to the function in the package circlize. The function is one of the following four:[circlize::circos.initialize], [circlize::circos.genomicInitialize], [circlize::circos.initializeWithIdeogram], [circlize::circos.heatmap.initialize].
 #'
 #' @usage ccPlot(initMode = 'initialize',clear = TRUE,sectors = NULL,x = NULL,xlim = NULL,sector.width = NULL,factors = sectors,ring = FALSE)
 #' @usage ccPlot(initMode = 'genomicInitialize',clear = TRUE,data=NULL,sector.names = NULL,major.by = NULL,plotType = c("axis", "labels"),tickLabelsStartFromZero = TRUE,axis.labels.cex = 0.4*par("cex"),labels.cex = 0.8*par("cex"),track.height = NULL,...)

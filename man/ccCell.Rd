@@ -2,7 +2,7 @@
 % Please edit documentation in R/cell-geom.R
 \name{ccCell}
 \alias{ccCell}
-\title{Object generator for S4 class ccCell}
+\title{Generate a cell container that belongs to a particular sector}
 \usage{
 ccCell(sector.index = NULL)
 }
@@ -13,7 +13,7 @@ ccCell(sector.index = NULL)
 Object \linkS4class{ccCell}
 }
 \description{
-Object generator for S4 class ccCell
+Generate a cell container that belongs to a particular sector
 }
 \examples{
 library(circlizePlus)

@@ -2,18 +2,18 @@
 % Please edit documentation in R/cell-geom.R
 \name{ccCells}
 \alias{ccCells}
-\title{Object generator for S4 class ccCells}
+\title{Generate a list of multiple object ccCell-class}
 \usage{
 ccCells(sector.indexes = list())
 }
 \arguments{
-\item{sector.indexes}{list. A list of multiple object \linkS4class{ccCell}}
+\item{sector.indexes}{list. A list of indexs that corresponds to the sectors.}
 }
 \value{
 Object \linkS4class{ccCells}
 }
 \description{
-Object generator for S4 class ccCells
+Generate a list of multiple object ccCell-class
 }
 \examples{
 library(circlizePlus)

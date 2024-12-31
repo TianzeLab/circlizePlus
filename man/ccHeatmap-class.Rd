@@ -12,7 +12,7 @@ ccHeatmap is a special class. It can be used not only as a single track but also
 \describe{
 \item{\code{func}}{character. Normally it is "circos.heatmap".}
 
-\item{\code{params}}{list. A \strong{named} list that stores the parameters of the function \link{circos.heatmap} called by the backend.}
+\item{\code{params}}{list. A \strong{named} list that stores the parameters of the function \link[circlize:circos.heatmap]{circlize::circos.heatmap} called by the backend.}
 
 \item{\code{trackGeoms}}{list. A list where \linkS4class{ccTrackGeom} are stored.}
 
