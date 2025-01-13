@@ -46,6 +46,40 @@ ccCell(contain n ccCellGeoms)+ccCellGeom=ccCell(contain n+1 ccCellGeoms),n≥0
 -   ccCell: Generate a cell container that belongs to a particular sector.
 -   ccCells: A list of multiple `ccCell`. Any `ccCellGeom` and `ccCells` are added together as if they were added to each `ccCell` contained in the `ccCells`.
 
+## API outline 
+
+### Initializer
+- class: 
+- function:
+
+### Parameter
+- class: 
+- function:
+
+### Cell container
+- class: 
+- function:
+
+### Cell geometry
+- class: 
+- function:
+
+### Track
+- class: 
+- function:
+
+### Track geometry
+- class: 
+- function:
+
+### Link
+- class: 
+- function:
+
+### Heatmap
+- class: 
+- function:
+
 ## Data mapping from ccTrack to ccGenomicCellGeom
 
 |                                      |                   |                  |                  |                  |           |            |             |           |                              |                |
