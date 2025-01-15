@@ -65,20 +65,20 @@ ccCell(contain n ccCellGeoms)+ccCellGeom=ccCell(contain n+1 ccCellGeoms),n≥0
 - function: [ccText()](https://tianzelab.github.io/circlizePlus/reference/ccText.html), [ccPoints()](https://tianzelab.github.io/circlizePlus/reference/ccPoints.html), [ccLines()](https://tianzelab.github.io/circlizePlus/reference/ccLines.html), [ccSegments()](https://tianzelab.github.io/circlizePlus/reference/ccSegments.html), [ccRect()](https://tianzelab.github.io/circlizePlus/reference/ccRect.html), [ccPolygon()](https://tianzelab.github.io/circlizePlus/reference/ccPolygon.html), [ccXaxis()](https://tianzelab.github.io/circlizePlus/reference/ccXaxis.html), [ccYaxis()](https://tianzelab.github.io/circlizePlus/reference/ccYaxis.html), [ccBarplot()](https://tianzelab.github.io/circlizePlus/reference/ccBarplot.html), [ccBoxplot()](https://tianzelab.github.io/circlizePlus/reference/ccBoxplot.html), [ccViolin()](https://tianzelab.github.io/circlizePlus/reference/ccViolin.html), [ccArrow()](https://tianzelab.github.io/circlizePlus/reference/ccArrow.html), [ccRaster()](https://tianzelab.github.io/circlizePlus/reference/ccRaster.html), [ccDendrogram()](https://tianzelab.github.io/circlizePlus/reference/ccDendrogram.html), [ccGenomicPoints()](https://tianzelab.github.io/circlizePlus/reference/ccGenomicPoints.html), [ccGenomicLines()](https://tianzelab.github.io/circlizePlus/reference/ccGenomicLines.html), [ccGenomicRect()](https://tianzelab.github.io/circlizePlus/reference/ccGenomicRect.html), [ccGenomicText()](https://tianzelab.github.io/circlizePlus/reference/ccGenomicText.html), [ccGenomicAxis()](https://tianzelab.github.io/circlizePlus/reference/ccGenomicAxis.html)
 
 ### Track container
-- class: 
-- function:
+- class: [ccTrack-class](https://tianzelab.github.io/circlizePlus/reference/ccTrack-class.html), [ccGenomicTrack-class](https://tianzelab.github.io/circlizePlus/reference/ccGenomicTrack-class.html)
+- function: [ccTrack()](https://tianzelab.github.io/circlizePlus/reference/ccTrack.html), [ccTrackHist()](https://tianzelab.github.io/circlizePlus/reference/ccTrackHist.html), [ccGenomicTrack()](https://tianzelab.github.io/circlizePlus/reference/ccGenomicTrack.html), [ccGenomicIdeogram()](https://tianzelab.github.io/circlizePlus/reference/ccGenomicIdeogram.html), [ccGenomicHeatmap()](https://tianzelab.github.io/circlizePlus/reference/ccGenomicHeatmap.html), [ccGenomicLabels()](https://tianzelab.github.io/circlizePlus/reference/ccGenomicLabels.html), [ccGenomicRainfall()][https://tianzelab.github.io/circlizePlus/reference/ccGenomicRainfall.html], [ccGenomicDensity()][https://tianzelab.github.io/circlizePlus/reference/ccGenomicDensity.html]
 
 ### Track geometry
-- class: 
-- function:
+- class: [ccTrackGeom-class](https://tianzelab.github.io/circlizePlus/reference/ccTrackGeom-class.html)
+- function: [ccTrackLines()](https://tianzelab.github.io/circlizePlus/reference/ccTrackLines.html), [ccTrackPoints()](https://tianzelab.github.io/circlizePlus/reference/ccTrackPoints.html), [ccTrackText()](https://tianzelab.github.io/circlizePlus/reference/ccTrackText.html)
 
 ### Link
-- class: 
-- function:
+- class: [ccLink-class](https://tianzelab.github.io/circlizePlus/reference/ccLink-class.html), [ccHeatmapLink-class](https://tianzelab.github.io/circlizePlus/reference/ccHeatmapLink-class.html), [ccGenomicLink-class](https://tianzelab.github.io/circlizePlus/reference/ccGenomicLink-class.html)
+- function: [ccLink()](https://tianzelab.github.io/circlizePlus/reference/ccLink.html), [ccHeatmapLink()](https://tianzelab.github.io/circlizePlus/reference/ccHeatmapLink.html), [ccGenomicLink()](https://tianzelab.github.io/circlizePlus/reference/ccGenomicLink.html)
 
 ### Heatmap
-- class: 
-- function:
+- class: [ccHeatmap-class](https://tianzelab.github.io/circlizePlus/reference/ccHeatmap-class.html)
+- function: [ccHeatmap()](https://tianzelab.github.io/circlizePlus/reference/ccHeatmap.html)
 
 ## Data mapping from ccTrack to ccGenomicCellGeom
 
