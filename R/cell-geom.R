@@ -174,7 +174,7 @@ ccText = function(x,
 #'
 #' Object [ccCellGeom-class] will call the function [circlize::circos.points] while drawing.
 #'
-#' @inheritDotParams circlize::circos.points
+#' @inheritParams circlize::circos.points
 #'
 #' @return Object [ccCellGeom-class]
 #' @export
@@ -189,15 +189,31 @@ ccText = function(x,
 #'                                          sector.index = "c", pch = 16, col = "red")
 #' track1 = track1+cells
 #' cc+track1
-ccPoints = function(...) {
-  new("ccCellGeom",func = 'circos.points',params = list(...))
+ccPoints = function(x, y,
+                    sector.index = get.current.sector.index(),
+                    track.index = get.current.track.index(),
+                    pch = par("pch"),
+                    col = par("col"),
+                    cex = par("cex"),
+                    bg = par("bg"),
+                    ) {name_args = list(
+                      x = x,
+                      y = y,
+                      sector.index = sector.index,
+                      track.index = track.index ,
+                      pch = pch ,
+                      col = col ,
+                      cex = cex ,
+                      bg = bg
+                    )
+  new("ccCellGeom",func = 'circos.points',params = c(name_args))
 }
 
 #' Draw lines in a region
 #'
 #' Object [ccCellGeom-class] will call the function [circlize::circos.lines] while drawing.
 #'
-#' @inheritDotParams circlize::circos.lines
+#' @inheritParams circlize::circos.lines
 #'
 #' @return Object [ccCellGeom-class]
 #' @export
@@ -212,15 +228,46 @@ ccPoints = function(...) {
 #' cells=ccCell(sector.index = 'a')+ccLines(sort(x=runif(10)*10), y=runif(10)*10, sector.index = "a")
 #' track=track+cells
 #' cc+track
-ccLines = function(...) {
-  new("ccCellGeom",func = 'circos.lines',params = list(...))
+ccLines = function(x, y,
+                   sector.index = get.current.sector.index(),
+                   track.index = get.current.track.index(),
+                   col = ifelse(area, "grey", par("col")),
+                   lwd = par("lwd"),
+                   lty = par("lty"),
+                   type = "l",
+                   straight = FALSE,
+                   area = FALSE,
+                   area.baseline = NULL,
+                   border = "black",
+                   baseline = "bottom",
+                   pt.col = par("col"),
+                   cex = par("cex"),
+                   pch = par("pch"),
+                   ) {name_args = list(
+                     x=x, y=y,
+                     sector.index = sector.index,
+                     track.index = track.index,
+                     col = col,
+                     lwd = lwd,
+                     lty = lty,
+                     type = type,
+                     straight = straight,
+                     area = area,
+                     area.baseline = area.baseline,
+                     border = border,
+                     baseline = baseline,
+                     pt.col = pt.col,
+                     cex = cex ,
+                     pch = pch
+                   )
+  new("ccCellGeom",func = 'circos.lines',params = c(name_args))
 }
 
 #' Draw segments connecting points in a region
 #'
 #' Object [ccCellGeom-class] will call the function [circlize::circos.segments] while drawing.
 #'
-#' @inheritDotParams circlize::circos.segments
+#' @inheritParams circlize::circos.segments
 #'
 #' @return Object [ccCellGeom-class]
 #' @export
@@ -232,15 +279,30 @@ ccLines = function(...) {
 #' cell=ccCell(sector.index = 'a')+ccSegments(x0=0.7,y0=0.1,x1=0.7,y1=0.9)
 #' track=track+cell
 #' cc+track
-ccSegments = function(...) {
-  new("ccCellGeom",func = 'circos.segments',params = list(...))
+ccSegments = function( x0, y0, x1, y1,
+                       sector.index = get.current.sector.index(),
+                       track.index = get.current.track.index(),
+                       straight = FALSE,
+                       col = par("col"),
+                       lwd = par("lwd"),
+                       lty = par("lty"),
+                       ...) {name_args =list(
+                         x0=x0, y0=y0, x1=x1, y1=y1,
+                         sector.index = sector.index,
+                         track.index = track.index,
+                         straight = straight,
+                         col = col,
+                         lwd = lwd,
+                         lty = lty
+                       )
+  new("ccCellGeom",func = 'circos.segments',params = c(name_args,list(...)))
 }
 
 #' Draw rectangle in a region
 #'
 #' Object [ccCellGeom-class] will call the function [circlize::circos.rect] while drawing.
 #'
-#' @inheritDotParams circlize::circos.rect
+#' @inheritParams circlize::circos.rect
 #'
 #' @return Object [ccCellGeom-class]
 #' @export
@@ -252,15 +314,24 @@ ccSegments = function(...) {
 #' cell=ccCell(sector.index = 'a')+ccRect(xleft=0.7,ybottom=0.1,xright=0.8,ytop=0.9)
 #' track=track+cell
 #' cc+track
-ccRect = function(...) {
-  new("ccCellGeom",func = 'circos.rect',params = list(...))
+ccRect = function(xleft, ybottom, xright, ytop,
+                  sector.index = get.current.sector.index(),
+                  track.index = get.current.track.index(),
+                  rot = 0,
+                  ...) {name_args = list(
+                    xleft=xleft, ybottom=ybottom, xright=xright, ytop=ytop,
+                    sector.index = sector.index,
+                    track.index = track.index,
+                    rot = rot
+                  )
+  new("ccCellGeom",func = 'circos.rect',params = c(name_args,list(...)))
 }
 
 #' Draw polygon
 #'
 #' Object [ccCellGeom-class] will call the function [circlize::circos.polygon] while drawing.
 #'
-#' @inheritDotParams circlize::circos.polygon
+#' @inheritParams circlize::circos.polygon
 #'
 #' @return Object [ccCellGeom-class]
 #' @export
@@ -272,15 +343,20 @@ ccRect = function(...) {
 #' cell=ccCell(sector.index = 'a')+ccPolygon(x=c(0.5,0.7,1),y=c(2,6,8))
 #' track=track+cell
 #' cc+track
-ccPolygon = function(...) {
-  new("ccCellGeom",func = 'circos.polygon',params = list(...))
+ccPolygon = function(x, y,
+                     sector.index = get.current.sector.index(),
+                     track.index = get.current.track.index(),
+                     ...) {name_args = list(x=x, y=y,
+                                            sector.index = sector.index,
+                                            track.index = track.index)
+  new("ccCellGeom",func = 'circos.polygon',params = c(name_args,list(...)))
 }
 
 #' Draw x-axis
 #'
 #' Object [ccCellGeom-class] will call the function [circlize::circos.axis] while drawing.
 #'
-#' @inheritDotParams circlize::circos.axis
+#' @inheritParams circlize::circos.axis
 #'
 #' @return Object [ccCellGeom-class]
 #' @export
@@ -292,15 +368,53 @@ ccPolygon = function(...) {
 #' cell=ccCell(sector.index = 'a')+ccXaxis(sector.index = "a")
 #' track=track+cell
 #' cc+track
-ccXaxis = function(...) {
-  new("ccCellGeom",func = 'circos.xaxis',params = list(...))
+ccXaxis = function( h = "top",
+                    major.at = NULL,
+                    labels = TRUE,
+                    major.tick = TRUE,
+                    sector.index = get.current.sector.index(),
+                    track.index = get.current.track.index(),
+                    labels.font = par("font"),
+                    labels.cex = par("cex"),
+                    labels.facing = "inside",
+                    labels.direction = NULL,
+                    labels.niceFacing = TRUE,
+                    direction = c("outside", "inside"),
+                    minor.ticks = 4,
+                    major.tick.length = mm_y(1),
+                    major.tick.percentage = 0.5,
+                    lwd = par("lwd"),
+                    col = par("col"),
+                    labels.col = par("col"),
+                    labels.pos.adjust = TRUE) {name_args = list(
+                      h = h,
+                      major.at = major.at,
+                      labels = labels,
+                      major.tick = major.tick,
+                      sector.index = sector.index,
+                      track.index = track.index,
+                      labels.font = labels.font,
+                      labels.cex = labels.cex,
+                      labels.facing = labels.facing,
+                      labels.direction = labels.direction,
+                      labels.niceFacing = labels.niceFacing,
+                      direction = direction,
+                      minor.ticks = minor.ticks,
+                      major.tick.length = major.tick.length,
+                      major.tick.percentage = major.tick.percentage,
+                      lwd = lwd,
+                      col = col,
+                      labels.col = labels.col,
+                      labels.pos.adjust = labels.pos.adjust
+                    )
+  new("ccCellGeom",func = 'circos.xaxis',params = c(name_args))
 }
 
 #' Draw y-axis
 #'
 #' Object [ccCellGeom-class] will call the function [circlize::circos.yaxis] while drawing.
 #'
-#' @inheritDotParams circlize::circos.yaxis
+#' @inheritParams circlize::circos.yaxis
 #'
 #' @return Object [ccCellGeom-class]
 #' @export
@@ -312,15 +426,41 @@ ccXaxis = function(...) {
 #' cell=ccCell(sector.index = 'a')+ccYaxis(side = "left",sector.index = 2)
 #' track=track+cell
 #' cc+track
-ccYaxis = function(...) {
-  new("ccCellGeom",func = 'circos.yaxis',params = list(...))
+ccYaxis = function(side = c("left", "right"),
+                   at = NULL,
+                   labels = TRUE,
+                   tick = TRUE,
+                   sector.index = get.current.sector.index(),
+                   track.index = get.current.track.index(),
+                   labels.font = par("font"),
+                   labels.cex = par("cex"),
+                   labels.niceFacing = TRUE,
+                   tick.length = convert_x(1, "mm", sector.index, track.index),
+                   lwd = par("lwd"),
+                   col = par("col"),
+                   labels.col = par("col")) {name_args = list(
+                     side = side,
+                     at = at,
+                     labels = labels,
+                     tick = tick,
+                     sector.index = sector.index,
+                     track.index = track.index,
+                     labels.font = labels.font,
+                     labels.cex = labels.cex,
+                     labels.niceFacing = labels.niceFacing,
+                     tick.length = tick.length,
+                     lwd = lwd,
+                     col = col,
+                     labels.col = labels.col
+                   )
+  new("ccCellGeom",func = 'circos.yaxis',params = c(name_args))
 }
 
 #' Draw barplots
 #'
 #' Object [ccCellGeom-class] will call the function [circlize::circos.barplot] while drawing.
 #'
-#' @inheritDotParams circlize::circos.barplot
+#' @inheritParams circlize::circos.barplot
 #'
 #' @return Object [ccCellGeom-class]
 #' @export
@@ -332,15 +472,23 @@ ccYaxis = function(...) {
 #' cell=ccCell(sector.index = 'a')+ccBarplot(value=runif(10), pos=1:10 - 0.5, col = 1:10)
 #' track=track+cell
 #' cc+track
-ccBarplot = function(...) {
-  new("ccCellGeom",func = 'circos.barplot',params = list(...))
+ccBarplot = function(value, pos, bar_width = 0.6,
+                     col = NA, border = "black", lwd = par("lwd"), lty = par("lty"),
+                     sector.index = get.current.sector.index(),
+                     track.index = get.current.track.index()) {name_args=list(
+                       value=value, pos=pos, bar_width = bar_width,
+                       col = col, border = border, lwd = lwd, lty = lty,
+                       sector.index = sector.index,
+                       track.index = track.index
+                     )
+  new("ccCellGeom",func = 'circos.barplot',params = c(name_args))
 }
 
 #' Draw boxplots
 #'
 #' Object [ccCellGeom-class] will call the function [circlize::circos.boxplot] while drawing.
 #'
-#' @inheritDotParams circlize::circos.boxplot
+#' @inheritParams circlize::circos.boxplot
 #'
 #' @return Object [ccCellGeom-class]
 #' @export
@@ -352,15 +500,25 @@ ccBarplot = function(...) {
 #' cell=ccCell(sector.index = 'a')+ccBoxplot(value=replicate(runif(10), n = 10, simplify = FALSE), pos=1:10 - 0.5, col = 1:10)
 #' track=track+cell
 #' cc+track
-ccBoxplot = function(...) {
-  new("ccCellGeom",func = 'circos.boxplot',params = list(...))
+ccBoxplot = function(value, pos, outline = TRUE, box_width = 0.6,
+                     col = NA, border = "black", lwd = par("lwd"), lty = par("lty"),
+                     cex = par("cex"), pch = 1, pt.col = par("col"),
+                     sector.index = get.current.sector.index(),
+                     track.index = get.current.track.index()) {name_args = list(
+                       value=value, pos=pos, outline = outline, box_width = box_width,
+                       col = col, border = border, lwd = lwd, lty = lty,
+                       cex = cex, pch = pch, pt.col = pt.col,
+                       sector.index = sector.index,
+                       track.index = track.index
+                     )
+  new("ccCellGeom",func = 'circos.boxplot',params = c(name_args))
 }
 
 #' Draw violin plots
 #'
 #' Object [ccCellGeom-class] will call the function [circlize::circos.violin] while drawing.
 #'
-#' @inheritDotParams circlize::circos.violin
+#' @inheritParams circlize::circos.violin
 #'
 #' @return Object [ccCellGeom-class]
 #' @export
@@ -372,15 +530,25 @@ ccBoxplot = function(...) {
 #' cell=ccCell(sector.index = 'a')+ccViolin(value=replicate(runif(10), n = 10, simplify = FALSE), pos=1:10 - 0.5,col = 1:10)
 #' track=track+cell
 #' cc+track
-ccViolin = function(...) {
-  new("ccCellGeom",func = 'circos.violin',params = list(...))
+ccViolin = function(value, pos, violin_width = 0.8,
+                    col = NA, border = "black", lwd = par("lwd"), lty = par("lty"),
+                    show_quantile = TRUE, pt.col = par("col"), cex = par("cex"), pch = 16,
+                    max_density = NULL, sector.index = get.current.sector.index(),
+                    track.index = get.current.track.index()) {name_args=list(
+                      value=value, pos=pos, violin_width = violin_width,
+                      col = col, border = border, lwd = lwd, lty = lty,
+                      show_quantile = show_quantile, pt.col = pt.col, cex = cex, pch = pch,
+                      max_density = max_density, sector.index = sector.index,
+                      track.index = track.index
+                    )
+  new("ccCellGeom",func = 'circos.violin',params =c(name_args))
 }
 
 #' Draw an arrow
 #'
 #' Object [ccCellGeom-class] will call the function [circlize::circos.arrow] while drawing.
 #'
-#' @inheritDotParams circlize::circos.arrow
+#' @inheritParams circlize::circos.arrow
 #'
 #' @return Object [ccCellGeom-class]
 #' @export
@@ -392,15 +560,42 @@ ccViolin = function(...) {
 #' cell=ccCell(sector.index = 'a')+ccArrow(x1=1,x2=9)
 #' track=track+cell
 #' cc+track
-ccArrow = function(...) {
-  new("ccCellGeom",func = 'circos.arrow',params = list(...))
+ccArrow = function( x1,
+                    x2,
+                    y = get.cell.meta.data("ycenter"),
+                    width = get.cell.meta.data("yrange")/2,
+                    sector.index = get.current.sector.index(),
+                    track.index = get.current.track.index(),
+                    arrow.head.length = mm_x(5),
+                    arrow.head.width = width*2,
+                    arrow.position = c("end", "start"),
+                    tail = c("normal", "point"),
+                    border = "black",
+                    col = "#FFCCCC",
+                    lty = par("lty"),
+                    ...) {name_args = list(
+                      x1=x1,
+                      x2=x2,
+                      y = y,
+                      width = width,
+                      sector.index = sector.index,
+                      track.index = track.index,
+                      arrow.head.length = arrow.head.length,
+                      arrow.head.width = arrow.head.width,
+                      arrow.position = arrow.position,
+                      tail = tail,
+                      border = border,
+                      col = col,
+                      lty = lty
+                    )
+  new("ccCellGeom",func = 'circos.arrow',params = c(name_args,list(...)))
 }
 
 #' Add raster image
 #'
 #' Object [ccCellGeom-class] will call the function [circlize::circos.raster] while drawing.
 #'
-#' @inheritDotParams circlize::circos.raster
+#' @inheritParams circlize::circos.raster
 #'
 #' @return Object [ccCellGeom-class]
 #' @export
@@ -416,15 +611,30 @@ ccArrow = function(...) {
 #' cell=ccCell(sector.index = 'a')+ccRaster(image=image, x=5,y=0.5,width = "2cm",facing = "inside", niceFacing = TRUE)
 #' track=track+cell
 #' cc+track
-ccRaster = function(...) {
-  new("ccCellGeom",func = 'circos.raster',params = list(...))
+ccRaster = function(image, x, y,
+                    width, height,
+                    facing = c("inside", "outside", "reverse.clockwise", "clockwise",
+                               "downward", "bending.inside", "bending.outside"),
+                    niceFacing = FALSE,
+                    sector.index = get.current.sector.index(),
+                    track.index = get.current.track.index(),
+                    scaling = 1) {name_args = list(
+                      mage=mage, x=x, y=y,
+                      width=width, height=height,
+                      facing = facing,
+                      niceFacing = niceFacing,
+                      sector.index = sector.index,
+                      track.index = track.index,
+                      scaling = scaling
+                    )
+  new("ccCellGeom",func = 'circos.raster',params = c(name_args))
 }
 
 #' Draw dendrogram plots in a track
 #'
 #' Object [ccCellGeom-class] will call the function [circlize::circos.dendrogram] while drawing.
 #'
-#' @inheritDotParams circlize::circos.dendrogram
+#' @inheritParams circlize::circos.dendrogram
 #'
 #' @return Object [ccCellGeom-class]
 #' @export
@@ -446,15 +656,26 @@ ccRaster = function(...) {
 #' t1 = ccTrack(ylim = c(0, dend_height), bg.border = NA,track.height = 0.4)
 #' cell1 = ccCell(sector.index = "a") + ccDendrogram(dend = dend)
 #' cc + par1 + (t1 + cell1)
-ccDendrogram = function(...){
-  new("ccCellGeom",func = 'circos.dendrogram',params = list(...))
+ccDendrogram = function( dend,
+                         facing = c("outside", "inside"),
+                         max_height = NULL,
+                         use_x_attr = FALSE,
+                         sector.index = get.current.sector.index(),
+                         track.index = get.current.track.index()){name_args=list(
+                           dend=dend,
+                           facing = facing,
+                           max_height = max_height,
+                           use_x_attr = use_x_attr,
+                           sector.index = sector.index,
+                           track.index = track.index)
+  new("ccCellGeom",func = 'circos.dendrogram',params = c(name_args))
 }
 
 #' Add points for genomic data visualization
 #'
 #' Object [ccGenomicCellGeom-class] will call the function [circlize::circos.genomicPoints] while drawing.
 #'
-#' @inheritDotParams circlize::circos.genomicPoints
+#' @inheritParams circlize::circos.genomicPoints
 #'
 #' @return Object [ccGenomicCellGeom-class]
 #' @export
@@ -468,15 +689,34 @@ ccDendrogram = function(...){
 #' cells1 = ccCells(sector.indexes = all_chr) + ccGenomicPoints(region=\(region,value){region}, value=\(region,value){value}, numeric.column=2)
 #' t1 = t1 + cells1
 #' show(cc+t1)
-ccGenomicPoints = function(...){
-  new("ccGenomicCellGeom",func = 'circos.genomicPoints',params = list(...))
+ccGenomicPoints = function(region,
+                           value,
+                           numeric.column = NULL,
+                           sector.index = get.cell.meta.data("sector.index"),
+                           track.index = get.cell.meta.data("track.index"),
+                           posTransform = NULL,
+                           pch = par("pch"),
+                           col = par("col"),
+                           cex = par("cex"),
+                           bg = par("bg"),
+                           ...){name_args=list(region=region,
+                                               value=value,
+                                               numeric.column = numeric.column,
+                                               sector.index = sector.index,
+                                               track.index = track.index,
+                                               posTransform = posTransform,
+                                               pch = pch,
+                                               col = col,
+                                               cex = cex,
+                                               bg = bg)
+  new("ccGenomicCellGeom",func = 'circos.genomicPoints',params = c(name_args,list(...)))
 }
 
 #' Add lines for genomic data visualization
 #'
 #' Object [ccGenomicCellGeom-class] will call the function [circlize::circos.genomicLines] while drawing.
 #'
-#' @inheritDotParams circlize::circos.genomicLines
+#' @inheritParams circlize::circos.genomicLines
 #'
 #' @return Object [ccGenomicCellGeom-class]
 #' @export
@@ -490,15 +730,50 @@ ccGenomicPoints = function(...){
 #' cells1 = ccCells(sector.indexes = all_chr) + ccGenomicLines(numeric.column=2)
 #' t1 = t1 + cells1
 #' show(cc+t1)
-ccGenomicLines = function(...){
-  new("ccGenomicCellGeom",func = 'circos.genomicLines',params = list(...))
+ccGenomicLines = function(region,
+                          value,
+                          numeric.column = NULL,
+                          sector.index = get.current.sector.index(),
+                          track.index = get.current.track.index(),
+                          posTransform = NULL,
+                          col = ifelse(area, "grey", "black"),
+                          lwd = par("lwd"),
+                          lty = par("lty"),
+                          type = "l",
+                          area = FALSE,
+                          area.baseline = NULL,
+                          border = "black",
+                          baseline = "bottom",
+                          pt.col = par("col"),
+                          cex = par("cex"),
+                          pch = par("pch"),
+                          ...){name_args=list(
+                            region=region,
+                            value=value,
+                            numeric.column = numeric.column,
+                            sector.index = sector.index,
+                            track.index = track.index,
+                            posTransform = posTransform,
+                            col = col,
+                            lwd = lwd,
+                            lty = lty,
+                            type = type,
+                            area = area,
+                            area.baseline = area.baseline,
+                            border = border,
+                            baseline = baseline,
+                            pt.col = pt.col,
+                            cex = cex,
+                            pch = pch
+                          )
+  new("ccGenomicCellGeom",func = 'circos.genomicLines',params = c(name_args,list(...)))
 }
 
 #' Draw rectangle for genomic data visualization
 #'
 #' Object [ccGenomicCellGeom-class] will call the function [circlize::circos.genomicRect] while drawing.
 #'
-#' @inheritDotParams circlize::circos.genomicRect
+#' @inheritParams circlize::circos.genomicRect
 #'
 #' @return Object [ccGenomicCellGeom-class]
 #' @export
@@ -516,15 +791,40 @@ ccGenomicLines = function(...){
 #' rect1 = ccGenomicRect(col=1,border = NA)
 #' cells1 = ccCells(sector.indexes = all_chr) + rect1
 #' cc + par1 + (track1 + cells1)
-ccGenomicRect = function(...){
-  new("ccGenomicCellGeom",func = 'circos.genomicRect',params = list(...))
+ccGenomicRect = function(region,
+                         value = NULL,
+                         ytop = NULL,
+                         ybottom = NULL,
+                         ytop.column = NULL,
+                         ybottom.column = NULL,
+                         sector.index = get.current.sector.index(),
+                         track.index = get.current.track.index(),
+                         posTransform = NULL,
+                         col = NA,
+                         border = "black",
+                         lty = par("lty"),
+                         ...){name_args=list(
+                           region=region,
+                           value = value,
+                           ytop = ytop,
+                           ybottom = ybottom,
+                           ytop.column = ytop.column,
+                           ybottom.column = ybottom.column,
+                           sector.index =sector.index,
+                           track.index = track.index,
+                           posTransform = posTransform,
+                           col = col,
+                           border = border,
+                           lty = lty
+                         )
+  new("ccGenomicCellGeom",func = 'circos.genomicRect',params = c(name_args,list(...)))
 }
 
 #' Add text for genomic data visualization
 #'
 #' Object [ccGenomicCellGeom-class] will call the function [circlize::circos.genomicText] while drawing.
 #'
-#' @inheritDotParams circlize::circos.genomicText
+#' @inheritParams circlize::circos.genomicText
 #'
 #' @return Object [ccGenomicCellGeom-class]
 #' @export
@@ -538,15 +838,54 @@ ccGenomicRect = function(...){
 #' text1 = ccGenomicText(y = 0.5, labels = "text")
 #' cells1 = ccCells(sector.indexes = all_chr) + text1
 #' cc + (track1 + cells1)
-ccGenomicText = function(...){
-  new("ccGenomicCellGeom",func = 'circos.genomicText',params = list(...))
+ccGenomicText = function(region,
+                         value = NULL,
+                         y = NULL,
+                         labels = NULL,
+                         labels.column = NULL,
+                         numeric.column = NULL,
+                         sector.index = get.current.sector.index(),
+                         track.index = get.current.track.index(),
+                         posTransform = NULL,
+                         direction = NULL,
+                         facing = "inside",
+                         niceFacing = FALSE,
+                         adj = par("adj"),
+                         cex = 1,
+                         col = "black",
+                         font = par("font"),
+                         padding = 0,
+                         extend = 0,
+                         align_to = "region",
+                         ...){name_args=list(
+                           region=region,
+                           value = value,
+                           y = y,
+                           labels = labels,
+                           labels.column = labels.column,
+                           numeric.column = numeric.column,
+                           sector.index = sector.index,
+                           track.index = track.index,
+                           posTransform = posTransform,
+                           direction = direction,
+                           facing = facing,
+                           niceFacing = niceFacing,
+                           adj = adj,
+                           cex = cex,
+                           col = col,
+                           font = font,
+                           padding = padding,
+                           extend = extend,
+                           align_to = align_to
+                         )
+  new("ccGenomicCellGeom",func = 'circos.genomicText',params = c(name_args,list(...)))
 }
 
 #' Add genomic axes
 #'
 #' Object [ccGenomicCellGeom-class] will call the function [circlize::circos.genomicAxis] while drawing.
 #'
-#' @inheritDotParams circlize::circos.genomicAxis
+#' @inheritParams circlize::circos.genomicAxis
 #'
 #' @return Object [ccGenomicCellGeom-class]
 #' @export
@@ -558,6 +897,23 @@ ccGenomicText = function(...){
 #' cell=ccCell(sector.index = 'chr1')+ccGenomicAxis()
 #' e=track+cell
 #' cc+e
-ccGenomicAxis = function(...){
-  new("ccGenomicCellGeom",func = 'circos.genomicAxis',params = list(...))
+ccGenomicAxis = function(h = "top",
+                         major.at = NULL,
+                         labels = NULL,
+                         major.by = NULL,
+                         tickLabelsStartFromZero = TRUE,
+                         labels.cex = 0.4*par("cex"),
+                         sector.index = get.current.sector.index(),
+                         track.index = get.current.track.index(),
+                         ...){name_args=list(
+                           h = h,
+                           major.at = major.at,
+                           labels = labels,
+                           major.by = major.by,
+                           tickLabelsStartFromZero = tickLabelsStartFromZero,
+                           labels.cex = labels.cex,
+                           sector.index = sector.index,
+                           track.index = track.index
+                         )
+  new("ccGenomicCellGeom",func = 'circos.genomicAxis',params = c(name_args,list(...)))
 }

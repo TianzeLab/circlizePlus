@@ -35,7 +35,7 @@ setClass("ccGenomicLink", contains = c('ccLink'))
 #'
 #' Object [ccLink-class] will call the function [circlize::circos.link] while drawing.
 #'
-#' @inheritDotParams circlize::circos.link
+#' @inheritParams circlize::circos.link
 #'
 #' @return Object [ccLink-class]
 #' @export
@@ -53,17 +53,67 @@ setClass("ccGenomicLink", contains = c('ccLink'))
 #' link2 = ccLink("c", c(-0.5, 0.5), "d", c(-0.5,0.5), col = "red",border = "blue", h = 0.2)
 #' link3 = ccLink("e", 0, "g", c(-1,1), col = "green", border = "black", lwd = 2, lty = 2)
 #' cc + (track1 + tPoint1) + link1 + link2 + link3
-ccLink = function(...) {
+ccLink = function( sector.index1,
+                   point1,
+                   sector.index2,
+                   point2,
+                   rou = get_most_inside_radius(),
+                   rou1 = rou,
+                   rou2 = rou,
+                   h = NULL,
+                   h.ratio = 0.5,
+                   w = 1,
+                   h2 = h,
+                   w2 = w,
+                   inverse = FALSE,
+                   col = "black",
+                   lwd = par("lwd"),
+                   lty = par("lty"),
+                   border = col,
+                   directional = 0,
+                   arr.length = ifelse(arr.type == "big.arrow", 0.02, 0.4),
+                   arr.width = arr.length/2,
+                   arr.type = "triangle",
+                   arr.lty = lty,
+                   arr.lwd = lwd,
+                   arr.col = col,
+                   reduce_to_mid_line = FALSE) {name_args=list(
+                     sector.index1=sector.index1,
+                     point1=point1,
+                     sector.index2=sector.index2,
+                     point2=point2,
+                     rou = rou,
+                     rou1 = rou1,
+                     rou2 = rou2,
+                     h = h,
+                     h.ratio = h.ratio,
+                     w = w,
+                     h2 = h2,
+                     w2 = w2,
+                     inverse = inverse,
+                     col = col,
+                     lwd = lwd,
+                     lty = lty,
+                     border = border,
+                     directional = directional,
+                     arr.length = arr.length,
+                     arr.width = arr.width,
+                     arr.type = arr.type,
+                     arr.lty = arr.lty,
+                     arr.lwd = arr.lwd,
+                     arr.col = arr.col,
+                     reduce_to_mid_line = reduce_to_mid_line
+                   )
   new("ccLink",
       func = 'circos.link',
-      params = list(...))
+      params = c(name_args))
 }
 
 #' Draw a link between two matrix rows in the circular heatmap
 #'
 #' Object [ccHeatmapLink-class] will call the function [circlize::circos.heatmap.link] while drawing.
 #'
-#' @inheritDotParams circlize::circos.heatmap.link
+#' @inheritParams circlize::circos.heatmap.link
 #'
 #' @return Object [ccHeatmapLink-class]
 #' @export
@@ -77,17 +127,17 @@ ccLink = function(...) {
 #' cc = ccHeatmap(mat, col = col_fun, rownames.side = "outside")
 #' link1 = ccHeatmapLink(10, 60)
 #' cc + link1
-ccHeatmapLink = function(...) {
+ccHeatmapLink = function(row_from, row_to, ...) {name_args=list(row_from=row_from, row_to=row_to)
   new("ccHeatmapLink",
       func = 'circos.heatmap.link',
-      params = list(...))
+      params = c(row_to,list(...)))
 }
 
 #' Add links between two sets of genomic positions
 #'
 #' Object [ccGenomicLink-class] will call the function [circlize::circos.genomicLink] while drawing.
 #'
-#' @inheritDotParams circlize::circos.genomicLink
+#' @inheritParams circlize::circos.genomicLink
 #'
 #' @return Object [ccGenomicLink-class]
 #' @export
@@ -105,8 +155,27 @@ ccHeatmapLink = function(...) {
 #'
 #' link1 = ccGenomicLink(bed1, bed2, col = sample(1:5, 20, replace = TRUE), border = NA)
 #' cc + par1 + link1
-ccGenomicLink = function(...) {
+ccGenomicLink = function(region1,
+                         region2,
+                         rou = get_most_inside_radius(),
+                         rou1 = rou,
+                         rou2 = rou,
+                         col = "black",
+                         lwd = par("lwd"),
+                         lty = par("lty"),
+                         border = col,
+                         ...) {name_args=list(
+                           region1=region1,
+                           region2=region2,
+                           rou = rou,
+                           rou1 = rou1,
+                           rou2 = rou2,
+                           col = col,
+                           lwd = lwd,
+                           lty = lty,
+                           border = border
+                         )
   new("ccGenomicLink",
       func = 'circos.genomicLink',
-      params = list(...))
+      params = c(name_args,list(...)))
 }
