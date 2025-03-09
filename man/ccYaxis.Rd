@@ -51,7 +51,7 @@ Object \linkS4class{ccCellGeom} will call the function \link[circlize:circos.yax
 library(circlizePlus)
 cc <- ccPlot(sectors = letters[1:8], xlim = c(0, 1))
 track <- ccTrack(ylim = c(0, 10))
-cell <- ccCell(sector.index = "a") + ccYaxis(side = "left", sector.index = 2)
+cell <- ccCell(sector.index = "a") + ccYaxis(side = "left")
 track <- track + cell
 cc + track
 }

@@ -197,7 +197,7 @@ ccText <- function(x,
 #' })
 #' cells <- ccCell(sector.index = "a") + ccPoints(
 #'   x = runif(10), y = runif(10),
-#'   sector.index = "c", pch = 16, col = "red"
+#'    pch = 16, col = "red"
 #' )
 #' track1 <- track1 + cells
 #' cc + track1
@@ -233,7 +233,7 @@ ccPoints <- function(x, y,
 #' cc <- ccPlot(sectors = sectors, xlim = c(0, 10))
 #' cc <- cc + par
 #' track <- ccTrack(sectors = sectors, ylim = c(0, 10), track.height = 0.5)
-#' cells <- ccCell(sector.index = "a") + ccLines(sort(x = runif(10) * 10), y = runif(10) * 10, sector.index = "a")
+#' cells <- ccCell(sector.index = "a") + ccLines(sort(x = runif(10) * 10), y = runif(10) * 10)
 #' track <- track + cells
 #' cc + track
 ccLines <- function(x, y,
@@ -360,7 +360,7 @@ ccPolygon <- function(x, y,
 #' library(circlizePlus)
 #' cc <- ccPlot(sectors = letters[1:8], xlim = c(0, 1))
 #' track <- ccTrack(ylim = c(0, 10))
-#' cell <- ccCell(sector.index = "a") + ccXaxis(sector.index = "a")
+#' cell <- ccCell(sector.index = "a") + ccXaxis()
 #' track <- track + cell
 #' cc + track
 ccXaxis <- function(h = "top",
@@ -415,7 +415,7 @@ ccXaxis <- function(h = "top",
 #' library(circlizePlus)
 #' cc <- ccPlot(sectors = letters[1:8], xlim = c(0, 1))
 #' track <- ccTrack(ylim = c(0, 10))
-#' cell <- ccCell(sector.index = "a") + ccYaxis(side = "left", sector.index = 2)
+#' cell <- ccCell(sector.index = "a") + ccYaxis(side = "left")
 #' track <- track + cell
 #' cc + track
 ccYaxis <- function(side = c("left", "right"),

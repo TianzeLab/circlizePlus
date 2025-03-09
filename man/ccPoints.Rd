@@ -40,7 +40,7 @@ track1 <- ccTrack(ylim = c(0, 1), panel.fun = function(x, y) {
 })
 cells <- ccCell(sector.index = "a") + ccPoints(
   x = runif(10), y = runif(10),
-  sector.index = "c", pch = 16, col = "red"
+   pch = 16, col = "red"
 )
 track1 <- track1 + cells
 cc + track1

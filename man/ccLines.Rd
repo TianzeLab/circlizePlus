@@ -63,7 +63,7 @@ par <- ccPar(points.overflow.warning = FALSE)
 cc <- ccPlot(sectors = sectors, xlim = c(0, 10))
 cc <- cc + par
 track <- ccTrack(sectors = sectors, ylim = c(0, 10), track.height = 0.5)
-cells <- ccCell(sector.index = "a") + ccLines(sort(x = runif(10) * 10), y = runif(10) * 10, sector.index = "a")
+cells <- ccCell(sector.index = "a") + ccLines(sort(x = runif(10) * 10), y = runif(10) * 10)
 track <- track + cells
 cc + track
 }
