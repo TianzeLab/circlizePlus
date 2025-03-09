@@ -25,7 +25,7 @@ setClass(
 #'
 #' Object [ccHeatmap-class] will call the function [circlize::circos.heatmap] while drawing.
 #'
-#' @inheritDotParams circlize::circos.heatmap
+#' @inheritParams circlize::circos.heatmap
 #' @return Object [ccHeatmap-class]
 #' @export
 #' @examples
@@ -43,10 +43,29 @@ setClass(
 #' spilt = factor(split, levels = letters[1:5])
 #' col_fun1 = colorRamp2(c(-2, 0, 2), c("blue", "white", "red"))
 #' ccHeatmap(mat=mat1, split = split, col = col_fun1)
-ccHeatmap = function(...){
+ccHeatmap = function(mat, split = NULL, col, na.col = "grey",
+                     cell.border = NA, cell.lty = 1, cell.lwd = 1,
+                     bg.border = NA, bg.lty = par("lty"), bg.lwd = par("lwd"),
+                     ignore.white = is.na(cell.border),
+                     cluster = TRUE, clustering.method = "complete", distance.method = "euclidean",
+                     dend.callback = function(dend, m, si) reorder(dend, rowMeans(m)),
+                     dend.side = c("none", "outside", "inside"), dend.track.height = 0.1,
+                     rownames.side = c("none", "outside", "inside"), rownames.cex = 0.5,
+                     rownames.font = par("font"), rownames.col = "black",
+                     show.sector.labels = FALSE, cell_width = rep(1, nrow(mat)), ...){
+  name_args=list(mat=mat, split = split, col=col, na.col = na.col,
+                 cell.border = cell.border, cell.lty = cell.lty, cell.lwd = cell.lwd,
+                 bg.border = bg.border, bg.lty = bg.lty, bg.lwd = bg.lwd,
+                 ignore.white = ignore.white,
+                 cluster = cluster, clustering.method = clustering.method, distance.method = distance.method,
+                 dend.callback = dend.callback,
+                 dend.side = dend.side, dend.track.height = dend.track.height,
+                 rownames.side = rownames.side, rownames.cex = rownames.cex,
+                 rownames.font = rownames.font, rownames.col = rownames.col,
+                 show.sector.labels = show.sector.labels, cell_width = cell_width)
   new("ccHeatmap",
       func = 'circos.heatmap',
-      params = list(...),
+      params = c(name_args,list(...)),
       tracks = list(),
       links = list(),
       pars = list(),

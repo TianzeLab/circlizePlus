@@ -54,7 +54,7 @@ setClass("ccGenomicTrack", contains = c("ccTrack"))
 #'
 #' Object [ccTrack-class] will call the function [circlize::circos.trackPlotRegion] while drawing.
 #'
-#' @inheritDotParams circlize::circos.trackPlotRegion
+#' @inheritParams circlize::circos.trackPlotRegion
 #'
 #' @return Object [ccTrack-class]
 #' @export
@@ -77,11 +77,39 @@ setClass("ccGenomicTrack", contains = c("ccTrack"))
 #' cc=cc+track1
 #' cc
 #' circos.clear()
-ccTrack = function(...) {
+ccTrack = function(sectors = NULL,
+                   x = NULL, y = NULL,
+                   ylim = NULL,
+                   force.ylim = TRUE,
+                   track.index = NULL,
+                   track.height = circos.par("track.height"),
+                   track.margin = circos.par("track.margin"),
+                   cell.padding = circos.par("cell.padding"),
+                   bg.col = NA,
+                   bg.border = "black",
+                   bg.lty = par("lty"),
+                   bg.lwd = par("lwd"),
+                   panel.fun = function(x, y) {NULL},
+                   factors = sectors) {name_args=list(
+                     sectors = sectors,
+                     x = x, y = y,
+                     ylim = ylim,
+                     force.ylim = force.ylim,
+                     track.index = track.index,
+                     track.height = track.height,
+                     track.margin = track.margin,
+                     cell.padding = cell.padding,
+                     bg.col = bg.col,
+                     bg.border = bg.border,
+                     bg.lty = bg.lty,
+                     bg.lwd = bg.lwd,
+                     panel.fun = panel.fun,
+                     factors = factors
+                   )
   new(
     "ccTrack",
     func = 'circos.track',
-    params = list(...),
+    params = c(name_args),
     trackGeoms = list(),
     cells = list()
   )
@@ -91,7 +119,7 @@ ccTrack = function(...) {
 #'
 #' Object [ccTrack-class] will call the function [circlize::circos.trackHist] while drawing.
 #'
-#' @inheritDotParams circlize::circos.trackHist
+#' @inheritParams circlize::circos.trackHist
 #'
 #' @return Object [ccTrack-class]
 #' @export
@@ -108,10 +136,52 @@ ccTrack = function(...) {
 #' cc=cc+track2
 #' cc
 #' circos.clear()
-ccTrackHist = function(...) {
+ccTrackHist = function(sectors,
+                       x,
+                       track.height = circos.par("track.height"),
+                       track.index = NULL,
+                       ylim = NULL,
+                       force.ylim = TRUE,
+                       col = ifelse(draw.density, "black", NA),
+                       border = "black",
+                       lty = par("lty"),
+                       lwd = par("lwd"),
+                       bg.col = NA,
+                       bg.border = "black",
+                       bg.lty = par("lty"),
+                       bg.lwd = par("lwd"),
+                       breaks = "Sturges",
+                       include.lowest = TRUE,
+                       right = TRUE,
+                       draw.density = FALSE,
+                       bin.size = NULL,
+                       area = FALSE,
+                       factors = sectors) {name_args=list(
+                         sectors=sectors,
+                         x=x,
+                         track.height = track.height,
+                         track.index = track.index,
+                         ylim = ylim,
+                         force.ylim = force.ylim,
+                         col = col,
+                         border = border,
+                         lty = lty,
+                         lwd = lwd,
+                         bg.col = bg.col,
+                         bg.border = bg.border,
+                         bg.lty = bg.lty,
+                         bg.lwd = bg.lwd,
+                         breaks = breaks,
+                         include.lowest = include.lowest,
+                         right = right,
+                         draw.density = draw.density,
+                         bin.size = bin.size,
+                         area = area,
+                         factors = factors
+                       )
   new("ccTrack",
       func = 'circos.trackHist',
-      params = list(...),
+      params = c(name_args),
       trackGeoms = list(),
       cells = list())
 }
@@ -121,7 +191,7 @@ ccTrackHist = function(...) {
 #'
 #' Object [ccGenomicTrack-class] will call the function [circlize::circos.genomicTrackPlotRegion] while drawing.
 #'
-#'@inheritDotParams circlize::circos.genomicTrackPlotRegion
+#'@inheritParams circlize::circos.genomicTrackPlotRegion
 #'
 #' @return Object [ccGenomicTrack-class]
 #' @export
@@ -135,10 +205,23 @@ ccTrackHist = function(...) {
 #' })
 #' cc+t1
 #' circos.clear()
-ccGenomicTrack = function(...) {
+ccGenomicTrack = function(data = NULL,
+                          ylim = NULL,
+                          stack = FALSE,
+                          numeric.column = NULL,
+                          jitter = 0,
+                          panel.fun = function(region, value, ...) {NULL},
+                          ...) {name_args=list(
+                            data = data,
+                            ylim = ylim,
+                            stack = stack,
+                            numeric.column = numeric.column,
+                            jitter = jitter,
+                            panel.fun = panel.fun
+                          )
   new("ccGenomicTrack",
       func = 'circos.genomicTrack',
-      params = list(...),
+      params = c(name_args,list(...)),
       trackGeoms = list(),
       cells = list())
 }
@@ -147,7 +230,7 @@ ccGenomicTrack = function(...) {
 #'
 #' Object [ccGenomicTrack-class] will call the function [circlize::circos.genomicIdeogram] while drawing.
 #'
-#' @inheritDotParams circlize::circos.genomicIdeogram
+#' @inheritParams circlize::circos.genomicIdeogram
 #'
 #' @return Object [ccGenomicTrack-class]
 #' @export
@@ -159,10 +242,18 @@ ccGenomicTrack = function(...) {
 #' t2=ccGenomicIdeogram(human_cytoband)
 #' cc+t2
 #' circos.clear()
-ccGenomicIdeogram = function(...) {
+ccGenomicIdeogram = function( cytoband = system.file(package = "circlize", "extdata", "cytoBand.txt"),
+                              species = NULL,
+                              track.height = mm_h(2),
+                              track.margin = circos.par("track.margin")) {name_args=list(
+                                cytoband = cytoband,
+                                species = species,
+                                track.height = track.height,
+                                track.margin = track.margin
+                              )
   new("ccGenomicTrack",
       func = 'circos.genomicIdeogram',
-      params = list(...),
+      params = c(name_args),
       trackGeoms = list(),
       cells = list())
 }
@@ -171,7 +262,7 @@ ccGenomicIdeogram = function(...) {
 #'
 #' Object [ccGenomicTrack-class] will call the function [circlize::circos.genomicHeatmap] while drawing.
 #'
-#' @inheritDotParams circlize::circos.genomicHeatmap
+#' @inheritParams circlize::circos.genomicHeatmap
 #'
 #' @return Object [ccGenomicTrack-class]
 #' @export
@@ -184,10 +275,38 @@ ccGenomicIdeogram = function(...) {
 #' t1 = ccGenomicHeatmap(bed, col = col_fun, side = "inside", border = "white")
 #' cc + t1
 #' circos.clear()
-ccGenomicHeatmap = function(...) {
+ccGenomicHeatmap = function(bed,
+                            col,
+                            na_col = "grey",
+                            numeric.column = NULL,
+                            border = NA,
+                            border_lwd = par("lwd"),
+                            border_lty = par("lty"),
+                            connection_height = mm_h(5),
+                            line_col = par("col"),
+                            line_lwd = par("lwd"),
+                            line_lty = par("lty"),
+                            heatmap_height = 0.15,
+                            side = c("inside", "outside"),
+                            track.margin = circos.par("track.margin")) {name_args=list(
+                              bed=bed,
+                              col=col,
+                              na_col = na_col,
+                              numeric.column = numeric.column,
+                              border = border,
+                              border_lwd = border_lwd,
+                              border_lty = border_lty,
+                              connection_height = connection_height,
+                              line_col = line_col,
+                              line_lwd = line_lwd,
+                              line_lty = line_lty,
+                              heatmap_height = heatmap_height,
+                              side = side,
+                              track.margin = track.margin
+                            )
   new("ccGenomicTrack",
       func = 'circos.genomicHeatmap',
-      params = list(...),
+      params = c(name_args),
       trackGeoms = list(),
       cells = list())
 }
@@ -196,7 +315,7 @@ ccGenomicHeatmap = function(...) {
 #'
 #' Object [ccGenomicTrack-class] will call the function [circlize::circos.genomicLabels] while drawing.
 #'
-#' @inheritDotParams circlize::circos.genomicLabels
+#' @inheritParams circlize::circos.genomicLabels
 #'
 #' @return Object [ccGenomicTrack-class]
 #' @export
@@ -210,10 +329,44 @@ ccGenomicHeatmap = function(...) {
 #'                      col = as.numeric(factor(bed[[1]])), line_col = as.numeric(factor(bed[[1]])))
 #' cc + t1
 #' circos.clear()
-ccGenomicLabels = function(...) {
+ccGenomicLabels = function(bed,
+                           labels = NULL,
+                           labels.column = NULL,
+                           facing = "clockwise",
+                           niceFacing = TRUE,
+                           col = par("col"),
+                           cex = 0.8,
+                           font = par("font"),
+                           padding = 0.4,
+                           connection_height = mm_h(5),
+                           line_col = par("col"),
+                           line_lwd = par("lwd"),
+                           line_lty = par("lty"),
+                           labels_height = min(c(cm_h(1.5), max(strwidth(labels, cex = cex, font = font)))),
+                           side = c("inside", "outside"),
+                           labels.side = side,
+                           track.margin = circos.par("track.margin")) {name_args=list(
+                             bed=bed,
+                             labels = labels,
+                             labels.column = labels.column,
+                             facing = facing,
+                             niceFacing = niceFacing,
+                             col = col,
+                             cex = cex,
+                             font = font,
+                             padding = padding,
+                             connection_height = connection_height,
+                             line_col = line_col,
+                             line_lwd = line_lwd,
+                             line_lty = line_lty,
+                             labels_height =labels_height,
+                             side = side,
+                             labels.side = labels.side,
+                             track.margin = track.margin
+                           )
   new("ccGenomicTrack",
       func = 'circos.genomicLabels',
-      params = list(...),
+      params = c(name_args),
       trackGeoms = list(),
       cells = list())
 }
@@ -223,7 +376,7 @@ ccGenomicLabels = function(...) {
 #'
 #' Object [ccGenomicTrack-class] will call the function [circlize::circos.genomicRainfall] while drawing.
 #'
-#' @inheritDotParams circlize::circos.genomicRainfall
+#' @inheritParams circlize::circos.genomicRainfall
 #'
 #' @return Object [ccGenomicTrack-class]
 #' @export
@@ -236,10 +389,25 @@ ccGenomicLabels = function(...) {
 #' t1 = ccGenomicRainfall(bed_list, pch = 16, cex = 0.4, col = c("#FF000080", "#0000FF80"))
 #' cc + t1
 #' circos.clear()
-ccGenomicRainfall = function(...) {
+ccGenomicRainfall = function(data,
+                             mode = "min",
+                             ylim = NULL,
+                             col = "black",
+                             pch = par("pch"),
+                             cex = par("cex"),
+                             normalize_to_width = FALSE,
+                             ...) {name_args=list(
+                               data=data,
+                               mode = mode,
+                               ylim = ylim,
+                               col = col,
+                               pch = pch,
+                               cex = cex,
+                               normalize_to_width = normalize_to_width
+                             )
   new("ccGenomicTrack",
       func = 'circos.genomicRainfall',
-      params = list(...),
+      params = c(name_args,list(...)),
       trackGeoms = list(),
       cells = list())
 }
@@ -248,7 +416,7 @@ ccGenomicRainfall = function(...) {
 #'
 #' Object [ccGenomicTrack-class] will call the function [circlize::circos.genomicDensity] while drawing.
 #'
-#' @inheritDotParams circlize::circos.genomicDensity
+#' @inheritParams circlize::circos.genomicDensity
 #'
 #' @return Object [ccGenomicTrack-class]
 #' @export
@@ -261,10 +429,37 @@ ccGenomicRainfall = function(...) {
 #' t3 = ccGenomicDensity(DMR_hypo, col = c("#0000FF80"), track.height = 0.1)
 #' cc + t2 + t3
 #' circos.clear()
-ccGenomicDensity = function(...) {
+ccGenomicDensity = function(data,
+                            ylim.force = FALSE,
+                            window.size = NULL,
+                            overlap = TRUE,
+                            count_by = c("percent", "number"),
+                            col = ifelse(area, "grey", "black"),
+                            lwd = par("lwd"),
+                            lty = par("lty"),
+                            type = "l",
+                            area = TRUE,
+                            area.baseline = NULL,
+                            baseline = 0,
+                            border = NA,
+                            ...) {name_args=list(
+                              data=data,
+                              ylim.force = ylim.force,
+                              window.size = window.size,
+                              overlap = overlap,
+                              count_by = count_by,
+                              col = col,
+                              lwd = lwd,
+                              lty = lty,
+                              type = type,
+                              area = area,
+                              area.baseline = area.baseline,
+                              baseline = baseline,
+                              border = border
+                            )
   new("ccGenomicTrack",
       func = 'circos.genomicDensity',
-      params = list(...),
+      params = c(name_args,list(...)),
       trackGeoms = list(),
       cells = list())
 }
