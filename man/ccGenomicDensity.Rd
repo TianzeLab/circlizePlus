@@ -4,42 +4,68 @@
 \alias{ccGenomicDensity}
 \title{Create a track of density plot}
 \usage{
-ccGenomicDensity(...)
+ccGenomicDensity(
+  data,
+  ylim.force = FALSE,
+  window.size = NULL,
+  overlap = TRUE,
+  count_by = c("percent", "number"),
+  col = ifelse(area, "grey", "black"),
+  lwd = par("lwd"),
+  lty = par("lty"),
+  type = "l",
+  area = TRUE,
+  area.baseline = NULL,
+  baseline = 0,
+  border = NA,
+  ...
+)
 }
 \arguments{
-\item{...}{
-  Arguments passed on to \code{\link[circlize:circos.genomicDensity]{circlize::circos.genomicDensity}}
-  \describe{
-    \item{\code{data}}{A bed-file-like data frame or a list of data frames. If the input is a list of data frames.
+\item{data}{A bed-file-like data frame or a list of data frames. If the input is a list of data frames.
  there will be multiple density plot in one same track.
 }
-    \item{\code{ylim.force}}{Whether to force upper bound of \code{ylim} to be 1. Ignored if \code{count_by} is set to \code{number}.
+
+\item{ylim.force}{Whether to force upper bound of \code{ylim} to be 1. Ignored if \code{count_by} is set to \code{number}.
 }
-    \item{\code{window.size}}{Pass to \code{\link[circlize]{genomicDensity}}.
+
+\item{window.size}{Pass to \code{\link[circlize]{genomicDensity}}.
 }
-    \item{\code{overlap}}{Pass to \code{\link[circlize]{genomicDensity}}.
+
+\item{overlap}{Pass to \code{\link[circlize]{genomicDensity}}.
 }
-    \item{\code{count_by}}{Pass to \code{\link[circlize]{genomicDensity}}.
+
+\item{count_by}{Pass to \code{\link[circlize]{genomicDensity}}.
 }
-    \item{\code{col}}{Colors. It should be length of one. If \code{data} is a list of data frames, the length of \code{col}
+
+\item{col}{Colors. It should be length of one. If \code{data} is a list of data frames, the length of \code{col}
  can also be the length of the list. If multiple sets of genomic regions are visualized in one
  single track, you should set the colors with transparency to distinguish them.
 }
-    \item{\code{lwd}}{Width of lines, the same setting as \code{col} argument.
+
+\item{lwd}{Width of lines, the same setting as \code{col} argument.
 }
-    \item{\code{lty}}{Style of lines, the same setting as \code{col} argument.
+
+\item{lty}{Style of lines, the same setting as \code{col} argument.
 }
-    \item{\code{type}}{Type of lines, see \code{\link[circlize]{circos.lines}}.
+
+\item{type}{Type of lines, see \code{\link[circlize]{circos.lines}}.
 }
-    \item{\code{area}}{See \code{\link[circlize]{circos.lines}}.
+
+\item{area}{See \code{\link[circlize]{circos.lines}}.
 }
-    \item{\code{area.baseline}}{Deprecated, use \code{baseline} instead.
+
+\item{area.baseline}{Deprecated, use \code{baseline} instead.
 }
-    \item{\code{baseline}}{See \code{\link[circlize]{circos.lines}}.
+
+\item{baseline}{See \code{\link[circlize]{circos.lines}}.
 }
-    \item{\code{border}}{See \code{\link[circlize]{circos.lines}}.
+
+\item{border}{See \code{\link[circlize]{circos.lines}}.
 }
-  }}
+
+\item{...}{Pass to \code{\link[circlize]{circos.trackPlotRegion}}.
+}
 }
 \value{
 Object \linkS4class{ccGenomicTrack}

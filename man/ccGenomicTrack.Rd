@@ -4,28 +4,40 @@
 \alias{ccGenomicTrack}
 \title{Define a track for genomic data visualization}
 \usage{
-ccGenomicTrack(...)
+ccGenomicTrack(
+  data = NULL,
+  ylim = NULL,
+  stack = FALSE,
+  numeric.column = NULL,
+  jitter = 0,
+  panel.fun = function(region, value, ...) {
+     NULL
+ },
+  ...
+)
 }
 \arguments{
-\item{...}{
-  Arguments passed on to \code{\link[circlize:circos.genomicTrackPlotRegion]{circlize::circos.genomicTrackPlotRegion}}
-  \describe{
-    \item{\code{data}}{A bed-file-like data frame or a list of data frames
+\item{data}{A bed-file-like data frame or a list of data frames
 }
-    \item{\code{ylim}}{If it is \code{NULL}, the value will be calculated from data. If \code{stack} is set to \code{TRUE}, this value is ignored.
+
+\item{ylim}{If it is \code{NULL}, the value will be calculated from data. If \code{stack} is set to \code{TRUE}, this value is ignored.
 }
-    \item{\code{stack}}{whether to plot in a "stack" mode.
+
+\item{stack}{whether to plot in a "stack" mode.
 }
-    \item{\code{numeric.column}}{Columns of numeric values in \code{data} that will be used for plotting. 
+
+\item{numeric.column}{Columns of numeric values in \code{data} that will be used for plotting. 
  If \code{data} is a data frame list, \code{numeric.column} should be either length of one or length of \code{data}.
  If value of \code{numeric.column} is not set, its value will depend on the structure of \code{data}.
  If \code{data} is a data frame, the default value for \code{numeric.column} is all the numeric column starting from the fourth column.
  If \code{data} is a list of data frame, the default value for \code{numeric.column} is a vector which have the same length as \code{data}
  and the value in default \code{numeric.column} is the index of the first numeric column in corresponding data frame.
 }
-    \item{\code{jitter}}{Numeric. Only works for adding points in \code{circos.genomicTrackPlotRegion} under \code{stack} mode
+
+\item{jitter}{Numeric. Only works for adding points in \code{circos.genomicTrackPlotRegion} under \code{stack} mode
 }
-    \item{\code{panel.fun}}{Self-defined function which will be applied on each sector. Please not it is different
+
+\item{panel.fun}{Self-defined function which will be applied on each sector. Please not it is different
  from that in \code{\link[circlize]{circos.trackPlotRegion}}. In this function, there are two arguments (\code{region} and \code{value}) plus \code{...}.
  In them, \code{region} is a two-column data frame with start positions and end positions in current genomic category (e.g. chromosome). 
  \code{value} is a data frame which is derived from \code{data} but excluding the first three columns. Rows in \code{value} correspond to 
@@ -33,7 +45,9 @@ ccGenomicTrack(...)
  \code{value} will be different according to different input data (data frame or list of data frame) and different settings (stacked or not), 
  please refer to 'details' section and vignettes to detailed explanation.
 }
-  }}
+
+\item{...}{Pass to \code{\link[circlize]{circos.trackPlotRegion}}.
+}
 }
 \value{
 Object \linkS4class{ccGenomicTrack}

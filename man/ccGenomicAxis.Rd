@@ -4,29 +4,45 @@
 \alias{ccGenomicAxis}
 \title{Add genomic axes}
 \usage{
-ccGenomicAxis(...)
+ccGenomicAxis(
+  h = "top",
+  major.at = NULL,
+  labels = NULL,
+  major.by = NULL,
+  tickLabelsStartFromZero = TRUE,
+  labels.cex = 0.4 * par("cex"),
+  sector.index = get.current.sector.index(),
+  track.index = get.current.track.index(),
+  ...
+)
 }
 \arguments{
-\item{...}{
-  Arguments passed on to \code{\link[circlize:circos.genomicAxis]{circlize::circos.genomicAxis}}
-  \describe{
-    \item{\code{h}}{Position of the axes. "top" or "bottom".
+\item{h}{Position of the axes. "top" or "bottom".
 }
-    \item{\code{major.at}}{Major breaks. If \code{major.at} is set, \code{major.by} is ignored.
+
+\item{major.at}{Major breaks. If \code{major.at} is set, \code{major.by} is ignored.
 }
-    \item{\code{labels}}{labels corresponding to \code{major.at}. If \code{labels} is set, \code{major.at} must be set.
+
+\item{labels}{labels corresponding to \code{major.at}. If \code{labels} is set, \code{major.at} must be set.
 }
-    \item{\code{major.by}}{Increment of major ticks. It is calculated automatically if the value is not set (about every 10 degrees there is a major tick).
+
+\item{major.by}{Increment of major ticks. It is calculated automatically if the value is not set (about every 10 degrees there is a major tick).
 }
-    \item{\code{tickLabelsStartFromZero}}{Whether axis tick labels start from 0? This will only affect the axis labels while not affect x-values in cells.
+
+\item{tickLabelsStartFromZero}{Whether axis tick labels start from 0? This will only affect the axis labels while not affect x-values in cells.
 }
-    \item{\code{labels.cex}}{The font size for the axis tick labels.
+
+\item{labels.cex}{The font size for the axis tick labels.
 }
-    \item{\code{sector.index}}{Index for the sector
+
+\item{sector.index}{Index for the sector
 }
-    \item{\code{track.index}}{Index for the track
+
+\item{track.index}{Index for the track
 }
-  }}
+
+\item{...}{Other arguments pass to \code{\link[circlize]{circos.axis}}.
+}
 }
 \value{
 Object \linkS4class{ccGenomicCellGeom}

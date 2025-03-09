@@ -4,29 +4,43 @@
 \alias{ccGenomicRainfall}
 \title{Create a rainfall plot}
 \usage{
-ccGenomicRainfall(...)
+ccGenomicRainfall(
+  data,
+  mode = "min",
+  ylim = NULL,
+  col = "black",
+  pch = par("pch"),
+  cex = par("cex"),
+  normalize_to_width = FALSE,
+  ...
+)
 }
 \arguments{
-\item{...}{
-  Arguments passed on to \code{\link[circlize:circos.genomicRainfall]{circlize::circos.genomicRainfall}}
-  \describe{
-    \item{\code{data}}{A bed-file-like data frame or a list of data frames.
+\item{data}{A bed-file-like data frame or a list of data frames.
 }
-    \item{\code{mode}}{How to calculate the distance of two neighbouring regions, pass to \code{\link[circlize]{rainfallTransform}}.
+
+\item{mode}{How to calculate the distance of two neighbouring regions, pass to \code{\link[circlize]{rainfallTransform}}.
 }
-    \item{\code{ylim}}{ylim for rainfall plot track. If \code{normalize_to_width} is \code{FALSE}, the value should correspond to \code{log10(dist+1)},
+
+\item{ylim}{ylim for rainfall plot track. If \code{normalize_to_width} is \code{FALSE}, the value should correspond to \code{log10(dist+1)},
  and if \code{normalize_to_width} is \code{TRUE}, the value should correspond to \code{log2(rel_dist)}.
 }
-    \item{\code{col}}{Color of points. It should be length of one. If \code{data} is a list, the length of \code{col}
+
+\item{col}{Color of points. It should be length of one. If \code{data} is a list, the length of \code{col}
  can also be the length of the list.
 }
-    \item{\code{pch}}{Style of points.
+
+\item{pch}{Style of points.
 }
-    \item{\code{cex}}{Size of points.
+
+\item{cex}{Size of points.
 }
-    \item{\code{normalize_to_width}}{If it is \code{TRUE}, the value is the relative distance divided by the width of the region.
+
+\item{normalize_to_width}{If it is \code{TRUE}, the value is the relative distance divided by the width of the region.
 }
-  }}
+
+\item{...}{Pass to \code{\link[circlize]{circos.trackPlotRegion}}.
+}
 }
 \value{
 Object \linkS4class{ccGenomicTrack}

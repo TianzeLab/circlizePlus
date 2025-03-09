@@ -4,26 +4,51 @@
 \alias{ccArrow}
 \title{Draw an arrow}
 \usage{
-ccArrow(...)
+ccArrow(
+  x1,
+  x2,
+  y = get.cell.meta.data("ycenter"),
+  width = get.cell.meta.data("yrange")/2,
+  sector.index = get.current.sector.index(),
+  track.index = get.current.track.index(),
+  arrow.head.length = mm_x(5),
+  arrow.head.width = width * 2,
+  arrow.position = c("end", "start"),
+  tail = c("normal", "point"),
+  border = "black",
+  col = "#FFCCCC",
+  lty = par("lty"),
+  ...
+)
 }
 \arguments{
-\item{...}{
-  Arguments passed on to \code{\link[circlize:circos.arrow]{circlize::circos.arrow}}
-  \describe{
-    \item{\code{x1}}{Start position of the arrow on the x-axis.}
-    \item{\code{x2}}{End position of the arrow on the x-axis. Note \code{x2} should be larger than \code{x1}. The direction of arrows can be controlled by \code{arrow.position} argument.}
-    \item{\code{y}}{Position of the arrow on the y-axis. Note this is the center of the arrow on y-axis.}
-    \item{\code{width}}{Width of the arrow body.}
-    \item{\code{sector.index}}{Index of the sector.}
-    \item{\code{track.index}}{Index of the track.}
-    \item{\code{arrow.head.length}}{Length of the arrow head. Note the value should be smaller than the length of the arrow itself (which is \code{x2 - x1}).}
-    \item{\code{arrow.head.width}}{Width of the arrow head.}
-    \item{\code{arrow.position}}{Where is the arrow head on the arrow. If you want to the arrow in the reversed direction, set this value to \code{"start"}.}
-    \item{\code{tail}}{The shape of the arrow tail (the opposite side of arrow head).}
-    \item{\code{border}}{Border color of the arrow.}
-    \item{\code{col}}{Filled color of the arrow.}
-    \item{\code{lty}}{Line style of the arrow.}
-  }}
+\item{x1}{Start position of the arrow on the x-axis.}
+
+\item{x2}{End position of the arrow on the x-axis. Note \code{x2} should be larger than \code{x1}. The direction of arrows can be controlled by \code{arrow.position} argument.}
+
+\item{y}{Position of the arrow on the y-axis. Note this is the center of the arrow on y-axis.}
+
+\item{width}{Width of the arrow body.}
+
+\item{sector.index}{Index of the sector.}
+
+\item{track.index}{Index of the track.}
+
+\item{arrow.head.length}{Length of the arrow head. Note the value should be smaller than the length of the arrow itself (which is \code{x2 - x1}).}
+
+\item{arrow.head.width}{Width of the arrow head.}
+
+\item{arrow.position}{Where is the arrow head on the arrow. If you want to the arrow in the reversed direction, set this value to \code{"start"}.}
+
+\item{tail}{The shape of the arrow tail (the opposite side of arrow head).}
+
+\item{border}{Border color of the arrow.}
+
+\item{col}{Filled color of the arrow.}
+
+\item{lty}{Line style of the arrow.}
+
+\item{...}{Pass to \code{\link[graphics]{polygon}}.}
 }
 \value{
 Object \linkS4class{ccCellGeom}

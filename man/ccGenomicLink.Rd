@@ -4,31 +4,49 @@
 \alias{ccGenomicLink}
 \title{Add links between two sets of genomic positions}
 \usage{
-ccGenomicLink(...)
+ccGenomicLink(
+  region1,
+  region2,
+  rou = get_most_inside_radius(),
+  rou1 = rou,
+  rou2 = rou,
+  col = "black",
+  lwd = par("lwd"),
+  lty = par("lty"),
+  border = col,
+  ...
+)
 }
 \arguments{
-\item{...}{
-  Arguments passed on to \code{\link[circlize:circos.genomicLink]{circlize::circos.genomicLink}}
-  \describe{
-    \item{\code{region1}}{A data frame in bed format.
+\item{region1}{A data frame in bed format.
 }
-    \item{\code{region2}}{A data frame in bed format.
+
+\item{region2}{A data frame in bed format.
 }
-    \item{\code{rou}}{Pass to \code{\link[circlize]{circos.link}}.
+
+\item{rou}{Pass to \code{\link[circlize]{circos.link}}.
 }
-    \item{\code{rou1}}{Pass to \code{\link[circlize]{circos.link}}.
+
+\item{rou1}{Pass to \code{\link[circlize]{circos.link}}.
 }
-    \item{\code{rou2}}{Pass to \code{\link[circlize]{circos.link}}.
+
+\item{rou2}{Pass to \code{\link[circlize]{circos.link}}.
 }
-    \item{\code{col}}{Pass to \code{\link[circlize]{circos.link}}, length can be either one or nrow of \code{region1}.
+
+\item{col}{Pass to \code{\link[circlize]{circos.link}}, length can be either one or nrow of \code{region1}.
 }
-    \item{\code{lwd}}{Pass to \code{\link[circlize]{circos.link}}, length can be either one or nrow of \code{region1}.
+
+\item{lwd}{Pass to \code{\link[circlize]{circos.link}}, length can be either one or nrow of \code{region1}.
 }
-    \item{\code{lty}}{Pass to \code{\link[circlize]{circos.link}}, length can be either one or nrow of \code{region1}.
+
+\item{lty}{Pass to \code{\link[circlize]{circos.link}}, length can be either one or nrow of \code{region1}.
 }
-    \item{\code{border}}{Pass to \code{\link[circlize]{circos.link}}, length can be either one or nrow of \code{region1}.
+
+\item{border}{Pass to \code{\link[circlize]{circos.link}}, length can be either one or nrow of \code{region1}.
 }
-  }}
+
+\item{...}{Pass to \code{\link[circlize]{circos.link}}.
+}
 }
 \value{
 Object \linkS4class{ccGenomicLink}

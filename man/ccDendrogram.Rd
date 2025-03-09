@@ -4,19 +4,27 @@
 \alias{ccDendrogram}
 \title{Draw dendrogram plots in a track}
 \usage{
-ccDendrogram(...)
+ccDendrogram(
+  dend,
+  facing = c("outside", "inside"),
+  max_height = NULL,
+  use_x_attr = FALSE,
+  sector.index = get.current.sector.index(),
+  track.index = get.current.track.index()
+)
 }
 \arguments{
-\item{...}{
-  Arguments passed on to \code{\link[circlize:circos.dendrogram]{circlize::circos.dendrogram}}
-  \describe{
-    \item{\code{dend}}{A \code{\link[stats]{dendrogram}} object.}
-    \item{\code{facing}}{Is the dendromgrams facing inside to the circle or outside?}
-    \item{\code{max_height}}{Maximum height of the dendrogram. This is important if more than one dendrograms are drawn in one track and making them comparable. The height of a dendrogram can be obtained by \code{attr(dend, "height")}.}
-    \item{\code{use_x_attr}}{Whether use the \code{x} attribute to determine node positions in the dendrogram, used internally.}
-    \item{\code{sector.index}}{Index of sector.}
-    \item{\code{track.index}}{Index of track.}
-  }}
+\item{dend}{A \code{\link[stats]{dendrogram}} object.}
+
+\item{facing}{Is the dendromgrams facing inside to the circle or outside?}
+
+\item{max_height}{Maximum height of the dendrogram. This is important if more than one dendrograms are drawn in one track and making them comparable. The height of a dendrogram can be obtained by \code{attr(dend, "height")}.}
+
+\item{use_x_attr}{Whether use the \code{x} attribute to determine node positions in the dendrogram, used internally.}
+
+\item{sector.index}{Index of sector.}
+
+\item{track.index}{Index of track.}
 }
 \value{
 Object \linkS4class{ccCellGeom}

@@ -4,37 +4,61 @@
 \alias{ccGenomicRect}
 \title{Draw rectangle for genomic data visualization}
 \usage{
-ccGenomicRect(...)
+ccGenomicRect(
+  region,
+  value = NULL,
+  ytop = NULL,
+  ybottom = NULL,
+  ytop.column = NULL,
+  ybottom.column = NULL,
+  sector.index = get.current.sector.index(),
+  track.index = get.current.track.index(),
+  posTransform = NULL,
+  col = NA,
+  border = "black",
+  lty = par("lty"),
+  ...
+)
 }
 \arguments{
-\item{...}{
-  Arguments passed on to \code{\link[circlize:circos.genomicRect]{circlize::circos.genomicRect}}
-  \describe{
-    \item{\code{region}}{A data frame contains 2 column which correspond to start positions and end positions.
+\item{region}{A data frame contains 2 column which correspond to start positions and end positions.
 }
-    \item{\code{value}}{A data frame contains values and other information.
+
+\item{value}{A data frame contains values and other information.
 }
-    \item{\code{ytop}}{A vector or a single value indicating top position of rectangles.
+
+\item{ytop}{A vector or a single value indicating top position of rectangles.
 }
-    \item{\code{ybottom}}{A vector or a single value indicating bottom position of rectangles.
+
+\item{ybottom}{A vector or a single value indicating bottom position of rectangles.
 }
-    \item{\code{ytop.column}}{If \code{ytop} is in \code{value}, the index of the column.
+
+\item{ytop.column}{If \code{ytop} is in \code{value}, the index of the column.
 }
-    \item{\code{ybottom.column}}{If \code{ybottom} is in \code{value}, the index of the column.
+
+\item{ybottom.column}{If \code{ybottom} is in \code{value}, the index of the column.
 }
-    \item{\code{sector.index}}{Index of sector.
+
+\item{sector.index}{Index of sector.
 }
-    \item{\code{track.index}}{Index of track.
+
+\item{track.index}{Index of track.
 }
-    \item{\code{posTransform}}{Self-defined function to transform genomic positions, see \code{\link[circlize]{posTransform.default}} for explaination.
+
+\item{posTransform}{Self-defined function to transform genomic positions, see \code{\link[circlize]{posTransform.default}} for explaination.
 }
-    \item{\code{col}}{The length of \code{col} can be either one or number of rows of \code{region}. Pass to \code{\link[circlize]{circos.rect}}.
+
+\item{col}{The length of \code{col} can be either one or number of rows of \code{region}. Pass to \code{\link[circlize]{circos.rect}}.
 }
-    \item{\code{border}}{Settings are similar as \code{col}. Pass to \code{\link[circlize]{circos.rect}}.
+
+\item{border}{Settings are similar as \code{col}. Pass to \code{\link[circlize]{circos.rect}}.
 }
-    \item{\code{lty}}{Settings are similar as \code{col}. Pass to \code{\link[circlize]{circos.rect}}.
+
+\item{lty}{Settings are similar as \code{col}. Pass to \code{\link[circlize]{circos.rect}}.
 }
-  }}
+
+\item{...}{Mysterious parameters.
+}
 }
 \value{
 Object \linkS4class{ccGenomicCellGeom}

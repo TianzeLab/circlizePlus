@@ -4,23 +4,42 @@
 \alias{ccSegments}
 \title{Draw segments connecting points in a region}
 \usage{
-ccSegments(...)
+ccSegments(
+  x0,
+  y0,
+  x1,
+  y1,
+  sector.index = get.current.sector.index(),
+  track.index = get.current.track.index(),
+  straight = FALSE,
+  col = par("col"),
+  lwd = par("lwd"),
+  lty = par("lty"),
+  ...
+)
 }
 \arguments{
-\item{...}{
-  Arguments passed on to \code{\link[circlize:circos.segments]{circlize::circos.segments}}
-  \describe{
-    \item{\code{x0}}{x coordinates for starting points.}
-    \item{\code{y0}}{y coordinates for ending points.}
-    \item{\code{x1}}{x coordinates for starting points.}
-    \item{\code{y1}}{y coordinates for ending points.}
-    \item{\code{sector.index}}{Index for the sector.}
-    \item{\code{track.index}}{Index for the track.}
-    \item{\code{straight}}{Whether the segment is a straight line.}
-    \item{\code{col}}{Color of the segments.}
-    \item{\code{lwd}}{Line width of the segments.}
-    \item{\code{lty}}{Line type of the segments.}
-  }}
+\item{x0}{x coordinates for starting points.}
+
+\item{y0}{y coordinates for ending points.}
+
+\item{x1}{x coordinates for starting points.}
+
+\item{y1}{y coordinates for ending points.}
+
+\item{sector.index}{Index for the sector.}
+
+\item{track.index}{Index for the track.}
+
+\item{straight}{Whether the segment is a straight line.}
+
+\item{col}{Color of the segments.}
+
+\item{lwd}{Line width of the segments.}
+
+\item{lty}{Line type of the segments.}
+
+\item{...}{Pass to \code{\link[graphics]{lines}}.}
 }
 \value{
 Object \linkS4class{ccCellGeom}

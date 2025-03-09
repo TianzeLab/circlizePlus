@@ -4,34 +4,72 @@
 \alias{ccTrackHist}
 \title{Define a track of histograms}
 \usage{
-ccTrackHist(...)
+ccTrackHist(
+  sectors,
+  x,
+  track.height = circos.par("track.height"),
+  track.index = NULL,
+  ylim = NULL,
+  force.ylim = TRUE,
+  col = ifelse(draw.density, "black", NA),
+  border = "black",
+  lty = par("lty"),
+  lwd = par("lwd"),
+  bg.col = NA,
+  bg.border = "black",
+  bg.lty = par("lty"),
+  bg.lwd = par("lwd"),
+  breaks = "Sturges",
+  include.lowest = TRUE,
+  right = TRUE,
+  draw.density = FALSE,
+  bin.size = NULL,
+  area = FALSE,
+  factors = sectors
+)
 }
 \arguments{
-\item{...}{
-  Arguments passed on to \code{\link[circlize:circos.trackHist]{circlize::circos.trackHist}}
-  \describe{
-    \item{\code{sectors}}{A \code{\link{factor}} or a character vector which represents the categories of data}
-    \item{\code{factors}}{The same as \code{sectors}. It will be removed in future versions. }
-    \item{\code{x}}{Data on the x-axis}
-    \item{\code{track.index}}{Index for the track which is going to be updated. Setting it to \code{NULL} means creating the plotting regions in the next newest track.}
-    \item{\code{track.height}}{Height of the track. It is the percentage to the radius of the unit circle. If to update a track, this argument is disabled.}
-    \item{\code{ylim}}{Ranges on y-direction. By default, \code{ylim} is calculated automatically.}
-    \item{\code{force.ylim}}{Whether to force all cells in the track to share the same \code{ylim}.}
-    \item{\code{col}}{Filled color for histogram}
-    \item{\code{border}}{Border color for histogram}
-    \item{\code{lty}}{Line style for histogram}
-    \item{\code{lwd}}{Line width for histogram}
-    \item{\code{bg.col}}{Background color for the plotting regions}
-    \item{\code{bg.border}}{Color for the border of the plotting regions}
-    \item{\code{bg.lty}}{Line style for the border of the plotting regions}
-    \item{\code{bg.lwd}}{Line width for the border of the plotting regions}
-    \item{\code{breaks}}{see \code{\link[graphics]{hist}}}
-    \item{\code{include.lowest}}{see \code{\link[graphics]{hist}}}
-    \item{\code{right}}{see \code{\link[graphics]{hist}}}
-    \item{\code{draw.density}}{whether draw density lines instead of histogram bars.}
-    \item{\code{area}}{whether to fill the area below the density lines. If it is set to \code{TRUE}, \code{col} controls the filled color in the area and \code{border} controls color of the line.}
-    \item{\code{bin.size}}{size of the bins of the histogram}
-  }}
+\item{sectors}{A \code{\link{factor}} or a character vector which represents the categories of data}
+
+\item{x}{Data on the x-axis}
+
+\item{track.height}{Height of the track. It is the percentage to the radius of the unit circle. If to update a track, this argument is disabled.}
+
+\item{track.index}{Index for the track which is going to be updated. Setting it to \code{NULL} means creating the plotting regions in the next newest track.}
+
+\item{ylim}{Ranges on y-direction. By default, \code{ylim} is calculated automatically.}
+
+\item{force.ylim}{Whether to force all cells in the track to share the same \code{ylim}.}
+
+\item{col}{Filled color for histogram}
+
+\item{border}{Border color for histogram}
+
+\item{lty}{Line style for histogram}
+
+\item{lwd}{Line width for histogram}
+
+\item{bg.col}{Background color for the plotting regions}
+
+\item{bg.border}{Color for the border of the plotting regions}
+
+\item{bg.lty}{Line style for the border of the plotting regions}
+
+\item{bg.lwd}{Line width for the border of the plotting regions}
+
+\item{breaks}{see \code{\link[graphics]{hist}}}
+
+\item{include.lowest}{see \code{\link[graphics]{hist}}}
+
+\item{right}{see \code{\link[graphics]{hist}}}
+
+\item{draw.density}{whether draw density lines instead of histogram bars.}
+
+\item{bin.size}{size of the bins of the histogram}
+
+\item{area}{whether to fill the area below the density lines. If it is set to \code{TRUE}, \code{col} controls the filled color in the area and \code{border} controls color of the line.}
+
+\item{factors}{The same as \code{sectors}. It will be removed in future versions. }
 }
 \value{
 Object \linkS4class{ccTrack}

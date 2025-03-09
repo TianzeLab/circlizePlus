@@ -4,26 +4,48 @@
 \alias{ccBoxplot}
 \title{Draw boxplots}
 \usage{
-ccBoxplot(...)
+ccBoxplot(
+  value,
+  pos,
+  outline = TRUE,
+  box_width = 0.6,
+  col = NA,
+  border = "black",
+  lwd = par("lwd"),
+  lty = par("lty"),
+  cex = par("cex"),
+  pch = 1,
+  pt.col = par("col"),
+  sector.index = get.current.sector.index(),
+  track.index = get.current.track.index()
+)
 }
 \arguments{
-\item{...}{
-  Arguments passed on to \code{\link[circlize:circos.boxplot]{circlize::circos.boxplot}}
-  \describe{
-    \item{\code{value}}{A numeric vector, a matrix or a list. If it is a matrix, boxplots are made by columns (each column is a box).}
-    \item{\code{pos}}{Positions of the boxes.}
-    \item{\code{outline}}{Whether to draw outliers.}
-    \item{\code{box_width}}{Width of boxes.}
-    \item{\code{col}}{Filled color of boxes.}
-    \item{\code{border}}{Color for the border as well as the quantile lines.}
-    \item{\code{lwd}}{Line width.}
-    \item{\code{lty}}{Line style}
-    \item{\code{cex}}{Point size.}
-    \item{\code{pch}}{Point type.}
-    \item{\code{pt.col}}{Point color.}
-    \item{\code{sector.index}}{Index of sector.}
-    \item{\code{track.index}}{Index of track.}
-  }}
+\item{value}{A numeric vector, a matrix or a list. If it is a matrix, boxplots are made by columns (each column is a box).}
+
+\item{pos}{Positions of the boxes.}
+
+\item{outline}{Whether to draw outliers.}
+
+\item{box_width}{Width of boxes.}
+
+\item{col}{Filled color of boxes.}
+
+\item{border}{Color for the border as well as the quantile lines.}
+
+\item{lwd}{Line width.}
+
+\item{lty}{Line style}
+
+\item{cex}{Point size.}
+
+\item{pch}{Point type.}
+
+\item{pt.col}{Point color.}
+
+\item{sector.index}{Index of sector.}
+
+\item{track.index}{Index of track.}
 }
 \value{
 Object \linkS4class{ccCellGeom}

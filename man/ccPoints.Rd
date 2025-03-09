@@ -4,21 +4,33 @@
 \alias{ccPoints}
 \title{Draw points in a region}
 \usage{
-ccPoints(...)
+ccPoints(
+  x,
+  y,
+  sector.index = get.current.sector.index(),
+  track.index = get.current.track.index(),
+  pch = par("pch"),
+  col = par("col"),
+  cex = par("cex"),
+  bg = par("bg")
+)
 }
 \arguments{
-\item{...}{
-  Arguments passed on to \code{\link[circlize:circos.points]{circlize::circos.points}}
-  \describe{
-    \item{\code{x}}{Data points on x-axis, measured in "current" data coordinate}
-    \item{\code{y}}{Data points on y-axis, measured in "current" data coordinate}
-    \item{\code{sector.index}}{Index for the sector}
-    \item{\code{track.index}}{Index for the track}
-    \item{\code{pch}}{Point type}
-    \item{\code{col}}{Point color}
-    \item{\code{cex}}{Point size}
-    \item{\code{bg}}{backgrond of points}
-  }}
+\item{x}{Data points on x-axis, measured in "current" data coordinate}
+
+\item{y}{Data points on y-axis, measured in "current" data coordinate}
+
+\item{sector.index}{Index for the sector}
+
+\item{track.index}{Index for the track}
+
+\item{pch}{Point type}
+
+\item{col}{Point color}
+
+\item{cex}{Point size}
+
+\item{bg}{backgrond of points}
 }
 \value{
 Object \linkS4class{ccCellGeom}

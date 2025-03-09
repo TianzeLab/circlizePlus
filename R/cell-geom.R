@@ -195,7 +195,7 @@ ccPoints = function(x, y,
                     pch = par("pch"),
                     col = par("col"),
                     cex = par("cex"),
-                    bg = par("bg"),
+                    bg = par("bg")
                     ) {name_args = list(
                       x = x,
                       y = y,
@@ -242,7 +242,7 @@ ccLines = function(x, y,
                    baseline = "bottom",
                    pt.col = par("col"),
                    cex = par("cex"),
-                   pch = par("pch"),
+                   pch = par("pch")
                    ) {name_args = list(
                      x=x, y=y,
                      sector.index = sector.index,

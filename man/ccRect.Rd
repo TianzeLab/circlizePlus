@@ -4,20 +4,33 @@
 \alias{ccRect}
 \title{Draw rectangle in a region}
 \usage{
-ccRect(...)
+ccRect(
+  xleft,
+  ybottom,
+  xright,
+  ytop,
+  sector.index = get.current.sector.index(),
+  track.index = get.current.track.index(),
+  rot = 0,
+  ...
+)
 }
 \arguments{
-\item{...}{
-  Arguments passed on to \code{\link[circlize:circos.rect]{circlize::circos.rect}}
-  \describe{
-    \item{\code{xleft}}{x for the left bottom points}
-    \item{\code{ybottom}}{y for the left bottom points}
-    \item{\code{xright}}{x for the right top points}
-    \item{\code{ytop}}{y for the right top points}
-    \item{\code{sector.index}}{Index for the sector}
-    \item{\code{track.index}}{Index for the track}
-    \item{\code{rot}}{Rotation of the rectangles. The value is measured clockwise in degree. Rotation is relative to the center of the rectangles.}
-  }}
+\item{xleft}{x for the left bottom points}
+
+\item{ybottom}{y for the left bottom points}
+
+\item{xright}{x for the right top points}
+
+\item{ytop}{y for the right top points}
+
+\item{sector.index}{Index for the sector}
+
+\item{track.index}{Index for the track}
+
+\item{rot}{Rotation of the rectangles. The value is measured clockwise in degree. Rotation is relative to the center of the rectangles.}
+
+\item{...}{pass to \code{\link[graphics]{polygon}}}
 }
 \value{
 Object \linkS4class{ccCellGeom}

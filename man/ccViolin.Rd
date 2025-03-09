@@ -4,27 +4,51 @@
 \alias{ccViolin}
 \title{Draw violin plots}
 \usage{
-ccViolin(...)
+ccViolin(
+  value,
+  pos,
+  violin_width = 0.8,
+  col = NA,
+  border = "black",
+  lwd = par("lwd"),
+  lty = par("lty"),
+  show_quantile = TRUE,
+  pt.col = par("col"),
+  cex = par("cex"),
+  pch = 16,
+  max_density = NULL,
+  sector.index = get.current.sector.index(),
+  track.index = get.current.track.index()
+)
 }
 \arguments{
-\item{...}{
-  Arguments passed on to \code{\link[circlize:circos.violin]{circlize::circos.violin}}
-  \describe{
-    \item{\code{value}}{A numeric vector, a matrix or a list. If it is a matrix, boxplots are made by columns.}
-    \item{\code{pos}}{Positions of the boxes.}
-    \item{\code{violin_width}}{Width of violins.}
-    \item{\code{col}}{Filled color of boxes.}
-    \item{\code{border}}{Color for the border as well as the quantile lines.}
-    \item{\code{lwd}}{Line width.}
-    \item{\code{lty}}{Line style}
-    \item{\code{show_quantile}}{Whether to show the quantile lines.}
-    \item{\code{cex}}{Point size.}
-    \item{\code{pch}}{Point type.}
-    \item{\code{pt.col}}{Point color}
-    \item{\code{max_density}}{The maximal density value across several violins. It is used to compare between violins.}
-    \item{\code{sector.index}}{Index of sector.}
-    \item{\code{track.index}}{Index of track.}
-  }}
+\item{value}{A numeric vector, a matrix or a list. If it is a matrix, boxplots are made by columns.}
+
+\item{pos}{Positions of the boxes.}
+
+\item{violin_width}{Width of violins.}
+
+\item{col}{Filled color of boxes.}
+
+\item{border}{Color for the border as well as the quantile lines.}
+
+\item{lwd}{Line width.}
+
+\item{lty}{Line style}
+
+\item{show_quantile}{Whether to show the quantile lines.}
+
+\item{pt.col}{Point color}
+
+\item{cex}{Point size.}
+
+\item{pch}{Point type.}
+
+\item{max_density}{The maximal density value across several violins. It is used to compare between violins.}
+
+\item{sector.index}{Index of sector.}
+
+\item{track.index}{Index of track.}
 }
 \value{
 Object \linkS4class{ccCellGeom}

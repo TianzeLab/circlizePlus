@@ -4,15 +4,14 @@
 \alias{ccHeatmapLink}
 \title{Draw a link between two matrix rows in the circular heatmap}
 \usage{
-ccHeatmapLink(...)
+ccHeatmapLink(row_from, row_to, ...)
 }
 \arguments{
-\item{...}{
-  Arguments passed on to \code{\link[circlize:circos.heatmap.link]{circlize::circos.heatmap.link}}
-  \describe{
-    \item{\code{row_from}}{The row index where the link starts. The value should be length 1. If you want to draw multiple links, put the function in a \code{for} loop.}
-    \item{\code{row_to}}{The row index where the link ends.}
-  }}
+\item{row_from}{The row index where the link starts. The value should be length 1. If you want to draw multiple links, put the function in a \code{for} loop.}
+
+\item{row_to}{The row index where the link ends.}
+
+\item{...}{Pass to \code{\link[circlize]{circos.link}}.}
 }
 \value{
 Object \linkS4class{ccHeatmapLink}

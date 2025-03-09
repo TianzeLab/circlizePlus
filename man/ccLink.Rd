@@ -4,69 +4,115 @@
 \alias{ccLink}
 \title{Add a link}
 \usage{
-ccLink(...)
+ccLink(
+  sector.index1,
+  point1,
+  sector.index2,
+  point2,
+  rou = get_most_inside_radius(),
+  rou1 = rou,
+  rou2 = rou,
+  h = NULL,
+  h.ratio = 0.5,
+  w = 1,
+  h2 = h,
+  w2 = w,
+  inverse = FALSE,
+  col = "black",
+  lwd = par("lwd"),
+  lty = par("lty"),
+  border = col,
+  directional = 0,
+  arr.length = ifelse(arr.type == "big.arrow", 0.02, 0.4),
+  arr.width = arr.length/2,
+  arr.type = "triangle",
+  arr.lty = lty,
+  arr.lwd = lwd,
+  arr.col = col,
+  reduce_to_mid_line = FALSE
+)
 }
 \arguments{
-\item{...}{
-  Arguments passed on to \code{\link[circlize:circos.link]{circlize::circos.link}}
-  \describe{
-    \item{\code{sector.index1}}{Index for the first sector where one link end locates
+\item{sector.index1}{Index for the first sector where one link end locates
 }
-    \item{\code{point1}}{A single value or a numeric vector of length 2. If it is a 2-elements vector, then
+
+\item{point1}{A single value or a numeric vector of length 2. If it is a 2-elements vector, then
  the link would be a belt/ribbon.
 }
-    \item{\code{sector.index2}}{Index for the other sector where the other link end locates
+
+\item{sector.index2}{Index for the other sector where the other link end locates
 }
-    \item{\code{point2}}{A single value or a numeric vector of length 2. If it is a 2-elements vector, then
+
+\item{point2}{A single value or a numeric vector of length 2. If it is a 2-elements vector, then
  the link would be a belt/ribbon.
 }
-    \item{\code{rou}}{The position of the the link ends (if \code{rou1} and \code{rou2} are not set). It is the percentage of the radius of the unit circle.
+
+\item{rou}{The position of the the link ends (if \code{rou1} and \code{rou2} are not set). It is the percentage of the radius of the unit circle.
  By default its value is the position of bottom margin of the most inner track.
 }
-    \item{\code{rou1}}{The position of end 1 of the link.
+
+\item{rou1}{The position of end 1 of the link.
 }
-    \item{\code{rou2}}{The position of end 2 of the link.
+
+\item{rou2}{The position of end 2 of the link.
 }
-    \item{\code{h}}{Height of the link, measured as percent to the radius to the unit circle. By default it is automatically infered.
+
+\item{h}{Height of the link, measured as percent to the radius to the unit circle. By default it is automatically infered.
 }
-    \item{\code{h.ratio}}{systematically change the link height. The value is between 0 and 1.
+
+\item{h.ratio}{systematically change the link height. The value is between 0 and 1.
 }
-    \item{\code{w}}{Since the link is a Bezier curve, it controls the shape of Bezier curve.
+
+\item{w}{Since the link is a Bezier curve, it controls the shape of Bezier curve.
 }
-    \item{\code{h2}}{Height of the bottom edge of the link if it is a ribbon.
+
+\item{h2}{Height of the bottom edge of the link if it is a ribbon.
 }
-    \item{\code{w2}}{Shape of the bottom edge of the link if it is a ribbon.
+
+\item{w2}{Shape of the bottom edge of the link if it is a ribbon.
 }
-    \item{\code{inverse}}{Whether the link is inversed.
+
+\item{inverse}{Whether the link is inversed.
 }
-    \item{\code{col}}{Color of the link. If the link is a ribbon, then it is the filled color for the ribbon.
+
+\item{col}{Color of the link. If the link is a ribbon, then it is the filled color for the ribbon.
 }
-    \item{\code{lwd}}{Line (or border) width
+
+\item{lwd}{Line (or border) width
 }
-    \item{\code{lty}}{Line (or border) style
+
+\item{lty}{Line (or border) style
 }
-    \item{\code{border}}{If the link is a ribbon, then it is the color for the ribbon border.
+
+\item{border}{If the link is a ribbon, then it is the color for the ribbon border.
 }
-    \item{\code{directional}}{0 for no direction, 1 for direction from \code{point1} to \code{point2}, -1 for direction from \code{point2} to \code{point1}.
+
+\item{directional}{0 for no direction, 1 for direction from \code{point1} to \code{point2}, -1 for direction from \code{point2} to \code{point1}.
  2 for two directional. The direction is important when arrow heads are added.
 }
-    \item{\code{arr.width}}{Width of the arrows, pass to \code{\link[shape]{Arrowhead}}.
-}
-    \item{\code{arr.type}}{Type of the arrows, pass to \code{\link[shape]{Arrowhead}}. Default value is \code{triangle}. There is an additional option
- \code{big.arrow}.
-}
-    \item{\code{arr.length}}{Length of the arrows, measured in 'cm', pass to \code{\link[shape]{Arrowhead}}. If \code{arr.type} is set to \code{big.arrow},
+
+\item{arr.length}{Length of the arrows, measured in 'cm', pass to \code{\link[shape]{Arrowhead}}. If \code{arr.type} is set to \code{big.arrow},
  the value is percent to the radius of the unit circle.
 }
-    \item{\code{arr.col}}{Color of the arrows, pass to \code{\link[shape]{Arrowhead}}.
+
+\item{arr.width}{Width of the arrows, pass to \code{\link[shape]{Arrowhead}}.
 }
-    \item{\code{arr.lwd}}{Line width of arrows, pass to \code{\link[shape]{Arrowhead}}.
+
+\item{arr.type}{Type of the arrows, pass to \code{\link[shape]{Arrowhead}}. Default value is \code{triangle}. There is an additional option
+ \code{big.arrow}.
 }
-    \item{\code{arr.lty}}{Line type of arrows, pass to \code{\link[shape]{Arrowhead}}.
+
+\item{arr.lty}{Line type of arrows, pass to \code{\link[shape]{Arrowhead}}.
 }
-    \item{\code{reduce_to_mid_line}}{Only use the middle points of \code{point1} and \code{point2} to draw the link.
+
+\item{arr.lwd}{Line width of arrows, pass to \code{\link[shape]{Arrowhead}}.
 }
-  }}
+
+\item{arr.col}{Color of the arrows, pass to \code{\link[shape]{Arrowhead}}.
+}
+
+\item{reduce_to_mid_line}{Only use the middle points of \code{point1} and \code{point2} to draw the link.
+}
 }
 \value{
 Object \linkS4class{ccLink}

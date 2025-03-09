@@ -4,26 +4,49 @@
 \alias{ccTrackText}
 \title{Add texts on all sections of a single track.}
 \usage{
-ccTrackText(...)
+ccTrackText(
+  sectors,
+  x,
+  y,
+  labels,
+  track.index = get.current.track.index(),
+  direction = NULL,
+  facing = c("inside", "outside", "reverse.clockwise", "clockwise", "downward",
+    "bending", "bending.inside", "bending.outside"),
+  niceFacing = FALSE,
+  adj = par("adj"),
+  cex = 1,
+  col = par("col"),
+  font = par("font"),
+  factors = sectors
+)
 }
 \arguments{
-\item{...}{
-  Arguments passed on to \code{\link[circlize:circos.trackText]{circlize::circos.trackText}}
-  \describe{
-    \item{\code{sectors}}{A \code{\link{factor}} or a character vector which represents the categories of data}
-    \item{\code{factors}}{The same as \code{sectors}. It will be removed in future versions. }
-    \item{\code{x}}{Data points on x-axis}
-    \item{\code{y}}{Data points on y-axis}
-    \item{\code{labels}}{Labels}
-    \item{\code{track.index}}{Index for the track}
-    \item{\code{direction}}{deprecated, use \code{facing} instead.}
-    \item{\code{facing}}{Facing of text}
-    \item{\code{niceFacing}}{Should the facing of text be adjusted to fit human eyes?}
-    \item{\code{adj}}{Adjustment for text}
-    \item{\code{cex}}{Font size}
-    \item{\code{col}}{Font color}
-    \item{\code{font}}{Font style}
-  }}
+\item{sectors}{A \code{\link{factor}} or a character vector which represents the categories of data}
+
+\item{x}{Data points on x-axis}
+
+\item{y}{Data points on y-axis}
+
+\item{labels}{Labels}
+
+\item{track.index}{Index for the track}
+
+\item{direction}{deprecated, use \code{facing} instead.}
+
+\item{facing}{Facing of text}
+
+\item{niceFacing}{Should the facing of text be adjusted to fit human eyes?}
+
+\item{adj}{Adjustment for text}
+
+\item{cex}{Font size}
+
+\item{col}{Font color}
+
+\item{font}{Font style}
+
+\item{factors}{The same as \code{sectors}. It will be removed in future versions. }
 }
 \value{
 Object \linkS4class{ccTrackGeom}

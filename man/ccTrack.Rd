@@ -4,28 +4,56 @@
 \alias{ccTrack}
 \title{Define a generic track}
 \usage{
-ccTrack(...)
+ccTrack(
+  sectors = NULL,
+  x = NULL,
+  y = NULL,
+  ylim = NULL,
+  force.ylim = TRUE,
+  track.index = NULL,
+  track.height = circos.par("track.height"),
+  track.margin = circos.par("track.margin"),
+  cell.padding = circos.par("cell.padding"),
+  bg.col = NA,
+  bg.border = "black",
+  bg.lty = par("lty"),
+  bg.lwd = par("lwd"),
+  panel.fun = function(x, y) {
+     NULL
+ },
+  factors = sectors
+)
 }
 \arguments{
-\item{...}{
-  Arguments passed on to \code{\link[circlize:circos.trackPlotRegion]{circlize::circos.trackPlotRegion}}
-  \describe{
-    \item{\code{sectors}}{A \code{\link{factor}} or a character vector which represents categories of data, if it is \code{NULL}, then it uses all sector index.}
-    \item{\code{factors}}{The same as \code{sectors}. It will be removed in future versions. }
-    \item{\code{x}}{Data on x-axis. It is only used if \code{panel.fun} is set.}
-    \item{\code{y}}{Data on y-axis}
-    \item{\code{ylim}}{Range of data on y-axis}
-    \item{\code{force.ylim}}{Whether to force all cells in the track to share the same \code{ylim}. Normally, all cells on a same track should have same \code{ylim}.}
-    \item{\code{track.index}}{Index for the track which is going to be created/updated. If the specified track has already been created, this function just updated corresponding track with new plot. If the specified track is \code{NULL} or has not been created, this function just creates it. Note the value for this argument should not exceed maximum track index plus 1.}
-    \item{\code{track.height}}{Height of the track. It is the percentage to the radius of the unit circles. The value can be set by \code{\link[circlize]{uh}} to an absolute unit. If updating a track (with proper \code{track.index} value), this argument is ignored.}
-    \item{\code{track.margin}}{only affect current track}
-    \item{\code{cell.padding}}{only affect current track}
-    \item{\code{bg.col}}{Background color for the plotting regions. It can be vector which has the same length of sectors.}
-    \item{\code{bg.border}}{Color for the border of the plotting regions. It can be vector which has the same length of sectors.}
-    \item{\code{bg.lty}}{Line style for the border of the plotting regions. It can be vector which has the same length of sectors.}
-    \item{\code{bg.lwd}}{Line width for the border of the plotting regions. It can be vector which has the same length of sectors.}
-    \item{\code{panel.fun}}{Panel function to add graphics in each cell, see "details" section and vignette for explanation.}
-  }}
+\item{sectors}{A \code{\link{factor}} or a character vector which represents categories of data, if it is \code{NULL}, then it uses all sector index.}
+
+\item{x}{Data on x-axis. It is only used if \code{panel.fun} is set.}
+
+\item{y}{Data on y-axis}
+
+\item{ylim}{Range of data on y-axis}
+
+\item{force.ylim}{Whether to force all cells in the track to share the same \code{ylim}. Normally, all cells on a same track should have same \code{ylim}.}
+
+\item{track.index}{Index for the track which is going to be created/updated. If the specified track has already been created, this function just updated corresponding track with new plot. If the specified track is \code{NULL} or has not been created, this function just creates it. Note the value for this argument should not exceed maximum track index plus 1.}
+
+\item{track.height}{Height of the track. It is the percentage to the radius of the unit circles. The value can be set by \code{\link[circlize]{uh}} to an absolute unit. If updating a track (with proper \code{track.index} value), this argument is ignored.}
+
+\item{track.margin}{only affect current track}
+
+\item{cell.padding}{only affect current track}
+
+\item{bg.col}{Background color for the plotting regions. It can be vector which has the same length of sectors.}
+
+\item{bg.border}{Color for the border of the plotting regions. It can be vector which has the same length of sectors.}
+
+\item{bg.lty}{Line style for the border of the plotting regions. It can be vector which has the same length of sectors.}
+
+\item{bg.lwd}{Line width for the border of the plotting regions. It can be vector which has the same length of sectors.}
+
+\item{panel.fun}{Panel function to add graphics in each cell, see "details" section and vignette for explanation.}
+
+\item{factors}{The same as \code{sectors}. It will be removed in future versions. }
 }
 \value{
 Object \linkS4class{ccTrack}

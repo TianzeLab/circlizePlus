@@ -4,22 +4,36 @@
 \alias{ccTrackPoints}
 \title{Add points on all sections of a single track.}
 \usage{
-ccTrackPoints(...)
+ccTrackPoints(
+  sectors,
+  x,
+  y,
+  track.index = get.current.track.index(),
+  pch = par("pch"),
+  col = par("col"),
+  cex = par("cex"),
+  bg = par("bg"),
+  factors = sectors
+)
 }
 \arguments{
-\item{...}{
-  Arguments passed on to \code{\link[circlize:circos.trackPoints]{circlize::circos.trackPoints}}
-  \describe{
-    \item{\code{sectors}}{A \code{\link{factor}} or a character vector which represents the categories of data}
-    \item{\code{factors}}{The same as \code{sectors}. It will be removed in future versions. }
-    \item{\code{x}}{Data points on x-axis}
-    \item{\code{y}}{Data points on y-axis}
-    \item{\code{track.index}}{Index for the track}
-    \item{\code{pch}}{Point type}
-    \item{\code{col}}{Point color}
-    \item{\code{cex}}{Point size}
-    \item{\code{bg}}{backgrond color}
-  }}
+\item{sectors}{A \code{\link{factor}} or a character vector which represents the categories of data}
+
+\item{x}{Data points on x-axis}
+
+\item{y}{Data points on y-axis}
+
+\item{track.index}{Index for the track}
+
+\item{pch}{Point type}
+
+\item{col}{Point color}
+
+\item{cex}{Point size}
+
+\item{bg}{backgrond color}
+
+\item{factors}{The same as \code{sectors}. It will be removed in future versions. }
 }
 \value{
 Object \linkS4class{ccTrackGeom}

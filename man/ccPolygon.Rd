@@ -4,17 +4,24 @@
 \alias{ccPolygon}
 \title{Draw polygon}
 \usage{
-ccPolygon(...)
+ccPolygon(
+  x,
+  y,
+  sector.index = get.current.sector.index(),
+  track.index = get.current.track.index(),
+  ...
+)
 }
 \arguments{
-\item{...}{
-  Arguments passed on to \code{\link[circlize:circos.polygon]{circlize::circos.polygon}}
-  \describe{
-    \item{\code{x}}{Data points on x-axis}
-    \item{\code{y}}{Data points on y-axis}
-    \item{\code{sector.index}}{Index for the sector}
-    \item{\code{track.index}}{Index for the track}
-  }}
+\item{x}{Data points on x-axis}
+
+\item{y}{Data points on y-axis}
+
+\item{sector.index}{Index for the sector}
+
+\item{track.index}{Index for the track}
+
+\item{...}{pass to \code{\link[graphics]{polygon}}}
 }
 \value{
 Object \linkS4class{ccCellGeom}

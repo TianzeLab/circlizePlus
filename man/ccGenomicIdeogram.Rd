@@ -4,21 +4,25 @@
 \alias{ccGenomicIdeogram}
 \title{Define an ideograms track for genomic graph}
 \usage{
-ccGenomicIdeogram(...)
+ccGenomicIdeogram(
+  cytoband = system.file(package = "circlize", "extdata", "cytoBand.txt"),
+  species = NULL,
+  track.height = mm_h(2),
+  track.margin = circos.par("track.margin")
+)
 }
 \arguments{
-\item{...}{
-  Arguments passed on to \code{\link[circlize:circos.genomicIdeogram]{circlize::circos.genomicIdeogram}}
-  \describe{
-    \item{\code{cytoband}}{A data frame or a file path, pass to \code{\link[circlize]{read.cytoband}}.
+\item{cytoband}{A data frame or a file path, pass to \code{\link[circlize]{read.cytoband}}.
 }
-    \item{\code{species}}{Abbreviations of the genome, pass to \code{\link[circlize]{read.cytoband}}.
+
+\item{species}{Abbreviations of the genome, pass to \code{\link[circlize]{read.cytoband}}.
 }
-    \item{\code{track.height}}{Height of the ideogram track.
+
+\item{track.height}{Height of the ideogram track.
 }
-    \item{\code{track.margin}}{Margins for the track.
+
+\item{track.margin}{Margins for the track.
 }
-  }}
 }
 \value{
 Object \linkS4class{ccGenomicTrack}

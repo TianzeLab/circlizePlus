@@ -4,22 +4,36 @@
 \alias{ccBarplot}
 \title{Draw barplots}
 \usage{
-ccBarplot(...)
+ccBarplot(
+  value,
+  pos,
+  bar_width = 0.6,
+  col = NA,
+  border = "black",
+  lwd = par("lwd"),
+  lty = par("lty"),
+  sector.index = get.current.sector.index(),
+  track.index = get.current.track.index()
+)
 }
 \arguments{
-\item{...}{
-  Arguments passed on to \code{\link[circlize:circos.barplot]{circlize::circos.barplot}}
-  \describe{
-    \item{\code{value}}{A numeric vector or a matrix. If it is a matrix, columns correspond to the height of bars.}
-    \item{\code{pos}}{Positions of the bars.}
-    \item{\code{bar_width}}{Width of bars. It assumes the bars locating at \code{x = 1, 2, ...}.}
-    \item{\code{col}}{Filled color of bars.}
-    \item{\code{border}}{Color for the border.}
-    \item{\code{lwd}}{Line width.}
-    \item{\code{lty}}{Line style.}
-    \item{\code{sector.index}}{Index of sector.}
-    \item{\code{track.index}}{Index of track.}
-  }}
+\item{value}{A numeric vector or a matrix. If it is a matrix, columns correspond to the height of bars.}
+
+\item{pos}{Positions of the bars.}
+
+\item{bar_width}{Width of bars. It assumes the bars locating at \code{x = 1, 2, ...}.}
+
+\item{col}{Filled color of bars.}
+
+\item{border}{Color for the border.}
+
+\item{lwd}{Line width.}
+
+\item{lty}{Line style.}
+
+\item{sector.index}{Index of sector.}
+
+\item{track.index}{Index of track.}
 }
 \value{
 Object \linkS4class{ccCellGeom}

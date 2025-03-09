@@ -4,30 +4,60 @@
 \alias{ccTrackLines}
 \title{Add lines on all sections of a single track.}
 \usage{
-ccTrackLines(...)
+ccTrackLines(
+  sectors,
+  x,
+  y,
+  track.index = get.current.track.index(),
+  col = par("col"),
+  lwd = par("lwd"),
+  lty = par("lty"),
+  type = "l",
+  straight = FALSE,
+  area = FALSE,
+  area.baseline = NULL,
+  border = "black",
+  baseline = "bottom",
+  pt.col = par("col"),
+  cex = par("cex"),
+  pch = par("pch"),
+  factors = sectors
+)
 }
 \arguments{
-\item{...}{
-  Arguments passed on to \code{\link[circlize:circos.trackLines]{circlize::circos.trackLines}}
-  \describe{
-    \item{\code{sectors}}{A \code{\link{factor}} or a character vector which represents the categories of data.}
-    \item{\code{factors}}{The same as \code{sectors}. It will be removed in future versions. }
-    \item{\code{x}}{Data points on x-axis.}
-    \item{\code{y}}{Data points on y-axis.}
-    \item{\code{track.index}}{Index for the track.}
-    \item{\code{col}}{Line color.}
-    \item{\code{lwd}}{Line width.}
-    \item{\code{lty}}{Line style.}
-    \item{\code{type}}{Line type, similar as \code{type} argument in \code{\link[graphics]{lines}}, but only in \code{c("l", "o", "h", "s")}.}
-    \item{\code{straight}}{Whether draw straight lines between points.}
-    \item{\code{area}}{Whether to fill the area below the lines. If it is set to \code{TRUE}, \code{col} controls the filled color in the area and \code{border} controls the color of the line.}
-    \item{\code{area.baseline}}{Deprecated, use \code{baseline} instead.}
-    \item{\code{baseline}}{The base line to draw area, pass to \code{\link[circlize]{circos.lines}}.}
-    \item{\code{border}}{Color for border of the area.}
-    \item{\code{pt.col}}{If \code{type} is "o", points color.}
-    \item{\code{cex}}{If \code{type} is "o", points size.}
-    \item{\code{pch}}{If \code{type} is "o", points type.}
-  }}
+\item{sectors}{A \code{\link{factor}} or a character vector which represents the categories of data.}
+
+\item{x}{Data points on x-axis.}
+
+\item{y}{Data points on y-axis.}
+
+\item{track.index}{Index for the track.}
+
+\item{col}{Line color.}
+
+\item{lwd}{Line width.}
+
+\item{lty}{Line style.}
+
+\item{type}{Line type, similar as \code{type} argument in \code{\link[graphics]{lines}}, but only in \code{c("l", "o", "h", "s")}.}
+
+\item{straight}{Whether draw straight lines between points.}
+
+\item{area}{Whether to fill the area below the lines. If it is set to \code{TRUE}, \code{col} controls the filled color in the area and \code{border} controls the color of the line.}
+
+\item{area.baseline}{Deprecated, use \code{baseline} instead.}
+
+\item{border}{Color for border of the area.}
+
+\item{baseline}{The base line to draw area, pass to \code{\link[circlize]{circos.lines}}.}
+
+\item{pt.col}{If \code{type} is "o", points color.}
+
+\item{cex}{If \code{type} is "o", points size.}
+
+\item{pch}{If \code{type} is "o", points type.}
+
+\item{factors}{The same as \code{sectors}. It will be removed in future versions. }
 }
 \value{
 Object \linkS4class{ccTrackGeom}

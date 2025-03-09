@@ -4,52 +4,90 @@
 \alias{ccGenomicText}
 \title{Add text for genomic data visualization}
 \usage{
-ccGenomicText(...)
+ccGenomicText(
+  region,
+  value = NULL,
+  y = NULL,
+  labels = NULL,
+  labels.column = NULL,
+  numeric.column = NULL,
+  sector.index = get.current.sector.index(),
+  track.index = get.current.track.index(),
+  posTransform = NULL,
+  direction = NULL,
+  facing = "inside",
+  niceFacing = FALSE,
+  adj = par("adj"),
+  cex = 1,
+  col = "black",
+  font = par("font"),
+  padding = 0,
+  extend = 0,
+  align_to = "region",
+  ...
+)
 }
 \arguments{
-\item{...}{
-  Arguments passed on to \code{\link[circlize:circos.genomicText]{circlize::circos.genomicText}}
-  \describe{
-    \item{\code{region}}{A data frame contains 2 column which correspond to start positions and end positions.
+\item{region}{A data frame contains 2 column which correspond to start positions and end positions.
 }
-    \item{\code{value}}{A data frame contains values and other information.
+
+\item{value}{A data frame contains values and other information.
 }
-    \item{\code{y}}{A vector or a single value indicating position of text.
+
+\item{y}{A vector or a single value indicating position of text.
 }
-    \item{\code{labels}}{Labels of text corresponding to each genomic positions.
+
+\item{labels}{Labels of text corresponding to each genomic positions.
 }
-    \item{\code{labels.column}}{If labels are in \code{value}, index of column in \code{value}.
+
+\item{labels.column}{If labels are in \code{value}, index of column in \code{value}.
 }
-    \item{\code{numeric.column}}{Which column in \code{value} data frame should be taken as y-value.
+
+\item{numeric.column}{Which column in \code{value} data frame should be taken as y-value.
  If it is not defined, only the first numeric columns in \code{value} will be taken.
 }
-    \item{\code{sector.index}}{Index of sector.
+
+\item{sector.index}{Index of sector.
 }
-    \item{\code{track.index}}{Index of track.
+
+\item{track.index}{Index of track.
 }
-    \item{\code{posTransform}}{Self-defined function to transform genomic positions, see \code{\link[circlize]{posTransform.default}} for explanation.
+
+\item{posTransform}{Self-defined function to transform genomic positions, see \code{\link[circlize]{posTransform.default}} for explanation.
 }
-    \item{\code{facing}}{Passing to \code{\link[circlize]{circos.text}}. Settings are similar as \code{col}.
+
+\item{direction}{Deprecated, use \code{facing} instead. 
 }
-    \item{\code{niceFacing}}{Should the facing of text be adjusted to fit human eyes?
+
+\item{facing}{Passing to \code{\link[circlize]{circos.text}}. Settings are similar as \code{col}.
 }
-    \item{\code{direction}}{Deprecated, use \code{facing} instead. 
+
+\item{niceFacing}{Should the facing of text be adjusted to fit human eyes?
 }
-    \item{\code{adj}}{Pass to \code{\link[circlize]{circos.text}}. Settings are similar as \code{col}.
+
+\item{adj}{Pass to \code{\link[circlize]{circos.text}}. Settings are similar as \code{col}.
 }
-    \item{\code{cex}}{Pass to \code{\link[circlize]{circos.text}}. Settings are similar as \code{col}.
+
+\item{cex}{Pass to \code{\link[circlize]{circos.text}}. Settings are similar as \code{col}.
 }
-    \item{\code{col}}{Pass to \code{\link[circlize]{circos.text}}. The length of \code{col} can be either one or number of rows of \code{region}.
+
+\item{col}{Pass to \code{\link[circlize]{circos.text}}. The length of \code{col} can be either one or number of rows of \code{region}.
 }
-    \item{\code{font}}{Pass to \code{\link[circlize]{circos.text}}. Settings are similar as \code{col}.
+
+\item{font}{Pass to \code{\link[circlize]{circos.text}}. Settings are similar as \code{col}.
 }
-    \item{\code{padding}}{pass to \code{posTransform} if it is set as \code{\link[circlize]{posTransform.text}}.
+
+\item{padding}{pass to \code{posTransform} if it is set as \code{\link[circlize]{posTransform.text}}.
 }
-    \item{\code{extend}}{pass to \code{posTransform} if it is set as \code{\link[circlize]{posTransform.text}}.
+
+\item{extend}{pass to \code{posTransform} if it is set as \code{\link[circlize]{posTransform.text}}.
 }
-    \item{\code{align_to}}{pass to \code{posTransform} if it is set as \code{\link[circlize]{posTransform.text}}.
+
+\item{align_to}{pass to \code{posTransform} if it is set as \code{\link[circlize]{posTransform.text}}.
 }
-  }}
+
+\item{...}{Mysterious parameters.
+}
 }
 \value{
 Object \linkS4class{ccGenomicCellGeom}
