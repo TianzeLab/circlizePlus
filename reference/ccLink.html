@@ -38,97 +38,143 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ccLink</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ccLink</span><span class="op">(</span></span>
+<span>  <span class="va">sector.index1</span>,</span>
+<span>  <span class="va">point1</span>,</span>
+<span>  <span class="va">sector.index2</span>,</span>
+<span>  <span class="va">point2</span>,</span>
+<span>  rou <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/circlize/man/get_most_inside_radius.html" class="external-link">get_most_inside_radius</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  rou1 <span class="op">=</span> <span class="va">rou</span>,</span>
+<span>  rou2 <span class="op">=</span> <span class="va">rou</span>,</span>
+<span>  h <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  h.ratio <span class="op">=</span> <span class="fl">0.5</span>,</span>
+<span>  w <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  h2 <span class="op">=</span> <span class="va">h</span>,</span>
+<span>  w2 <span class="op">=</span> <span class="va">w</span>,</span>
+<span>  inverse <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  col <span class="op">=</span> <span class="st">"black"</span>,</span>
+<span>  lwd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="st">"lwd"</span><span class="op">)</span>,</span>
+<span>  lty <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="st">"lty"</span><span class="op">)</span>,</span>
+<span>  border <span class="op">=</span> <span class="va">col</span>,</span>
+<span>  directional <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  arr.length <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="va">arr.type</span> <span class="op">==</span> <span class="st">"big.arrow"</span>, <span class="fl">0.02</span>, <span class="fl">0.4</span><span class="op">)</span>,</span>
+<span>  arr.width <span class="op">=</span> <span class="va">arr.length</span><span class="op">/</span><span class="fl">2</span>,</span>
+<span>  arr.type <span class="op">=</span> <span class="st">"triangle"</span>,</span>
+<span>  arr.lty <span class="op">=</span> <span class="va">lty</span>,</span>
+<span>  arr.lwd <span class="op">=</span> <span class="va">lwd</span>,</span>
+<span>  arr.col <span class="op">=</span> <span class="va">col</span>,</span>
+<span>  reduce_to_mid_line <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
 
 
-<dl><dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
-<dd><p>Arguments passed on to <code><a href="https://rdrr.io/pkg/circlize/man/circos.link.html" class="external-link">circlize::circos.link</a></code></p><dl><dt><code>sector.index1</code></dt>
+<dl><dt id="arg-sector-index-">sector.index1<a class="anchor" aria-label="anchor" href="#arg-sector-index-"></a></dt>
 <dd><p>Index for the first sector where one link end locates</p></dd>
 
-    <dt><code>point1</code></dt>
+
+<dt id="arg-point-">point1<a class="anchor" aria-label="anchor" href="#arg-point-"></a></dt>
 <dd><p>A single value or a numeric vector of length 2. If it is a 2-elements vector, then
  the link would be a belt/ribbon.</p></dd>
 
-    <dt><code>sector.index2</code></dt>
+
+<dt id="arg-sector-index-">sector.index2<a class="anchor" aria-label="anchor" href="#arg-sector-index-"></a></dt>
 <dd><p>Index for the other sector where the other link end locates</p></dd>
 
-    <dt><code>point2</code></dt>
+
+<dt id="arg-point-">point2<a class="anchor" aria-label="anchor" href="#arg-point-"></a></dt>
 <dd><p>A single value or a numeric vector of length 2. If it is a 2-elements vector, then
  the link would be a belt/ribbon.</p></dd>
 
-    <dt><code>rou</code></dt>
+
+<dt id="arg-rou">rou<a class="anchor" aria-label="anchor" href="#arg-rou"></a></dt>
 <dd><p>The position of the the link ends (if <code>rou1</code> and <code>rou2</code> are not set). It is the percentage of the radius of the unit circle.
  By default its value is the position of bottom margin of the most inner track.</p></dd>
 
-    <dt><code>rou1</code></dt>
+
+<dt id="arg-rou-">rou1<a class="anchor" aria-label="anchor" href="#arg-rou-"></a></dt>
 <dd><p>The position of end 1 of the link.</p></dd>
 
-    <dt><code>rou2</code></dt>
+
+<dt id="arg-rou-">rou2<a class="anchor" aria-label="anchor" href="#arg-rou-"></a></dt>
 <dd><p>The position of end 2 of the link.</p></dd>
 
-    <dt><code>h</code></dt>
+
+<dt id="arg-h">h<a class="anchor" aria-label="anchor" href="#arg-h"></a></dt>
 <dd><p>Height of the link, measured as percent to the radius to the unit circle. By default it is automatically infered.</p></dd>
 
-    <dt><code>h.ratio</code></dt>
+
+<dt id="arg-h-ratio">h.ratio<a class="anchor" aria-label="anchor" href="#arg-h-ratio"></a></dt>
 <dd><p>systematically change the link height. The value is between 0 and 1.</p></dd>
 
-    <dt><code>w</code></dt>
+
+<dt id="arg-w">w<a class="anchor" aria-label="anchor" href="#arg-w"></a></dt>
 <dd><p>Since the link is a Bezier curve, it controls the shape of Bezier curve.</p></dd>
 
-    <dt><code>h2</code></dt>
+
+<dt id="arg-h-">h2<a class="anchor" aria-label="anchor" href="#arg-h-"></a></dt>
 <dd><p>Height of the bottom edge of the link if it is a ribbon.</p></dd>
 
-    <dt><code>w2</code></dt>
+
+<dt id="arg-w-">w2<a class="anchor" aria-label="anchor" href="#arg-w-"></a></dt>
 <dd><p>Shape of the bottom edge of the link if it is a ribbon.</p></dd>
 
-    <dt><code>inverse</code></dt>
+
+<dt id="arg-inverse">inverse<a class="anchor" aria-label="anchor" href="#arg-inverse"></a></dt>
 <dd><p>Whether the link is inversed.</p></dd>
 
-    <dt><code>col</code></dt>
+
+<dt id="arg-col">col<a class="anchor" aria-label="anchor" href="#arg-col"></a></dt>
 <dd><p>Color of the link. If the link is a ribbon, then it is the filled color for the ribbon.</p></dd>
 
-    <dt><code>lwd</code></dt>
+
+<dt id="arg-lwd">lwd<a class="anchor" aria-label="anchor" href="#arg-lwd"></a></dt>
 <dd><p>Line (or border) width</p></dd>
 
-    <dt><code>lty</code></dt>
+
+<dt id="arg-lty">lty<a class="anchor" aria-label="anchor" href="#arg-lty"></a></dt>
 <dd><p>Line (or border) style</p></dd>
 
-    <dt><code>border</code></dt>
+
+<dt id="arg-border">border<a class="anchor" aria-label="anchor" href="#arg-border"></a></dt>
 <dd><p>If the link is a ribbon, then it is the color for the ribbon border.</p></dd>
 
-    <dt><code>directional</code></dt>
+
+<dt id="arg-directional">directional<a class="anchor" aria-label="anchor" href="#arg-directional"></a></dt>
 <dd><p>0 for no direction, 1 for direction from <code>point1</code> to <code>point2</code>, -1 for direction from <code>point2</code> to <code>point1</code>.
  2 for two directional. The direction is important when arrow heads are added.</p></dd>
 
-    <dt><code>arr.width</code></dt>
-<dd><p>Width of the arrows, pass to <code><a href="https://rdrr.io/pkg/shape/man/Arrowhead.html" class="external-link">Arrowhead</a></code>.</p></dd>
 
-    <dt><code>arr.type</code></dt>
-<dd><p>Type of the arrows, pass to <code><a href="https://rdrr.io/pkg/shape/man/Arrowhead.html" class="external-link">Arrowhead</a></code>. Default value is <code>triangle</code>. There is an additional option
- <code>big.arrow</code>.</p></dd>
-
-    <dt><code>arr.length</code></dt>
+<dt id="arg-arr-length">arr.length<a class="anchor" aria-label="anchor" href="#arg-arr-length"></a></dt>
 <dd><p>Length of the arrows, measured in 'cm', pass to <code><a href="https://rdrr.io/pkg/shape/man/Arrowhead.html" class="external-link">Arrowhead</a></code>. If <code>arr.type</code> is set to <code>big.arrow</code>,
  the value is percent to the radius of the unit circle.</p></dd>
 
-    <dt><code>arr.col</code></dt>
-<dd><p>Color of the arrows, pass to <code><a href="https://rdrr.io/pkg/shape/man/Arrowhead.html" class="external-link">Arrowhead</a></code>.</p></dd>
 
-    <dt><code>arr.lwd</code></dt>
-<dd><p>Line width of arrows, pass to <code><a href="https://rdrr.io/pkg/shape/man/Arrowhead.html" class="external-link">Arrowhead</a></code>.</p></dd>
+<dt id="arg-arr-width">arr.width<a class="anchor" aria-label="anchor" href="#arg-arr-width"></a></dt>
+<dd><p>Width of the arrows, pass to <code><a href="https://rdrr.io/pkg/shape/man/Arrowhead.html" class="external-link">Arrowhead</a></code>.</p></dd>
 
-    <dt><code>arr.lty</code></dt>
+
+<dt id="arg-arr-type">arr.type<a class="anchor" aria-label="anchor" href="#arg-arr-type"></a></dt>
+<dd><p>Type of the arrows, pass to <code><a href="https://rdrr.io/pkg/shape/man/Arrowhead.html" class="external-link">Arrowhead</a></code>. Default value is <code>triangle</code>. There is an additional option
+ <code>big.arrow</code>.</p></dd>
+
+
+<dt id="arg-arr-lty">arr.lty<a class="anchor" aria-label="anchor" href="#arg-arr-lty"></a></dt>
 <dd><p>Line type of arrows, pass to <code><a href="https://rdrr.io/pkg/shape/man/Arrowhead.html" class="external-link">Arrowhead</a></code>.</p></dd>
 
-    <dt><code>reduce_to_mid_line</code></dt>
+
+<dt id="arg-arr-lwd">arr.lwd<a class="anchor" aria-label="anchor" href="#arg-arr-lwd"></a></dt>
+<dd><p>Line width of arrows, pass to <code><a href="https://rdrr.io/pkg/shape/man/Arrowhead.html" class="external-link">Arrowhead</a></code>.</p></dd>
+
+
+<dt id="arg-arr-col">arr.col<a class="anchor" aria-label="anchor" href="#arg-arr-col"></a></dt>
+<dd><p>Color of the arrows, pass to <code><a href="https://rdrr.io/pkg/shape/man/Arrowhead.html" class="external-link">Arrowhead</a></code>.</p></dd>
+
+
+<dt id="arg-reduce-to-mid-line">reduce_to_mid_line<a class="anchor" aria-label="anchor" href="#arg-reduce-to-mid-line"></a></dt>
 <dd><p>Only use the middle points of <code>point1</code> and <code>point2</code> to draw the link.</p></dd>
-
-
-</dl></dd>
 
 </dl></div>
     <div class="section level2">

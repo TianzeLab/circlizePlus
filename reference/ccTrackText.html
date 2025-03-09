@@ -38,55 +38,78 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ccTrackText</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ccTrackText</span><span class="op">(</span></span>
+<span>  <span class="va">sectors</span>,</span>
+<span>  <span class="va">x</span>,</span>
+<span>  <span class="va">y</span>,</span>
+<span>  <span class="va">labels</span>,</span>
+<span>  track.index <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/circlize/man/get.current.track.index.html" class="external-link">get.current.track.index</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  direction <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  facing <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"inside"</span>, <span class="st">"outside"</span>, <span class="st">"reverse.clockwise"</span>, <span class="st">"clockwise"</span>, <span class="st">"downward"</span>,</span>
+<span>    <span class="st">"bending"</span>, <span class="st">"bending.inside"</span>, <span class="st">"bending.outside"</span><span class="op">)</span>,</span>
+<span>  niceFacing <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  adj <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="st">"adj"</span><span class="op">)</span>,</span>
+<span>  cex <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="st">"col"</span><span class="op">)</span>,</span>
+<span>  font <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="st">"font"</span><span class="op">)</span>,</span>
+<span>  factors <span class="op">=</span> <span class="va">sectors</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
 
 
-<dl><dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
-<dd><p>Arguments passed on to <code><a href="https://rdrr.io/pkg/circlize/man/circos.trackText.html" class="external-link">circlize::circos.trackText</a></code></p><dl><dt><code>sectors</code></dt>
+<dl><dt id="arg-sectors">sectors<a class="anchor" aria-label="anchor" href="#arg-sectors"></a></dt>
 <dd><p>A <code><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></code> or a character vector which represents the categories of data</p></dd>
 
-    <dt><code>factors</code></dt>
-<dd><p>The same as <code>sectors</code>. It will be removed in future versions.</p></dd>
 
-    <dt><code>x</code></dt>
+<dt id="arg-x">x<a class="anchor" aria-label="anchor" href="#arg-x"></a></dt>
 <dd><p>Data points on x-axis</p></dd>
 
-    <dt><code>y</code></dt>
+
+<dt id="arg-y">y<a class="anchor" aria-label="anchor" href="#arg-y"></a></dt>
 <dd><p>Data points on y-axis</p></dd>
 
-    <dt><code>labels</code></dt>
+
+<dt id="arg-labels">labels<a class="anchor" aria-label="anchor" href="#arg-labels"></a></dt>
 <dd><p>Labels</p></dd>
 
-    <dt><code>track.index</code></dt>
+
+<dt id="arg-track-index">track.index<a class="anchor" aria-label="anchor" href="#arg-track-index"></a></dt>
 <dd><p>Index for the track</p></dd>
 
-    <dt><code>direction</code></dt>
+
+<dt id="arg-direction">direction<a class="anchor" aria-label="anchor" href="#arg-direction"></a></dt>
 <dd><p>deprecated, use <code>facing</code> instead.</p></dd>
 
-    <dt><code>facing</code></dt>
+
+<dt id="arg-facing">facing<a class="anchor" aria-label="anchor" href="#arg-facing"></a></dt>
 <dd><p>Facing of text</p></dd>
 
-    <dt><code>niceFacing</code></dt>
+
+<dt id="arg-nicefacing">niceFacing<a class="anchor" aria-label="anchor" href="#arg-nicefacing"></a></dt>
 <dd><p>Should the facing of text be adjusted to fit human eyes?</p></dd>
 
-    <dt><code>adj</code></dt>
+
+<dt id="arg-adj">adj<a class="anchor" aria-label="anchor" href="#arg-adj"></a></dt>
 <dd><p>Adjustment for text</p></dd>
 
-    <dt><code>cex</code></dt>
+
+<dt id="arg-cex">cex<a class="anchor" aria-label="anchor" href="#arg-cex"></a></dt>
 <dd><p>Font size</p></dd>
 
-    <dt><code>col</code></dt>
+
+<dt id="arg-col">col<a class="anchor" aria-label="anchor" href="#arg-col"></a></dt>
 <dd><p>Font color</p></dd>
 
-    <dt><code>font</code></dt>
+
+<dt id="arg-font">font<a class="anchor" aria-label="anchor" href="#arg-font"></a></dt>
 <dd><p>Font style</p></dd>
 
 
-</dl></dd>
+<dt id="arg-factors">factors<a class="anchor" aria-label="anchor" href="#arg-factors"></a></dt>
+<dd><p>The same as <code>sectors</code>. It will be removed in future versions.</p></dd>
 
 </dl></div>
     <div class="section level2">

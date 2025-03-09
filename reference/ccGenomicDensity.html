@@ -38,58 +38,85 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ccGenomicDensity</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ccGenomicDensity</span><span class="op">(</span></span>
+<span>  <span class="va">data</span>,</span>
+<span>  ylim.force <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  window.size <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  overlap <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  count_by <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"percent"</span>, <span class="st">"number"</span><span class="op">)</span>,</span>
+<span>  col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="va">area</span>, <span class="st">"grey"</span>, <span class="st">"black"</span><span class="op">)</span>,</span>
+<span>  lwd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="st">"lwd"</span><span class="op">)</span>,</span>
+<span>  lty <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="st">"lty"</span><span class="op">)</span>,</span>
+<span>  type <span class="op">=</span> <span class="st">"l"</span>,</span>
+<span>  area <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  area.baseline <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  baseline <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  border <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
 
 
-<dl><dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
-<dd><p>Arguments passed on to <code><a href="https://rdrr.io/pkg/circlize/man/circos.genomicDensity.html" class="external-link">circlize::circos.genomicDensity</a></code></p><dl><dt><code>data</code></dt>
+<dl><dt id="arg-data">data<a class="anchor" aria-label="anchor" href="#arg-data"></a></dt>
 <dd><p>A bed-file-like data frame or a list of data frames. If the input is a list of data frames.
  there will be multiple density plot in one same track.</p></dd>
 
-    <dt><code>ylim.force</code></dt>
+
+<dt id="arg-ylim-force">ylim.force<a class="anchor" aria-label="anchor" href="#arg-ylim-force"></a></dt>
 <dd><p>Whether to force upper bound of <code>ylim</code> to be 1. Ignored if <code>count_by</code> is set to <code>number</code>.</p></dd>
 
-    <dt><code>window.size</code></dt>
+
+<dt id="arg-window-size">window.size<a class="anchor" aria-label="anchor" href="#arg-window-size"></a></dt>
 <dd><p>Pass to <code><a href="https://rdrr.io/pkg/circlize/man/genomicDensity.html" class="external-link">genomicDensity</a></code>.</p></dd>
 
-    <dt><code>overlap</code></dt>
+
+<dt id="arg-overlap">overlap<a class="anchor" aria-label="anchor" href="#arg-overlap"></a></dt>
 <dd><p>Pass to <code><a href="https://rdrr.io/pkg/circlize/man/genomicDensity.html" class="external-link">genomicDensity</a></code>.</p></dd>
 
-    <dt><code>count_by</code></dt>
+
+<dt id="arg-count-by">count_by<a class="anchor" aria-label="anchor" href="#arg-count-by"></a></dt>
 <dd><p>Pass to <code><a href="https://rdrr.io/pkg/circlize/man/genomicDensity.html" class="external-link">genomicDensity</a></code>.</p></dd>
 
-    <dt><code>col</code></dt>
+
+<dt id="arg-col">col<a class="anchor" aria-label="anchor" href="#arg-col"></a></dt>
 <dd><p>Colors. It should be length of one. If <code>data</code> is a list of data frames, the length of <code>col</code>
  can also be the length of the list. If multiple sets of genomic regions are visualized in one
  single track, you should set the colors with transparency to distinguish them.</p></dd>
 
-    <dt><code>lwd</code></dt>
+
+<dt id="arg-lwd">lwd<a class="anchor" aria-label="anchor" href="#arg-lwd"></a></dt>
 <dd><p>Width of lines, the same setting as <code>col</code> argument.</p></dd>
 
-    <dt><code>lty</code></dt>
+
+<dt id="arg-lty">lty<a class="anchor" aria-label="anchor" href="#arg-lty"></a></dt>
 <dd><p>Style of lines, the same setting as <code>col</code> argument.</p></dd>
 
-    <dt><code>type</code></dt>
+
+<dt id="arg-type">type<a class="anchor" aria-label="anchor" href="#arg-type"></a></dt>
 <dd><p>Type of lines, see <code><a href="https://rdrr.io/pkg/circlize/man/circos.lines.html" class="external-link">circos.lines</a></code>.</p></dd>
 
-    <dt><code>area</code></dt>
+
+<dt id="arg-area">area<a class="anchor" aria-label="anchor" href="#arg-area"></a></dt>
 <dd><p>See <code><a href="https://rdrr.io/pkg/circlize/man/circos.lines.html" class="external-link">circos.lines</a></code>.</p></dd>
 
-    <dt><code>area.baseline</code></dt>
+
+<dt id="arg-area-baseline">area.baseline<a class="anchor" aria-label="anchor" href="#arg-area-baseline"></a></dt>
 <dd><p>Deprecated, use <code>baseline</code> instead.</p></dd>
 
-    <dt><code>baseline</code></dt>
+
+<dt id="arg-baseline">baseline<a class="anchor" aria-label="anchor" href="#arg-baseline"></a></dt>
 <dd><p>See <code><a href="https://rdrr.io/pkg/circlize/man/circos.lines.html" class="external-link">circos.lines</a></code>.</p></dd>
 
-    <dt><code>border</code></dt>
+
+<dt id="arg-border">border<a class="anchor" aria-label="anchor" href="#arg-border"></a></dt>
 <dd><p>See <code><a href="https://rdrr.io/pkg/circlize/man/circos.lines.html" class="external-link">circos.lines</a></code>.</p></dd>
 
 
-</dl></dd>
+<dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
+<dd><p>Pass to <code><a href="https://rdrr.io/pkg/circlize/man/circos.trackPlotRegion.html" class="external-link">circos.trackPlotRegion</a></code>.</p></dd>
 
 </dl></div>
     <div class="section level2">

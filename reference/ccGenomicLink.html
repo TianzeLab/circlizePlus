@@ -38,43 +38,62 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ccGenomicLink</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ccGenomicLink</span><span class="op">(</span></span>
+<span>  <span class="va">region1</span>,</span>
+<span>  <span class="va">region2</span>,</span>
+<span>  rou <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/circlize/man/get_most_inside_radius.html" class="external-link">get_most_inside_radius</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  rou1 <span class="op">=</span> <span class="va">rou</span>,</span>
+<span>  rou2 <span class="op">=</span> <span class="va">rou</span>,</span>
+<span>  col <span class="op">=</span> <span class="st">"black"</span>,</span>
+<span>  lwd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="st">"lwd"</span><span class="op">)</span>,</span>
+<span>  lty <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="st">"lty"</span><span class="op">)</span>,</span>
+<span>  border <span class="op">=</span> <span class="va">col</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
 
 
-<dl><dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
-<dd><p>Arguments passed on to <code><a href="https://rdrr.io/pkg/circlize/man/circos.genomicLink.html" class="external-link">circlize::circos.genomicLink</a></code></p><dl><dt><code>region1</code></dt>
+<dl><dt id="arg-region-">region1<a class="anchor" aria-label="anchor" href="#arg-region-"></a></dt>
 <dd><p>A data frame in bed format.</p></dd>
 
-    <dt><code>region2</code></dt>
+
+<dt id="arg-region-">region2<a class="anchor" aria-label="anchor" href="#arg-region-"></a></dt>
 <dd><p>A data frame in bed format.</p></dd>
 
-    <dt><code>rou</code></dt>
+
+<dt id="arg-rou">rou<a class="anchor" aria-label="anchor" href="#arg-rou"></a></dt>
 <dd><p>Pass to <code><a href="https://rdrr.io/pkg/circlize/man/circos.link.html" class="external-link">circos.link</a></code>.</p></dd>
 
-    <dt><code>rou1</code></dt>
+
+<dt id="arg-rou-">rou1<a class="anchor" aria-label="anchor" href="#arg-rou-"></a></dt>
 <dd><p>Pass to <code><a href="https://rdrr.io/pkg/circlize/man/circos.link.html" class="external-link">circos.link</a></code>.</p></dd>
 
-    <dt><code>rou2</code></dt>
+
+<dt id="arg-rou-">rou2<a class="anchor" aria-label="anchor" href="#arg-rou-"></a></dt>
 <dd><p>Pass to <code><a href="https://rdrr.io/pkg/circlize/man/circos.link.html" class="external-link">circos.link</a></code>.</p></dd>
 
-    <dt><code>col</code></dt>
-<dd><p>Pass to <code><a href="https://rdrr.io/pkg/circlize/man/circos.link.html" class="external-link">circos.link</a></code>, length can be either one or nrow of <code>region1</code>.</p></dd>
 
-    <dt><code>lwd</code></dt>
-<dd><p>Pass to <code><a href="https://rdrr.io/pkg/circlize/man/circos.link.html" class="external-link">circos.link</a></code>, length can be either one or nrow of <code>region1</code>.</p></dd>
-
-    <dt><code>lty</code></dt>
-<dd><p>Pass to <code><a href="https://rdrr.io/pkg/circlize/man/circos.link.html" class="external-link">circos.link</a></code>, length can be either one or nrow of <code>region1</code>.</p></dd>
-
-    <dt><code>border</code></dt>
+<dt id="arg-col">col<a class="anchor" aria-label="anchor" href="#arg-col"></a></dt>
 <dd><p>Pass to <code><a href="https://rdrr.io/pkg/circlize/man/circos.link.html" class="external-link">circos.link</a></code>, length can be either one or nrow of <code>region1</code>.</p></dd>
 
 
-</dl></dd>
+<dt id="arg-lwd">lwd<a class="anchor" aria-label="anchor" href="#arg-lwd"></a></dt>
+<dd><p>Pass to <code><a href="https://rdrr.io/pkg/circlize/man/circos.link.html" class="external-link">circos.link</a></code>, length can be either one or nrow of <code>region1</code>.</p></dd>
+
+
+<dt id="arg-lty">lty<a class="anchor" aria-label="anchor" href="#arg-lty"></a></dt>
+<dd><p>Pass to <code><a href="https://rdrr.io/pkg/circlize/man/circos.link.html" class="external-link">circos.link</a></code>, length can be either one or nrow of <code>region1</code>.</p></dd>
+
+
+<dt id="arg-border">border<a class="anchor" aria-label="anchor" href="#arg-border"></a></dt>
+<dd><p>Pass to <code><a href="https://rdrr.io/pkg/circlize/man/circos.link.html" class="external-link">circos.link</a></code>, length can be either one or nrow of <code>region1</code>.</p></dd>
+
+
+<dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
+<dd><p>Pass to <code><a href="https://rdrr.io/pkg/circlize/man/circos.link.html" class="external-link">circos.link</a></code>.</p></dd>
 
 </dl></div>
     <div class="section level2">

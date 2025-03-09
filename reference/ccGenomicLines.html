@@ -38,71 +38,106 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ccGenomicLines</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ccGenomicLines</span><span class="op">(</span></span>
+<span>  <span class="va">region</span>,</span>
+<span>  <span class="va">value</span>,</span>
+<span>  numeric.column <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  sector.index <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/circlize/man/get.current.sector.index.html" class="external-link">get.current.sector.index</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  track.index <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/circlize/man/get.current.track.index.html" class="external-link">get.current.track.index</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  posTransform <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="va">area</span>, <span class="st">"grey"</span>, <span class="st">"black"</span><span class="op">)</span>,</span>
+<span>  lwd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="st">"lwd"</span><span class="op">)</span>,</span>
+<span>  lty <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="st">"lty"</span><span class="op">)</span>,</span>
+<span>  type <span class="op">=</span> <span class="st">"l"</span>,</span>
+<span>  area <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  area.baseline <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  border <span class="op">=</span> <span class="st">"black"</span>,</span>
+<span>  baseline <span class="op">=</span> <span class="st">"bottom"</span>,</span>
+<span>  pt.col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="st">"col"</span><span class="op">)</span>,</span>
+<span>  cex <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="st">"cex"</span><span class="op">)</span>,</span>
+<span>  pch <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="st">"pch"</span><span class="op">)</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
 
 
-<dl><dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
-<dd><p>Arguments passed on to <code><a href="https://rdrr.io/pkg/circlize/man/circos.genomicLines.html" class="external-link">circlize::circos.genomicLines</a></code></p><dl><dt><code>region</code></dt>
+<dl><dt id="arg-region">region<a class="anchor" aria-label="anchor" href="#arg-region"></a></dt>
 <dd><p>A data frame contains 2 column which correspond to start positions and end positions.</p></dd>
 
-    <dt><code>value</code></dt>
+
+<dt id="arg-value">value<a class="anchor" aria-label="anchor" href="#arg-value"></a></dt>
 <dd><p>A data frame contains values and other information.</p></dd>
 
-    <dt><code>numeric.column</code></dt>
+
+<dt id="arg-numeric-column">numeric.column<a class="anchor" aria-label="anchor" href="#arg-numeric-column"></a></dt>
 <dd><p>Which column in <code>value</code> data frame should be taken as y-value.
  If it is not defined, the whole numeric columns in <code>value</code> will be taken.</p></dd>
 
-    <dt><code>sector.index</code></dt>
+
+<dt id="arg-sector-index">sector.index<a class="anchor" aria-label="anchor" href="#arg-sector-index"></a></dt>
 <dd><p>Index of sector.</p></dd>
 
-    <dt><code>track.index</code></dt>
+
+<dt id="arg-track-index">track.index<a class="anchor" aria-label="anchor" href="#arg-track-index"></a></dt>
 <dd><p>Index of track.</p></dd>
 
-    <dt><code>posTransform</code></dt>
+
+<dt id="arg-postransform">posTransform<a class="anchor" aria-label="anchor" href="#arg-postransform"></a></dt>
 <dd><p>Self-defined function to transform genomic positions, see <code><a href="https://rdrr.io/pkg/circlize/man/posTransform.default.html" class="external-link">posTransform.default</a></code> for explaination.</p></dd>
 
-    <dt><code>col</code></dt>
+
+<dt id="arg-col">col<a class="anchor" aria-label="anchor" href="#arg-col"></a></dt>
 <dd><p>col of lines/areas. If there are more than one numeric column, the length of <code>col</code> can be either one or number of numeric columns.
  If there is only one numeric column and type is either <code>segment</code> or <code>h</code>,
  the length of <code>col</code> can be either one or number of rows of <code>region</code>.
  pass to <code><a href="https://rdrr.io/pkg/circlize/man/circos.lines.html" class="external-link">circos.lines</a></code></p></dd>
 
-    <dt><code>lwd</code></dt>
+
+<dt id="arg-lwd">lwd<a class="anchor" aria-label="anchor" href="#arg-lwd"></a></dt>
 <dd><p>Settings are similar as <code>col</code>. Pass to <code><a href="https://rdrr.io/pkg/circlize/man/circos.lines.html" class="external-link">circos.lines</a></code>.</p></dd>
 
-    <dt><code>lty</code></dt>
+
+<dt id="arg-lty">lty<a class="anchor" aria-label="anchor" href="#arg-lty"></a></dt>
 <dd><p>Settings are similar as <code>col</code>. Pass to <code><a href="https://rdrr.io/pkg/circlize/man/circos.lines.html" class="external-link">circos.lines</a></code>.</p></dd>
 
-    <dt><code>type</code></dt>
+
+<dt id="arg-type">type<a class="anchor" aria-label="anchor" href="#arg-type"></a></dt>
 <dd><p>There is an additional option <code>segment</code> which plot segment lines from start position to end position. Settings are similar as <code>col</code>. Pass to <code><a href="https://rdrr.io/pkg/circlize/man/circos.lines.html" class="external-link">circos.lines</a></code>.</p></dd>
 
-    <dt><code>area</code></dt>
+
+<dt id="arg-area">area<a class="anchor" aria-label="anchor" href="#arg-area"></a></dt>
 <dd><p>Settings are similar as <code>col</code>. Pass to <code><a href="https://rdrr.io/pkg/circlize/man/circos.lines.html" class="external-link">circos.lines</a></code>.</p></dd>
 
-    <dt><code>area.baseline</code></dt>
+
+<dt id="arg-area-baseline">area.baseline<a class="anchor" aria-label="anchor" href="#arg-area-baseline"></a></dt>
 <dd><p>Deprecated, use <code>baseline</code> instead.</p></dd>
 
-    <dt><code>baseline</code></dt>
-<dd><p>Settings are similar as <code>col</code>. Pass to <code><a href="https://rdrr.io/pkg/circlize/man/circos.lines.html" class="external-link">circos.lines</a></code>.</p></dd>
 
-    <dt><code>border</code></dt>
-<dd><p>Settings are similar as <code>col</code>. Pass to <code><a href="https://rdrr.io/pkg/circlize/man/circos.lines.html" class="external-link">circos.lines</a></code>.</p></dd>
-
-    <dt><code>pt.col</code></dt>
-<dd><p>Settings are similar as <code>col</code>. Pass to <code><a href="https://rdrr.io/pkg/circlize/man/circos.lines.html" class="external-link">circos.lines</a></code>.</p></dd>
-
-    <dt><code>cex</code></dt>
-<dd><p>Settings are similar as <code>col</code>. Pass to <code><a href="https://rdrr.io/pkg/circlize/man/circos.lines.html" class="external-link">circos.lines</a></code>.</p></dd>
-
-    <dt><code>pch</code></dt>
+<dt id="arg-border">border<a class="anchor" aria-label="anchor" href="#arg-border"></a></dt>
 <dd><p>Settings are similar as <code>col</code>. Pass to <code><a href="https://rdrr.io/pkg/circlize/man/circos.lines.html" class="external-link">circos.lines</a></code>.</p></dd>
 
 
-</dl></dd>
+<dt id="arg-baseline">baseline<a class="anchor" aria-label="anchor" href="#arg-baseline"></a></dt>
+<dd><p>Settings are similar as <code>col</code>. Pass to <code><a href="https://rdrr.io/pkg/circlize/man/circos.lines.html" class="external-link">circos.lines</a></code>.</p></dd>
+
+
+<dt id="arg-pt-col">pt.col<a class="anchor" aria-label="anchor" href="#arg-pt-col"></a></dt>
+<dd><p>Settings are similar as <code>col</code>. Pass to <code><a href="https://rdrr.io/pkg/circlize/man/circos.lines.html" class="external-link">circos.lines</a></code>.</p></dd>
+
+
+<dt id="arg-cex">cex<a class="anchor" aria-label="anchor" href="#arg-cex"></a></dt>
+<dd><p>Settings are similar as <code>col</code>. Pass to <code><a href="https://rdrr.io/pkg/circlize/man/circos.lines.html" class="external-link">circos.lines</a></code>.</p></dd>
+
+
+<dt id="arg-pch">pch<a class="anchor" aria-label="anchor" href="#arg-pch"></a></dt>
+<dd><p>Settings are similar as <code>col</code>. Pass to <code><a href="https://rdrr.io/pkg/circlize/man/circos.lines.html" class="external-link">circos.lines</a></code>.</p></dd>
+
+
+<dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
+<dd><p>Mysterious parameters.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -118,9 +153,10 @@
 <span class="r-in"><span><span class="va">cc</span> <span class="op">=</span> <span class="fu"><a href="ccPlot.html">ccPlot</a></span><span class="op">(</span>initMode <span class="op">=</span> <span class="st">"initializeWithIdeogram"</span>, plotType<span class="op">=</span><span class="cn">NULL</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">t1</span> <span class="op">=</span> <span class="fu"><a href="ccGenomicTrack.html">ccGenomicTrack</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">data</span>, numeric.column <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">cells1</span> <span class="op">=</span> <span class="fu"><a href="ccCells.html">ccCells</a></span><span class="op">(</span>sector.indexes <span class="op">=</span> <span class="va">all_chr</span><span class="op">)</span> <span class="op">+</span> <span class="fu">ccGenomicLines</span><span class="op">(</span>numeric.column<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in ccGenomicLines(numeric.column = 2):</span> argument "region" is missing, with no default</span>
 <span class="r-in"><span><span class="va">t1</span> <span class="op">=</span> <span class="va">t1</span> <span class="op">+</span> <span class="va">cells1</span></span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'cells1' not found</span>
 <span class="r-in"><span><span class="fu">show</span><span class="op">(</span><span class="va">cc</span><span class="op">+</span><span class="va">t1</span><span class="op">)</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> Note: 1 point is out of plotting region in sector 'chr4', track '1'.</span>
 <span class="r-plt img"><img src="ccGenomicLines-1.png" alt="" width="700" height="433"></span>
 </code></pre></div>
     </div>

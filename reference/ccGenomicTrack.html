@@ -38,24 +38,36 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ccGenomicTrack</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ccGenomicTrack</span><span class="op">(</span></span>
+<span>  data <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  ylim <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  stack <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  numeric.column <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  jitter <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  panel.fun <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">region</span>, <span class="va">value</span>, <span class="va">...</span><span class="op">)</span> <span class="op">{</span></span>
+<span>     <span class="cn">NULL</span></span>
+<span> <span class="op">}</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
 
 
-<dl><dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
-<dd><p>Arguments passed on to <code><a href="https://rdrr.io/pkg/circlize/man/circos.genomicTrackPlotRegion.html" class="external-link">circlize::circos.genomicTrackPlotRegion</a></code></p><dl><dt><code>data</code></dt>
+<dl><dt id="arg-data">data<a class="anchor" aria-label="anchor" href="#arg-data"></a></dt>
 <dd><p>A bed-file-like data frame or a list of data frames</p></dd>
 
-    <dt><code>ylim</code></dt>
+
+<dt id="arg-ylim">ylim<a class="anchor" aria-label="anchor" href="#arg-ylim"></a></dt>
 <dd><p>If it is <code>NULL</code>, the value will be calculated from data. If <code>stack</code> is set to <code>TRUE</code>, this value is ignored.</p></dd>
 
-    <dt><code>stack</code></dt>
+
+<dt id="arg-stack">stack<a class="anchor" aria-label="anchor" href="#arg-stack"></a></dt>
 <dd><p>whether to plot in a "stack" mode.</p></dd>
 
-    <dt><code>numeric.column</code></dt>
+
+<dt id="arg-numeric-column">numeric.column<a class="anchor" aria-label="anchor" href="#arg-numeric-column"></a></dt>
 <dd><p>Columns of numeric values in <code>data</code> that will be used for plotting.
  If <code>data</code> is a data frame list, <code>numeric.column</code> should be either length of one or length of <code>data</code>.
  If value of <code>numeric.column</code> is not set, its value will depend on the structure of <code>data</code>.
@@ -63,10 +75,12 @@
  If <code>data</code> is a list of data frame, the default value for <code>numeric.column</code> is a vector which have the same length as <code>data</code>
  and the value in default <code>numeric.column</code> is the index of the first numeric column in corresponding data frame.</p></dd>
 
-    <dt><code>jitter</code></dt>
+
+<dt id="arg-jitter">jitter<a class="anchor" aria-label="anchor" href="#arg-jitter"></a></dt>
 <dd><p>Numeric. Only works for adding points in <code>circos.genomicTrackPlotRegion</code> under <code>stack</code> mode</p></dd>
 
-    <dt><code>panel.fun</code></dt>
+
+<dt id="arg-panel-fun">panel.fun<a class="anchor" aria-label="anchor" href="#arg-panel-fun"></a></dt>
 <dd><p>Self-defined function which will be applied on each sector. Please not it is different
  from that in <code><a href="https://rdrr.io/pkg/circlize/man/circos.trackPlotRegion.html" class="external-link">circos.trackPlotRegion</a></code>. In this function, there are two arguments (<code>region</code> and <code>value</code>) plus <code>...</code>.
  In them, <code>region</code> is a two-column data frame with start positions and end positions in current genomic category (e.g. chromosome).
@@ -76,7 +90,8 @@
  please refer to 'details' section and vignettes to detailed explanation.</p></dd>
 
 
-</dl></dd>
+<dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
+<dd><p>Pass to <code><a href="https://rdrr.io/pkg/circlize/man/circos.trackPlotRegion.html" class="external-link">circos.trackPlotRegion</a></code>.</p></dd>
 
 </dl></div>
     <div class="section level2">

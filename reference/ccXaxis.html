@@ -38,73 +38,107 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ccXaxis</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ccXaxis</span><span class="op">(</span></span>
+<span>  h <span class="op">=</span> <span class="st">"top"</span>,</span>
+<span>  major.at <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  labels <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  major.tick <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  sector.index <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/circlize/man/get.current.sector.index.html" class="external-link">get.current.sector.index</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  track.index <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/circlize/man/get.current.track.index.html" class="external-link">get.current.track.index</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  labels.font <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="st">"font"</span><span class="op">)</span>,</span>
+<span>  labels.cex <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="st">"cex"</span><span class="op">)</span>,</span>
+<span>  labels.facing <span class="op">=</span> <span class="st">"inside"</span>,</span>
+<span>  labels.direction <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  labels.niceFacing <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  direction <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"outside"</span>, <span class="st">"inside"</span><span class="op">)</span>,</span>
+<span>  minor.ticks <span class="op">=</span> <span class="fl">4</span>,</span>
+<span>  major.tick.length <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/circlize/man/mm_y.html" class="external-link">mm_y</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span>,</span>
+<span>  major.tick.percentage <span class="op">=</span> <span class="fl">0.5</span>,</span>
+<span>  lwd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="st">"lwd"</span><span class="op">)</span>,</span>
+<span>  col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="st">"col"</span><span class="op">)</span>,</span>
+<span>  labels.col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="st">"col"</span><span class="op">)</span>,</span>
+<span>  labels.pos.adjust <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
 
 
-<dl><dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
-<dd><p>Arguments passed on to <code><a href="https://rdrr.io/pkg/circlize/man/circos.axis.html" class="external-link">circlize::circos.axis</a></code></p><dl><dt><code>h</code></dt>
+<dl><dt id="arg-h">h<a class="anchor" aria-label="anchor" href="#arg-h"></a></dt>
 <dd><p>Position of the x-axis, can be "top", "bottom" or a numeric value</p></dd>
 
-    <dt><code>major.at</code></dt>
+
+<dt id="arg-major-at">major.at<a class="anchor" aria-label="anchor" href="#arg-major-at"></a></dt>
 <dd><p>If it is numeric vector, it identifies the positions of the major ticks. It can exceed <code>xlim</code> value and the exceeding part would be trimmed automatically. If it is <code>NULL</code>, about every 10 degrees there is a major tick.</p></dd>
 
-    <dt><code>labels</code></dt>
+
+<dt id="arg-labels">labels<a class="anchor" aria-label="anchor" href="#arg-labels"></a></dt>
 <dd><p>labels of the major ticks. Also, the exceeding part would be trimmed automatically. The value can also be logical (either an atomic value or a vector) which represents which labels to show.</p></dd>
 
-    <dt><code>major.tick</code></dt>
+
+<dt id="arg-major-tick">major.tick<a class="anchor" aria-label="anchor" href="#arg-major-tick"></a></dt>
 <dd><p>Whether to draw major tick. If it is set to <code>FALSE</code>, there will be no minor ticks neither.</p></dd>
 
-    <dt><code>sector.index</code></dt>
+
+<dt id="arg-sector-index">sector.index<a class="anchor" aria-label="anchor" href="#arg-sector-index"></a></dt>
 <dd><p>Index for the sector.</p></dd>
 
-    <dt><code>track.index</code></dt>
+
+<dt id="arg-track-index">track.index<a class="anchor" aria-label="anchor" href="#arg-track-index"></a></dt>
 <dd><p>Index for the track.</p></dd>
 
-    <dt><code>labels.font</code></dt>
+
+<dt id="arg-labels-font">labels.font<a class="anchor" aria-label="anchor" href="#arg-labels-font"></a></dt>
 <dd><p>Font style for the axis labels.</p></dd>
 
-    <dt><code>labels.cex</code></dt>
+
+<dt id="arg-labels-cex">labels.cex<a class="anchor" aria-label="anchor" href="#arg-labels-cex"></a></dt>
 <dd><p>Font size for the axis labels.</p></dd>
 
-    <dt><code>labels.direction</code></dt>
-<dd><p>Deprecated, use <code>facing</code> instead.</p></dd>
 
-    <dt><code>labels.facing</code></dt>
+<dt id="arg-labels-facing">labels.facing<a class="anchor" aria-label="anchor" href="#arg-labels-facing"></a></dt>
 <dd><p>Facing of labels on axis, passing to <code><a href="https://rdrr.io/pkg/circlize/man/circos.text.html" class="external-link">circos.text</a></code></p></dd>
 
-    <dt><code>labels.niceFacing</code></dt>
+
+<dt id="arg-labels-direction">labels.direction<a class="anchor" aria-label="anchor" href="#arg-labels-direction"></a></dt>
+<dd><p>Deprecated, use <code>facing</code> instead.</p></dd>
+
+
+<dt id="arg-labels-nicefacing">labels.niceFacing<a class="anchor" aria-label="anchor" href="#arg-labels-nicefacing"></a></dt>
 <dd><p>Should facing of axis labels be human-easy.</p></dd>
 
-    <dt><code>direction</code></dt>
+
+<dt id="arg-direction">direction<a class="anchor" aria-label="anchor" href="#arg-direction"></a></dt>
 <dd><p>Whether the axis ticks point to the outside or inside of the circle.</p></dd>
 
-    <dt><code>minor.ticks</code></dt>
+
+<dt id="arg-minor-ticks">minor.ticks<a class="anchor" aria-label="anchor" href="#arg-minor-ticks"></a></dt>
 <dd><p>Number of minor ticks between two close major ticks.</p></dd>
 
-    <dt><code>major.tick.length</code></dt>
+
+<dt id="arg-major-tick-length">major.tick.length<a class="anchor" aria-label="anchor" href="#arg-major-tick-length"></a></dt>
 <dd><p>Length of the major ticks, measured in "current" data coordinate. <code><a href="https://rdrr.io/pkg/circlize/man/convert_y.html" class="external-link">convert_y</a></code> can be used to convert an absolute unit to the data coordinate.</p></dd>
 
-    <dt><code>major.tick.percentage</code></dt>
+
+<dt id="arg-major-tick-percentage">major.tick.percentage<a class="anchor" aria-label="anchor" href="#arg-major-tick-percentage"></a></dt>
 <dd><p>Not used any more, please directly use <code>major.tick.length</code>.</p></dd>
 
-    <dt><code>lwd</code></dt>
+
+<dt id="arg-lwd">lwd<a class="anchor" aria-label="anchor" href="#arg-lwd"></a></dt>
 <dd><p>Line width for ticks.</p></dd>
 
-    <dt><code>col</code></dt>
+
+<dt id="arg-col">col<a class="anchor" aria-label="anchor" href="#arg-col"></a></dt>
 <dd><p>Color for the axes.</p></dd>
 
-    <dt><code>labels.col</code></dt>
+
+<dt id="arg-labels-col">labels.col<a class="anchor" aria-label="anchor" href="#arg-labels-col"></a></dt>
 <dd><p>Color for the labels.</p></dd>
 
-    <dt><code>labels.pos.adjust</code></dt>
+
+<dt id="arg-labels-pos-adjust">labels.pos.adjust<a class="anchor" aria-label="anchor" href="#arg-labels-pos-adjust"></a></dt>
 <dd><p>Whether to adjust the positions of the first label and the last label so that the first label  align to its left and the last label align to its right if they exceed the range on axes. The value can be a vector of length two which correspond to the first label and the last label.</p></dd>
-
-
-</dl></dd>
 
 </dl></div>
     <div class="section level2">
@@ -118,8 +152,11 @@
 <span class="r-in"><span><span class="va">cc</span><span class="op">=</span><span class="fu"><a href="ccPlot.html">ccPlot</a></span><span class="op">(</span>sectors<span class="op">=</span><span class="va">letters</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">8</span><span class="op">]</span>, xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">track</span><span class="op">=</span><span class="fu"><a href="ccTrack.html">ccTrack</a></span><span class="op">(</span>ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">10</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">cell</span><span class="op">=</span><span class="fu"><a href="ccCell.html">ccCell</a></span><span class="op">(</span>sector.index <span class="op">=</span> <span class="st">'a'</span><span class="op">)</span><span class="op">+</span><span class="fu">ccXaxis</span><span class="op">(</span>sector.index <span class="op">=</span> <span class="st">"a"</span><span class="op">)</span></span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>`convert_unit_in_data_coordinate()` only works when aspect of the</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> coordinate is 1.</span>
 <span class="r-in"><span><span class="va">track</span><span class="op">=</span><span class="va">track</span><span class="op">+</span><span class="va">cell</span></span></span>
 <span class="r-in"><span><span class="va">cc</span><span class="op">+</span><span class="va">track</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> `major.tick.percentage` is not used any more, please directly use argument `major.tick.length`.</span>
 <span class="r-plt img"><img src="ccXaxis-1.png" alt="" width="700" height="433"></span>
 </code></pre></div>
     </div>

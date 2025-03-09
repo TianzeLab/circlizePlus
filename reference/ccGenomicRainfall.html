@@ -38,39 +38,54 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ccGenomicRainfall</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ccGenomicRainfall</span><span class="op">(</span></span>
+<span>  <span class="va">data</span>,</span>
+<span>  mode <span class="op">=</span> <span class="st">"min"</span>,</span>
+<span>  ylim <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  col <span class="op">=</span> <span class="st">"black"</span>,</span>
+<span>  pch <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="st">"pch"</span><span class="op">)</span>,</span>
+<span>  cex <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="st">"cex"</span><span class="op">)</span>,</span>
+<span>  normalize_to_width <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
 
 
-<dl><dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
-<dd><p>Arguments passed on to <code><a href="https://rdrr.io/pkg/circlize/man/circos.genomicRainfall.html" class="external-link">circlize::circos.genomicRainfall</a></code></p><dl><dt><code>data</code></dt>
+<dl><dt id="arg-data">data<a class="anchor" aria-label="anchor" href="#arg-data"></a></dt>
 <dd><p>A bed-file-like data frame or a list of data frames.</p></dd>
 
-    <dt><code>mode</code></dt>
+
+<dt id="arg-mode">mode<a class="anchor" aria-label="anchor" href="#arg-mode"></a></dt>
 <dd><p>How to calculate the distance of two neighbouring regions, pass to <code><a href="https://rdrr.io/pkg/circlize/man/rainfallTransform.html" class="external-link">rainfallTransform</a></code>.</p></dd>
 
-    <dt><code>ylim</code></dt>
+
+<dt id="arg-ylim">ylim<a class="anchor" aria-label="anchor" href="#arg-ylim"></a></dt>
 <dd><p>ylim for rainfall plot track. If <code>normalize_to_width</code> is <code>FALSE</code>, the value should correspond to <code>log10(dist+1)</code>,
  and if <code>normalize_to_width</code> is <code>TRUE</code>, the value should correspond to <code>log2(rel_dist)</code>.</p></dd>
 
-    <dt><code>col</code></dt>
+
+<dt id="arg-col">col<a class="anchor" aria-label="anchor" href="#arg-col"></a></dt>
 <dd><p>Color of points. It should be length of one. If <code>data</code> is a list, the length of <code>col</code>
  can also be the length of the list.</p></dd>
 
-    <dt><code>pch</code></dt>
+
+<dt id="arg-pch">pch<a class="anchor" aria-label="anchor" href="#arg-pch"></a></dt>
 <dd><p>Style of points.</p></dd>
 
-    <dt><code>cex</code></dt>
+
+<dt id="arg-cex">cex<a class="anchor" aria-label="anchor" href="#arg-cex"></a></dt>
 <dd><p>Size of points.</p></dd>
 
-    <dt><code>normalize_to_width</code></dt>
+
+<dt id="arg-normalize-to-width">normalize_to_width<a class="anchor" aria-label="anchor" href="#arg-normalize-to-width"></a></dt>
 <dd><p>If it is <code>TRUE</code>, the value is the relative distance divided by the width of the region.</p></dd>
 
 
-</dl></dd>
+<dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
+<dd><p>Pass to <code><a href="https://rdrr.io/pkg/circlize/man/circos.trackPlotRegion.html" class="external-link">circos.trackPlotRegion</a></code>.</p></dd>
 
 </dl></div>
     <div class="section level2">

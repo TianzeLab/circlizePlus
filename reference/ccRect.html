@@ -38,37 +38,52 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ccRect</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ccRect</span><span class="op">(</span></span>
+<span>  <span class="va">xleft</span>,</span>
+<span>  <span class="va">ybottom</span>,</span>
+<span>  <span class="va">xright</span>,</span>
+<span>  <span class="va">ytop</span>,</span>
+<span>  sector.index <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/circlize/man/get.current.sector.index.html" class="external-link">get.current.sector.index</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  track.index <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/circlize/man/get.current.track.index.html" class="external-link">get.current.track.index</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  rot <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
 
 
-<dl><dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
-<dd><p>Arguments passed on to <code><a href="https://rdrr.io/pkg/circlize/man/circos.rect.html" class="external-link">circlize::circos.rect</a></code></p><dl><dt><code>xleft</code></dt>
+<dl><dt id="arg-xleft">xleft<a class="anchor" aria-label="anchor" href="#arg-xleft"></a></dt>
 <dd><p>x for the left bottom points</p></dd>
 
-    <dt><code>ybottom</code></dt>
+
+<dt id="arg-ybottom">ybottom<a class="anchor" aria-label="anchor" href="#arg-ybottom"></a></dt>
 <dd><p>y for the left bottom points</p></dd>
 
-    <dt><code>xright</code></dt>
+
+<dt id="arg-xright">xright<a class="anchor" aria-label="anchor" href="#arg-xright"></a></dt>
 <dd><p>x for the right top points</p></dd>
 
-    <dt><code>ytop</code></dt>
+
+<dt id="arg-ytop">ytop<a class="anchor" aria-label="anchor" href="#arg-ytop"></a></dt>
 <dd><p>y for the right top points</p></dd>
 
-    <dt><code>sector.index</code></dt>
+
+<dt id="arg-sector-index">sector.index<a class="anchor" aria-label="anchor" href="#arg-sector-index"></a></dt>
 <dd><p>Index for the sector</p></dd>
 
-    <dt><code>track.index</code></dt>
+
+<dt id="arg-track-index">track.index<a class="anchor" aria-label="anchor" href="#arg-track-index"></a></dt>
 <dd><p>Index for the track</p></dd>
 
-    <dt><code>rot</code></dt>
+
+<dt id="arg-rot">rot<a class="anchor" aria-label="anchor" href="#arg-rot"></a></dt>
 <dd><p>Rotation of the rectangles. The value is measured clockwise in degree. Rotation is relative to the center of the rectangles.</p></dd>
 
 
-</dl></dd>
+<dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
+<dd><p>pass to <code><a href="https://rdrr.io/r/graphics/polygon.html" class="external-link">polygon</a></code></p></dd>
 
 </dl></div>
     <div class="section level2">

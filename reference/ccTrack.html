@@ -38,61 +38,89 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ccTrack</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ccTrack</span><span class="op">(</span></span>
+<span>  sectors <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  x <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  y <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  ylim <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  force.ylim <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  track.index <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  track.height <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/circlize/man/circos.par.html" class="external-link">circos.par</a></span><span class="op">(</span><span class="st">"track.height"</span><span class="op">)</span>,</span>
+<span>  track.margin <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/circlize/man/circos.par.html" class="external-link">circos.par</a></span><span class="op">(</span><span class="st">"track.margin"</span><span class="op">)</span>,</span>
+<span>  cell.padding <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/circlize/man/circos.par.html" class="external-link">circos.par</a></span><span class="op">(</span><span class="st">"cell.padding"</span><span class="op">)</span>,</span>
+<span>  bg.col <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>  bg.border <span class="op">=</span> <span class="st">"black"</span>,</span>
+<span>  bg.lty <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="st">"lty"</span><span class="op">)</span>,</span>
+<span>  bg.lwd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="st">"lwd"</span><span class="op">)</span>,</span>
+<span>  panel.fun <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span> <span class="op">{</span></span>
+<span>     <span class="cn">NULL</span></span>
+<span> <span class="op">}</span>,</span>
+<span>  factors <span class="op">=</span> <span class="va">sectors</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
 
 
-<dl><dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
-<dd><p>Arguments passed on to <code><a href="https://rdrr.io/pkg/circlize/man/circos.trackPlotRegion.html" class="external-link">circlize::circos.trackPlotRegion</a></code></p><dl><dt><code>sectors</code></dt>
+<dl><dt id="arg-sectors">sectors<a class="anchor" aria-label="anchor" href="#arg-sectors"></a></dt>
 <dd><p>A <code><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></code> or a character vector which represents categories of data, if it is <code>NULL</code>, then it uses all sector index.</p></dd>
 
-    <dt><code>factors</code></dt>
-<dd><p>The same as <code>sectors</code>. It will be removed in future versions.</p></dd>
 
-    <dt><code>x</code></dt>
+<dt id="arg-x">x<a class="anchor" aria-label="anchor" href="#arg-x"></a></dt>
 <dd><p>Data on x-axis. It is only used if <code>panel.fun</code> is set.</p></dd>
 
-    <dt><code>y</code></dt>
+
+<dt id="arg-y">y<a class="anchor" aria-label="anchor" href="#arg-y"></a></dt>
 <dd><p>Data on y-axis</p></dd>
 
-    <dt><code>ylim</code></dt>
+
+<dt id="arg-ylim">ylim<a class="anchor" aria-label="anchor" href="#arg-ylim"></a></dt>
 <dd><p>Range of data on y-axis</p></dd>
 
-    <dt><code>force.ylim</code></dt>
+
+<dt id="arg-force-ylim">force.ylim<a class="anchor" aria-label="anchor" href="#arg-force-ylim"></a></dt>
 <dd><p>Whether to force all cells in the track to share the same <code>ylim</code>. Normally, all cells on a same track should have same <code>ylim</code>.</p></dd>
 
-    <dt><code>track.index</code></dt>
+
+<dt id="arg-track-index">track.index<a class="anchor" aria-label="anchor" href="#arg-track-index"></a></dt>
 <dd><p>Index for the track which is going to be created/updated. If the specified track has already been created, this function just updated corresponding track with new plot. If the specified track is <code>NULL</code> or has not been created, this function just creates it. Note the value for this argument should not exceed maximum track index plus 1.</p></dd>
 
-    <dt><code>track.height</code></dt>
+
+<dt id="arg-track-height">track.height<a class="anchor" aria-label="anchor" href="#arg-track-height"></a></dt>
 <dd><p>Height of the track. It is the percentage to the radius of the unit circles. The value can be set by <code><a href="https://rdrr.io/pkg/circlize/man/uh.html" class="external-link">uh</a></code> to an absolute unit. If updating a track (with proper <code>track.index</code> value), this argument is ignored.</p></dd>
 
-    <dt><code>track.margin</code></dt>
+
+<dt id="arg-track-margin">track.margin<a class="anchor" aria-label="anchor" href="#arg-track-margin"></a></dt>
 <dd><p>only affect current track</p></dd>
 
-    <dt><code>cell.padding</code></dt>
+
+<dt id="arg-cell-padding">cell.padding<a class="anchor" aria-label="anchor" href="#arg-cell-padding"></a></dt>
 <dd><p>only affect current track</p></dd>
 
-    <dt><code>bg.col</code></dt>
+
+<dt id="arg-bg-col">bg.col<a class="anchor" aria-label="anchor" href="#arg-bg-col"></a></dt>
 <dd><p>Background color for the plotting regions. It can be vector which has the same length of sectors.</p></dd>
 
-    <dt><code>bg.border</code></dt>
+
+<dt id="arg-bg-border">bg.border<a class="anchor" aria-label="anchor" href="#arg-bg-border"></a></dt>
 <dd><p>Color for the border of the plotting regions. It can be vector which has the same length of sectors.</p></dd>
 
-    <dt><code>bg.lty</code></dt>
+
+<dt id="arg-bg-lty">bg.lty<a class="anchor" aria-label="anchor" href="#arg-bg-lty"></a></dt>
 <dd><p>Line style for the border of the plotting regions. It can be vector which has the same length of sectors.</p></dd>
 
-    <dt><code>bg.lwd</code></dt>
+
+<dt id="arg-bg-lwd">bg.lwd<a class="anchor" aria-label="anchor" href="#arg-bg-lwd"></a></dt>
 <dd><p>Line width for the border of the plotting regions. It can be vector which has the same length of sectors.</p></dd>
 
-    <dt><code>panel.fun</code></dt>
+
+<dt id="arg-panel-fun">panel.fun<a class="anchor" aria-label="anchor" href="#arg-panel-fun"></a></dt>
 <dd><p>Panel function to add graphics in each cell, see "details" section and vignette for explanation.</p></dd>
 
 
-</dl></dd>
+<dt id="arg-factors">factors<a class="anchor" aria-label="anchor" href="#arg-factors"></a></dt>
+<dd><p>The same as <code>sectors</code>. It will be removed in future versions.</p></dd>
 
 </dl></div>
     <div class="section level2">
