@@ -43,8 +43,6 @@
 <span>  <span class="va">y0</span>,</span>
 <span>  <span class="va">x1</span>,</span>
 <span>  <span class="va">y1</span>,</span>
-<span>  sector.index <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/circlize/man/get.current.sector.index.html" class="external-link">get.current.sector.index</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>  track.index <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/circlize/man/get.current.track.index.html" class="external-link">get.current.track.index</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  straight <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="st">"col"</span><span class="op">)</span>,</span>
 <span>  lwd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="st">"lwd"</span><span class="op">)</span>,</span>
@@ -71,14 +69,6 @@
 
 <dt id="arg-y-">y1<a class="anchor" aria-label="anchor" href="#arg-y-"></a></dt>
 <dd><p>y coordinates for ending points.</p></dd>
-
-
-<dt id="arg-sector-index">sector.index<a class="anchor" aria-label="anchor" href="#arg-sector-index"></a></dt>
-<dd><p>Index for the sector.</p></dd>
-
-
-<dt id="arg-track-index">track.index<a class="anchor" aria-label="anchor" href="#arg-track-index"></a></dt>
-<dd><p>Index for the track.</p></dd>
 
 
 <dt id="arg-straight">straight<a class="anchor" aria-label="anchor" href="#arg-straight"></a></dt>
@@ -109,11 +99,11 @@
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/TianzeLab/circlizePlus" class="external-link">circlizePlus</a></span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">cc</span><span class="op">=</span><span class="fu"><a href="ccPlot.html">ccPlot</a></span><span class="op">(</span>sectors<span class="op">=</span><span class="va">letters</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">8</span><span class="op">]</span>, xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">track</span><span class="op">=</span><span class="fu"><a href="ccTrack.html">ccTrack</a></span><span class="op">(</span>ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>, track.height <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">cell</span><span class="op">=</span><span class="fu"><a href="ccCell.html">ccCell</a></span><span class="op">(</span>sector.index <span class="op">=</span> <span class="st">'a'</span><span class="op">)</span><span class="op">+</span><span class="fu">ccSegments</span><span class="op">(</span>x0<span class="op">=</span><span class="fl">0.7</span>,y0<span class="op">=</span><span class="fl">0.1</span>,x1<span class="op">=</span><span class="fl">0.7</span>,y1<span class="op">=</span><span class="fl">0.9</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">track</span><span class="op">=</span><span class="va">track</span><span class="op">+</span><span class="va">cell</span></span></span>
-<span class="r-in"><span><span class="va">cc</span><span class="op">+</span><span class="va">track</span></span></span>
+<span class="r-in"><span><span class="va">cc</span> <span class="op">&lt;-</span> <span class="fu"><a href="ccPlot.html">ccPlot</a></span><span class="op">(</span>sectors <span class="op">=</span> <span class="va">letters</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">8</span><span class="op">]</span>, xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">track</span> <span class="op">&lt;-</span> <span class="fu"><a href="ccTrack.html">ccTrack</a></span><span class="op">(</span>ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>, track.height <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">cell</span> <span class="op">&lt;-</span> <span class="fu"><a href="ccCell.html">ccCell</a></span><span class="op">(</span>sector.index <span class="op">=</span> <span class="st">"a"</span><span class="op">)</span> <span class="op">+</span> <span class="fu">ccSegments</span><span class="op">(</span>x0 <span class="op">=</span> <span class="fl">0.7</span>, y0 <span class="op">=</span> <span class="fl">0.1</span>, x1 <span class="op">=</span> <span class="fl">0.7</span>, y1 <span class="op">=</span> <span class="fl">0.9</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">track</span> <span class="op">&lt;-</span> <span class="va">track</span> <span class="op">+</span> <span class="va">cell</span></span></span>
+<span class="r-in"><span><span class="va">cc</span> <span class="op">+</span> <span class="va">track</span></span></span>
 <span class="r-plt img"><img src="ccSegments-1.png" alt="" width="700" height="433"></span>
 </code></pre></div>
     </div>

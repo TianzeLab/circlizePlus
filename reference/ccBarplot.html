@@ -45,9 +45,7 @@
 <span>  col <span class="op">=</span> <span class="cn">NA</span>,</span>
 <span>  border <span class="op">=</span> <span class="st">"black"</span>,</span>
 <span>  lwd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="st">"lwd"</span><span class="op">)</span>,</span>
-<span>  lty <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="st">"lty"</span><span class="op">)</span>,</span>
-<span>  sector.index <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/circlize/man/get.current.sector.index.html" class="external-link">get.current.sector.index</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>  track.index <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/circlize/man/get.current.track.index.html" class="external-link">get.current.track.index</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  lty <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="st">"lty"</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -82,14 +80,6 @@
 <dt id="arg-lty">lty<a class="anchor" aria-label="anchor" href="#arg-lty"></a></dt>
 <dd><p>Line style.</p></dd>
 
-
-<dt id="arg-sector-index">sector.index<a class="anchor" aria-label="anchor" href="#arg-sector-index"></a></dt>
-<dd><p>Index of sector.</p></dd>
-
-
-<dt id="arg-track-index">track.index<a class="anchor" aria-label="anchor" href="#arg-track-index"></a></dt>
-<dd><p>Index of track.</p></dd>
-
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
@@ -99,11 +89,11 @@
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/TianzeLab/circlizePlus" class="external-link">circlizePlus</a></span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">cc</span><span class="op">=</span><span class="fu"><a href="ccPlot.html">ccPlot</a></span><span class="op">(</span>sectors<span class="op">=</span><span class="va">letters</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span>, xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">10</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">track</span><span class="op">=</span><span class="fu"><a href="ccTrack.html">ccTrack</a></span><span class="op">(</span>ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">cell</span><span class="op">=</span><span class="fu"><a href="ccCell.html">ccCell</a></span><span class="op">(</span>sector.index <span class="op">=</span> <span class="st">'a'</span><span class="op">)</span><span class="op">+</span><span class="fu">ccBarplot</span><span class="op">(</span>value<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html" class="external-link">runif</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span>, pos<span class="op">=</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span> <span class="op">-</span> <span class="fl">0.5</span>, col <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">track</span><span class="op">=</span><span class="va">track</span><span class="op">+</span><span class="va">cell</span></span></span>
-<span class="r-in"><span><span class="va">cc</span><span class="op">+</span><span class="va">track</span></span></span>
+<span class="r-in"><span><span class="va">cc</span> <span class="op">&lt;-</span> <span class="fu"><a href="ccPlot.html">ccPlot</a></span><span class="op">(</span>sectors <span class="op">=</span> <span class="va">letters</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span>, xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">10</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">track</span> <span class="op">&lt;-</span> <span class="fu"><a href="ccTrack.html">ccTrack</a></span><span class="op">(</span>ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">cell</span> <span class="op">&lt;-</span> <span class="fu"><a href="ccCell.html">ccCell</a></span><span class="op">(</span>sector.index <span class="op">=</span> <span class="st">"a"</span><span class="op">)</span> <span class="op">+</span> <span class="fu">ccBarplot</span><span class="op">(</span>value <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html" class="external-link">runif</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span>, pos <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span> <span class="op">-</span> <span class="fl">0.5</span>, col <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">track</span> <span class="op">&lt;-</span> <span class="va">track</span> <span class="op">+</span> <span class="va">cell</span></span></span>
+<span class="r-in"><span><span class="va">cc</span> <span class="op">+</span> <span class="va">track</span></span></span>
 <span class="r-plt img"><img src="ccBarplot-1.png" alt="" width="700" height="433"></span>
 </code></pre></div>
     </div>

@@ -45,8 +45,6 @@
 <span>  major.by <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  tickLabelsStartFromZero <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  labels.cex <span class="op">=</span> <span class="fl">0.4</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="st">"cex"</span><span class="op">)</span>,</span>
-<span>  sector.index <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/circlize/man/get.current.sector.index.html" class="external-link">get.current.sector.index</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>  track.index <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/circlize/man/get.current.track.index.html" class="external-link">get.current.track.index</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -79,14 +77,6 @@
 <dd><p>The font size for the axis tick labels.</p></dd>
 
 
-<dt id="arg-sector-index">sector.index<a class="anchor" aria-label="anchor" href="#arg-sector-index"></a></dt>
-<dd><p>Index for the sector</p></dd>
-
-
-<dt id="arg-track-index">track.index<a class="anchor" aria-label="anchor" href="#arg-track-index"></a></dt>
-<dd><p>Index for the track</p></dd>
-
-
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
 <dd><p>Other arguments pass to <code><a href="https://rdrr.io/pkg/circlize/man/circos.axis.html" class="external-link">circos.axis</a></code>.</p></dd>
 
@@ -99,11 +89,11 @@
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/TianzeLab/circlizePlus" class="external-link">circlizePlus</a></span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">cc</span> <span class="op">=</span> <span class="fu"><a href="ccPlot.html">ccPlot</a></span><span class="op">(</span>initMode<span class="op">=</span><span class="st">'initializeWithIdeogram'</span>,chromosome.index <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"chr"</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span>, plotType <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">track</span><span class="op">=</span><span class="fu"><a href="ccTrack.html">ccTrack</a></span><span class="op">(</span>ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">cell</span><span class="op">=</span><span class="fu"><a href="ccCell.html">ccCell</a></span><span class="op">(</span>sector.index <span class="op">=</span> <span class="st">'chr1'</span><span class="op">)</span><span class="op">+</span><span class="fu">ccGenomicAxis</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">e</span><span class="op">=</span><span class="va">track</span><span class="op">+</span><span class="va">cell</span></span></span>
-<span class="r-in"><span><span class="va">cc</span><span class="op">+</span><span class="va">e</span></span></span>
+<span class="r-in"><span><span class="va">cc</span> <span class="op">&lt;-</span> <span class="fu"><a href="ccPlot.html">ccPlot</a></span><span class="op">(</span>initMode <span class="op">=</span> <span class="st">"initializeWithIdeogram"</span>, chromosome.index <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"chr"</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span>, plotType <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">track</span> <span class="op">&lt;-</span> <span class="fu"><a href="ccTrack.html">ccTrack</a></span><span class="op">(</span>ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">cell</span> <span class="op">&lt;-</span> <span class="fu"><a href="ccCell.html">ccCell</a></span><span class="op">(</span>sector.index <span class="op">=</span> <span class="st">"chr1"</span><span class="op">)</span> <span class="op">+</span> <span class="fu">ccGenomicAxis</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">e</span> <span class="op">&lt;-</span> <span class="va">track</span> <span class="op">+</span> <span class="va">cell</span></span></span>
+<span class="r-in"><span><span class="va">cc</span> <span class="op">+</span> <span class="va">e</span></span></span>
 <span class="r-plt img"><img src="ccGenomicAxis-1.png" alt="" width="700" height="433"></span>
 </code></pre></div>
     </div>

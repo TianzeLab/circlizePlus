@@ -45,8 +45,6 @@
 <span>  labels <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  labels.column <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  numeric.column <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  sector.index <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/circlize/man/get.current.sector.index.html" class="external-link">get.current.sector.index</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>  track.index <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/circlize/man/get.current.track.index.html" class="external-link">get.current.track.index</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  posTransform <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  direction <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  facing <span class="op">=</span> <span class="st">"inside"</span>,</span>
@@ -89,14 +87,6 @@
 <dt id="arg-numeric-column">numeric.column<a class="anchor" aria-label="anchor" href="#arg-numeric-column"></a></dt>
 <dd><p>Which column in <code>value</code> data frame should be taken as y-value.
  If it is not defined, only the first numeric columns in <code>value</code> will be taken.</p></dd>
-
-
-<dt id="arg-sector-index">sector.index<a class="anchor" aria-label="anchor" href="#arg-sector-index"></a></dt>
-<dd><p>Index of sector.</p></dd>
-
-
-<dt id="arg-track-index">track.index<a class="anchor" aria-label="anchor" href="#arg-track-index"></a></dt>
-<dd><p>Index of track.</p></dd>
 
 
 <dt id="arg-postransform">posTransform<a class="anchor" aria-label="anchor" href="#arg-postransform"></a></dt>
@@ -155,13 +145,13 @@
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/TianzeLab/circlizePlus" class="external-link">circlizePlus</a></span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">cc</span> <span class="op">=</span> <span class="fu"><a href="ccPlot.html">ccPlot</a></span><span class="op">(</span>initMode<span class="op">=</span><span class="st">"initializeWithIdeogram"</span>,plotType <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">bed</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/circlize/man/generateRandomBed.html" class="external-link">generateRandomBed</a></span><span class="op">(</span>nr <span class="op">=</span> <span class="fl">20</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">track1</span> <span class="op">=</span> <span class="fu"><a href="ccGenomicTrack.html">ccGenomicTrack</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">bed</span>, ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">all_chr</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"chr1"</span>,<span class="st">"chr2"</span>,<span class="st">"chr3"</span>,<span class="st">"chr4"</span>,<span class="st">"chr5"</span>,<span class="st">"chr6"</span>,<span class="st">"chr7"</span>,<span class="st">"chr8"</span>,<span class="st">"chr9"</span>,<span class="st">"chr10"</span>,<span class="st">"chr11"</span>,<span class="st">"chr12"</span>,<span class="st">"chr13"</span>,<span class="st">"chr14"</span>,<span class="st">"chr15"</span>,<span class="st">"chr16"</span>,<span class="st">"chr17"</span>,<span class="st">"chr18"</span>,<span class="st">"chr19"</span>,<span class="st">"chr20"</span>,<span class="st">"chr21"</span>,<span class="st">"chr22"</span>,<span class="st">"chrX"</span>,<span class="st">"chrY"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">text1</span> <span class="op">=</span> <span class="fu">ccGenomicText</span><span class="op">(</span>y <span class="op">=</span> <span class="fl">0.5</span>, labels <span class="op">=</span> <span class="st">"text"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">cc</span> <span class="op">&lt;-</span> <span class="fu"><a href="ccPlot.html">ccPlot</a></span><span class="op">(</span>initMode <span class="op">=</span> <span class="st">"initializeWithIdeogram"</span>, plotType <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">bed</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/circlize/man/generateRandomBed.html" class="external-link">generateRandomBed</a></span><span class="op">(</span>nr <span class="op">=</span> <span class="fl">20</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">track1</span> <span class="op">&lt;-</span> <span class="fu"><a href="ccGenomicTrack.html">ccGenomicTrack</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">bed</span>, ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">all_chr</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"chr1"</span>, <span class="st">"chr2"</span>, <span class="st">"chr3"</span>, <span class="st">"chr4"</span>, <span class="st">"chr5"</span>, <span class="st">"chr6"</span>, <span class="st">"chr7"</span>, <span class="st">"chr8"</span>, <span class="st">"chr9"</span>, <span class="st">"chr10"</span>, <span class="st">"chr11"</span>, <span class="st">"chr12"</span>, <span class="st">"chr13"</span>, <span class="st">"chr14"</span>, <span class="st">"chr15"</span>, <span class="st">"chr16"</span>, <span class="st">"chr17"</span>, <span class="st">"chr18"</span>, <span class="st">"chr19"</span>, <span class="st">"chr20"</span>, <span class="st">"chr21"</span>, <span class="st">"chr22"</span>, <span class="st">"chrX"</span>, <span class="st">"chrY"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">text1</span> <span class="op">&lt;-</span> <span class="fu">ccGenomicText</span><span class="op">(</span>y <span class="op">=</span> <span class="fl">0.5</span>, labels <span class="op">=</span> <span class="st">"text"</span><span class="op">)</span></span></span>
 <span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in ccGenomicText(y = 0.5, labels = "text"):</span> argument "region" is missing, with no default</span>
-<span class="r-in"><span><span class="va">cells1</span> <span class="op">=</span> <span class="fu"><a href="ccCells.html">ccCells</a></span><span class="op">(</span>sector.indexes <span class="op">=</span> <span class="va">all_chr</span><span class="op">)</span> <span class="op">+</span> <span class="va">text1</span></span></span>
+<span class="r-in"><span><span class="va">cells1</span> <span class="op">&lt;-</span> <span class="fu"><a href="ccCells.html">ccCells</a></span><span class="op">(</span>sector.indexes <span class="op">=</span> <span class="va">all_chr</span><span class="op">)</span> <span class="op">+</span> <span class="va">text1</span></span></span>
 <span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'text1' not found</span>
 <span class="r-in"><span><span class="va">cc</span> <span class="op">+</span> <span class="op">(</span><span class="va">track1</span> <span class="op">+</span> <span class="va">cells1</span><span class="op">)</span></span></span>
 <span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'cells1' not found</span>
