@@ -11,9 +11,7 @@ ccBarplot(
   col = NA,
   border = "black",
   lwd = par("lwd"),
-  lty = par("lty"),
-  sector.index = get.current.sector.index(),
-  track.index = get.current.track.index()
+  lty = par("lty")
 )
 }
 \arguments{
@@ -30,10 +28,6 @@ ccBarplot(
 \item{lwd}{Line width.}
 
 \item{lty}{Line style.}
-
-\item{sector.index}{Index of sector.}
-
-\item{track.index}{Index of track.}
 }
 \value{
 Object \linkS4class{ccCellGeom}
@@ -43,9 +37,9 @@ Object \linkS4class{ccCellGeom} will call the function \link[circlize:circos.bar
 }
 \examples{
 library(circlizePlus)
-cc=ccPlot(sectors=letters[1:4], xlim = c(0, 10))
-track=ccTrack(ylim = c(0, 1))
-cell=ccCell(sector.index = 'a')+ccBarplot(value=runif(10), pos=1:10 - 0.5, col = 1:10)
-track=track+cell
-cc+track
+cc <- ccPlot(sectors = letters[1:4], xlim = c(0, 10))
+track <- ccTrack(ylim = c(0, 1))
+cell <- ccCell(sector.index = "a") + ccBarplot(value = runif(10), pos = 1:10 - 0.5, col = 1:10)
+track <- track + cell
+cc + track
 }

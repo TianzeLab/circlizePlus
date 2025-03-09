@@ -17,12 +17,14 @@ Generate a cell container that belongs to a particular sector
 }
 \examples{
 library(circlizePlus)
-sectors = c('a','a','a','a','b','b','b','b','c','c','c','c','d','d','d','d')
-x1 = c(1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4)
-y1 = c(1,2,3,4,4,3,2,1,1,1,1,1,1,2,1,2)
-cc = ccPlot(initMode = "initialize", sectors = sectors, x = x1)
-track1 = ccTrack(sectors = sectors, x=x1, y = y1)
-cell_single = ccCell(sector.index = letters[3]) + ccPoints(y=\(x,y){y})
-track1 = track1 + cell_single
-cc  + track1
+sectors <- c("a", "a", "a", "a", "b", "b", "b", "b", "c", "c", "c", "c", "d", "d", "d", "d")
+x1 <- c(1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4)
+y1 <- c(1, 2, 3, 4, 4, 3, 2, 1, 1, 1, 1, 1, 1, 2, 1, 2)
+cc <- ccPlot(initMode = "initialize", sectors = sectors, x = x1)
+track1 <- ccTrack(sectors = sectors, x = x1, y = y1)
+cell_single <- ccCell(sector.index = letters[3]) + ccPoints(y = \(x, y){
+  y
+})
+track1 <- track1 + cell_single
+cc + track1
 }

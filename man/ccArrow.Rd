@@ -9,8 +9,6 @@ ccArrow(
   x2,
   y = get.cell.meta.data("ycenter"),
   width = get.cell.meta.data("yrange")/2,
-  sector.index = get.current.sector.index(),
-  track.index = get.current.track.index(),
   arrow.head.length = mm_x(5),
   arrow.head.width = width * 2,
   arrow.position = c("end", "start"),
@@ -29,10 +27,6 @@ ccArrow(
 \item{y}{Position of the arrow on the y-axis. Note this is the center of the arrow on y-axis.}
 
 \item{width}{Width of the arrow body.}
-
-\item{sector.index}{Index of the sector.}
-
-\item{track.index}{Index of the track.}
 
 \item{arrow.head.length}{Length of the arrow head. Note the value should be smaller than the length of the arrow itself (which is \code{x2 - x1}).}
 
@@ -58,9 +52,9 @@ Object \linkS4class{ccCellGeom} will call the function \link[circlize:circos.arr
 }
 \examples{
 library(circlizePlus)
-cc=ccPlot(sectors=letters[1:4], xlim = c(0, 10))
-track=ccTrack(ylim = c(0, 1))
-cell=ccCell(sector.index = 'a')+ccArrow(x1=1,x2=9)
-track=track+cell
-cc+track
+cc <- ccPlot(sectors = letters[1:4], xlim = c(0, 10))
+track <- ccTrack(ylim = c(0, 1))
+cell <- ccCell(sector.index = "a") + ccArrow(x1 = 1, x2 = 9)
+track <- track + cell
+cc + track
 }

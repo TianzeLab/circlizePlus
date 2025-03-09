@@ -9,8 +9,6 @@ ccSegments(
   y0,
   x1,
   y1,
-  sector.index = get.current.sector.index(),
-  track.index = get.current.track.index(),
   straight = FALSE,
   col = par("col"),
   lwd = par("lwd"),
@@ -26,10 +24,6 @@ ccSegments(
 \item{x1}{x coordinates for starting points.}
 
 \item{y1}{y coordinates for ending points.}
-
-\item{sector.index}{Index for the sector.}
-
-\item{track.index}{Index for the track.}
 
 \item{straight}{Whether the segment is a straight line.}
 
@@ -49,9 +43,9 @@ Object \linkS4class{ccCellGeom} will call the function \link[circlize:circos.seg
 }
 \examples{
 library(circlizePlus)
-cc=ccPlot(sectors=letters[1:8], xlim = c(0, 1))
-track=ccTrack(ylim = c(0, 1), track.height = 0.3)
-cell=ccCell(sector.index = 'a')+ccSegments(x0=0.7,y0=0.1,x1=0.7,y1=0.9)
-track=track+cell
-cc+track
+cc <- ccPlot(sectors = letters[1:8], xlim = c(0, 1))
+track <- ccTrack(ylim = c(0, 1), track.height = 0.3)
+cell <- ccCell(sector.index = "a") + ccSegments(x0 = 0.7, y0 = 0.1, x1 = 0.7, y1 = 0.9)
+track <- track + cell
+cc + track
 }

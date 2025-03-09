@@ -16,9 +16,7 @@ ccViolin(
   pt.col = par("col"),
   cex = par("cex"),
   pch = 16,
-  max_density = NULL,
-  sector.index = get.current.sector.index(),
-  track.index = get.current.track.index()
+  max_density = NULL
 )
 }
 \arguments{
@@ -45,10 +43,6 @@ ccViolin(
 \item{pch}{Point type.}
 
 \item{max_density}{The maximal density value across several violins. It is used to compare between violins.}
-
-\item{sector.index}{Index of sector.}
-
-\item{track.index}{Index of track.}
 }
 \value{
 Object \linkS4class{ccCellGeom}
@@ -58,9 +52,9 @@ Object \linkS4class{ccCellGeom} will call the function \link[circlize:circos.vio
 }
 \examples{
 library(circlizePlus)
-cc=ccPlot(sectors=letters[1:4], xlim = c(0, 10))
-track=ccTrack(ylim = c(0, 1))
-cell=ccCell(sector.index = 'a')+ccViolin(value=replicate(runif(10), n = 10, simplify = FALSE), pos=1:10 - 0.5,col = 1:10)
-track=track+cell
-cc+track
+cc <- ccPlot(sectors = letters[1:4], xlim = c(0, 10))
+track <- ccTrack(ylim = c(0, 1))
+cell <- ccCell(sector.index = "a") + ccViolin(value = replicate(runif(10), n = 10, simplify = FALSE), pos = 1:10 - 0.5, col = 1:10)
+track <- track + cell
+cc + track
 }

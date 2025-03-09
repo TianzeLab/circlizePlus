@@ -11,8 +11,6 @@ ccGenomicAxis(
   major.by = NULL,
   tickLabelsStartFromZero = TRUE,
   labels.cex = 0.4 * par("cex"),
-  sector.index = get.current.sector.index(),
-  track.index = get.current.track.index(),
   ...
 )
 }
@@ -35,12 +33,6 @@ ccGenomicAxis(
 \item{labels.cex}{The font size for the axis tick labels.
 }
 
-\item{sector.index}{Index for the sector
-}
-
-\item{track.index}{Index for the track
-}
-
 \item{...}{Other arguments pass to \code{\link[circlize]{circos.axis}}.
 }
 }
@@ -52,9 +44,9 @@ Object \linkS4class{ccGenomicCellGeom} will call the function \link[circlize:cir
 }
 \examples{
 library(circlizePlus)
-cc = ccPlot(initMode='initializeWithIdeogram',chromosome.index = paste0("chr", 1:4), plotType = NULL)
-track=ccTrack(ylim=c(0,1))
-cell=ccCell(sector.index = 'chr1')+ccGenomicAxis()
-e=track+cell
-cc+e
+cc <- ccPlot(initMode = "initializeWithIdeogram", chromosome.index = paste0("chr", 1:4), plotType = NULL)
+track <- ccTrack(ylim = c(0, 1))
+cell <- ccCell(sector.index = "chr1") + ccGenomicAxis()
+e <- track + cell
+cc + e
 }

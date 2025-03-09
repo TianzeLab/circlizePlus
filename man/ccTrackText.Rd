@@ -9,7 +9,6 @@ ccTrackText(
   x,
   y,
   labels,
-  track.index = get.current.track.index(),
   direction = NULL,
   facing = c("inside", "outside", "reverse.clockwise", "clockwise", "downward",
     "bending", "bending.inside", "bending.outside"),
@@ -29,8 +28,6 @@ ccTrackText(
 \item{y}{Data points on y-axis}
 
 \item{labels}{Labels}
-
-\item{track.index}{Index for the track}
 
 \item{direction}{deprecated, use \code{facing} instead.}
 

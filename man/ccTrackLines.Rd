@@ -8,7 +8,6 @@ ccTrackLines(
   sectors,
   x,
   y,
-  track.index = get.current.track.index(),
   col = par("col"),
   lwd = par("lwd"),
   lty = par("lty"),
@@ -30,8 +29,6 @@ ccTrackLines(
 \item{x}{Data points on x-axis.}
 
 \item{y}{Data points on y-axis.}
-
-\item{track.index}{Index for the track.}
 
 \item{col}{Line color.}
 

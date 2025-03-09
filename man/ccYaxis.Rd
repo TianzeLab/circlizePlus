@@ -9,8 +9,6 @@ ccYaxis(
   at = NULL,
   labels = TRUE,
   tick = TRUE,
-  sector.index = get.current.sector.index(),
-  track.index = get.current.track.index(),
   labels.font = par("font"),
   labels.cex = par("cex"),
   labels.niceFacing = TRUE,
@@ -28,10 +26,6 @@ ccYaxis(
 \item{labels}{labels of the ticks. The exceeding part would be trimmed automatically. The value can also be logical (either an atomic value or a vector) which represents which labels to show.}
 
 \item{tick}{Whether to draw ticks.}
-
-\item{sector.index}{Index for the sector}
-
-\item{track.index}{Index for the track}
 
 \item{labels.font}{font style for the axis labels}
 
@@ -55,9 +49,9 @@ Object \linkS4class{ccCellGeom} will call the function \link[circlize:circos.yax
 }
 \examples{
 library(circlizePlus)
-cc=ccPlot(sectors=letters[1:8], xlim = c(0, 1))
-track=ccTrack(ylim = c(0, 10))
-cell=ccCell(sector.index = 'a')+ccYaxis(side = "left",sector.index = 2)
-track=track+cell
-cc+track
+cc <- ccPlot(sectors = letters[1:8], xlim = c(0, 1))
+track <- ccTrack(ylim = c(0, 10))
+cell <- ccCell(sector.index = "a") + ccYaxis(side = "left", sector.index = 2)
+track <- track + cell
+cc + track
 }

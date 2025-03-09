@@ -9,8 +9,6 @@ ccXaxis(
   major.at = NULL,
   labels = TRUE,
   major.tick = TRUE,
-  sector.index = get.current.sector.index(),
-  track.index = get.current.track.index(),
   labels.font = par("font"),
   labels.cex = par("cex"),
   labels.facing = "inside",
@@ -34,10 +32,6 @@ ccXaxis(
 \item{labels}{labels of the major ticks. Also, the exceeding part would be trimmed automatically. The value can also be logical (either an atomic value or a vector) which represents which labels to show.}
 
 \item{major.tick}{Whether to draw major tick. If it is set to \code{FALSE}, there will be no minor ticks neither.}
-
-\item{sector.index}{Index for the sector.}
-
-\item{track.index}{Index for the track.}
 
 \item{labels.font}{Font style for the axis labels.}
 
@@ -73,9 +67,9 @@ Object \linkS4class{ccCellGeom} will call the function \link[circlize:circos.axi
 }
 \examples{
 library(circlizePlus)
-cc=ccPlot(sectors=letters[1:8], xlim = c(0, 1))
-track=ccTrack(ylim = c(0, 10))
-cell=ccCell(sector.index = 'a')+ccXaxis(sector.index = "a")
-track=track+cell
-cc+track
+cc <- ccPlot(sectors = letters[1:8], xlim = c(0, 1))
+track <- ccTrack(ylim = c(0, 10))
+cell <- ccCell(sector.index = "a") + ccXaxis(sector.index = "a")
+track <- track + cell
+cc + track
 }

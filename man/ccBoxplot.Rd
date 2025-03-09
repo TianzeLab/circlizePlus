@@ -15,9 +15,7 @@ ccBoxplot(
   lty = par("lty"),
   cex = par("cex"),
   pch = 1,
-  pt.col = par("col"),
-  sector.index = get.current.sector.index(),
-  track.index = get.current.track.index()
+  pt.col = par("col")
 )
 }
 \arguments{
@@ -42,10 +40,6 @@ ccBoxplot(
 \item{pch}{Point type.}
 
 \item{pt.col}{Point color.}
-
-\item{sector.index}{Index of sector.}
-
-\item{track.index}{Index of track.}
 }
 \value{
 Object \linkS4class{ccCellGeom}
@@ -55,9 +49,9 @@ Object \linkS4class{ccCellGeom} will call the function \link[circlize:circos.box
 }
 \examples{
 library(circlizePlus)
-cc=ccPlot(sectors=letters[1:4], xlim = c(0, 10))
-track=ccTrack(ylim = c(0, 1))
-cell=ccCell(sector.index = 'a')+ccBoxplot(value=replicate(runif(10), n = 10, simplify = FALSE), pos=1:10 - 0.5, col = 1:10)
-track=track+cell
-cc+track
+cc <- ccPlot(sectors = letters[1:4], xlim = c(0, 10))
+track <- ccTrack(ylim = c(0, 1))
+cell <- ccCell(sector.index = "a") + ccBoxplot(value = replicate(runif(10), n = 10, simplify = FALSE), pos = 1:10 - 0.5, col = 1:10)
+track <- track + cell
+cc + track
 }

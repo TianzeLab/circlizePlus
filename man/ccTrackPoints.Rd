@@ -8,7 +8,6 @@ ccTrackPoints(
   sectors,
   x,
   y,
-  track.index = get.current.track.index(),
   pch = par("pch"),
   col = par("col"),
   cex = par("cex"),
@@ -22,8 +21,6 @@ ccTrackPoints(
 \item{x}{Data points on x-axis}
 
 \item{y}{Data points on y-axis}
-
-\item{track.index}{Index for the track}
 
 \item{pch}{Point type}
 

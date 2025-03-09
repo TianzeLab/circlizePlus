@@ -11,8 +11,6 @@ ccGenomicRect(
   ybottom = NULL,
   ytop.column = NULL,
   ybottom.column = NULL,
-  sector.index = get.current.sector.index(),
-  track.index = get.current.track.index(),
   posTransform = NULL,
   col = NA,
   border = "black",
@@ -39,12 +37,6 @@ ccGenomicRect(
 \item{ybottom.column}{If \code{ybottom} is in \code{value}, the index of the column.
 }
 
-\item{sector.index}{Index of sector.
-}
-
-\item{track.index}{Index of track.
-}
-
 \item{posTransform}{Self-defined function to transform genomic positions, see \code{\link[circlize]{posTransform.default}} for explaination.
 }
 
@@ -68,15 +60,15 @@ Object \linkS4class{ccGenomicCellGeom} will call the function \link[circlize:cir
 }
 \examples{
 library(circlizePlus)
-par1 = ccPar("track.height" = 0.1, cell.padding = c(0, 0, 0, 0))
-cc = ccPlot(initMode="initializeWithIdeogram",plotType = NULL)
-bed1 = generateRandomBed(nr = 100)
-bed2 = generateRandomBed(nr = 100)
-bed_list = list(bed1, bed2)
-f = colorRamp2(breaks = c(-1, 0, 1), colors = c("green", "black", "red"))
-track1 = ccGenomicTrack(data=bed_list, stack = TRUE)
-all_chr = c("chr1","chr2","chr3","chr4","chr5","chr6","chr7","chr8","chr9","chr10","chr11","chr12","chr13","chr14","chr15","chr16","chr17","chr18","chr19","chr20","chr21","chr22","chrX","chrY")
-rect1 = ccGenomicRect(col=1,border = NA)
-cells1 = ccCells(sector.indexes = all_chr) + rect1
+par1 <- ccPar("track.height" = 0.1, cell.padding = c(0, 0, 0, 0))
+cc <- ccPlot(initMode = "initializeWithIdeogram", plotType = NULL)
+bed1 <- generateRandomBed(nr = 100)
+bed2 <- generateRandomBed(nr = 100)
+bed_list <- list(bed1, bed2)
+f <- colorRamp2(breaks = c(-1, 0, 1), colors = c("green", "black", "red"))
+track1 <- ccGenomicTrack(data = bed_list, stack = TRUE)
+all_chr <- c("chr1", "chr2", "chr3", "chr4", "chr5", "chr6", "chr7", "chr8", "chr9", "chr10", "chr11", "chr12", "chr13", "chr14", "chr15", "chr16", "chr17", "chr18", "chr19", "chr20", "chr21", "chr22", "chrX", "chrY")
+rect1 <- ccGenomicRect(col = 1, border = NA)
+cells1 <- ccCells(sector.indexes = all_chr) + rect1
 cc + par1 + (track1 + cells1)
 }

@@ -7,8 +7,6 @@
 ccPoints(
   x,
   y,
-  sector.index = get.current.sector.index(),
-  track.index = get.current.track.index(),
   pch = par("pch"),
   col = par("col"),
   cex = par("cex"),
@@ -19,10 +17,6 @@ ccPoints(
 \item{x}{Data points on x-axis, measured in "current" data coordinate}
 
 \item{y}{Data points on y-axis, measured in "current" data coordinate}
-
-\item{sector.index}{Index for the sector}
-
-\item{track.index}{Index for the track}
 
 \item{pch}{Point type}
 
@@ -40,12 +34,14 @@ Object \linkS4class{ccCellGeom} will call the function \link[circlize:circos.poi
 }
 \examples{
 library(circlizePlus)
-cc=ccPlot(sectors=letters[1:8], xlim = c(0, 1))
-track1 = ccTrack(ylim = c(0, 1), panel.fun = function(x, y) {
-                                  circos.points(runif(10), runif(10))
-                                  })
-cells=ccCell(sector.index = 'a')+ccPoints(x=runif(10), y=runif(10),
-                                         sector.index = "c", pch = 16, col = "red")
-track1 = track1+cells
-cc+track1
+cc <- ccPlot(sectors = letters[1:8], xlim = c(0, 1))
+track1 <- ccTrack(ylim = c(0, 1), panel.fun = function(x, y) {
+  circos.points(runif(10), runif(10))
+})
+cells <- ccCell(sector.index = "a") + ccPoints(
+  x = runif(10), y = runif(10),
+  sector.index = "c", pch = 16, col = "red"
+)
+track1 <- track1 + cells
+cc + track1
 }

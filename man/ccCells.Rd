@@ -17,14 +17,14 @@ Generate a list of multiple object ccCell-class
 }
 \examples{
 library(circlizePlus)
-sectors = c('a','a','a','a','b','b','b','b','c','c','c','c','d','d','d','d')
-x1 = c(1,2,3,4,1,2,3,4,1,2,3,4,1,2,3,4)
-y1 = c(1,2,3,4,4,3,2,1,1,1,1,1,1,2,1,2)
-cc = ccPlot(initMode = "initialize", sectors = sectors, x = x1)
-cells = ccCells(sector.indexes = letters[1:4])
-cc_point = ccPoints()
-cells = cells + cc_point + ccLines()
-track1 = ccTrack(sectors = sectors, x=x1, y = y1)
-track1 = track1 + cells
-cc  + track1
+sectors <- c("a", "a", "a", "a", "b", "b", "b", "b", "c", "c", "c", "c", "d", "d", "d", "d")
+x1 <- c(1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4)
+y1 <- c(1, 2, 3, 4, 4, 3, 2, 1, 1, 1, 1, 1, 1, 2, 1, 2)
+cc <- ccPlot(initMode = "initialize", sectors = sectors, x = x1)
+cells <- ccCells(sector.indexes = letters[1:4])
+cc_point <- ccPoints()
+cells <- cells + cc_point + ccLines()
+track1 <- ccTrack(sectors = sectors, x = x1, y = y1)
+track1 <- track1 + cells
+cc + track1
 }

@@ -4,16 +4,7 @@
 \alias{ccRect}
 \title{Draw rectangle in a region}
 \usage{
-ccRect(
-  xleft,
-  ybottom,
-  xright,
-  ytop,
-  sector.index = get.current.sector.index(),
-  track.index = get.current.track.index(),
-  rot = 0,
-  ...
-)
+ccRect(xleft, ybottom, xright, ytop, rot = 0, ...)
 }
 \arguments{
 \item{xleft}{x for the left bottom points}
@@ -23,10 +14,6 @@ ccRect(
 \item{xright}{x for the right top points}
 
 \item{ytop}{y for the right top points}
-
-\item{sector.index}{Index for the sector}
-
-\item{track.index}{Index for the track}
 
 \item{rot}{Rotation of the rectangles. The value is measured clockwise in degree. Rotation is relative to the center of the rectangles.}
 
@@ -40,9 +27,9 @@ Object \linkS4class{ccCellGeom} will call the function \link[circlize:circos.rec
 }
 \examples{
 library(circlizePlus)
-cc=ccPlot(sectors=letters[1:8], xlim = c(0, 1))
-track=ccTrack(ylim = c(0, 1), track.height = 0.3)
-cell=ccCell(sector.index = 'a')+ccRect(xleft=0.7,ybottom=0.1,xright=0.8,ytop=0.9)
-track=track+cell
-cc+track
+cc <- ccPlot(sectors = letters[1:8], xlim = c(0, 1))
+track <- ccTrack(ylim = c(0, 1), track.height = 0.3)
+cell <- ccCell(sector.index = "a") + ccRect(xleft = 0.7, ybottom = 0.1, xright = 0.8, ytop = 0.9)
+track <- track + cell
+cc + track
 }

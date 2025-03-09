@@ -7,8 +7,6 @@
 ccLines(
   x,
   y,
-  sector.index = get.current.sector.index(),
-  track.index = get.current.track.index(),
   col = ifelse(area, "grey", par("col")),
   lwd = par("lwd"),
   lty = par("lty"),
@@ -27,10 +25,6 @@ ccLines(
 \item{x}{Data points on x-axis, measured in "current" data coordinate.}
 
 \item{y}{Data points on y-axis, measured in "current" data coordinate.}
-
-\item{sector.index}{Index for the sector.}
-
-\item{track.index}{Index for the track.}
 
 \item{col}{Line color.}
 
@@ -64,12 +58,12 @@ Object \linkS4class{ccCellGeom} will call the function \link[circlize:circos.lin
 }
 \examples{
 library(circlizePlus)
-sectors = letters[1:9]
-par=ccPar(points.overflow.warning = FALSE)
-cc=ccPlot(sectors = sectors, xlim = c(0, 10))
-cc=cc+par
-track=ccTrack(sectors=sectors, ylim = c(0, 10), track.height = 0.5)
-cells=ccCell(sector.index = 'a')+ccLines(sort(x=runif(10)*10), y=runif(10)*10, sector.index = "a")
-track=track+cells
-cc+track
+sectors <- letters[1:9]
+par <- ccPar(points.overflow.warning = FALSE)
+cc <- ccPlot(sectors = sectors, xlim = c(0, 10))
+cc <- cc + par
+track <- ccTrack(sectors = sectors, ylim = c(0, 10), track.height = 0.5)
+cells <- ccCell(sector.index = "a") + ccLines(sort(x = runif(10) * 10), y = runif(10) * 10, sector.index = "a")
+track <- track + cells
+cc + track
 }

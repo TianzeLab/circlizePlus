@@ -4,22 +4,12 @@
 \alias{ccPolygon}
 \title{Draw polygon}
 \usage{
-ccPolygon(
-  x,
-  y,
-  sector.index = get.current.sector.index(),
-  track.index = get.current.track.index(),
-  ...
-)
+ccPolygon(x, y, ...)
 }
 \arguments{
 \item{x}{Data points on x-axis}
 
 \item{y}{Data points on y-axis}
-
-\item{sector.index}{Index for the sector}
-
-\item{track.index}{Index for the track}
 
 \item{...}{pass to \code{\link[graphics]{polygon}}}
 }
@@ -31,9 +21,9 @@ Object \linkS4class{ccCellGeom} will call the function \link[circlize:circos.pol
 }
 \examples{
 library(circlizePlus)
-cc=ccPlot(sectors=letters[1:8], xlim = c(0, 1))
-track=ccTrack(ylim = c(0, 10))
-cell=ccCell(sector.index = 'a')+ccPolygon(x=c(0.5,0.7,1),y=c(2,6,8))
-track=track+cell
-cc+track
+cc <- ccPlot(sectors = letters[1:8], xlim = c(0, 1))
+track <- ccTrack(ylim = c(0, 10))
+cell <- ccCell(sector.index = "a") + ccPolygon(x = c(0.5, 0.7, 1), y = c(2, 6, 8))
+track <- track + cell
+cc + track
 }

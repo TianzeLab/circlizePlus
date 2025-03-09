@@ -13,8 +13,6 @@ ccRaster(
   facing = c("inside", "outside", "reverse.clockwise", "clockwise", "downward",
     "bending.inside", "bending.outside"),
   niceFacing = FALSE,
-  sector.index = get.current.sector.index(),
-  track.index = get.current.track.index(),
   scaling = 1
 )
 }
@@ -33,10 +31,6 @@ ccRaster(
 
 \item{niceFacing}{Facing of text. Please refer to vignette for different settings.}
 
-\item{sector.index}{Index for the sector.}
-
-\item{track.index}{Index for the track.}
-
 \item{scaling}{Scaling factor to resize the raster image.}
 }
 \value{
@@ -48,12 +42,12 @@ Object \linkS4class{ccCellGeom} will call the function \link[circlize:circos.ras
 \examples{
 library(circlizePlus)
 library(png)
-image = system.file("extdata", "Rlogo.png", package = "circlize")
-image = as.raster(readPNG(image))
+image <- system.file("extdata", "Rlogo.png", package = "circlize")
+image <- as.raster(readPNG(image))
 library(circlizePlus)
-cc=ccPlot(sectors=letters[1:4], xlim = c(0, 10))
-track=ccTrack(ylim = c(0, 1))
-cell=ccCell(sector.index = 'a')+ccRaster(image=image, x=5,y=0.5,width = "2cm",facing = "inside", niceFacing = TRUE)
-track=track+cell
-cc+track
+cc <- ccPlot(sectors = letters[1:4], xlim = c(0, 10))
+track <- ccTrack(ylim = c(0, 1))
+cell <- ccCell(sector.index = "a") + ccRaster(image = image, x = 5, y = 0.5, width = "2cm", facing = "inside", niceFacing = TRUE)
+track <- track + cell
+cc + track
 }
