@@ -535,7 +535,7 @@ ccViolin <- function(value, pos, violin_width = 0.8,
 #' library(circlizePlus)
 #' cc <- ccPlot(sectors = letters[1:4], xlim = c(0, 10))
 #' track <- ccTrack(ylim = c(0, 1))
-#' cell <- ccCell(sector.index = "a") + ccArrow(x1 = 1, x2 = 9, y=0.5 , width=0.5)
+#' cell <- ccCell(sector.index = "a") + ccArrow(x1 = 1, x2 = 9, y=0.5, width=0.5)
 #' track <- track + cell
 #' cc + track
 ccArrow <- function(x1,
