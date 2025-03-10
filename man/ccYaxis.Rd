@@ -12,7 +12,6 @@ ccYaxis(
   labels.font = par("font"),
   labels.cex = par("cex"),
   labels.niceFacing = TRUE,
-  tick.length = convert_x(1, "mm", sector.index, track.index),
   lwd = par("lwd"),
   col = par("col"),
   labels.col = par("col")
@@ -32,8 +31,6 @@ ccYaxis(
 \item{labels.cex}{font size for the axis labels}
 
 \item{labels.niceFacing}{Should facing of axis labels be human-easy}
-
-\item{tick.length}{length of the tick}
 
 \item{lwd}{line width for ticks}
 
