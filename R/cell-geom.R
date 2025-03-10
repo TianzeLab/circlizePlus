@@ -583,7 +583,7 @@ ccArrow <- function(x1,
 #' library(circlizePlus)
 #' cc <- ccPlot(sectors = letters[1:4], xlim = c(0, 10))
 #' track <- ccTrack(ylim = c(0, 1))
-#' cell <- ccCell(sector.index = "a") + ccRaster(image = image, x = 5, y = 0.5, width = "2cm", facing = "inside", niceFacing = TRUE)
+#' cell <- ccCell(sector.index = "a") + ccRaster(image = image, x = 5, y = 0.5, width = "2cm", width = "2cm", facing = "inside", niceFacing = TRUE)
 #' track <- track + cell
 #' cc + track
 ccRaster <- function(image, x, y,
