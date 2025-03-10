@@ -51,7 +51,6 @@
 <span>  direction <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"outside"</span>, <span class="st">"inside"</span><span class="op">)</span>,</span>
 <span>  minor.ticks <span class="op">=</span> <span class="fl">4</span>,</span>
 <span>  major.tick.length <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/circlize/man/mm_y.html" class="external-link">mm_y</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span>,</span>
-<span>  major.tick.percentage <span class="op">=</span> <span class="fl">0.5</span>,</span>
 <span>  lwd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="st">"lwd"</span><span class="op">)</span>,</span>
 <span>  col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="st">"col"</span><span class="op">)</span>,</span>
 <span>  labels.col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="st">"col"</span><span class="op">)</span>,</span>
@@ -111,10 +110,6 @@
 <dd><p>Length of the major ticks, measured in "current" data coordinate. <code><a href="https://rdrr.io/pkg/circlize/man/convert_y.html" class="external-link">convert_y</a></code> can be used to convert an absolute unit to the data coordinate.</p></dd>
 
 
-<dt id="arg-major-tick-percentage">major.tick.percentage<a class="anchor" aria-label="anchor" href="#arg-major-tick-percentage"></a></dt>
-<dd><p>Not used any more, please directly use <code>major.tick.length</code>.</p></dd>
-
-
 <dt id="arg-lwd">lwd<a class="anchor" aria-label="anchor" href="#arg-lwd"></a></dt>
 <dd><p>Line width for ticks.</p></dd>
 
@@ -146,7 +141,6 @@
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> coordinate is 1.</span>
 <span class="r-in"><span><span class="va">track</span> <span class="op">&lt;-</span> <span class="va">track</span> <span class="op">+</span> <span class="va">cell</span></span></span>
 <span class="r-in"><span><span class="va">cc</span> <span class="op">+</span> <span class="va">track</span></span></span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> `major.tick.percentage` is not used any more, please directly use argument `major.tick.length`.</span>
 <span class="r-plt img"><img src="ccXaxis-1.png" alt="" width="700" height="433"></span>
 </code></pre></div>
     </div>
