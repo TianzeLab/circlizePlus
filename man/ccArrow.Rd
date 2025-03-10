@@ -7,8 +7,8 @@
 ccArrow(
   x1,
   x2,
-  y = get.cell.meta.data("ycenter"),
-  width = get.cell.meta.data("yrange")/2,
+  y,
+  width,
   arrow.head.length = mm_x(5),
   arrow.head.width = width * 2,
   arrow.position = c("end", "start"),
@@ -54,7 +54,7 @@ Object \linkS4class{ccCellGeom} will call the function \link[circlize:circos.arr
 library(circlizePlus)
 cc <- ccPlot(sectors = letters[1:4], xlim = c(0, 10))
 track <- ccTrack(ylim = c(0, 1))
-cell <- ccCell(sector.index = "a") + ccArrow(x1 = 1, x2 = 9)
+cell <- ccCell(sector.index = "a") + ccArrow(x1 = 1, x2 = 9, y=0.5, width=0.5)
 track <- track + cell
 cc + track
 }
