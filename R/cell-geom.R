@@ -595,7 +595,7 @@ ccRaster <- function(image, x, y,
                      niceFacing = FALSE,
                      scaling = 1) {
   name_args <- list(
-    mage = mage, x = x, y = y,
+    image = image, x = x, y = y,
     width = width, height = height,
     facing = facing,
     niceFacing = niceFacing,
