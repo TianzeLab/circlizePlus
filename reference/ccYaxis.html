@@ -46,7 +46,6 @@
 <span>  labels.font <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="st">"font"</span><span class="op">)</span>,</span>
 <span>  labels.cex <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="st">"cex"</span><span class="op">)</span>,</span>
 <span>  labels.niceFacing <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>  tick.length <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/circlize/man/convert_x.html" class="external-link">convert_x</a></span><span class="op">(</span><span class="fl">1</span>, <span class="st">"mm"</span>, <span class="va">sector.index</span>, <span class="va">track.index</span><span class="op">)</span>,</span>
 <span>  lwd <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="st">"lwd"</span><span class="op">)</span>,</span>
 <span>  col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="st">"col"</span><span class="op">)</span>,</span>
 <span>  labels.col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span><span class="st">"col"</span><span class="op">)</span></span>
@@ -85,10 +84,6 @@
 <dd><p>Should facing of axis labels be human-easy</p></dd>
 
 
-<dt id="arg-tick-length">tick.length<a class="anchor" aria-label="anchor" href="#arg-tick-length"></a></dt>
-<dd><p>length of the tick</p></dd>
-
-
 <dt id="arg-lwd">lwd<a class="anchor" aria-label="anchor" href="#arg-lwd"></a></dt>
 <dd><p>line width for ticks</p></dd>
 
@@ -112,11 +107,7 @@
 <span class="r-in"><span><span class="va">cc</span> <span class="op">&lt;-</span> <span class="fu"><a href="ccPlot.html">ccPlot</a></span><span class="op">(</span>sectors <span class="op">=</span> <span class="va">letters</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">8</span><span class="op">]</span>, xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">track</span> <span class="op">&lt;-</span> <span class="fu"><a href="ccTrack.html">ccTrack</a></span><span class="op">(</span>ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">10</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">cell</span> <span class="op">&lt;-</span> <span class="fu"><a href="ccCell.html">ccCell</a></span><span class="op">(</span>sector.index <span class="op">=</span> <span class="st">"a"</span><span class="op">)</span> <span class="op">+</span> <span class="fu">ccYaxis</span><span class="op">(</span>side <span class="op">=</span> <span class="st">"left"</span><span class="op">)</span></span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>`convert_unit_in_data_coordinate()` only works when aspect of the</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> coordinate is 1.</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in ccYaxis(side = "left"):</span> object 'sector.index' not found</span>
 <span class="r-in"><span><span class="va">track</span> <span class="op">&lt;-</span> <span class="va">track</span> <span class="op">+</span> <span class="va">cell</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'cell' not found</span>
 <span class="r-in"><span><span class="va">cc</span> <span class="op">+</span> <span class="va">track</span></span></span>
 <span class="r-plt img"><img src="ccYaxis-1.png" alt="" width="700" height="433"></span>
 </code></pre></div>
