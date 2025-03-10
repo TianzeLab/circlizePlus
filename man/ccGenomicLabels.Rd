@@ -18,7 +18,7 @@ ccGenomicLabels(
   line_col = par("col"),
   line_lwd = par("lwd"),
   line_lty = par("lty"),
-  labels_height = min(c(cm_h(1.5), max(strwidth(labels, cex = cex, font = font)))),
+  labels_height = NULL,
   side = c("inside", "outside"),
   labels.side = side,
   track.margin = circos.par("track.margin")

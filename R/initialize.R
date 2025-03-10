@@ -280,6 +280,13 @@ show.ccPlot = function(object) {
       }
     }
     #End: make data share cell func in track panel.fun
+    #Bugfix: circos.genomicLabels and parameter 'labels_height'
+    if(current_track@func == "circos.genomicLabels" && is.null(current_track@params$labels_height)){
+      if(is.null(current_track@params$labels)){
+        current_track@params$labels = current_track@params$bed[[current_track@params$labels.column]]
+      }
+      current_track@params$labels_height = min(c(cm_h(1.5), max(strwidth(s = current_track@params$labels, cex = current_track@params$cex, font = current_track@params$font))))
+    }
     do.call(current_track@func, current_track@params)
     for (current_track_geom in current_track@trackGeoms)
       do.call(current_track_geom@func, current_track_geom@params)
