@@ -5,8 +5,8 @@
 \title{Draw text in a cell}
 \usage{
 ccText(
-  x,
-  y,
+  x = NULL,
+  y = NULL,
   labels,
   direction = NULL,
   facing = c("inside", "outside", "reverse.clockwise", "clockwise", "downward",

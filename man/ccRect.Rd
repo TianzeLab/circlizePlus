@@ -4,7 +4,7 @@
 \alias{ccRect}
 \title{Draw rectangle in a region}
 \usage{
-ccRect(xleft, ybottom, xright, ytop, rot = 0, ...)
+ccRect(xleft = NULL, ybottom = NULL, xright = NULL, ytop = NULL, rot = 0, ...)
 }
 \arguments{
 \item{xleft}{x for the left bottom points}

@@ -5,8 +5,8 @@
 \title{Add points for genomic data visualization}
 \usage{
 ccGenomicPoints(
-  region,
-  value,
+  region = NULL,
+  value = NULL,
   numeric.column = NULL,
   posTransform = NULL,
   pch = par("pch"),

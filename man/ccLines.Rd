@@ -5,8 +5,8 @@
 \title{Draw lines in a region}
 \usage{
 ccLines(
-  x,
-  y,
+  x = NULL,
+  y = NULL,
   col = ifelse(area, "grey", par("col")),
   lwd = par("lwd"),
   lty = par("lty"),

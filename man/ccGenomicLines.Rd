@@ -5,8 +5,8 @@
 \title{Add lines for genomic data visualization}
 \usage{
 ccGenomicLines(
-  region,
-  value,
+  region = NULL,
+  value = NULL,
   numeric.column = NULL,
   posTransform = NULL,
   col = ifelse(area, "grey", "black"),

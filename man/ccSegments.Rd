@@ -5,10 +5,10 @@
 \title{Draw segments connecting points in a region}
 \usage{
 ccSegments(
-  x0,
-  y0,
-  x1,
-  y1,
+  x0 = NULL,
+  y0 = NULL,
+  x1 = NULL,
+  y1 = NULL,
   straight = FALSE,
   col = par("col"),
   lwd = par("lwd"),

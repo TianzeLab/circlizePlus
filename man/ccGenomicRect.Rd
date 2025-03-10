@@ -5,7 +5,7 @@
 \title{Draw rectangle for genomic data visualization}
 \usage{
 ccGenomicRect(
-  region,
+  region = NULL,
   value = NULL,
   ytop = NULL,
   ybottom = NULL,

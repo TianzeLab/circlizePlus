@@ -140,8 +140,8 @@ ccCells <- function(sector.indexes = list()) {
 #' track1 <- track1 + cell1
 #' cc <- cc + track1
 #' cc
-ccText <- function(x,
-                   y,
+ccText <- function(x = NULL,
+                   y = NULL,
                    labels,
                    direction = NULL,
                    facing = c(
@@ -201,7 +201,7 @@ ccText <- function(x,
 #' )
 #' track1 <- track1 + cells
 #' cc + track1
-ccPoints <- function(x, y,
+ccPoints <- function(x = NULL, y = NULL,
                      pch = par("pch"),
                      col = par("col"),
                      cex = par("cex"),
@@ -236,7 +236,7 @@ ccPoints <- function(x, y,
 #' cells <- ccCell(sector.index = "a") + ccLines(sort(x = runif(10) * 10), y = runif(10) * 10)
 #' track <- track + cells
 #' cc + track
-ccLines <- function(x, y,
+ccLines <- function(x = NULL, y = NULL,
                     col = ifelse(area, "grey", par("col")),
                     lwd = par("lwd"),
                     lty = par("lty"),
@@ -283,7 +283,7 @@ ccLines <- function(x, y,
 #' cell <- ccCell(sector.index = "a") + ccSegments(x0 = 0.7, y0 = 0.1, x1 = 0.7, y1 = 0.9)
 #' track <- track + cell
 #' cc + track
-ccSegments <- function(x0, y0, x1, y1,
+ccSegments <- function(x0 = NULL, y0 = NULL, x1 = NULL, y1 = NULL,
                        straight = FALSE,
                        col = par("col"),
                        lwd = par("lwd"),
@@ -315,7 +315,7 @@ ccSegments <- function(x0, y0, x1, y1,
 #' cell <- ccCell(sector.index = "a") + ccRect(xleft = 0.7, ybottom = 0.1, xright = 0.8, ytop = 0.9)
 #' track <- track + cell
 #' cc + track
-ccRect <- function(xleft, ybottom, xright, ytop,
+ccRect <- function(xleft = NULL, ybottom = NULL, xright = NULL, ytop = NULL,
                    rot = 0,
                    ...) {
   name_args <- list(
@@ -341,7 +341,7 @@ ccRect <- function(xleft, ybottom, xright, ytop,
 #' cell <- ccCell(sector.index = "a") + ccPolygon(x = c(0.5, 0.7, 1), y = c(2, 6, 8))
 #' track <- track + cell
 #' cc + track
-ccPolygon <- function(x, y,
+ccPolygon <- function(x = NULL, y = NULL,
                       ...) {
   name_args <- list(x = x, y = y)
   new("ccCellGeom", func = "circos.polygon", params = c(name_args, list(...)))
@@ -669,8 +669,8 @@ ccDendrogram <- function(dend,
 #' }, numeric.column = 2)
 #' t1 <- t1 + cells1
 #' show(cc + t1)
-ccGenomicPoints <- function(region,
-                            value,
+ccGenomicPoints <- function(region = NULL,
+                            value = NULL,
                             numeric.column = NULL,
                             posTransform = NULL,
                             pch = par("pch"),
@@ -709,8 +709,8 @@ ccGenomicPoints <- function(region,
 #' cells1 <- ccCells(sector.indexes = all_chr) + ccGenomicLines(numeric.column = 2)
 #' t1 <- t1 + cells1
 #' show(cc + t1)
-ccGenomicLines <- function(region,
-                           value,
+ccGenomicLines <- function(region = NULL,
+                           value = NULL,
                            numeric.column = NULL,
                            posTransform = NULL,
                            col = ifelse(area, "grey", "black"),
@@ -767,7 +767,7 @@ ccGenomicLines <- function(region,
 #' rect1 <- ccGenomicRect(col = 1, border = NA)
 #' cells1 <- ccCells(sector.indexes = all_chr) + rect1
 #' cc + par1 + (track1 + cells1)
-ccGenomicRect <- function(region,
+ccGenomicRect <- function(region = NULL,
                           value = NULL,
                           ytop = NULL,
                           ybottom = NULL,
@@ -811,7 +811,7 @@ ccGenomicRect <- function(region,
 #' text1 <- ccGenomicText(y = 0.5, labels = "text")
 #' cells1 <- ccCells(sector.indexes = all_chr) + text1
 #' cc + (track1 + cells1)
-ccGenomicText <- function(region,
+ccGenomicText <- function(region = NULL,
                           value = NULL,
                           y = NULL,
                           labels = NULL,

@@ -5,7 +5,7 @@
 \title{Add text for genomic data visualization}
 \usage{
 ccGenomicText(
-  region,
+  region = NULL,
   value = NULL,
   y = NULL,
   labels = NULL,

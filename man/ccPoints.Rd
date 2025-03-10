@@ -5,8 +5,8 @@
 \title{Draw points in a region}
 \usage{
 ccPoints(
-  x,
-  y,
+  x = NULL,
+  y = NULL,
   pch = par("pch"),
   col = par("col"),
   cex = par("cex"),

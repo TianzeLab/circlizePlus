@@ -4,7 +4,7 @@
 \alias{ccPolygon}
 \title{Draw polygon}
 \usage{
-ccPolygon(x, y, ...)
+ccPolygon(x = NULL, y = NULL, ...)
 }
 \arguments{
 \item{x}{Data points on x-axis}
