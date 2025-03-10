@@ -292,6 +292,10 @@ show.ccPlot = function(object) {
       do.call(current_track_geom@func, current_track_geom@params)
 
     for (current_geom in remain_geom_call) {
+      #Bugfix: circos.arrow and parameter 'arrow.head.length'
+      if(current_geom@func == "circos.arrow" && is.null(current_geom@params$arrow.head.length)){
+        current_geom@params$arrow.head.length = mm_x(5)
+      }
       do.call(current_geom@func, current_geom@params)
     }
   }

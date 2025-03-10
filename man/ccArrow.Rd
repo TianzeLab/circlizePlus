@@ -9,7 +9,7 @@ ccArrow(
   x2,
   y,
   width,
-  arrow.head.length = mm_x(5),
+  arrow.head.length = NULL,
   arrow.head.width = width * 2,
   arrow.position = c("end", "start"),
   tail = c("normal", "point"),
