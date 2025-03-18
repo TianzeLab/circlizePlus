@@ -80,7 +80,7 @@ ccCell(contain n ccCellGeoms)+ccCellGeom=ccCell(contain n+1 ccCellGeoms),n≥0
 - Class: [ccHeatmap-class](https://tianzelab.github.io/circlizePlus/reference/ccHeatmap-class.html)
 - Function: [ccHeatmap()](https://tianzelab.github.io/circlizePlus/reference/ccHeatmap.html)
 
-## Data mapping from ccTrack to ccGenomicCellGeom
+## Data mapping from track to cell geometry
 
 |                                      |                   |                  |                  |                  |           |            |             |           |                              |                |
 |-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
