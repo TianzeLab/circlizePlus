@@ -1,3 +1,6 @@
+## Citation
+Zhang Z, Cao T, Huang Y and Xia Y (2025) CirclizePlus: using ggplot2 feature to write readable R code for circular visualization. Front. Genet. 16:1535368. doi: 10.3389/fgene.2025.1535368
+
 ## Highlights
 
 -   Programming in circlizePlus is summarized into 5 addition rules, which are simple and clear.
