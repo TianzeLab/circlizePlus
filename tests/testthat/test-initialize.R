@@ -7,7 +7,7 @@ test_that("Share data in ccLines and ccPoints",{
   cc_point = ccPoints()
   cells = cells + cc_point + ccLines()
   track1 = ccTrack(sectors = sectors, x=x1, y = y1,panel.fun = function(x,y){
-    circos.points(y,x)
+    circos.points(x,y)
   })
   cell_single = ccCell(sector.index = letters[3]) + ccPoints(y=\(x,y){x-y})
   track1 = track1 + cells + cell_single

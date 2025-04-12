@@ -160,6 +160,12 @@ ccText <- function(x = NULL,
                    col = par("col"),
                    font = par("font"),
                    ...) {
+  if(is.null(x)){
+    x = \(x,y){x}
+  }
+  if(is.null(y)){
+    y = \(x,y){y}
+  }
   name_args <- list(
     x = x,
     y = y,
@@ -206,6 +212,12 @@ ccPoints <- function(x = NULL, y = NULL,
                      col = par("col"),
                      cex = par("cex"),
                      bg = par("bg")) {
+  if(is.null(x)){
+    x = \(x,y){x}
+  }
+  if(is.null(y)){
+    y = \(x,y){y}
+  }
   name_args <- list(
     x = x,
     y = y,
@@ -249,6 +261,12 @@ ccLines <- function(x = NULL, y = NULL,
                     pt.col = par("col"),
                     cex = par("cex"),
                     pch = par("pch")) {
+  if(is.null(x)){
+    x = \(x,y){x}
+  }
+  if(is.null(y)){
+    y = \(x,y){y}
+  }
   name_args <- list(
     x = x, y = y,
     col = col,
@@ -289,6 +307,18 @@ ccSegments <- function(x0 = NULL, y0 = NULL, x1 = NULL, y1 = NULL,
                        lwd = par("lwd"),
                        lty = par("lty"),
                        ...) {
+  if(is.null(x0)){
+    x0 = \(x,y){x}
+  }
+  if(is.null(y0)){
+    y0 = \(x,y){y}
+  }
+  if(is.null(x1)){
+    x1 = \(x,y){x}
+  }
+  if(is.null(y1)){
+    y1 = \(x,y){y}
+  }
   name_args <- list(
     x0 = x0, y0 = y0, x1 = x1, y1 = y1,
     straight = straight,
@@ -318,6 +348,18 @@ ccSegments <- function(x0 = NULL, y0 = NULL, x1 = NULL, y1 = NULL,
 ccRect <- function(xleft = NULL, ybottom = NULL, xright = NULL, ytop = NULL,
                    rot = 0,
                    ...) {
+  if(is.null(xleft)){
+    xleft = \(x,y){x}
+  }
+  if(is.null(ybottom)){
+    ybottom = \(x,y){y}
+  }
+  if(is.null(xright)){
+    xright = \(x,y){x}
+  }
+  if(is.null(ytop)){
+    ytop = \(x,y){y}
+  }
   name_args <- list(
     xleft = xleft, ybottom = ybottom, xright = xright, ytop = ytop,
     rot = rot
@@ -343,6 +385,12 @@ ccRect <- function(xleft = NULL, ybottom = NULL, xright = NULL, ytop = NULL,
 #' cc + track
 ccPolygon <- function(x = NULL, y = NULL,
                       ...) {
+  if(is.null(x)){
+    x = \(x,y){x}
+  }
+  if(is.null(y)){
+    y = \(x,y){y}
+  }
   name_args <- list(x = x, y = y)
   new("ccCellGeom", func = "circos.polygon", params = c(name_args, list(...)))
 }
@@ -674,6 +722,13 @@ ccGenomicPoints <- function(region = NULL,
                             cex = par("cex"),
                             bg = par("bg"),
                             ...) {
+  if(is.null(region)){
+    region = \(region,value){region}
+  }
+  if(is.null(value)){
+    value = \(region,value){value}
+  }
+
   name_args <- list(
     region = region,
     value = value,
@@ -721,6 +776,12 @@ ccGenomicLines <- function(region = NULL,
                            cex = par("cex"),
                            pch = par("pch"),
                            ...) {
+  if(is.null(region)){
+    region = \(region,value){region}
+  }
+  if(is.null(value)){
+    value = \(region,value){value}
+  }
   name_args <- list(
     region = region,
     value = value,
@@ -774,6 +835,12 @@ ccGenomicRect <- function(region = NULL,
                           border = "black",
                           lty = par("lty"),
                           ...) {
+  if(is.null(region)){
+    region = \(region,value){region}
+  }
+  if(is.null(value)){
+    value = \(region,value){value}
+  }
   name_args <- list(
     region = region,
     value = value,
@@ -825,6 +892,12 @@ ccGenomicText <- function(region = NULL,
                           extend = 0,
                           align_to = "region",
                           ...) {
+  if(is.null(region)){
+    region = \(region,value){region}
+  }
+  if(is.null(value)){
+    value = \(region,value){value}
+  }
   name_args <- list(
     region = region,
     value = value,
