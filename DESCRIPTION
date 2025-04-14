@@ -1,5 +1,5 @@
 Package: circlizePlus
-Title:Using 'ggplot2' Feature to Write Readable R Code for Circular Visualization
+Title: Using 'ggplot2' Feature to Write Readable R Code for Circular Visualization
 Version: 0.9.0
 Authors@R: c(
     person("Tianze", "Cao", , "hnrcao@qq.com", role = c("aut", "cre"),
@@ -22,6 +22,7 @@ Collate:
     'initialize.R'
     'add.R'
     'circlizePlus-package.R'
+    'data.R'
 Depends: 
     circlize (>= 0.4.16),
     R (>= 4.3.3)
