@@ -1,0 +1,11 @@
+
+bibentry(
+   bibtype="article",
+   title = "CirclizePlus: using ggplot2 feature to write readable R code for circular visualization",
+   author = c(as.person("Zheyu Zhang"),as.person("Tianze Cao"),as.person("Yuexia Huang"),
+              as.person("Yu Xia")),
+   journal = "Frontiers in Genetics",
+   year = 2025,
+   textVersion = "Zhang Z, Cao T, Huang Y and Xia Y (2025) CirclizePlus: using ggplot2 feature to write readable R code for circular visualization. Front. Genet.",
+   doi = "10.3389/fgene.2025.1535368"
+)
