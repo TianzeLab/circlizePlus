@@ -21,7 +21,6 @@ NULL
 #' @export
 #' @include initialize.R
 #' @include param.R
-#' @keywords internal
 setMethod(
   "+",
   signature = c(e1 = "ccPlot", e2 = "ccPar"),
@@ -35,7 +34,6 @@ setMethod(
 #' @export
 #' @include initialize.R
 #' @include track.R
-#' @keywords internal
 setMethod(
   "+",
   signature = c(e1 = "ccPlot", e2 = "ccTrack"),
@@ -49,7 +47,6 @@ setMethod(
 #' @export
 #' @include initialize.R
 #' @include link.R
-#' @keywords internal
 setMethod(
   "+",
   signature = c(e1 = "ccPlot", e2 = "ccLink"),
@@ -63,7 +60,6 @@ setMethod(
 #' @export
 #' @include track.R
 #' @include track-geom.R
-#' @keywords internal
 setMethod(
   "+",
   signature = c(e1 = "ccTrack", e2 = "ccTrackGeom"),
@@ -77,7 +73,6 @@ setMethod(
 #' @export
 #' @include track.R
 #' @include cell-geom.R
-#' @keywords internal
 setMethod(
   "+",
   signature = c(e1 = "ccTrack", e2 = "ccCells"),
@@ -93,7 +88,6 @@ setMethod(
 #' @export
 #' @include track.R
 #' @include cell-geom.R
-#' @keywords internal
 setMethod(
   "+",
   signature = c(e1 = "ccTrack", e2 = "ccCell"),
@@ -106,7 +100,6 @@ setMethod(
 #' @rdname addition-rules
 #' @export
 #' @include cell-geom.R
-#' @keywords internal
 setMethod(
   "+",
   signature = c(e1 = "ccCell", e2 = "ccCellGeom"),
@@ -119,7 +112,6 @@ setMethod(
 #' @rdname addition-rules
 #' @export
 #' @include cell-geom.R
-#' @keywords internal
 setMethod(
   "+",
   signature = c(e1 = "ccCells", e2 = "ccCellGeom"),
@@ -135,7 +127,6 @@ setMethod(
 #' @export
 #' @include heatmap.R
 #' @include param.R
-#' @keywords internal
 setMethod(
   "+",
   signature = c(e1 = "ccHeatmap", e2 = "ccPar"),
@@ -149,7 +140,6 @@ setMethod(
 #' @export
 #' @include heatmap.R
 #' @include track.R
-#' @keywords internal
 setMethod(
   "+",
   signature = c(e1 = "ccHeatmap", e2 = "ccTrack"),
@@ -163,7 +153,6 @@ setMethod(
 #' @export
 #' @include heatmap.R
 #' @include link.R
-#' @keywords internal
 setMethod(
   "+",
   signature = c(e1 = "ccHeatmap", e2 = "ccLink"),

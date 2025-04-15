@@ -56,4 +56,3 @@ ccCell(contain n ccCellGeoms)+ccCellGeom=ccCell(contain n+1 ccCellGeoms),n≥0 \
 NULL
 
 }
-\keyword{internal}
