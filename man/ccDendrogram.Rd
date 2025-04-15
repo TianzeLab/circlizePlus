@@ -27,6 +27,7 @@ Object \linkS4class{ccCellGeom}
 Object \linkS4class{ccCellGeom} will call the function \link[circlize:circos.dendrogram]{circlize::circos.dendrogram} while drawing.
 }
 \examples{
+\dontrun{
 library(ape)
 suppressPackageStartupMessages(library(dendextend))
 library(circlizePlus)
@@ -43,4 +44,5 @@ dend_height <- attr(dend, "height")
 t1 <- ccTrack(ylim = c(0, dend_height), bg.border = NA, track.height = 0.4)
 cell1 <- ccCell(sector.index = "a") + ccDendrogram(dend = dend)
 cc + par1 + (t1 + cell1)
+}
 }

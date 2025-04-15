@@ -28,11 +28,11 @@ Depends:
     R (>= 4.4.0)
 Imports:
     methods,
+    stats
+Suggests:
+    png,
     ape,
-    stats,
     dendextend,
-    png
-Suggests: 
     ComplexHeatmap,
     testthat (>= 3.0.0),
 Config/testthat/edition: 3

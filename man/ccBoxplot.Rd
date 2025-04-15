@@ -51,7 +51,8 @@ Object \linkS4class{ccCellGeom} will call the function \link[circlize:circos.box
 library(circlizePlus)
 cc <- ccPlot(sectors = letters[1:4], xlim = c(0, 10))
 track <- ccTrack(ylim = c(0, 1))
-cell <- ccCell(sector.index = "a") + ccBoxplot(value = replicate(runif(10), n = 10, simplify = FALSE), pos = 1:10 - 0.5, col = 1:10)
+cell <- ccCell(sector.index = "a") + ccBoxplot(value = replicate(runif(10),
+n = 10, simplify = FALSE), pos = 1:10 - 0.5, col = 1:10)
 track <- track + cell
 cc + track
 }

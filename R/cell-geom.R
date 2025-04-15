@@ -546,7 +546,8 @@ ccBarplot <- function(value, pos, bar_width = 0.6,
 #' library(circlizePlus)
 #' cc <- ccPlot(sectors = letters[1:4], xlim = c(0, 10))
 #' track <- ccTrack(ylim = c(0, 1))
-#' cell <- ccCell(sector.index = "a") + ccBoxplot(value = replicate(runif(10), n = 10, simplify = FALSE), pos = 1:10 - 0.5, col = 1:10)
+#' cell <- ccCell(sector.index = "a") + ccBoxplot(value = replicate(runif(10),
+#' n = 10, simplify = FALSE), pos = 1:10 - 0.5, col = 1:10)
 #' track <- track + cell
 #' cc + track
 ccBoxplot <- function(value, pos, outline = TRUE, box_width = 0.6,
@@ -575,7 +576,8 @@ ccBoxplot <- function(value, pos, outline = TRUE, box_width = 0.6,
 #' library(circlizePlus)
 #' cc <- ccPlot(sectors = letters[1:4], xlim = c(0, 10))
 #' track <- ccTrack(ylim = c(0, 1))
-#' cell <- ccCell(sector.index = "a") + ccViolin(value = replicate(runif(10), n = 10, simplify = FALSE), pos = 1:10 - 0.5, col = 1:10)
+#' cell <- ccCell(sector.index = "a") + ccViolin(value = replicate(runif(10),
+#' n = 10, simplify = FALSE), pos = 1:10 - 0.5, col = 1:10)
 #' track <- track + cell
 #' cc + track
 ccViolin <- function(value, pos, violin_width = 0.8,
@@ -648,6 +650,7 @@ ccArrow <- function(x1,
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' library(circlizePlus)
 #' library(png)
 #' image <- system.file("extdata", "Rlogo.png", package = "circlize")
@@ -655,9 +658,11 @@ ccArrow <- function(x1,
 #' library(circlizePlus)
 #' cc <- ccPlot(sectors = letters[1:4], xlim = c(0, 10))
 #' track <- ccTrack(ylim = c(0, 1))
-#' cell <- ccCell(sector.index = "a") + ccRaster(image = image, x = 5, y = 0.5, width = "2cm", height = "2cm", facing = "inside", niceFacing = TRUE)
+#' cell <- ccCell(sector.index = "a") + ccRaster(image = image, x = 5, y = 0.5,
+#' width = "2cm", height = "2cm", facing = "inside", niceFacing = TRUE)
 #' track <- track + cell
 #' cc + track
+#' }
 ccRaster <- function(image, x, y,
                      width, height,
                      facing = c(
@@ -687,6 +692,7 @@ ccRaster <- function(image, x, y,
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' library(ape)
 #' suppressPackageStartupMessages(library(dendextend))
 #' library(circlizePlus)
@@ -703,6 +709,7 @@ ccRaster <- function(image, x, y,
 #' t1 <- ccTrack(ylim = c(0, dend_height), bg.border = NA, track.height = 0.4)
 #' cell1 <- ccCell(sector.index = "a") + ccDendrogram(dend = dend)
 #' cc + par1 + (t1 + cell1)
+#' }
 ccDendrogram <- function(dend,
                          facing = c("outside", "inside"),
                          max_height = NULL,
@@ -728,10 +735,13 @@ ccDendrogram <- function(dend,
 #' @examples
 #' library(circlizePlus)
 #' data <- generateRandomBed(nr = 30, nc = 2)
-#' all_chr <- c("chr1", "chr2", "chr3", "chr4", "chr5", "chr6", "chr7", "chr8", "chr9", "chr10", "chr11", "chr12", "chr13", "chr14", "chr15", "chr16", "chr17", "chr18", "chr19", "chr20", "chr21", "chr22", "chrX", "chrY")
+#' all_chr <- c("chr1", "chr2", "chr3", "chr4", "chr5", "chr6", "chr7", "chr8",
+#' "chr9", "chr10", "chr11", "chr12", "chr13", "chr14", "chr15", "chr16",
+#' "chr17", "chr18", "chr19", "chr20", "chr21", "chr22", "chrX", "chrY")
 #' cc <- ccPlot(initMode = "initializeWithIdeogram", plotType = NULL)
 #' t1 <- ccGenomicTrack(data = data, numeric.column = 4)
-#' cells1 <- ccCells(sector.indexes = all_chr) + ccGenomicPoints(region = \(region, value){
+#' cells1 <- ccCells(sector.indexes = all_chr) +
+#' ccGenomicPoints(region = \(region, value){
 #'   region
 #' }, value = \(region, value){
 #'   value
@@ -781,10 +791,13 @@ ccGenomicPoints <- function(region = NULL,
 #' @examples
 #' library(circlizePlus)
 #' data <- generateRandomBed(nr = 30, nc = 2)
-#' all_chr <- c("chr1", "chr2", "chr3", "chr4", "chr5", "chr6", "chr7", "chr8", "chr9", "chr10", "chr11", "chr12", "chr13", "chr14", "chr15", "chr16", "chr17", "chr18", "chr19", "chr20", "chr21", "chr22", "chrX", "chrY")
+#' all_chr <- c("chr1", "chr2", "chr3", "chr4", "chr5", "chr6", "chr7", "chr8",
+#' "chr9", "chr10", "chr11", "chr12", "chr13", "chr14", "chr15", "chr16",
+#' "chr17", "chr18", "chr19", "chr20", "chr21", "chr22", "chrX", "chrY")
 #' cc <- ccPlot(initMode = "initializeWithIdeogram", plotType = NULL)
 #' t1 <- ccGenomicTrack(data = data, numeric.column = 4)
-#' cells1 <- ccCells(sector.indexes = all_chr) + ccGenomicLines(numeric.column = 2)
+#' cells1 <- ccCells(sector.indexes = all_chr) +
+#' ccGenomicLines(numeric.column = 2)
 #' t1 <- t1 + cells1
 #' show(cc + t1)
 ccGenomicLines <- function(region = NULL,
@@ -849,7 +862,9 @@ ccGenomicLines <- function(region = NULL,
 #' bed_list <- list(bed1, bed2)
 #' f <- colorRamp2(breaks = c(-1, 0, 1), colors = c("green", "black", "red"))
 #' track1 <- ccGenomicTrack(data = bed_list, stack = TRUE)
-#' all_chr <- c("chr1", "chr2", "chr3", "chr4", "chr5", "chr6", "chr7", "chr8", "chr9", "chr10", "chr11", "chr12", "chr13", "chr14", "chr15", "chr16", "chr17", "chr18", "chr19", "chr20", "chr21", "chr22", "chrX", "chrY")
+#' all_chr <- c("chr1", "chr2", "chr3", "chr4", "chr5", "chr6", "chr7", "chr8",
+#' "chr9", "chr10", "chr11", "chr12", "chr13", "chr14", "chr15", "chr16",
+#' "chr17", "chr18", "chr19", "chr20", "chr21", "chr22", "chrX", "chrY")
 #' rect1 <- ccGenomicRect(col = 1, border = NA)
 #' cells1 <- ccCells(sector.indexes = all_chr) + rect1
 #' cc + par1 + (track1 + cells1)
@@ -901,7 +916,9 @@ ccGenomicRect <- function(region = NULL,
 #' cc <- ccPlot(initMode = "initializeWithIdeogram", plotType = NULL)
 #' bed <- generateRandomBed(nr = 20)
 #' track1 <- ccGenomicTrack(data = bed, ylim = c(0, 1))
-#' all_chr <- c("chr1", "chr2", "chr3", "chr4", "chr5", "chr6", "chr7", "chr8", "chr9", "chr10", "chr11", "chr12", "chr13", "chr14", "chr15", "chr16", "chr17", "chr18", "chr19", "chr20", "chr21", "chr22", "chrX", "chrY")
+#' all_chr <- c("chr1", "chr2", "chr3", "chr4", "chr5", "chr6", "chr7", "chr8",
+#' "chr9", "chr10", "chr11", "chr12", "chr13", "chr14", "chr15", "chr16",
+#' "chr17", "chr18", "chr19", "chr20", "chr21", "chr22", "chrX", "chrY")
 #' text1 <- ccGenomicText(y = 0.5, labels = "text")
 #' cells1 <- ccCells(sector.indexes = all_chr) + text1
 #' cc + (track1 + cells1)
@@ -964,7 +981,8 @@ ccGenomicText <- function(region = NULL,
 #'
 #' @examples
 #' library(circlizePlus)
-#' cc <- ccPlot(initMode = "initializeWithIdeogram", chromosome.index = paste0("chr", 1:4), plotType = NULL)
+#' cc <- ccPlot(initMode = "initializeWithIdeogram",
+#' chromosome.index = paste0("chr", 1:4), plotType = NULL)
 #' track <- ccTrack(ylim = c(0, 1))
 #' cell <- ccCell(sector.index = "chr1") + ccGenomicAxis()
 #' e <- track + cell

@@ -40,6 +40,7 @@ Object \linkS4class{ccCellGeom}
 Object \linkS4class{ccCellGeom} will call the function \link[circlize:circos.raster]{circlize::circos.raster} while drawing.
 }
 \examples{
+\dontrun{
 library(circlizePlus)
 library(png)
 image <- system.file("extdata", "Rlogo.png", package = "circlize")
@@ -47,7 +48,9 @@ image <- as.raster(readPNG(image))
 library(circlizePlus)
 cc <- ccPlot(sectors = letters[1:4], xlim = c(0, 10))
 track <- ccTrack(ylim = c(0, 1))
-cell <- ccCell(sector.index = "a") + ccRaster(image = image, x = 5, y = 0.5, width = "2cm", height = "2cm", facing = "inside", niceFacing = TRUE)
+cell <- ccCell(sector.index = "a") + ccRaster(image = image, x = 5, y = 0.5,
+width = "2cm", height = "2cm", facing = "inside", niceFacing = TRUE)
 track <- track + cell
 cc + track
+}
 }

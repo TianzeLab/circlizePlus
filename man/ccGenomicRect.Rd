@@ -67,7 +67,9 @@ bed2 <- generateRandomBed(nr = 100)
 bed_list <- list(bed1, bed2)
 f <- colorRamp2(breaks = c(-1, 0, 1), colors = c("green", "black", "red"))
 track1 <- ccGenomicTrack(data = bed_list, stack = TRUE)
-all_chr <- c("chr1", "chr2", "chr3", "chr4", "chr5", "chr6", "chr7", "chr8", "chr9", "chr10", "chr11", "chr12", "chr13", "chr14", "chr15", "chr16", "chr17", "chr18", "chr19", "chr20", "chr21", "chr22", "chrX", "chrY")
+all_chr <- c("chr1", "chr2", "chr3", "chr4", "chr5", "chr6", "chr7", "chr8",
+"chr9", "chr10", "chr11", "chr12", "chr13", "chr14", "chr15", "chr16",
+"chr17", "chr18", "chr19", "chr20", "chr21", "chr22", "chrX", "chrY")
 rect1 <- ccGenomicRect(col = 1, border = NA)
 cells1 <- ccCells(sector.indexes = all_chr) + rect1
 cc + par1 + (track1 + cells1)

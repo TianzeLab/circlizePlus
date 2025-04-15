@@ -44,7 +44,8 @@ Object \linkS4class{ccGenomicCellGeom} will call the function \link[circlize:cir
 }
 \examples{
 library(circlizePlus)
-cc <- ccPlot(initMode = "initializeWithIdeogram", chromosome.index = paste0("chr", 1:4), plotType = NULL)
+cc <- ccPlot(initMode = "initializeWithIdeogram",
+chromosome.index = paste0("chr", 1:4), plotType = NULL)
 track <- ccTrack(ylim = c(0, 1))
 cell <- ccCell(sector.index = "chr1") + ccGenomicAxis()
 e <- track + cell
