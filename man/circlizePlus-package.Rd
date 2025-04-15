@@ -13,6 +13,7 @@ Useful links:
 \itemize{
   \item \url{https://github.com/TianzeLab/circlizePlus}
   \item \url{https://tianzelab.github.io/circlizePlus/}
+  \item \doi{10.3389/fgene.2025.1535368}
   \item Report bugs at \url{https://github.com/TianzeLab/circlizePlus/issues}
 }
 

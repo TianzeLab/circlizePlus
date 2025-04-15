@@ -43,11 +43,13 @@ Example can be found in "4.2 Example 2: comparison of two pieces of code that us
 \if{html}{\out{<br>}}r2: A dataframe with 2414 rows and 3 columns
 }
 \examples{
+\dontrun{
 data(example2)
 allele_frequency
 copy_number
 junctions
 r1
 r2
+}
 }
 \keyword{datasets}
