@@ -7,7 +7,7 @@ Authors@R: c(
     person("Zheyu", "Zhang", , "2054906893@qq.com", role = c("aut"))
   )
 Description: 'circlizePlus' is a wrapper for 'circlize'. All components are based on classes and objects. Users can use the addition symbol (+) to combine components for a circular visualization with 'ggplot2' style.
-License: MIT
+License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
@@ -25,10 +25,11 @@ Collate:
     'data.R'
 Depends: 
     circlize (>= 0.4.16),
-    R (>= 4.3.3)
+    R (>= 4.4.3)
 Imports:
     methods,
     ape,
+    stats,
     dendextend,
     png
 Suggests: 

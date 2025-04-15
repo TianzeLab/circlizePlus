@@ -30,6 +30,9 @@ setClass(
 #' @inheritParams circlize::circos.heatmap
 #' @param clear Whether to call [circlize::circos.clear] before drawing.
 #' @return Object [ccHeatmap-class]
+#' @importFrom graphics par
+#' @importFrom methods new
+#' @importFrom stats reorder
 #' @export
 #' @examples
 #' library(circlizePlus)

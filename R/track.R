@@ -57,6 +57,8 @@ setClass("ccGenomicTrack", contains = c("ccTrack"))
 #' @inheritParams circlize::circos.trackPlotRegion
 #'
 #' @return Object [ccTrack-class]
+#' @importFrom graphics par
+#' @importFrom methods new
 #' @export
 #'
 #' @examples
@@ -122,6 +124,8 @@ ccTrack = function(sectors = NULL,
 #' @inheritParams circlize::circos.trackHist
 #'
 #' @return Object [ccTrack-class]
+#' @importFrom graphics par
+#' @importFrom methods new
 #' @export
 #'
 #' @examples
@@ -233,6 +237,7 @@ ccGenomicTrack = function(data = NULL,
 #' @inheritParams circlize::circos.genomicIdeogram
 #'
 #' @return Object [ccGenomicTrack-class]
+#' @importFrom methods new
 #' @export
 #'
 #' @examples
@@ -265,6 +270,8 @@ ccGenomicIdeogram = function( cytoband = system.file(package = "circlize", "extd
 #' @inheritParams circlize::circos.genomicHeatmap
 #'
 #' @return Object [ccGenomicTrack-class]
+#' @importFrom graphics par
+#' @importFrom methods new
 #' @export
 #'
 #' @examples
@@ -318,6 +325,8 @@ ccGenomicHeatmap = function(bed,
 #' @inheritParams circlize::circos.genomicLabels
 #'
 #' @return Object [ccGenomicTrack-class]
+#' @importFrom graphics par
+#' @importFrom methods new
 #' @export
 #'
 #' @examples
@@ -380,6 +389,8 @@ ccGenomicLabels = function(bed,
 #' @inheritParams circlize::circos.genomicRainfall
 #'
 #' @return Object [ccGenomicTrack-class]
+#' @importFrom graphics par
+#' @importFrom methods new
 #' @export
 #'
 #' @examples
@@ -420,6 +431,8 @@ ccGenomicRainfall = function(data,
 #' @inheritParams circlize::circos.genomicDensity
 #'
 #' @return Object [ccGenomicTrack-class]
+#' @importFrom graphics par
+#' @importFrom methods new
 #' @export
 #'
 #' @examples

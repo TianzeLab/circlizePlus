@@ -19,6 +19,8 @@ setClass("ccTrackGeom",
 #' @inheritParams circlize::circos.trackLines
 #'
 #' @return Object [ccTrackGeom-class]
+#' @importFrom graphics par
+#' @importFrom methods new
 #' @export
 #'
 #' @examples
@@ -64,6 +66,8 @@ ccTrackLines = function(sectors,
 #' @inheritParams circlize::circos.trackPoints
 #'
 #' @return Object [ccTrackGeom-class]
+#' @importFrom graphics par
+#' @importFrom methods new
 #' @export
 #'
 #' @examples
@@ -93,6 +97,8 @@ ccTrackPoints = function( sectors,
 #' @inheritParams circlize::circos.trackText
 #'
 #' @return Object [ccTrackGeom-class]
+#' @importFrom graphics par
+#' @importFrom methods new
 #' @export
 #'
 #' @examples

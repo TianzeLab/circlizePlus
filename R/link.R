@@ -38,6 +38,8 @@ setClass("ccGenomicLink", contains = c('ccLink'))
 #' @inheritParams circlize::circos.link
 #'
 #' @return Object [ccLink-class]
+#' @importFrom graphics par
+#' @importFrom methods new
 #' @export
 #'
 #' @examples
@@ -117,6 +119,7 @@ ccLink = function( sector.index1,
 #' @inheritParams circlize::circos.heatmap.link
 #'
 #' @return Object [ccHeatmapLink-class]
+#' @importFrom methods new
 #' @export
 #'
 #' @examples
@@ -142,6 +145,8 @@ ccHeatmapLink = function(row_from, row_to, ...) {
 #' @inheritParams circlize::circos.genomicLink
 #'
 #' @return Object [ccGenomicLink-class]
+#' @importFrom graphics par
+#' @importFrom methods new
 #' @export
 #'
 #' @examples

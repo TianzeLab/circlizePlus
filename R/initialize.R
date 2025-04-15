@@ -39,6 +39,7 @@ setClass(
 #' @usage ccPlot(initMode = 'genomicInitialize',clear = TRUE,data=NULL,sector.names = NULL,major.by = NULL,plotType = c("axis", "labels"),tickLabelsStartFromZero = TRUE,axis.labels.cex = 0.4*par("cex"),labels.cex = 0.8*par("cex"),track.height = NULL,...)
 #' @usage ccPlot(initMode = 'initializeWithIdeogram',clear = TRUE,cytoband = system.file(package = "circlize", "extdata", "cytoBand.txt"),species = NULL,sort.chr = TRUE,chromosome.index = usable_chromosomes(species),major.by = NULL,plotType = c("ideogram", "axis", "labels"),track.height = NULL,ideogram.height = convert_height(2, "mm"),...)
 #' @usage ccPlot(initMode = 'heatmap.initialize',clear = TRUE,mat=NULL, split = NULL, cluster = TRUE,clustering.method = "complete", distance.method = "euclidean",dend.callback = function(dend, m, si) reorder(dend, rowMeans(m)),cell_width = rep(1, nrow(mat)))
+#' @importFrom methods new
 #' @export
 #' @examples
 #' n = 1000
@@ -65,6 +66,7 @@ ccPlot = function(initMode = 'initialize',
 #' @param object Object of [ccPlot-class]
 #'
 #' @importMethodsFrom methods show
+#' @importFrom graphics strwidth
 #'
 #' @export
 #' @include utils.R

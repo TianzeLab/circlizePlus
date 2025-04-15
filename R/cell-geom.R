@@ -58,6 +58,7 @@ setClass("ccGenomicCellGeom", contains = c("ccCellGeom"))
 #' @param sector.index character. It is the index that corresponds to the sector.
 #'
 #' @return Object [ccCell-class]
+#' @importFrom methods new
 #' @export
 #'
 #' @examples
@@ -82,6 +83,7 @@ ccCell <- function(sector.index = NULL) {
 #' @param sector.indexes list. A list of indexs that corresponds to the sectors.
 #'
 #' @return Object [ccCells-class]
+#' @importFrom methods new
 #' @export
 #'
 #' @examples
@@ -114,6 +116,8 @@ ccCells <- function(sector.indexes = list()) {
 #' @inheritParams circlize::circos.text
 #'
 #' @return Object [ccCellGeom-class]
+#' @importFrom graphics par
+#' @importFrom methods new
 #' @export
 #'
 #' @examples
@@ -193,6 +197,8 @@ ccText <- function(x = NULL,
 #' @inheritParams circlize::circos.points
 #'
 #' @return Object [ccCellGeom-class]
+#' @importFrom graphics par
+#' @importFrom methods new
 #' @export
 #'
 #' @examples
@@ -236,6 +242,8 @@ ccPoints <- function(x = NULL, y = NULL,
 #' @inheritParams circlize::circos.lines
 #'
 #' @return Object [ccCellGeom-class]
+#' @importFrom graphics par
+#' @importFrom methods new
 #' @export
 #'
 #' @examples
@@ -292,6 +300,8 @@ ccLines <- function(x = NULL, y = NULL,
 #' @inheritParams circlize::circos.segments
 #'
 #' @return Object [ccCellGeom-class]
+#' @importFrom graphics par
+#' @importFrom methods new
 #' @export
 #'
 #' @examples
@@ -374,6 +384,7 @@ ccRect <- function(xleft = NULL, ybottom = NULL, xright = NULL, ytop = NULL,
 #' @inheritParams circlize::circos.polygon
 #'
 #' @return Object [ccCellGeom-class]
+#' @importFrom methods new
 #' @export
 #'
 #' @examples
@@ -402,6 +413,8 @@ ccPolygon <- function(x = NULL, y = NULL,
 #' @inheritParams circlize::circos.axis
 #'
 #' @return Object [ccCellGeom-class]
+#' @importFrom graphics par
+#' @importFrom methods new
 #' @export
 #'
 #' @examples
@@ -455,6 +468,8 @@ ccXaxis <- function(h = "top",
 #' @inheritParams circlize::circos.yaxis
 #'
 #' @return Object [ccCellGeom-class]
+#' @importFrom graphics par
+#' @importFrom methods new
 #' @export
 #'
 #' @examples
@@ -496,6 +511,8 @@ ccYaxis <- function(side = c("left", "right"),
 #' @inheritParams circlize::circos.barplot
 #'
 #' @return Object [ccCellGeom-class]
+#' @importFrom graphics par
+#' @importFrom methods new
 #' @export
 #'
 #' @examples
@@ -521,6 +538,8 @@ ccBarplot <- function(value, pos, bar_width = 0.6,
 #' @inheritParams circlize::circos.boxplot
 #'
 #' @return Object [ccCellGeom-class]
+#' @importFrom graphics par
+#' @importFrom methods new
 #' @export
 #'
 #' @examples
@@ -548,6 +567,8 @@ ccBoxplot <- function(value, pos, outline = TRUE, box_width = 0.6,
 #' @inheritParams circlize::circos.violin
 #'
 #' @return Object [ccCellGeom-class]
+#' @importFrom graphics par
+#' @importFrom methods new
 #' @export
 #'
 #' @examples
@@ -577,6 +598,8 @@ ccViolin <- function(value, pos, violin_width = 0.8,
 #' @inheritParams circlize::circos.arrow
 #'
 #' @return Object [ccCellGeom-class]
+#' @importFrom graphics par
+#' @importFrom methods new
 #' @export
 #'
 #' @examples
@@ -621,6 +644,7 @@ ccArrow <- function(x1,
 #' @inheritParams circlize::circos.raster
 #'
 #' @return Object [ccCellGeom-class]
+#' @importFrom methods new
 #' @export
 #'
 #' @examples
@@ -659,6 +683,7 @@ ccRaster <- function(image, x, y,
 #' @inheritParams circlize::circos.dendrogram
 #'
 #' @return Object [ccCellGeom-class]
+#' @importFrom methods new
 #' @export
 #'
 #' @examples
@@ -749,6 +774,8 @@ ccGenomicPoints <- function(region = NULL,
 #' @inheritParams circlize::circos.genomicLines
 #'
 #' @return Object [ccGenomicCellGeom-class]
+#' @importFrom graphics par
+#' @importFrom methods new
 #' @export
 #'
 #' @examples
@@ -809,6 +836,8 @@ ccGenomicLines <- function(region = NULL,
 #' @inheritParams circlize::circos.genomicRect
 #'
 #' @return Object [ccGenomicCellGeom-class]
+#' @importFrom graphics par
+#' @importFrom methods new
 #' @export
 #'
 #' @examples
@@ -863,6 +892,8 @@ ccGenomicRect <- function(region = NULL,
 #' @inheritParams circlize::circos.genomicText
 #'
 #' @return Object [ccGenomicCellGeom-class]
+#' @importFrom graphics par
+#' @importFrom methods new
 #' @export
 #'
 #' @examples
@@ -927,6 +958,8 @@ ccGenomicText <- function(region = NULL,
 #' @inheritParams circlize::circos.genomicAxis
 #'
 #' @return Object [ccGenomicCellGeom-class]
+#' @importFrom graphics par
+#' @importFrom methods new
 #' @export
 #'
 #' @examples

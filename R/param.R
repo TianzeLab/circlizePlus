@@ -20,6 +20,7 @@ setClass(
 #' @inheritDotParams circlize::circos.par
 #'
 #' @return Object [ccPar-class]
+#' @importFrom methods new
 #' @export
 #'
 #' @examples
