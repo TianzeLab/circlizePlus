@@ -6,9 +6,33 @@
 #' <br>junctions: A dataframe with 2414 rows and 28 columns
 #' <br>r1: A dataframe with 2414 rows and 3 columns
 #' <br>r2: A dataframe with 2414 rows and 3 columns
+#' @name data-set
 #' @source \url{https://www.frontiersin.org/journals/genetics/articles/10.3389/fgene.2025.1535368/full#h5}
 #' @examples
-#' data("example2")
-#'
-#' @name data-set
+#' data(example2)
+#' allele_frequency
+#' copy_number
+#' junctions
+#' r1
+#' r2
 NULL
+
+#' @rdname data-set
+#' @usage data(example2)
+"allele_frequency"
+
+#' @rdname data-set
+#' @usage data(example2)
+"copy_number"
+
+#' @rdname data-set
+#' @usage data(example2)
+"junctions"
+
+#' @rdname data-set
+#' @usage data(example2)
+"r1"
+
+#' @rdname data-set
+#' @usage data(example2)
+"r2"
