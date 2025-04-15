@@ -5,7 +5,6 @@
 <url><loc>https://tianzelab.github.io/circlizePlus/authors.html</loc></url>
 <url><loc>https://tianzelab.github.io/circlizePlus/index.html</loc></url>
 <url><loc>https://tianzelab.github.io/circlizePlus/reference/addition-rules.html</loc></url>
-<url><loc>https://tianzelab.github.io/circlizePlus/reference/allele_frequency.html</loc></url>
 <url><loc>https://tianzelab.github.io/circlizePlus/reference/ccArrow.html</loc></url>
 <url><loc>https://tianzelab.github.io/circlizePlus/reference/ccBarplot.html</loc></url>
 <url><loc>https://tianzelab.github.io/circlizePlus/reference/ccBoxplot.html</loc></url>
@@ -58,11 +57,8 @@
 <url><loc>https://tianzelab.github.io/circlizePlus/reference/ccXaxis.html</loc></url>
 <url><loc>https://tianzelab.github.io/circlizePlus/reference/ccYaxis.html</loc></url>
 <url><loc>https://tianzelab.github.io/circlizePlus/reference/circlizePlus-package.html</loc></url>
-<url><loc>https://tianzelab.github.io/circlizePlus/reference/copy_number.html</loc></url>
+<url><loc>https://tianzelab.github.io/circlizePlus/reference/data-set.html</loc></url>
 <url><loc>https://tianzelab.github.io/circlizePlus/reference/index.html</loc></url>
-<url><loc>https://tianzelab.github.io/circlizePlus/reference/junctions.html</loc></url>
-<url><loc>https://tianzelab.github.io/circlizePlus/reference/r1.html</loc></url>
-<url><loc>https://tianzelab.github.io/circlizePlus/reference/r2.html</loc></url>
 <url><loc>https://tianzelab.github.io/circlizePlus/reference/show-ccHeatmap-method.html</loc></url>
 <url><loc>https://tianzelab.github.io/circlizePlus/reference/show-ccPlot-method.html</loc></url>
 </urlset>
