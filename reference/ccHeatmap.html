@@ -62,6 +62,7 @@
 <span>  rownames.col <span class="op">=</span> <span class="st">"black"</span>,</span>
 <span>  show.sector.labels <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  cell_width <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">mat</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>  clear <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -162,6 +163,10 @@
 <dd><p>Relative widths of heatmap cells.</p></dd>
 
 
+<dt id="arg-clear">clear<a class="anchor" aria-label="anchor" href="#arg-clear"></a></dt>
+<dd><p>Whether to call <a href="https://rdrr.io/pkg/circlize/man/circos.clear.html" class="external-link">circlize::circos.clear</a> before drawing.</p></dd>
+
+
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
 <dd><p>Pass to <code><a href="https://rdrr.io/pkg/circlize/man/circos.track.html" class="external-link">circos.track</a></code> which draws the heatmap track.</p></dd>
 
@@ -189,7 +194,7 @@
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">mat1</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"C"</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">mat1</span> <span class="op">&lt;-</span> <span class="va">mat1</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">100</span><span class="op">)</span>, <span class="op">]</span> <span class="co"># randomly permute rows</span></span></span>
 <span class="r-in"><span><span class="va">split</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="va">letters</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span>, <span class="fl">100</span>, replace <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">spilt</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">split</span>, levels <span class="op">=</span> <span class="va">letters</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">split</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">split</span>, levels <span class="op">=</span> <span class="va">letters</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">col_fun1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/circlize/man/colorRamp2.html" class="external-link">colorRamp2</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">2</span>, <span class="fl">0</span>, <span class="fl">2</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"blue"</span>, <span class="st">"white"</span>, <span class="st">"red"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">ccHeatmap</span><span class="op">(</span>mat <span class="op">=</span> <span class="va">mat1</span>, split <span class="op">=</span> <span class="va">split</span>, col <span class="op">=</span> <span class="va">col_fun1</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="ccHeatmap-1.png" alt="" width="700" height="433"></span>
