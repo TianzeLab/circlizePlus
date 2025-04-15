@@ -91,9 +91,8 @@ ccHeatmap <- function(mat, split = NULL, col, na.col = "grey",
 #' A generic function of show ccHeatmap
 #'
 #' @param object Object of [ccHeatmap-class]
-#' @usage show(object)
 #' @importMethodsFrom methods show
-#' @export
+#' @exportMethod show
 #' @examples
 #' library(circlizePlus)
 #' set.seed(123)

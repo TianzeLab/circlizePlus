@@ -1,6 +1,27 @@
+
+#' Addition rules in circlizePlus
+#'
+#' ccPlot(contain n ccTracks)+ccTrack=ccPlot(contain n+1 ccTracks),n≥0 <br>
+#' ccPlot(contain n ccLinks)+ccLink=ccPlot(contain n+1 ccLinks),n≥0 <br>
+#' ccTrak(contain n ccTrakGeoms)+ccTrackGeom=ccTrack(contain n+1 ccTrackGeoms),n≥0 <br>
+#' ccTrack(contain n ccCells)+ccCell=ccTrack(contain n+1 ccCells),n≥0 <br>
+#' ccCell(contain n ccCellGeoms)+ccCellGeom=ccCell(contain n+1 ccCellGeoms),n≥0 <br>
+#'
+#' @param e1 A object defined in circlizePlus
+#' @param e2 A object defined in circlizePlus
+#'
+#' @return A object defined in circlizePlus
+#' @examples
+#' NULL
+#'
+#' @name addition-rules
+NULL
+
+#' @rdname addition-rules
 #' @export
 #' @include initialize.R
 #' @include param.R
+#' @keywords internal
 setMethod(
   "+",
   signature = c(e1 = "ccPlot", e2 = "ccPar"),
@@ -10,9 +31,11 @@ setMethod(
   }
 )
 
+#' @rdname addition-rules
 #' @export
 #' @include initialize.R
 #' @include track.R
+#' @keywords internal
 setMethod(
   "+",
   signature = c(e1 = "ccPlot", e2 = "ccTrack"),
@@ -22,9 +45,11 @@ setMethod(
   }
 )
 
+#' @rdname addition-rules
 #' @export
 #' @include initialize.R
 #' @include link.R
+#' @keywords internal
 setMethod(
   "+",
   signature = c(e1 = "ccPlot", e2 = "ccLink"),
@@ -34,9 +59,11 @@ setMethod(
   }
 )
 
+#' @rdname addition-rules
 #' @export
 #' @include track.R
 #' @include track-geom.R
+#' @keywords internal
 setMethod(
   "+",
   signature = c(e1 = "ccTrack", e2 = "ccTrackGeom"),
@@ -46,9 +73,11 @@ setMethod(
   }
 )
 
+#' @rdname addition-rules
 #' @export
 #' @include track.R
 #' @include cell-geom.R
+#' @keywords internal
 setMethod(
   "+",
   signature = c(e1 = "ccTrack", e2 = "ccCells"),
@@ -60,9 +89,11 @@ setMethod(
   }
 )
 
+#' @rdname addition-rules
 #' @export
 #' @include track.R
 #' @include cell-geom.R
+#' @keywords internal
 setMethod(
   "+",
   signature = c(e1 = "ccTrack", e2 = "ccCell"),
@@ -72,8 +103,10 @@ setMethod(
   }
 )
 
+#' @rdname addition-rules
 #' @export
 #' @include cell-geom.R
+#' @keywords internal
 setMethod(
   "+",
   signature = c(e1 = "ccCell", e2 = "ccCellGeom"),
@@ -83,8 +116,10 @@ setMethod(
   }
 )
 
+#' @rdname addition-rules
 #' @export
 #' @include cell-geom.R
+#' @keywords internal
 setMethod(
   "+",
   signature = c(e1 = "ccCells", e2 = "ccCellGeom"),
@@ -96,9 +131,11 @@ setMethod(
   }
 )
 
+#' @rdname addition-rules
 #' @export
 #' @include heatmap.R
 #' @include param.R
+#' @keywords internal
 setMethod(
   "+",
   signature = c(e1 = "ccHeatmap", e2 = "ccPar"),
@@ -108,9 +145,11 @@ setMethod(
   }
 )
 
+#' @rdname addition-rules
 #' @export
 #' @include heatmap.R
 #' @include track.R
+#' @keywords internal
 setMethod(
   "+",
   signature = c(e1 = "ccHeatmap", e2 = "ccTrack"),
@@ -120,9 +159,11 @@ setMethod(
   }
 )
 
+#' @rdname addition-rules
 #' @export
 #' @include heatmap.R
 #' @include link.R
+#' @keywords internal
 setMethod(
   "+",
   signature = c(e1 = "ccHeatmap", e2 = "ccLink"),

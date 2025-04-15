@@ -29,16 +29,20 @@ setClass(
 
 #' Object generator for S4 class ccPlot
 #'
-#' Object [ccPlot-class] calls one of the following functions based on the value of initMode: [circlize::circos.initialize], [circlize::circos.genomicInitialize], [circlize::circos.initializeWithIdeogram], [circlize::circos.heatmap.initialize].
+#' Object [ccPlot-class] calls one of the following functions based on the value of initMode: [circlize::circos.initialize], [circlize::circos.genomicInitialize], [circlize::circos.initializeWithIdeogram], [circlize::circos.heatmap.initialize]. <br>
+#' The correct way to call it is as follows: <br>
+#' `ccPlot(initMode = 'initialize',clear = TRUE,sectors = NULL,x = NULL,xlim = NULL,sector.width = NULL,factors = sectors,ring = FALSE)` <br> <br>
+#' `ccPlot(initMode = 'genomicInitialize',clear = TRUE,data=NULL,sector.names = NULL,major.by = NULL,plotType = c("axis", "labels"),tickLabelsStartFromZero = TRUE,axis.labels.cex = 0.4*par("cex"),labels.cex = 0.8*par("cex"),track.height = NULL,...)` <br> <br>
+#' `ccPlot(initMode = 'initializeWithIdeogram',clear = TRUE,cytoband = system.file(package = "circlize", "extdata", "cytoBand.txt"),species = NULL,sort.chr = TRUE,chromosome.index = usable_chromosomes(species),major.by = NULL,plotType = c("ideogram", "axis", "labels"),track.height = NULL,ideogram.height = convert_height(2, "mm"),...)` <br> <br>
+#' `ccPlot(initMode = 'heatmap.initialize',clear = TRUE,mat=NULL, split = NULL, cluster = TRUE,clustering.method = "complete", distance.method = "euclidean",dend.callback = function(dend, m, si) reorder(dend, rowMeans(m)),cell_width = rep(1, nrow(mat)))` <br>
 #'
 #' @param initMode It can only be the following values: "initialize", "genomicInitialize", "initializeWithIdeogram", "heatmap.initialize".
 #' @param clear Whether to call [circlize::circos.clear] before drawing.
-#' @param ... Parameters passed to the function in the package circlize. The function is one of the following four:[circlize::circos.initialize], [circlize::circos.genomicInitialize], [circlize::circos.initializeWithIdeogram], [circlize::circos.heatmap.initialize].
+#' @inheritDotParams circlize::circos.initialize
+#' @inheritDotParams circlize::circos.genomicInitialize
+#' @inheritDotParams circlize::circos.initializeWithIdeogram
+#' @inheritDotParams circlize::circos.heatmap.initialize
 #'
-#' @usage ccPlot(initMode = 'initialize',clear = TRUE,sectors = NULL,x = NULL,xlim = NULL,sector.width = NULL,factors = sectors,ring = FALSE)
-#' @usage ccPlot(initMode = 'genomicInitialize',clear = TRUE,data=NULL,sector.names = NULL,major.by = NULL,plotType = c("axis", "labels"),tickLabelsStartFromZero = TRUE,axis.labels.cex = 0.4*par("cex"),labels.cex = 0.8*par("cex"),track.height = NULL,...)
-#' @usage ccPlot(initMode = 'initializeWithIdeogram',clear = TRUE,cytoband = system.file(package = "circlize", "extdata", "cytoBand.txt"),species = NULL,sort.chr = TRUE,chromosome.index = usable_chromosomes(species),major.by = NULL,plotType = c("ideogram", "axis", "labels"),track.height = NULL,ideogram.height = convert_height(2, "mm"),...)
-#' @usage ccPlot(initMode = 'heatmap.initialize',clear = TRUE,mat=NULL, split = NULL, cluster = TRUE,clustering.method = "complete", distance.method = "euclidean",dend.callback = function(dend, m, si) reorder(dend, rowMeans(m)),cell_width = rep(1, nrow(mat)))
 #' @importFrom methods new
 #' @export
 #' @examples
@@ -68,9 +72,8 @@ ccPlot = function(initMode = 'initialize',
 #' @importMethodsFrom methods show
 #' @importFrom graphics strwidth
 #'
-#' @export
+#' @exportMethod show
 #' @include utils.R
-#' @usage show(object)
 #' @examples
 #' library(circlizePlus)
 #' n = 1000

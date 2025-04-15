@@ -4,23 +4,80 @@
 \alias{ccPlot}
 \title{Object generator for S4 class ccPlot}
 \usage{
-ccPlot(initMode = 'initialize',clear = TRUE,sectors = NULL,x = NULL,xlim = NULL,sector.width = NULL,factors = sectors,ring = FALSE)
-
-ccPlot(initMode = 'genomicInitialize',clear = TRUE,data=NULL,sector.names = NULL,major.by = NULL,plotType = c("axis", "labels"),tickLabelsStartFromZero = TRUE,axis.labels.cex = 0.4*par("cex"),labels.cex = 0.8*par("cex"),track.height = NULL,...)
-
-ccPlot(initMode = 'initializeWithIdeogram',clear = TRUE,cytoband = system.file(package = "circlize", "extdata", "cytoBand.txt"),species = NULL,sort.chr = TRUE,chromosome.index = usable_chromosomes(species),major.by = NULL,plotType = c("ideogram", "axis", "labels"),track.height = NULL,ideogram.height = convert_height(2, "mm"),...)
-
-ccPlot(initMode = 'heatmap.initialize',clear = TRUE,mat=NULL, split = NULL, cluster = TRUE,clustering.method = "complete", distance.method = "euclidean",dend.callback = function(dend, m, si) reorder(dend, rowMeans(m)),cell_width = rep(1, nrow(mat)))
+ccPlot(initMode = "initialize", clear = TRUE, ...)
 }
 \arguments{
 \item{initMode}{It can only be the following values: "initialize", "genomicInitialize", "initializeWithIdeogram", "heatmap.initialize".}
 
 \item{clear}{Whether to call \link[circlize:circos.clear]{circlize::circos.clear} before drawing.}
 
-\item{...}{Parameters passed to the function in the package circlize. The function is one of the following four:\link[circlize:circos.initialize]{circlize::circos.initialize}, \link[circlize:circos.genomicInitialize]{circlize::circos.genomicInitialize}, \link[circlize:circos.initializeWithIdeogram]{circlize::circos.initializeWithIdeogram}, \link[circlize:circos.heatmap.initialize]{circlize::circos.heatmap.initialize}.}
+\item{...}{
+  Arguments passed on to \code{\link[circlize:circos.initialize]{circlize::circos.initialize}}, \code{\link[circlize:circos.genomicInitialize]{circlize::circos.genomicInitialize}}, \code{\link[circlize:circos.initializeWithIdeogram]{circlize::circos.initializeWithIdeogram}}, \code{\link[circlize:circos.heatmap.initialize]{circlize::circos.heatmap.initialize}}
+  \describe{
+    \item{\code{sectors}}{A \code{\link{factor}} variable or a character vector which represent data categories
+}
+    \item{\code{factors}}{The same as \code{sectors}. It will be removed in future versions. 
+}
+    \item{\code{x}}{Data on x-axes, a vector
+}
+    \item{\code{xlim}}{Ranges for values on x-axes, see "details" section for explanation of the format
+}
+    \item{\code{sector.width}}{Width for each sector. The length of the vector should be either 1 which means
+ all sectors have same width or as same as the number of sectors. Values for
+ the vector are relative, and they will be scaled by dividing their summation.
+ By default, it is \code{NULL} which means the width of sectors correspond to the data
+ range in sectors.
+}
+    \item{\code{ring}}{Whether the sector represented as a ring. If yes, there should only be one sector in the circle.
+}
+    \item{\code{data}}{A data frame in bed format.
+}
+    \item{\code{sector.names}}{Labels for each sectors which will be drawn along each sector. It will not modify values of sector index.
+}
+    \item{\code{major.by}}{Increment of major ticks. It is calculated automatically if the value is not set (about every 10 degrees there is a major tick).
+}
+    \item{\code{plotType}}{If it is not \code{NULL}, there will create a new track containing axis and names for sectors.
+ This argument controls which part should be drawn, \code{axis} for genomic axis and \code{labels} for chromosome names
+}
+    \item{\code{tickLabelsStartFromZero}}{Whether axis tick labels start from 0? This will only affect the axis labels while not affect x-values in cells.
+}
+    \item{\code{axis.labels.cex}}{The font size for the axis tick labels.
+}
+    \item{\code{labels.cex}}{The font size for the labels.
+}
+    \item{\code{track.height}}{If \code{PlotType} is not \code{NULL}, height of the annotation track.
+}
+    \item{\code{cytoband}}{A path of the cytoband file or a data frame that already contains cytoband data. By default it is cytoband for hg19.
+ Pass to \code{\link[circlize]{read.cytoband}}.
+}
+    \item{\code{species}}{Abbreviations of species. e.g. hg19 for human, mm10 for mouse. If this
+ value is specified, the function will download cytoBand.txt.gz from
+ UCSC website automatically. If there is no cytoband for user's species,
+ it will keep on trying to download chromInfo file. Pass to \code{\link[circlize]{read.cytoband}} or \code{\link[circlize]{read.chromInfo}}.
+}
+    \item{\code{chromosome.index}}{subset of chromosomes, also used to reorder chromosomes.
+}
+    \item{\code{sort.chr}}{Whether chromosome names should be sorted (first sort by numbers then by letters).
+ If \code{chromosome.index} is set, this argumetn is enforced to \code{FALSE}
+}
+    \item{\code{ideogram.height}}{Height of the ideogram track
+}
+    \item{\code{mat}}{A matrix or a vector. The vector is transformed as a one-column matrix.}
+    \item{\code{split}}{A categorical variable. It splits the matrix into a list of matrices.}
+    \item{\code{cluster}}{whether to apply clustering on rows. The value can also be a \code{dendrogram}/\code{hclust} object or other objects that can be converted to with \code{\link[stats:dendrogram]{as.dendrogram}}.}
+    \item{\code{clustering.method}}{Clustering method, pass to \code{\link[stats]{hclust}}.}
+    \item{\code{distance.method}}{Distance method, pass to \code{\link[stats]{dist}}.}
+    \item{\code{dend.callback}}{A callback function that is applied to the dendrogram in every sector.}
+    \item{\code{cell_width}}{Relative widths of heatmap cells.}
+  }}
 }
 \description{
-Object \linkS4class{ccPlot} calls one of the following functions based on the value of initMode: \link[circlize:circos.initialize]{circlize::circos.initialize}, \link[circlize:circos.genomicInitialize]{circlize::circos.genomicInitialize}, \link[circlize:circos.initializeWithIdeogram]{circlize::circos.initializeWithIdeogram}, \link[circlize:circos.heatmap.initialize]{circlize::circos.heatmap.initialize}.
+Object \linkS4class{ccPlot} calls one of the following functions based on the value of initMode: \link[circlize:circos.initialize]{circlize::circos.initialize}, \link[circlize:circos.genomicInitialize]{circlize::circos.genomicInitialize}, \link[circlize:circos.initializeWithIdeogram]{circlize::circos.initializeWithIdeogram}, \link[circlize:circos.heatmap.initialize]{circlize::circos.heatmap.initialize}. \if{html}{\out{<br>}}
+The correct way to call it is as follows: \if{html}{\out{<br>}}
+\code{ccPlot(initMode = 'initialize',clear = TRUE,sectors = NULL,x = NULL,xlim = NULL,sector.width = NULL,factors = sectors,ring = FALSE)} \if{html}{\out{<br>}} \if{html}{\out{<br>}}
+\code{ccPlot(initMode = 'genomicInitialize',clear = TRUE,data=NULL,sector.names = NULL,major.by = NULL,plotType = c("axis", "labels"),tickLabelsStartFromZero = TRUE,axis.labels.cex = 0.4*par("cex"),labels.cex = 0.8*par("cex"),track.height = NULL,...)} \if{html}{\out{<br>}} \if{html}{\out{<br>}}
+\code{ccPlot(initMode = 'initializeWithIdeogram',clear = TRUE,cytoband = system.file(package = "circlize", "extdata", "cytoBand.txt"),species = NULL,sort.chr = TRUE,chromosome.index = usable_chromosomes(species),major.by = NULL,plotType = c("ideogram", "axis", "labels"),track.height = NULL,ideogram.height = convert_height(2, "mm"),...)} \if{html}{\out{<br>}} \if{html}{\out{<br>}}
+\code{ccPlot(initMode = 'heatmap.initialize',clear = TRUE,mat=NULL, split = NULL, cluster = TRUE,clustering.method = "complete", distance.method = "euclidean",dend.callback = function(dend, m, si) reorder(dend, rowMeans(m)),cell_width = rep(1, nrow(mat)))} \if{html}{\out{<br>}}
 }
 \examples{
 n = 1000

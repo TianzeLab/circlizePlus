@@ -4,7 +4,7 @@
 \alias{show,ccPlot-method}
 \title{A generic function of show ccPlot}
 \usage{
-show(object)
+\S4method{show}{ccPlot}(object)
 }
 \arguments{
 \item{object}{Object of \linkS4class{ccPlot}}

@@ -4,7 +4,7 @@
 \alias{show,ccHeatmap-method}
 \title{A generic function of show ccHeatmap}
 \usage{
-show(object)
+\S4method{show}{ccHeatmap}(object)
 }
 \arguments{
 \item{object}{Object of \linkS4class{ccHeatmap}}

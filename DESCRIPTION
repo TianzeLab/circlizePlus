@@ -25,7 +25,7 @@ Collate:
     'data.R'
 Depends: 
     circlize (>= 0.4.16),
-    R (>= 4.4.3)
+    R (>= 4.4.0)
 Imports:
     methods,
     ape,
