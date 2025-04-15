@@ -9,6 +9,7 @@
 #' @slot tracks list. A list where [ccTrack-class] or [ccGenomicTrack-class] or [ccHeatmap-class] are stored.
 #' @slot links list. A list where [ccLink-class] or [ccGenomicLink-class] or [ccHeatmapLink-class] are stored.
 #' @slot pars list. A list where [ccPar-class] are stored.
+#' @slot clear logical. Whether to call [circlize::circos.clear] before drawing.
 #' @export
 #' @include track.R
 setClass(
@@ -16,7 +17,8 @@ setClass(
   slots = c(
     tracks = "list",
     links = "list",
-    pars = "list"
+    pars = "list",
+    clear = "logical"
   ),
   contains = c("ccTrack")
 )
@@ -26,6 +28,7 @@ setClass(
 #' Object [ccHeatmap-class] will call the function [circlize::circos.heatmap] while drawing.
 #'
 #' @inheritParams circlize::circos.heatmap
+#' @param clear Whether to call [circlize::circos.clear] before drawing.
 #' @return Object [ccHeatmap-class]
 #' @export
 #' @examples
@@ -45,7 +48,7 @@ setClass(
 #' colnames(mat1) <- paste0("C", 1:10)
 #' mat1 <- mat1[sample(100, 100), ] # randomly permute rows
 #' split <- sample(letters[1:5], 100, replace = TRUE)
-#' spilt <- factor(split, levels = letters[1:5])
+#' split <- factor(split, levels = letters[1:5])
 #' col_fun1 <- colorRamp2(c(-2, 0, 2), c("blue", "white", "red"))
 #' ccHeatmap(mat = mat1, split = split, col = col_fun1)
 ccHeatmap <- function(mat, split = NULL, col, na.col = "grey",
@@ -57,7 +60,7 @@ ccHeatmap <- function(mat, split = NULL, col, na.col = "grey",
                       dend.side = c("none", "outside", "inside"), dend.track.height = 0.1,
                       rownames.side = c("none", "outside", "inside"), rownames.cex = 0.5,
                       rownames.font = par("font"), rownames.col = "black",
-                      show.sector.labels = FALSE, cell_width = rep(1, nrow(mat)), ...) {
+                      show.sector.labels = FALSE, cell_width = rep(1, nrow(mat)), clear = TRUE, ...) {
   name_args <- list(
     mat = mat, split = split, col = col, na.col = na.col,
     cell.border = cell.border, cell.lty = cell.lty, cell.lwd = cell.lwd,
@@ -77,7 +80,8 @@ ccHeatmap <- function(mat, split = NULL, col, na.col = "grey",
     links = list(),
     pars = list(),
     trackGeoms = list(),
-    cells = list()
+    cells = list(),
+    clear = clear
   )
 }
 
@@ -85,6 +89,7 @@ ccHeatmap <- function(mat, split = NULL, col, na.col = "grey",
 #'
 #' @param object Object of [ccHeatmap-class]
 #' @usage show(object)
+#' @importMethodsFrom methods show
 #' @export
 #' @examples
 #' library(circlizePlus)
@@ -103,11 +108,12 @@ ccHeatmap <- function(mat, split = NULL, col, na.col = "grey",
 #' colnames(mat1) <- paste0("C", 1:10)
 #' mat1 <- mat1[sample(100, 100), ] # randomly permute rows
 #' split <- sample(letters[1:5], 100, replace = TRUE)
-#' spilt <- factor(split, levels = letters[1:5])
+#' split <- factor(split, levels = letters[1:5])
 #' col_fun1 <- colorRamp2(c(-2, 0, 2), c("blue", "white", "red"))
 #' show(ccHeatmap(mat = mat1, split = split, col = col_fun1))
-show.ccHeatmap <- function(object) {
-  circos.clear()
+setMethod("show", signature="ccHeatmap", definition= function(object) {
+  if (object@clear)
+    circos.clear()
 
   if (length(object@pars) > 0) {
     do.call(circos.par, object@pars)
@@ -141,7 +147,4 @@ show.ccHeatmap <- function(object) {
       do.call(l@func, l@params)
     }
   }
-}
-
-#' @export
-setMethod("show", "ccHeatmap", show.ccHeatmap)
+})

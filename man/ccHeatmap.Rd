@@ -28,6 +28,7 @@ ccHeatmap(
   rownames.col = "black",
   show.sector.labels = FALSE,
   cell_width = rep(1, nrow(mat)),
+  clear = TRUE,
   ...
 )
 }
@@ -78,6 +79,8 @@ ccHeatmap(
 
 \item{cell_width}{Relative widths of heatmap cells.}
 
+\item{clear}{Whether to call \link[circlize:circos.clear]{circlize::circos.clear} before drawing.}
+
 \item{...}{Pass to \code{\link[circlize]{circos.track}} which draws the heatmap track.}
 }
 \value{
@@ -103,7 +106,7 @@ rownames(mat1) <- paste0("R", 1:100)
 colnames(mat1) <- paste0("C", 1:10)
 mat1 <- mat1[sample(100, 100), ] # randomly permute rows
 split <- sample(letters[1:5], 100, replace = TRUE)
-spilt <- factor(split, levels = letters[1:5])
+split <- factor(split, levels = letters[1:5])
 col_fun1 <- colorRamp2(c(-2, 0, 2), c("blue", "white", "red"))
 ccHeatmap(mat = mat1, split = split, col = col_fun1)
 }

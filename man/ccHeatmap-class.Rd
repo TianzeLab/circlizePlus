@@ -23,5 +23,7 @@ ccHeatmap is a special class. It can be used not only as a single track but also
 \item{\code{links}}{list. A list where \linkS4class{ccLink} or \linkS4class{ccGenomicLink} or \linkS4class{ccHeatmapLink} are stored.}
 
 \item{\code{pars}}{list. A list where \linkS4class{ccPar} are stored.}
+
+\item{\code{clear}}{logical. Whether to call \link[circlize:circos.clear]{circlize::circos.clear} before drawing.}
 }}
 

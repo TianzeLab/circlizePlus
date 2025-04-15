@@ -5,7 +5,7 @@
 #' @slot tracks list. A list where [ccTrack-class] or [ccGenomicTrack-class] or [ccHeatmap-class] are stored.
 #' @slot links list. A list where [ccLink-class] or [ccGenomicLink-class] or [ccHeatmapLink-class] are stored.
 #' @slot pars list. A list where [ccPar-class] are stored.
-#' @slot clear logical. Whether to call [circlize::circos.clear] after drawing.
+#' @slot clear logical. Whether to call [circlize::circos.clear] before drawing.
 #'
 #' @export
 #'
@@ -32,7 +32,7 @@ setClass(
 #' Object [ccPlot-class] calls one of the following functions based on the value of initMode: [circlize::circos.initialize], [circlize::circos.genomicInitialize], [circlize::circos.initializeWithIdeogram], [circlize::circos.heatmap.initialize].
 #'
 #' @param initMode It can only be the following values: "initialize", "genomicInitialize", "initializeWithIdeogram", "heatmap.initialize".
-#' @param clear Whether to call [circlize::circos.clear] after drawing.
+#' @param clear Whether to call [circlize::circos.clear] before drawing.
 #' @param ... Parameters passed to the function in the package circlize. The function is one of the following four:[circlize::circos.initialize], [circlize::circos.genomicInitialize], [circlize::circos.initializeWithIdeogram], [circlize::circos.heatmap.initialize].
 #'
 #' @usage ccPlot(initMode = 'initialize',clear = TRUE,sectors = NULL,x = NULL,xlim = NULL,sector.width = NULL,factors = sectors,ring = FALSE)
@@ -64,6 +64,8 @@ ccPlot = function(initMode = 'initialize',
 #'
 #' @param object Object of [ccPlot-class]
 #'
+#' @importMethodsFrom methods show
+#'
 #' @export
 #' @include utils.R
 #' @usage show(object)
@@ -84,7 +86,7 @@ ccPlot = function(initMode = 'initialize',
 #'                  })
 #' cc=cc+track1
 #' show(cc)
-show.ccPlot = function(object) {
+setMethod('show', signature='ccPlot', definition = function(object) {
   if (object@clear)
     circos.clear()
 
@@ -233,7 +235,4 @@ show.ccPlot = function(object) {
     do.call(current_link@func, current_link@params)
 
 
-}
-
-#' @export
-setMethod('show', 'ccPlot', show.ccPlot)
+})

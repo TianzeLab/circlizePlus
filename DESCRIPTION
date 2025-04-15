@@ -27,6 +27,7 @@ Depends:
     circlize (>= 0.4.16),
     R (>= 4.3.3)
 Imports:
+    methods,
     ape,
     dendextend,
     png

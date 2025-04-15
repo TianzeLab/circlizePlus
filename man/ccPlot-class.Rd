@@ -20,7 +20,7 @@ S4 class ccPlot
 
 \item{\code{pars}}{list. A list where \linkS4class{ccPar} are stored.}
 
-\item{\code{clear}}{logical. Whether to call \link[circlize:circos.clear]{circlize::circos.clear} after drawing.}
+\item{\code{clear}}{logical. Whether to call \link[circlize:circos.clear]{circlize::circos.clear} before drawing.}
 }}
 
 \examples{

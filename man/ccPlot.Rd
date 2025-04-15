@@ -15,7 +15,7 @@ ccPlot(initMode = 'heatmap.initialize',clear = TRUE,mat=NULL, split = NULL, clus
 \arguments{
 \item{initMode}{It can only be the following values: "initialize", "genomicInitialize", "initializeWithIdeogram", "heatmap.initialize".}
 
-\item{clear}{Whether to call \link[circlize:circos.clear]{circlize::circos.clear} after drawing.}
+\item{clear}{Whether to call \link[circlize:circos.clear]{circlize::circos.clear} before drawing.}
 
 \item{...}{Parameters passed to the function in the package circlize. The function is one of the following four:\link[circlize:circos.initialize]{circlize::circos.initialize}, \link[circlize:circos.genomicInitialize]{circlize::circos.genomicInitialize}, \link[circlize:circos.initializeWithIdeogram]{circlize::circos.initializeWithIdeogram}, \link[circlize:circos.heatmap.initialize]{circlize::circos.heatmap.initialize}.}
 }
