@@ -123,6 +123,7 @@ ccLink = function( sector.index1,
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' library(circlizePlus)
 #' set.seed(123)
 #' mat = matrix(rnorm(100*10), nrow = 100)
@@ -131,6 +132,7 @@ ccLink = function( sector.index1,
 #' cc = ccHeatmap(mat, col = col_fun, rownames.side = "outside")
 #' link1 = ccHeatmapLink(10, 60)
 #' cc + link1
+#' }
 ccHeatmapLink = function(row_from, row_to, ...) {
   name_args=list(row_from=row_from, row_to=row_to)
   new("ccHeatmapLink",
@@ -150,6 +152,7 @@ ccHeatmapLink = function(row_from, row_to, ...) {
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' library(circlizePlus)
 #' set.seed(123)
 #'
@@ -162,6 +165,7 @@ ccHeatmapLink = function(row_from, row_to, ...) {
 #'
 #' link1 = ccGenomicLink(bed1, bed2, col = sample(1:5, 20, replace = TRUE), border = NA)
 #' cc + par1 + link1
+#' }
 ccGenomicLink = function(region1,
                          region2,
                          rou = get_most_inside_radius(),

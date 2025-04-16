@@ -90,6 +90,7 @@ Object \linkS4class{ccHeatmap}
 Object \linkS4class{ccHeatmap} will call the function \link[circlize:circos.heatmap]{circlize::circos.heatmap} while drawing.
 }
 \examples{
+\dontrun{
 library(circlizePlus)
 set.seed(123)
 mat1 <- rbind(
@@ -109,4 +110,5 @@ split <- sample(letters[1:5], 100, replace = TRUE)
 split <- factor(split, levels = letters[1:5])
 col_fun1 <- colorRamp2(c(-2, 0, 2), c("blue", "white", "red"))
 ccHeatmap(mat = mat1, split = split, col = col_fun1)
+}
 }

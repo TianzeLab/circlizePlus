@@ -49,6 +49,7 @@ Object \linkS4class{ccGenomicTrack}
 Object \linkS4class{ccGenomicTrack} will call the function \link[circlize:circos.genomicRainfall]{circlize::circos.genomicRainfall} while drawing.
 }
 \examples{
+\dontrun{
 library(circlizePlus)
 load(system.file(package = "circlize", "extdata", "DMR.RData"))
 cc = ccPlot(initMode="initializeWithIdeogram", chromosome.index = paste0("chr", 1:22))
@@ -56,4 +57,5 @@ bed_list = list(DMR_hyper, DMR_hypo)
 t1 = ccGenomicRainfall(bed_list, pch = 16, cex = 0.4, col = c("#FF000080", "#0000FF80"))
 cc + t1
 circos.clear()
+}
 }

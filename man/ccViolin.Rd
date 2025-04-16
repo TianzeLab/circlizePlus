@@ -51,6 +51,7 @@ Object \linkS4class{ccCellGeom}
 Object \linkS4class{ccCellGeom} will call the function \link[circlize:circos.violin]{circlize::circos.violin} while drawing.
 }
 \examples{
+\dontrun{
 library(circlizePlus)
 cc <- ccPlot(sectors = letters[1:4], xlim = c(0, 10))
 track <- ccTrack(ylim = c(0, 1))
@@ -58,4 +59,5 @@ cell <- ccCell(sector.index = "a") + ccViolin(value = replicate(runif(10),
 n = 10, simplify = FALSE), pos = 1:10 - 0.5, col = 1:10)
 track <- track + cell
 cc + track
+}
 }

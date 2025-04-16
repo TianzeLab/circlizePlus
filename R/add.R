@@ -1,11 +1,11 @@
 
 #' Addition rules in circlizePlus
 #'
-#' ccPlot(contain n ccTracks)+ccTrack=ccPlot(contain n+1 ccTracks),n≥0 <br>
-#' ccPlot(contain n ccLinks)+ccLink=ccPlot(contain n+1 ccLinks),n≥0 <br>
-#' ccTrak(contain n ccTrakGeoms)+ccTrackGeom=ccTrack(contain n+1 ccTrackGeoms),n≥0 <br>
-#' ccTrack(contain n ccCells)+ccCell=ccTrack(contain n+1 ccCells),n≥0 <br>
-#' ccCell(contain n ccCellGeoms)+ccCellGeom=ccCell(contain n+1 ccCellGeoms),n≥0 <br>
+#' ccPlot(contain n ccTracks)+ccTrack=ccPlot(contain n+1 ccTracks),n>=0 <br>
+#' ccPlot(contain n ccLinks)+ccLink=ccPlot(contain n+1 ccLinks),n>=0 <br>
+#' ccTrak(contain n ccTrakGeoms)+ccTrackGeom=ccTrack(contain n+1 ccTrackGeoms),n>=0 <br>
+#' ccTrack(contain n ccCells)+ccCell=ccTrack(contain n+1 ccCells),n>=0 <br>
+#' ccCell(contain n ccCellGeoms)+ccCellGeom=ccCell(contain n+1 ccCellGeoms),n>=0 <br>
 #'
 #' @param e1 A object defined in circlizePlus
 #' @param e2 A object defined in circlizePlus

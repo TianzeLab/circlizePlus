@@ -35,6 +35,7 @@ setClass(
 #' @importFrom stats reorder
 #' @export
 #' @examples
+#' \dontrun{
 #' library(circlizePlus)
 #' set.seed(123)
 #' mat1 <- rbind(
@@ -54,6 +55,7 @@ setClass(
 #' split <- factor(split, levels = letters[1:5])
 #' col_fun1 <- colorRamp2(c(-2, 0, 2), c("blue", "white", "red"))
 #' ccHeatmap(mat = mat1, split = split, col = col_fun1)
+#' }
 ccHeatmap <- function(mat, split = NULL, col, na.col = "grey",
                       cell.border = NA, cell.lty = 1, cell.lwd = 1,
                       bg.border = NA, bg.lty = par("lty"), bg.lwd = par("lwd"),

@@ -20,6 +20,7 @@ Object \linkS4class{ccHeatmapLink}
 Object \linkS4class{ccHeatmapLink} will call the function \link[circlize:circos.heatmap.link]{circlize::circos.heatmap.link} while drawing.
 }
 \examples{
+\dontrun{
 library(circlizePlus)
 set.seed(123)
 mat = matrix(rnorm(100*10), nrow = 100)
@@ -28,4 +29,5 @@ col_fun = colorRamp2(c(-2, 0, 2), c("blue", "white", "red"))
 cc = ccHeatmap(mat, col = col_fun, rownames.side = "outside")
 link1 = ccHeatmapLink(10, 60)
 cc + link1
+}
 }

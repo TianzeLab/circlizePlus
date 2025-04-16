@@ -396,6 +396,7 @@ ccGenomicLabels = function(bed,
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' library(circlizePlus)
 #' load(system.file(package = "circlize", "extdata", "DMR.RData"))
 #' cc = ccPlot(initMode="initializeWithIdeogram", chromosome.index = paste0("chr", 1:22))
@@ -403,6 +404,7 @@ ccGenomicLabels = function(bed,
 #' t1 = ccGenomicRainfall(bed_list, pch = 16, cex = 0.4, col = c("#FF000080", "#0000FF80"))
 #' cc + t1
 #' circos.clear()
+#' }
 ccGenomicRainfall = function(data,
                              mode = "min",
                              ylim = NULL,

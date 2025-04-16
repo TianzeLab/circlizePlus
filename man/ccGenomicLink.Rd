@@ -55,6 +55,7 @@ Object \linkS4class{ccGenomicLink}
 Object \linkS4class{ccGenomicLink} will call the function \link[circlize:circos.genomicLink]{circlize::circos.genomicLink} while drawing.
 }
 \examples{
+\dontrun{
 library(circlizePlus)
 set.seed(123)
 
@@ -67,4 +68,5 @@ cc = ccPlot(initMode="initializeWithIdeogram")
 
 link1 = ccGenomicLink(bed1, bed2, col = sample(1:5, 20, replace = TRUE), border = NA)
 cc + par1 + link1
+}
 }

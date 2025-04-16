@@ -573,6 +573,7 @@ ccBoxplot <- function(value, pos, outline = TRUE, box_width = 0.6,
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' library(circlizePlus)
 #' cc <- ccPlot(sectors = letters[1:4], xlim = c(0, 10))
 #' track <- ccTrack(ylim = c(0, 1))
@@ -580,6 +581,7 @@ ccBoxplot <- function(value, pos, outline = TRUE, box_width = 0.6,
 #' n = 10, simplify = FALSE), pos = 1:10 - 0.5, col = 1:10)
 #' track <- track + cell
 #' cc + track
+#' }
 ccViolin <- function(value, pos, violin_width = 0.8,
                      col = NA, border = "black", lwd = par("lwd"), lty = par("lty"),
                      show_quantile = TRUE, pt.col = par("col"), cex = par("cex"), pch = 16,
