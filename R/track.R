@@ -275,6 +275,7 @@ ccGenomicIdeogram = function( cytoband = system.file(package = "circlize", "extd
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' library(circlizePlus)
 #' cc = ccPlot(initMode = "initializeWithIdeogram")
 #' bed = generateRandomBed(nr = 100, nc = 4)
@@ -282,6 +283,7 @@ ccGenomicIdeogram = function( cytoband = system.file(package = "circlize", "extd
 #' t1 = ccGenomicHeatmap(bed, col = col_fun, side = "inside", border = "white")
 #' cc + t1
 #' circos.clear()
+#' }
 ccGenomicHeatmap = function(bed,
                             col,
                             na_col = "grey",
