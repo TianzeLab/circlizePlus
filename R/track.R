@@ -436,6 +436,7 @@ ccGenomicRainfall = function(data,
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' library(circlizePlus)
 #' load(system.file(package = "circlize", "extdata", "DMR.RData"))
 #' cc = ccPlot(initMode="initializeWithIdeogram", chromosome.index = paste0("chr", 1:22))
@@ -443,6 +444,7 @@ ccGenomicRainfall = function(data,
 #' t3 = ccGenomicDensity(DMR_hypo, col = c("#0000FF80"), track.height = 0.1)
 #' cc + t2 + t3
 #' circos.clear()
+#' }
 ccGenomicDensity = function(data,
                             ylim.force = FALSE,
                             window.size = NULL,

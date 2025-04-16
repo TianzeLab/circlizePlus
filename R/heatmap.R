@@ -94,6 +94,7 @@ ccHeatmap <- function(mat, split = NULL, col, na.col = "grey",
 #' @importMethodsFrom methods show
 #' @exportMethod show
 #' @examples
+#' \dontrun{
 #' library(circlizePlus)
 #' set.seed(123)
 #' mat1 <- rbind(
@@ -113,6 +114,7 @@ ccHeatmap <- function(mat, split = NULL, col, na.col = "grey",
 #' split <- factor(split, levels = letters[1:5])
 #' col_fun1 <- colorRamp2(c(-2, 0, 2), c("blue", "white", "red"))
 #' show(ccHeatmap(mat = mat1, split = split, col = col_fun1))
+#' }
 setMethod("show", signature="ccHeatmap", definition= function(object) {
   if (object@clear)
     circos.clear()
