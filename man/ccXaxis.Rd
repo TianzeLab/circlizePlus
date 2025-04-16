@@ -16,7 +16,7 @@ ccXaxis(
   labels.niceFacing = TRUE,
   direction = c("outside", "inside"),
   minor.ticks = 4,
-  major.tick.length = mm_y(1),
+  major.tick.length = NULL,
   lwd = par("lwd"),
   col = par("col"),
   labels.col = par("col"),

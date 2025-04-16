@@ -232,6 +232,9 @@ setMethod('show', signature='ccPlot', definition = function(object) {
       if(current_geom@func == "circos.arrow" && is.null(current_geom@params$arrow.head.length)){
         current_geom@params$arrow.head.length = mm_x(5)
       }
+      if(current_geom@func == "circos.xaxis" && is.null(current_geom@params$major.tick.length)){
+        current_geom@params$major.tick.length = mm_y(1)
+      }
       do.call(current_geom@func, current_geom@params)
     }
   }
