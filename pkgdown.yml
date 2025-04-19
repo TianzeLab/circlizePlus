@@ -3,7 +3,7 @@ pkgdown: 2.1.1
 pkgdown_sha: ~
 articles:
   circlizePlus: circlizePlus.html
-last_built: 2025-04-16T06:03Z
+last_built: 2025-04-19T06:23Z
 urls:
   reference: https://tianzelab.github.io/circlizePlus/reference
   article: https://tianzelab.github.io/circlizePlus/articles
