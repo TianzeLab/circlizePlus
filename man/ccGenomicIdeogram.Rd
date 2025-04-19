@@ -31,10 +31,12 @@ Object \linkS4class{ccGenomicTrack}
 Object \linkS4class{ccGenomicTrack} will call the function \link[circlize:circos.genomicIdeogram]{circlize::circos.genomicIdeogram} while drawing.
 }
 \examples{
+\donttest{
 library(circlizePlus)
 cc = ccPlot(initMode = "initializeWithIdeogram",chromosome.index = "chr1", plotType = NULL)
 human_cytoband = read.cytoband(species = "hg19")$df
 t2=ccGenomicIdeogram(human_cytoband)
 cc+t2
 circos.clear()
+}
 }

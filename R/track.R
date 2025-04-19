@@ -241,12 +241,14 @@ ccGenomicTrack = function(data = NULL,
 #' @export
 #'
 #' @examples
+#' \donttest{
 #' library(circlizePlus)
 #' cc = ccPlot(initMode = "initializeWithIdeogram",chromosome.index = "chr1", plotType = NULL)
 #' human_cytoband = read.cytoband(species = "hg19")$df
 #' t2=ccGenomicIdeogram(human_cytoband)
 #' cc+t2
 #' circos.clear()
+#' }
 ccGenomicIdeogram = function( cytoband = system.file(package = "circlize", "extdata", "cytoBand.txt"),
                               species = NULL,
                               track.height = mm_h(2),
