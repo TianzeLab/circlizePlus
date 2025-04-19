@@ -2,18 +2,21 @@
 % Please edit documentation in R/heatmap.R
 \name{show,ccHeatmap-method}
 \alias{show,ccHeatmap-method}
-\title{A generic function of show ccHeatmap}
+\title{Draw the figures described by ccHeatmap}
 \usage{
 \S4method{show}{ccHeatmap}(object)
 }
 \arguments{
 \item{object}{Object of \linkS4class{ccHeatmap}}
 }
+\value{
+No return information
+}
 \description{
-A generic function of show ccHeatmap
+Draw the figures described by ccHeatmap
 }
 \examples{
-\dontrun{
+\donttest{
 library(circlizePlus)
 set.seed(123)
 mat1 <- rbind(

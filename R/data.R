@@ -9,7 +9,7 @@
 #' @name data-set
 #' @source \url{https://www.frontiersin.org/journals/genetics/articles/10.3389/fgene.2025.1535368/full#h5}
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' data(example2)
 #' allele_frequency
 #' copy_number

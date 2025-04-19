@@ -123,7 +123,7 @@ ccLink = function( sector.index1,
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' library(circlizePlus)
 #' set.seed(123)
 #' mat = matrix(rnorm(100*10), nrow = 100)
@@ -152,7 +152,7 @@ ccHeatmapLink = function(row_from, row_to, ...) {
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' library(circlizePlus)
 #' set.seed(123)
 #'

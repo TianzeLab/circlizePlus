@@ -42,6 +42,7 @@ setClass(
 #' @inheritDotParams circlize::circos.genomicInitialize
 #' @inheritDotParams circlize::circos.initializeWithIdeogram
 #' @inheritDotParams circlize::circos.heatmap.initialize
+#' @return Object [ccPlot-class]
 #'
 #' @importFrom methods new
 #' @export
@@ -65,9 +66,10 @@ ccPlot = function(initMode = 'initialize',
   )
 }
 
-#' A generic function of show ccPlot
+#' Draw the figures described by ccPlot
 #'
 #' @param object Object of [ccPlot-class]
+#' @return No return information
 #'
 #' @importMethodsFrom methods show
 #' @importFrom graphics strwidth
@@ -241,6 +243,5 @@ setMethod('show', signature='ccPlot', definition = function(object) {
 
   for (current_link in object@links)
     do.call(current_link@func, current_link@params)
-
-
+  return(invisible(NULL))
 })

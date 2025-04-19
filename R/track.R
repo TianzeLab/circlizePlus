@@ -275,7 +275,7 @@ ccGenomicIdeogram = function( cytoband = system.file(package = "circlize", "extd
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' library(circlizePlus)
 #' cc = ccPlot(initMode = "initializeWithIdeogram")
 #' bed = generateRandomBed(nr = 100, nc = 4)
@@ -396,7 +396,7 @@ ccGenomicLabels = function(bed,
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' library(circlizePlus)
 #' load(system.file(package = "circlize", "extdata", "DMR.RData"))
 #' cc = ccPlot(initMode="initializeWithIdeogram", chromosome.index = paste0("chr", 1:22))
@@ -440,7 +440,7 @@ ccGenomicRainfall = function(data,
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' library(circlizePlus)
 #' load(system.file(package = "circlize", "extdata", "DMR.RData"))
 #' cc = ccPlot(initMode="initializeWithIdeogram", chromosome.index = paste0("chr", 1:22))

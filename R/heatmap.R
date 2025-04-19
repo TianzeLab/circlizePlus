@@ -35,7 +35,7 @@ setClass(
 #' @importFrom stats reorder
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' library(circlizePlus)
 #' set.seed(123)
 #' mat1 <- rbind(
@@ -90,13 +90,14 @@ ccHeatmap <- function(mat, split = NULL, col, na.col = "grey",
   )
 }
 
-#' A generic function of show ccHeatmap
+#' Draw the figures described by ccHeatmap
 #'
 #' @param object Object of [ccHeatmap-class]
+#' @return No return information
 #' @importMethodsFrom methods show
 #' @exportMethod show
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' library(circlizePlus)
 #' set.seed(123)
 #' mat1 <- rbind(
@@ -153,4 +154,5 @@ setMethod("show", signature="ccHeatmap", definition= function(object) {
       do.call(l@func, l@params)
     }
   }
+  return(invisible(NULL))
 })
