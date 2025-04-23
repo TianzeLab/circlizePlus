@@ -573,7 +573,7 @@ ccBoxplot <- function(value, pos, outline = TRUE, box_width = 0.6,
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' library(circlizePlus)
 #' cc <- ccPlot(sectors = letters[1:4], xlim = c(0, 10))
 #' track <- ccTrack(ylim = c(0, 1))
@@ -652,7 +652,7 @@ ccArrow <- function(x1,
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' library(circlizePlus)
 #' library(png)
 #' image <- system.file("extdata", "Rlogo.png", package = "circlize")
@@ -694,7 +694,7 @@ ccRaster <- function(image, x, y,
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' library(ape)
 #' suppressPackageStartupMessages(library(dendextend))
 #' library(circlizePlus)

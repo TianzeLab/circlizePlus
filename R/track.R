@@ -241,12 +241,14 @@ ccGenomicTrack = function(data = NULL,
 #' @export
 #'
 #' @examples
+#' \donttest{
 #' library(circlizePlus)
 #' cc = ccPlot(initMode = "initializeWithIdeogram",chromosome.index = "chr1", plotType = NULL)
 #' human_cytoband = read.cytoband(species = "hg19")$df
 #' t2=ccGenomicIdeogram(human_cytoband)
 #' cc+t2
 #' circos.clear()
+#' }
 ccGenomicIdeogram = function( cytoband = system.file(package = "circlize", "extdata", "cytoBand.txt"),
                               species = NULL,
                               track.height = mm_h(2),
@@ -275,7 +277,7 @@ ccGenomicIdeogram = function( cytoband = system.file(package = "circlize", "extd
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' library(circlizePlus)
 #' cc = ccPlot(initMode = "initializeWithIdeogram")
 #' bed = generateRandomBed(nr = 100, nc = 4)
@@ -396,7 +398,7 @@ ccGenomicLabels = function(bed,
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' library(circlizePlus)
 #' load(system.file(package = "circlize", "extdata", "DMR.RData"))
 #' cc = ccPlot(initMode="initializeWithIdeogram", chromosome.index = paste0("chr", 1:22))
@@ -440,7 +442,7 @@ ccGenomicRainfall = function(data,
 #' @export
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' library(circlizePlus)
 #' load(system.file(package = "circlize", "extdata", "DMR.RData"))
 #' cc = ccPlot(initMode="initializeWithIdeogram", chromosome.index = paste0("chr", 1:22))

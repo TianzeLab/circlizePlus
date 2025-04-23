@@ -51,7 +51,7 @@ Object \linkS4class{ccCellGeom}
 Object \linkS4class{ccCellGeom} will call the function \link[circlize:circos.violin]{circlize::circos.violin} while drawing.
 }
 \examples{
-\dontrun{
+\donttest{
 library(circlizePlus)
 cc <- ccPlot(sectors = letters[1:4], xlim = c(0, 10))
 track <- ccTrack(ylim = c(0, 1))

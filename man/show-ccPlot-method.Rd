@@ -2,15 +2,18 @@
 % Please edit documentation in R/initialize.R
 \name{show,ccPlot-method}
 \alias{show,ccPlot-method}
-\title{A generic function of show ccPlot}
+\title{Draw the figures described by ccPlot}
 \usage{
 \S4method{show}{ccPlot}(object)
 }
 \arguments{
 \item{object}{Object of \linkS4class{ccPlot}}
 }
+\value{
+No return information
+}
 \description{
-A generic function of show ccPlot
+Draw the figures described by ccPlot
 }
 \examples{
 library(circlizePlus)

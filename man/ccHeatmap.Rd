@@ -90,7 +90,7 @@ Object \linkS4class{ccHeatmap}
 Object \linkS4class{ccHeatmap} will call the function \link[circlize:circos.heatmap]{circlize::circos.heatmap} while drawing.
 }
 \examples{
-\dontrun{
+\donttest{
 library(circlizePlus)
 set.seed(123)
 mat1 <- rbind(

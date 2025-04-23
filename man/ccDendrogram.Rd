@@ -27,7 +27,7 @@ Object \linkS4class{ccCellGeom}
 Object \linkS4class{ccCellGeom} will call the function \link[circlize:circos.dendrogram]{circlize::circos.dendrogram} while drawing.
 }
 \examples{
-\dontrun{
+\donttest{
 library(ape)
 suppressPackageStartupMessages(library(dendextend))
 library(circlizePlus)

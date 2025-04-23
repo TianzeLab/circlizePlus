@@ -73,7 +73,7 @@ Object \linkS4class{ccGenomicTrack}
 Object \linkS4class{ccGenomicTrack} will call the function \link[circlize:circos.genomicHeatmap]{circlize::circos.genomicHeatmap} while drawing.
 }
 \examples{
-\dontrun{
+\donttest{
 library(circlizePlus)
 cc = ccPlot(initMode = "initializeWithIdeogram")
 bed = generateRandomBed(nr = 100, nc = 4)

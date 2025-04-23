@@ -71,6 +71,9 @@ ccPlot(initMode = "initialize", clear = TRUE, ...)
     \item{\code{cell_width}}{Relative widths of heatmap cells.}
   }}
 }
+\value{
+Object \linkS4class{ccPlot}
+}
 \description{
 Object \linkS4class{ccPlot} calls one of the following functions based on the value of initMode: \link[circlize:circos.initialize]{circlize::circos.initialize}, \link[circlize:circos.genomicInitialize]{circlize::circos.genomicInitialize}, \link[circlize:circos.initializeWithIdeogram]{circlize::circos.initializeWithIdeogram}, \link[circlize:circos.heatmap.initialize]{circlize::circos.heatmap.initialize}. \if{html}{\out{<br>}}
 The correct way to call it is as follows: \if{html}{\out{<br>}}

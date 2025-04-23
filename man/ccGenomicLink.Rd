@@ -55,7 +55,7 @@ Object \linkS4class{ccGenomicLink}
 Object \linkS4class{ccGenomicLink} will call the function \link[circlize:circos.genomicLink]{circlize::circos.genomicLink} while drawing.
 }
 \examples{
-\dontrun{
+\donttest{
 library(circlizePlus)
 set.seed(123)
 
