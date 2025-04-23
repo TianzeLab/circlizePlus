@@ -1,4 +1,5 @@
 ## Citation
+
 Zhang Z, Cao T, Huang Y and Xia Y (2025) CirclizePlus: using ggplot2 feature to write readable R code for circular visualization. Front. Genet. 16:1535368. doi: 10.3389/fgene.2025.1535368
 
 ## Highlights
@@ -10,7 +11,14 @@ Zhang Z, Cao T, Huang Y and Xia Y (2025) CirclizePlus: using ggplot2 feature to 
 
 ## Installation
 
-It is recommended that you have the latest version of the R environment installed. You need to install devtools and load it into the R environment, and then you can install circlizePlus from Github.
+It is recommended that you have the latest version of the R environment installed.\
+You can install circlizePlus from CRAN.
+
+``` r
+install.packages('circlizePlus')
+```
+
+You need to install devtools and load it into the R environment, and then you can install circlizePlus from Github.
 
 ``` r
 if (!requireNamespace("devtools", quietly=TRUE))
@@ -20,7 +28,9 @@ install_github("TianzeLab/circlizePlus")
 
 Every time you reboot the R environment, you need to load circlizePlus again.
 
-`library(circlizePlus)`
+``` r
+library(circlizePlus)
+```
 
 ## Acknowledgements
 
@@ -29,5 +39,3 @@ We are grateful to Dr. Zuguang Gu from DFKZ for his invaluable guidance and supp
 ## Sample code
 
 [Dr. Gu](https://github.com/jokergoo) has written a book(["Circular Visualization in R"](https://jokergoo.github.io/circlize_book/book/)) explaining how circlize works. To illustrate the similarities and differences between circlize and cirzelizePlus, we've rewritten the code in the book as sample code. Visit [circlizePlusBook](https://tianzelab.github.io/circlizePlusBook/) for details.
-
-
