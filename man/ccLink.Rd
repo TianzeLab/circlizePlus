@@ -9,7 +9,7 @@ ccLink(
   point1,
   sector.index2,
   point2,
-  rou = get_most_inside_radius(),
+  rou = NULL,
   rou1 = rou,
   rou2 = rou,
   h = NULL,

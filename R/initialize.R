@@ -241,7 +241,30 @@ setMethod('show', signature='ccPlot', definition = function(object) {
     }
   }
 
-  for (current_link in object@links)
+  for (current_link in object@links) {
+    #Bugfix: ccLink, ccGenomicLink and parameter 'rou'
+    if (current_link@func == "circos.link" &&
+        is.null(current_link@params$rou)) {
+      current_link@params$rou = get_most_inside_radius()
+      if (is.null(current_link@params$rou1)) {
+        current_link@params$rou1 = get_most_inside_radius()
+      }
+      if (is.null(current_link@params$rou2)) {
+        current_link@params$rou2 = get_most_inside_radius()
+      }
+    }
+    if (current_link@func == "circos.genomicLink" &&
+        is.null(current_link@params$rou)) {
+      current_link@params$rou = get_most_inside_radius()
+      if (is.null(current_link@params$rou1)) {
+        current_link@params$rou1 = get_most_inside_radius()
+      }
+      if (is.null(current_link@params$rou2)) {
+        current_link@params$rou2 = get_most_inside_radius()
+      }
+    }
     do.call(current_link@func, current_link@params)
+  }
+
   return(invisible(NULL))
 })

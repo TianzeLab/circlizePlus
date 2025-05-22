@@ -7,7 +7,7 @@
 ccGenomicLink(
   region1,
   region2,
-  rou = get_most_inside_radius(),
+  rou = NULL,
   rou1 = rou,
   rou2 = rou,
   col = "black",
