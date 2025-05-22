@@ -22,7 +22,9 @@ It plots the chromosome bands in the outer circle and the corresponding scatter 
 library(circlizePlus)
 ```
 
-![](Fig.%202.jpg) \## Step 1
+![](Fig.%202.jpg) 
+
+## Step 1
 
 ``` r
 cytoband = read.cytoband()
