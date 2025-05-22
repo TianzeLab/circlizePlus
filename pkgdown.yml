@@ -1,9 +1,9 @@
 pandoc: 3.1.11
-pkgdown: 2.1.1
+pkgdown: 2.1.2
 pkgdown_sha: ~
 articles:
   circlizePlus: circlizePlus.html
-last_built: 2025-04-23T00:32Z
+last_built: 2025-05-22T05:43Z
 urls:
   reference: https://tianzelab.github.io/circlizePlus/reference
   article: https://tianzelab.github.io/circlizePlus/articles
