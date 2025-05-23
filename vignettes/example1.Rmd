@@ -22,7 +22,7 @@ It plots the chromosome bands in the outer circle and the corresponding scatter 
 library(circlizePlus)
 ```
 
-![](Fig.%202.jpg) 
+![](fig2.jpg) 
 
 ## Step 1
 
@@ -76,7 +76,7 @@ c(chr8_x_start, ch8_x_end), col = "#FF000010", border = NA)
 show(cc + start90 + trak1 + link_ch7_to_zomm + link_ch8_to_zomm)
 ```
 
-![](Fig.%203.jpg)
+![](fig3.jpg)
 
 # References
 
