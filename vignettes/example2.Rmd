@@ -59,7 +59,7 @@ links = ccGenomicLink(region1=r1, region2=r2,col=junctions$col,h.ratio=0.6, lwd=
 cc + params +copy_number_track + allele_frequency_track + links
 ```
 
-![](fig4.jpg)
+![](https://tianzelab.github.io/circlizePlus/fig4.jpg)
 
 # References
 
